@@ -12,7 +12,12 @@
 		AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */; };
 		AE5EDFF71E43FF1B00EEAD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF61E43FF1B00EEAD8C /* Assets.xcassets */; };
 		AE5EDFFA1E43FF1B00EEAD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF81E43FF1B00EEAD8C /* LaunchScreen.storyboard */; };
-		AE5EE0081E43FFE400EEAD8C /* nuclides.json in Resources */ = {isa = PBXBuildFile; fileRef = AE5EE0071E43FFE400EEAD8C /* nuclides.json */; };
+		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
+		AEB5D43F1E44F90600A6D8DD /* nuclides.json in Resources */ = {isa = PBXBuildFile; fileRef = AEB5D43E1E44F90600A6D8DD /* nuclides.json */; };
+		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
+		AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4431E44FCC300A6D8DD /* DataService.swift */; };
+		AEB5D4461E450A3500A6D8DD /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4451E450A3500A6D8DD /* ShadowView.swift */; };
+		AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4471E450A6100A6D8DD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +28,12 @@
 		AE5EDFF61E43FF1B00EEAD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE5EDFF91E43FF1B00EEAD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE5EDFFB1E43FF1B00EEAD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE5EE0071E43FFE400EEAD8C /* nuclides.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nuclides.json; sourceTree = "<group>"; };
+		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		AEB5D43E1E44F90600A6D8DD /* nuclides.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nuclides.json; sourceTree = "<group>"; };
+		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
+		AEB5D4431E44FCC300A6D8DD /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		AEB5D4451E450A3500A6D8DD /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		AEB5D4471E450A6100A6D8DD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 		AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */ = {
 			isa = PBXGroup;
 			children = (
+				AEB5D4421E44FCAC00A6D8DD /* Services */,
 				AE5EE0091E44001000EEAD8C /* Utilities */,
 				AE5EE0041E43FF3400EEAD8C /* Resources */,
 				AE5EE0031E43FF2A00EEAD8C /* Model */,
@@ -78,6 +89,7 @@
 		AE5EE0021E43FF2600EEAD8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEB5D4451E450A3500A6D8DD /* ShadowView.swift */,
 				AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */,
 				AE5EDFF81E43FF1B00EEAD8C /* LaunchScreen.storyboard */,
 			);
@@ -87,6 +99,8 @@
 		AE5EE0031E43FF2A00EEAD8C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AEB5D43C1E44F85C00A6D8DD /* Element.swift */,
+				AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -94,7 +108,7 @@
 		AE5EE0041E43FF3400EEAD8C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AE5EE0071E43FFE400EEAD8C /* nuclides.json */,
+				AEB5D43E1E44F90600A6D8DD /* nuclides.json */,
 				AE5EDFF61E43FF1B00EEAD8C /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -103,8 +117,17 @@
 		AE5EE0091E44001000EEAD8C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AEB5D4471E450A6100A6D8DD /* Constants.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		AEB5D4421E44FCAC00A6D8DD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AEB5D4431E44FCC300A6D8DD /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,7 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5EE0081E43FFE400EEAD8C /* nuclides.json in Resources */,
+				AEB5D43F1E44F90600A6D8DD /* nuclides.json in Resources */,
 				AE5EDFFA1E43FF1B00EEAD8C /* LaunchScreen.storyboard in Resources */,
 				AE5EDFF71E43FF1B00EEAD8C /* Assets.xcassets in Resources */,
 				AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */,
@@ -182,7 +205,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5EDFF21E43FF1B00EEAD8C /* ViewController.swift in Sources */,
+				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
+				AEB5D4461E450A3500A6D8DD /* ShadowView.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
+				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
+				AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */,
+				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +374,7 @@
 				AE5EE0001E43FF1B00EEAD8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,16 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var elements = [Element]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        elements = DataService.instance.parse_json()
+        
+        for element in elements {
+            print("Element name: \(element.name)")
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

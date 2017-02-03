@@ -1,9 +1,9 @@
 {
   "element":[
      {
-       "name": "1",
-       "protons": "H",
-       "symbol": "Hydrogen",
+       "name": "Hydrogen",
+       "protons": "1",
+       "symbol": "H",
        "mass": "1.00794(4)",
        "isotopes": [
          {
@@ -72,9 +72,9 @@
        ]
      },
      {
-       "name": "2",
-       "protons": "He",
-       "symbol": "Helium",
+       "name": "Helium",
+       "protons": "2",
+       "symbol": "He",
        "mass": "4.002602(2)",
        "isotopes": [
          {
@@ -152,9 +152,9 @@
        ]
      },
      {
-       "name": "3",
-       "protons": "Li",
-       "symbol": "Lithium",
+       "name": "Lithium",
+       "protons": "3",
+       "symbol": "Li",
        "mass": "6.941(2)",
        "isotopes": [
          {
@@ -259,9 +259,9 @@
        ]
      },
      {
-       "name": "4",
-       "protons": "Be",
-       "symbol": "Beryllium",
+       "name": "Beryllium",
+       "protons": "4",
+       "symbol": "Be",
        "mass": "9.012182(3)",
        "isotopes": [
          {
@@ -402,9 +402,9 @@
        ]
      },
      {
-       "name": "5",
-       "protons": "B",
-       "symbol": "Boron",
+       "name": "Boron",
+       "protons": "5",
+       "symbol": "B",
        "mass": "10.811(7)",
        "isotopes": [
          {
@@ -536,9 +536,9 @@
        ]
      },
      {
-       "name": "6",
-       "protons": "C",
-       "symbol": "Carbon",
+       "name": "Carbon",
+       "protons": "6",
+       "symbol": "C",
        "mass": "12.0107(8)",
        "isotopes": [
          {
@@ -688,9 +688,9 @@
        ]
      },
      {
-       "name": "7",
-       "protons": "N",
-       "symbol": "Nitrogen",
+       "name": "Nitrogen",
+       "protons": "7",
+       "symbol": "N",
        "mass": "14.0067(2)",
        "isotopes": [
          {
@@ -876,9 +876,9 @@
        ]
      },
      {
-       "name": "8",
-       "protons": "O",
-       "symbol": "Oxygen",
+       "name": "Oxygen",
+       "protons": "8",
+       "symbol": "O",
        "mass": "15.9994(3)",
        "isotopes": [
          {
@@ -1037,9 +1037,9 @@
        ]
      },
      {
-       "name": "9",
-       "protons": "F",
-       "symbol": "Fluorine",
+       "name": "Fluorine",
+       "protons": "9",
+       "symbol": "F",
        "mass": "18.9984032(5)",
        "isotopes": [
          {
@@ -1288,9 +1288,9 @@
        ]
      },
      {
-       "name": "10",
-       "protons": "Ne",
-       "symbol": "Neon",
+       "name": "Neon",
+       "protons": "10",
+       "symbol": "Ne",
        "mass": "20.1797(6)",
        "isotopes": [
          {
@@ -1476,9 +1476,9 @@
        ]
      },
      {
-       "name": "11",
-       "protons": "Na",
-       "symbol": "Sodium",
+       "name": "Sodium",
+       "protons": "11",
+       "symbol": "Na",
        "mass": "22.98976928(2)",
        "isotopes": [
          {
@@ -1673,9 +1673,9 @@
        ]
      },
      {
-       "name": "12",
-       "protons": "Mg",
-       "symbol": "Magnesium",
+       "name": "Magnesium",
+       "protons": "12",
+       "symbol": "Mg",
        "mass": "24.3050(6)",
        "isotopes": [
          {
@@ -1888,9 +1888,9 @@
        ]
      },
      {
-       "name": "13",
-       "protons": "Al",
-       "symbol": "Aluminum or Aluminium",
+       "name": "Aluminum or Aluminium",
+       "protons": "13",
+       "symbol": "Al",
        "mass": "26.9815386(8)",
        "isotopes": [
          {
@@ -2130,9 +2130,9 @@
        ]
      },
      {
-       "name": "14",
-       "protons": "Si",
-       "symbol": "Silicon",
+       "name": "Silicon",
+       "protons": "14",
+       "symbol": "Si",
        "mass": "28.0855(3)",
        "isotopes": [
          {
@@ -2345,9 +2345,9 @@
        ]
      },
      {
-       "name": "15",
-       "protons": "P",
-       "symbol": "Phosphorus",
+       "name": "Phosphorus",
+       "protons": "15",
+       "symbol": "P",
        "mass": "30.973762(2)",
        "isotopes": [
          {
@@ -2560,9 +2560,9 @@
        ]
      },
      {
-       "name": "16",
-       "protons": "S",
-       "symbol": "Sulfur",
+       "name": "Sulfur",
+       "protons": "16",
+       "symbol": "S",
        "mass": "32.065(5)",
        "isotopes": [
          {
@@ -2784,9 +2784,9 @@
        ]
      },
      {
-       "name": "17",
-       "protons": "Cl",
-       "symbol": "Chlorine",
+       "name": "Chlorine",
+       "protons": "17",
+       "symbol": "Cl",
        "mass": "35.453(2)",
        "isotopes": [
          {
@@ -3026,9 +3026,9 @@
        ]
      },
      {
-       "name": "18",
-       "protons": "Ar",
-       "symbol": "Argon",
+       "name": "Argon",
+       "protons": "18",
+       "symbol": "Ar",
        "mass": "39.948(1)",
        "isotopes": [
          {
@@ -3250,9 +3250,9 @@
        ]
      },
      {
-       "name": "19",
-       "protons": "K",
-       "symbol": "Potassium",
+       "name": "Potassium",
+       "protons": "19",
+       "symbol": "K",
        "mass": "39.0983(1)",
        "isotopes": [
          {
@@ -3492,9 +3492,9 @@
        ]
      },
      {
-       "name": "20",
-       "protons": "Ca",
-       "symbol": "Calcium",
+       "name": "Calcium",
+       "protons": "20",
+       "symbol": "Ca",
        "mass": "40.078(4)",
        "isotopes": [
          {
@@ -3716,9 +3716,9 @@
        ]
      },
      {
-       "name": "21",
-       "protons": "Sc",
-       "symbol": "Scandium",
+       "name": "Scandium",
+       "protons": "21",
+       "symbol": "Sc",
        "mass": "44.955912(6)",
        "isotopes": [
          {
@@ -4012,9 +4012,9 @@
        ]
      },
      {
-       "name": "22",
-       "protons": "Ti",
-       "symbol": "Titanium",
+       "name": "Titanium",
+       "protons": "22",
+       "symbol": "Ti",
        "mass": "47.867(1)",
        "isotopes": [
          {
@@ -4254,9 +4254,9 @@
        ]
      },
      {
-       "name": "23",
-       "protons": "V",
-       "symbol": "Vanadium",
+       "name": "Vanadium",
+       "protons": "23",
+       "symbol": "V",
        "mass": "50.9415(1)",
        "isotopes": [
          {
@@ -4505,9 +4505,9 @@
        ]
      },
      {
-       "name": "24",
-       "protons": "Cr",
-       "symbol": "Chromium",
+       "name": "Chromium",
+       "protons": "24",
+       "symbol": "Cr",
        "mass": "51.9961(6)",
        "isotopes": [
          {
@@ -4747,9 +4747,9 @@
        ]
      },
      {
-       "name": "25",
-       "protons": "Mn",
-       "symbol": "Manganese",
+       "name": "Manganese",
+       "protons": "25",
+       "symbol": "Mn",
        "mass": "54.938045(5)",
        "isotopes": [
          {
@@ -5043,9 +5043,9 @@
        ]
      },
      {
-       "name": "26",
-       "protons": "Fe",
-       "symbol": "Iron",
+       "name": "Iron",
+       "protons": "26",
+       "symbol": "Fe",
        "mass": "55.845(2)",
        "isotopes": [
          {
@@ -5330,9 +5330,9 @@
        ]
      },
      {
-       "name": "27",
-       "protons": "Co",
-       "symbol": "Cobalt",
+       "name": "Cobalt",
+       "protons": "27",
+       "symbol": "Co",
        "mass": "58.933195(5)",
        "isotopes": [
          {
@@ -5653,9 +5653,9 @@
        ]
      },
      {
-       "name": "28",
-       "protons": "Ni",
-       "symbol": "Nickel",
+       "name": "Nickel",
+       "protons": "28",
+       "symbol": "Ni",
        "mass": "58.6934(4)",
        "isotopes": [
          {
@@ -5994,9 +5994,9 @@
        ]
      },
      {
-       "name": "29",
-       "protons": "Cu",
-       "symbol": "Copper",
+       "name": "Copper",
+       "protons": "29",
+       "symbol": "Cu",
        "mass": "63.546(3)",
        "isotopes": [
          {
@@ -6308,9 +6308,9 @@
        ]
      },
      {
-       "name": "30",
-       "protons": "Zn",
-       "symbol": "Zinc",
+       "name": "Zinc",
+       "protons": "30",
+       "symbol": "Zn",
        "mass": "65.38(2)",
        "isotopes": [
          {
@@ -6658,9 +6658,9 @@
        ]
      },
      {
-       "name": "31",
-       "protons": "Ga",
-       "symbol": "Gallium",
+       "name": "Gallium",
+       "protons": "31",
+       "symbol": "Ga",
        "mass": "69.723(1)",
        "isotopes": [
          {
@@ -6972,9 +6972,9 @@
        ]
      },
      {
-       "name": "32",
-       "protons": "Ge",
-       "symbol": "Germanium",
+       "name": "Germanium",
+       "protons": "32",
+       "symbol": "Ge",
        "mass": "72.64(1)",
        "isotopes": [
          {
@@ -7340,9 +7340,9 @@
        ]
      },
      {
-       "name": "33",
-       "protons": "As",
-       "symbol": "Arsenic",
+       "name": "Arsenic",
+       "protons": "33",
+       "symbol": "As",
        "mass": "74.92160(2)",
        "isotopes": [
          {
@@ -7681,9 +7681,9 @@
        ]
      },
      {
-       "name": "34",
-       "protons": "Se",
-       "symbol": "Selenium",
+       "name": "Selenium",
+       "protons": "34",
+       "symbol": "Se",
        "mass": "78.96(3)",
        "isotopes": [
          {
@@ -8013,9 +8013,9 @@
        ]
      },
      {
-       "name": "35",
-       "protons": "Br",
-       "symbol": "Bromine",
+       "name": "Bromine",
+       "protons": "35",
+       "symbol": "Br",
        "mass": "79.904(1)",
        "isotopes": [
          {
@@ -8399,9 +8399,9 @@
        ]
      },
      {
-       "name": "36",
-       "protons": "Kr",
-       "symbol": "Krypton",
+       "name": "Krypton",
+       "protons": "36",
+       "symbol": "Kr",
        "mass": "83.798(2)",
        "isotopes": [
          {
@@ -8767,9 +8767,9 @@
        ]
      },
      {
-       "name": "37",
-       "protons": "Rb",
-       "symbol": "Rubidium",
+       "name": "Rubidium",
+       "protons": "37",
+       "symbol": "Rb",
        "mass": "85.4678(3)",
        "isotopes": [
          {
@@ -9144,9 +9144,9 @@
        ]
      },
      {
-       "name": "38",
-       "protons": "Sr",
-       "symbol": "Strontium",
+       "name": "Strontium",
+       "protons": "38",
+       "symbol": "Sr",
        "mass": "87.62(1)",
        "isotopes": [
          {
@@ -9476,9 +9476,9 @@
        ]
      },
      {
-       "name": "39",
-       "protons": "Y",
-       "symbol": "Yttrium",
+       "name": "Yttrium",
+       "protons": "39",
+       "symbol": "Y",
        "mass": "88.90585(2)",
        "isotopes": [
          {
@@ -9970,9 +9970,9 @@
        ]
      },
      {
-       "name": "40",
-       "protons": "Zr",
-       "symbol": "Zirconium",
+       "name": "Zirconium",
+       "protons": "40",
+       "symbol": "Zr",
        "mass": "91.224(2)",
        "isotopes": [
          {
@@ -10320,9 +10320,9 @@
        ]
      },
      {
-       "name": "41",
-       "protons": "Nb",
-       "symbol": "Niobium",
+       "name": "Niobium",
+       "protons": "41",
+       "symbol": "Nb",
        "mass": "92.90638(2)",
        "isotopes": [
          {
@@ -10814,9 +10814,9 @@
        ]
      },
      {
-       "name": "42",
-       "protons": "Mo",
-       "symbol": "Molybdenum",
+       "name": "Molybdenum",
+       "protons": "42",
+       "symbol": "Mo",
        "mass": "95.96(2)",
        "isotopes": [
          {
@@ -11146,9 +11146,9 @@
        ]
      },
      {
-       "name": "43",
-       "protons": "Tc",
-       "symbol": "Technetium",
+       "name": "Technetium",
+       "protons": "43",
+       "symbol": "Tc",
        "mass": "[98]",
        "isotopes": [
          {
@@ -11595,9 +11595,9 @@
        ]
      },
      {
-       "name": "44",
-       "protons": "Ru",
-       "symbol": "Ruthenium",
+       "name": "Ruthenium",
+       "protons": "44",
+       "symbol": "Ru",
        "mass": "101.07(2)",
        "isotopes": [
          {
@@ -11936,9 +11936,9 @@
        ]
      },
      {
-       "name": "45",
-       "protons": "Rh",
-       "symbol": "Rhodium",
+       "name": "Rhodium",
+       "protons": "45",
+       "symbol": "Rh",
        "mass": "102.90550(2)",
        "isotopes": [
          {
@@ -12385,9 +12385,9 @@
        ]
      },
      {
-       "name": "46",
-       "protons": "Pd",
-       "symbol": "Palladium",
+       "name": "Palladium",
+       "protons": "46",
+       "symbol": "Pd",
        "mass": "106.42(1)",
        "isotopes": [
          {
@@ -12762,9 +12762,9 @@
        ]
      },
      {
-       "name": "47",
-       "protons": "Ag",
-       "symbol": "Silver",
+       "name": "Silver",
+       "protons": "47",
+       "symbol": "Ag",
        "mass": "107.8682(2)",
        "isotopes": [
          {
@@ -13346,9 +13346,9 @@
        ]
      },
      {
-       "name": "48",
-       "protons": "Cd",
-       "symbol": "Cadmium",
+       "name": "Cadmium",
+       "protons": "48",
+       "symbol": "Cd",
        "mass": "112.411(8)",
        "isotopes": [
          {
@@ -13777,9 +13777,9 @@
        ]
      },
      {
-       "name": "49",
-       "protons": "In",
-       "symbol": "Indium",
+       "name": "Indium",
+       "protons": "49",
+       "symbol": "In",
        "mass": "114.818(3)",
        "isotopes": [
          {
@@ -14550,9 +14550,9 @@
        ]
      },
      {
-       "name": "50",
-       "protons": "Sn",
-       "symbol": "Tin",
+       "name": "Tin",
+       "protons": "50",
+       "symbol": "Sn",
        "mass": "118.710(7)",
        "isotopes": [
          {
@@ -15071,9 +15071,9 @@
        ]
      },
      {
-       "name": "51",
-       "protons": "Sb",
-       "symbol": "Antimony",
+       "name": "Antimony",
+       "protons": "51",
+       "symbol": "Sb",
        "mass": "121.760(1)",
        "isotopes": [
          {
@@ -15592,9 +15592,9 @@
        ]
      },
      {
-       "name": "52",
-       "protons": "Te",
-       "symbol": "Tellurium",
+       "name": "Tellurium",
+       "protons": "52",
+       "symbol": "Te",
        "mass": "127.60(3)",
        "isotopes": [
          {
@@ -16086,9 +16086,9 @@
        ]
      },
      {
-       "name": "53",
-       "protons": "I",
-       "symbol": "Iodine",
+       "name": "Iodine",
+       "protons": "53",
+       "symbol": "I",
        "mass": "126.90447(3)",
        "isotopes": [
          {
@@ -16499,9 +16499,9 @@
        ]
      },
      {
-       "name": "54",
-       "protons": "Xe",
-       "symbol": "Xenon",
+       "name": "Xenon",
+       "protons": "54",
+       "symbol": "Xe",
        "mass": "131.293(6)",
        "isotopes": [
          {
@@ -16921,9 +16921,9 @@
        ]
      },
      {
-       "name": "55",
-       "protons": "Cs",
-       "symbol": "Cesium",
+       "name": "Cesium",
+       "protons": "55",
+       "symbol": "Cs",
        "mass": "132.9054519(2)",
        "isotopes": [
          {
@@ -17406,9 +17406,9 @@
        ]
      },
      {
-       "name": "56",
-       "protons": "Ba",
-       "symbol": "Barium",
+       "name": "Barium",
+       "protons": "56",
+       "symbol": "Ba",
        "mass": "137.327(7)",
        "isotopes": [
          {
@@ -17855,9 +17855,9 @@
        ]
      },
      {
-       "name": "57",
-       "protons": "La",
-       "symbol": "Lanthanum",
+       "name": "Lanthanum",
+       "protons": "57",
+       "symbol": "La",
        "mass": "138.90547(7)",
        "isotopes": [
          {
@@ -18286,9 +18286,9 @@
        ]
      },
      {
-       "name": "58",
-       "protons": "Ce",
-       "symbol": "Cerium",
+       "name": "Cerium",
+       "protons": "58",
+       "symbol": "Ce",
        "mass": "140.116(1)",
        "isotopes": [
          {
@@ -18735,9 +18735,9 @@
        ]
      },
      {
-       "name": "59",
-       "protons": "Pr",
-       "symbol": "Praseodymium",
+       "name": "Praseodymium",
+       "protons": "59",
+       "symbol": "Pr",
        "mass": "140.90765(2)",
        "isotopes": [
          {
@@ -19184,9 +19184,9 @@
        ]
      },
      {
-       "name": "60",
-       "protons": "Nd",
-       "symbol": "Neodymium",
+       "name": "Neodymium",
+       "protons": "60",
+       "symbol": "Nd",
        "mass": "144.242(3)",
        "isotopes": [
          {
@@ -19597,9 +19597,9 @@
        ]
      },
      {
-       "name": "61",
-       "protons": "Pm",
-       "symbol": "Promethium",
+       "name": "Promethium",
+       "protons": "61",
+       "symbol": "Pm",
        "mass": "[145]",
        "isotopes": [
          {
@@ -20010,9 +20010,9 @@
        ]
      },
      {
-       "name": "62",
-       "protons": "Sm",
-       "symbol": "Samarium",
+       "name": "Samarium",
+       "protons": "62",
+       "symbol": "Sm",
        "mass": "150.36(2)",
        "isotopes": [
          {
@@ -20423,9 +20423,9 @@
        ]
      },
      {
-       "name": "63",
-       "protons": "Eu",
-       "symbol": "Europium",
+       "name": "Europium",
+       "protons": "63",
+       "symbol": "Eu",
        "mass": "151.964(1)",
        "isotopes": [
          {
@@ -20845,9 +20845,9 @@
        ]
      },
      {
-       "name": "64",
-       "protons": "Gd",
-       "symbol": "Gadolinium",
+       "name": "Gadolinium",
+       "protons": "64",
+       "symbol": "Gd",
        "mass": "157.25(3)",
        "isotopes": [
          {
@@ -21249,9 +21249,9 @@
        ]
      },
      {
-       "name": "65",
-       "protons": "Tb",
-       "symbol": "Terbium",
+       "name": "Terbium",
+       "protons": "65",
+       "symbol": "Tb",
        "mass": "158.92535(2)",
        "isotopes": [
          {
@@ -21716,9 +21716,9 @@
        ]
      },
      {
-       "name": "66",
-       "protons": "Dy",
-       "symbol": "Dysprosium",
+       "name": "Dysprosium",
+       "protons": "66",
+       "symbol": "Dy",
        "mass": "162.500(1)",
        "isotopes": [
          {
@@ -22138,9 +22138,9 @@
        ]
      },
      {
-       "name": "67",
-       "protons": "Ho",
-       "symbol": "Holmium",
+       "name": "Holmium",
+       "protons": "67",
+       "symbol": "Ho",
        "mass": "164.93032(2)",
        "isotopes": [
          {
@@ -22686,9 +22686,9 @@
        ]
      },
      {
-       "name": "68",
-       "protons": "Er",
-       "symbol": "Erbium",
+       "name": "Erbium",
+       "protons": "68",
+       "symbol": "Er",
        "mass": "167.259(3)",
        "isotopes": [
          {
@@ -23081,9 +23081,9 @@
        ]
      },
      {
-       "name": "69",
-       "protons": "Tm",
-       "symbol": "Thulium",
+       "name": "Thulium",
+       "protons": "69",
+       "symbol": "Tm",
        "mass": "168.93421(2)",
        "isotopes": [
          {
@@ -23503,9 +23503,9 @@
        ]
      },
      {
-       "name": "70",
-       "protons": "Yb",
-       "symbol": "Ytterbium",
+       "name": "Ytterbium",
+       "protons": "70",
+       "symbol": "Yb",
        "mass": "173.054(5)",
        "isotopes": [
          {
@@ -23898,9 +23898,9 @@
        ]
      },
      {
-       "name": "71",
-       "protons": "Lu",
-       "symbol": "Lutetium",
+       "name": "Lutetium",
+       "protons": "71",
+       "symbol": "Lu",
        "mass": "174.9668(1)",
        "isotopes": [
          {
@@ -24419,9 +24419,9 @@
        ]
      },
      {
-       "name": "72",
-       "protons": "Hf",
-       "symbol": "Hafnium",
+       "name": "Hafnium",
+       "protons": "72",
+       "symbol": "Hf",
        "mass": "178.49(2)",
        "isotopes": [
          {
@@ -24877,9 +24877,9 @@
        ]
      },
      {
-       "name": "73",
-       "protons": "Ta",
-       "symbol": "Tantalum",
+       "name": "Tantalum",
+       "protons": "73",
+       "symbol": "Ta",
        "mass": "180.94788(2)",
        "isotopes": [
          {
@@ -25362,9 +25362,9 @@
        ]
      },
      {
-       "name": "74",
-       "protons": "W",
-       "symbol": "Tungsten",
+       "name": "Tungsten",
+       "protons": "74",
+       "symbol": "W",
        "mass": "183.84(1)",
        "isotopes": [
          {
@@ -25739,9 +25739,9 @@
        ]
      },
      {
-       "name": "75",
-       "protons": "Re",
-       "symbol": "Rhenium",
+       "name": "Rhenium",
+       "protons": "75",
+       "symbol": "Re",
        "mass": "186.207(1)",
        "isotopes": [
          {
@@ -26170,9 +26170,9 @@
        ]
      },
      {
-       "name": "76",
-       "protons": "Os",
-       "symbol": "Osmium",
+       "name": "Osmium",
+       "protons": "76",
+       "symbol": "Os",
        "mass": "190.23(3)",
        "isotopes": [
          {
@@ -26565,9 +26565,9 @@
        ]
      },
      {
-       "name": "77",
-       "protons": "Ir",
-       "symbol": "Iridium",
+       "name": "Iridium",
+       "protons": "77",
+       "symbol": "Ir",
        "mass": "192.217(3)",
        "isotopes": [
          {
@@ -27113,9 +27113,9 @@
        ]
      },
      {
-       "name": "78",
-       "protons": "Pt",
-       "symbol": "Platinum",
+       "name": "Platinum",
+       "protons": "78",
+       "symbol": "Pt",
        "mass": "195.084(9)",
        "isotopes": [
          {
@@ -27535,9 +27535,9 @@
        ]
      },
      {
-       "name": "79",
-       "protons": "Au",
-       "symbol": "Gold",
+       "name": "Gold",
+       "protons": "79",
+       "symbol": "Au",
        "mass": "196.966569(4)",
        "isotopes": [
          {
@@ -28065,9 +28065,9 @@
        ]
      },
      {
-       "name": "80",
-       "protons": "Hg",
-       "symbol": "Mercury",
+       "name": "Mercury",
+       "protons": "80",
+       "symbol": "Hg",
        "mass": "200.59(2)",
        "isotopes": [
          {
@@ -28505,9 +28505,9 @@
        ]
      },
      {
-       "name": "81",
-       "protons": "Tl",
-       "symbol": "Thallium",
+       "name": "Thallium",
+       "protons": "81",
+       "symbol": "Tl",
        "mass": "204.3833(2)",
        "isotopes": [
          {
@@ -29035,9 +29035,9 @@
        ]
      },
      {
-       "name": "82",
-       "protons": "Pb",
-       "symbol": "Lead",
+       "name": "Lead",
+       "protons": "82",
+       "symbol": "Pb",
        "mass": "207.2(1)",
        "isotopes": [
          {
@@ -29565,9 +29565,9 @@
        ]
      },
      {
-       "name": "83",
-       "protons": "Bi",
-       "symbol": "Bismuth",
+       "name": "Bismuth",
+       "protons": "83",
+       "symbol": "Bi",
        "mass": "208.98040(1)",
        "isotopes": [
          {
@@ -30095,9 +30095,9 @@
        ]
      },
      {
-       "name": "84",
-       "protons": "Po",
-       "symbol": "Polonium",
+       "name": "Polonium",
+       "protons": "84",
+       "symbol": "Po",
        "mass": "[209]",
        "isotopes": [
          {
@@ -30535,9 +30535,9 @@
        ]
      },
      {
-       "name": "85",
-       "protons": "At",
-       "symbol": "Astatine",
+       "name": "Astatine",
+       "protons": "85",
+       "symbol": "At",
        "mass": "[210]",
        "isotopes": [
          {
@@ -30930,9 +30930,9 @@
        ]
      },
      {
-       "name": "86",
-       "protons": "Rn",
-       "symbol": "Radon",
+       "name": "Radon",
+       "protons": "86",
+       "symbol": "Rn",
        "mass": "[222]",
        "isotopes": [
          {
@@ -31298,9 +31298,9 @@
        ]
      },
      {
-       "name": "87",
-       "protons": "Fr",
-       "symbol": "Francium",
+       "name": "Francium",
+       "protons": "87",
+       "symbol": "Fr",
        "mass": "[223]",
        "isotopes": [
          {
@@ -31666,9 +31666,9 @@
        ]
      },
      {
-       "name": "88",
-       "protons": "Ra",
-       "symbol": "Radium",
+       "name": "Radium",
+       "protons": "88",
+       "symbol": "Ra",
        "mass": "[226]",
        "isotopes": [
          {
@@ -32025,9 +32025,9 @@
        ]
      },
      {
-       "name": "89",
-       "protons": "Ac",
-       "symbol": "Actinium",
+       "name": "Actinium",
+       "protons": "89",
+       "symbol": "Ac",
        "mass": "[227]",
        "isotopes": [
          {
@@ -32348,9 +32348,9 @@
        ]
      },
      {
-       "name": "90",
-       "protons": "Th",
-       "symbol": "Thorium",
+       "name": "Thorium",
+       "protons": "90",
+       "symbol": "Th",
        "mass": "232.03806(2)",
        "isotopes": [
          {
@@ -32671,9 +32671,9 @@
        ]
      },
      {
-       "name": "91",
-       "protons": "Pa",
-       "symbol": "Protactinium",
+       "name": "Protactinium",
+       "protons": "91",
+       "symbol": "Pa",
        "mass": "231.03588(2)",
        "isotopes": [
          {
@@ -32958,9 +32958,9 @@
        ]
      },
      {
-       "name": "92",
-       "protons": "U",
-       "symbol": "Uranium",
+       "name": "Uranium",
+       "protons": "92",
+       "symbol": "U",
        "mass": "238.02891(3)",
        "isotopes": [
          {
@@ -33227,9 +33227,9 @@
        ]
      },
      {
-       "name": "93",
-       "protons": "Np",
-       "symbol": "Neptunium",
+       "name": "Neptunium",
+       "protons": "93",
+       "symbol": "Np",
        "mass": "[237]",
        "isotopes": [
          {
@@ -33424,9 +33424,9 @@
        ]
      },
      {
-       "name": "94",
-       "protons": "Pu",
-       "symbol": "Plutonium",
+       "name": "Plutonium",
+       "protons": "94",
+       "symbol": "Pu",
        "mass": "[244]",
        "isotopes": [
          {
@@ -33738,9 +33738,9 @@
        ]
      },
      {
-       "name": "95",
-       "protons": "Am",
-       "symbol": "Americium",
+       "name": "Americium",
+       "protons": "95",
+       "symbol": "Am",
        "mass": "[243]",
        "isotopes": [
          {
@@ -34016,9 +34016,9 @@
        ]
      },
      {
-       "name": "96",
-       "protons": "Cm",
-       "symbol": "Curium",
+       "name": "Curium",
+       "protons": "96",
+       "symbol": "Cm",
        "mass": "[247]",
        "isotopes": [
          {
@@ -34267,9 +34267,9 @@
        ]
      },
      {
-       "name": "97",
-       "protons": "Bk",
-       "symbol": "Berkelium",
+       "name": "Berkelium",
+       "protons": "97",
+       "symbol": "Bk",
        "mass": "[247]",
        "isotopes": [
          {
@@ -34473,9 +34473,9 @@
        ]
      },
      {
-       "name": "98",
-       "protons": "Cf",
-       "symbol": "Californium",
+       "name": "Californium",
+       "protons": "98",
+       "symbol": "Cf",
        "mass": "[251]",
        "isotopes": [
          {
@@ -34670,9 +34670,9 @@
        ]
      },
      {
-       "name": "99",
-       "protons": "Es",
-       "symbol": "Einsteinium",
+       "name": "Einsteinium",
+       "protons": "99",
+       "symbol": "Es",
        "mass": "[252]",
        "isotopes": [
          {
@@ -34858,9 +34858,9 @@
        ]
      },
      {
-       "name": "100",
-       "protons": "Fm",
-       "symbol": "Fermium",
+       "name": "Fermium",
+       "protons": "100",
+       "symbol": "Fm",
        "mass": "[257]",
        "isotopes": [
          {
@@ -35046,9 +35046,9 @@
        ]
      },
      {
-       "name": "101",
-       "protons": "Md",
-       "symbol": "Mendelevium",
+       "name": "Mendelevium",
+       "protons": "101",
+       "symbol": "Md",
        "mass": "[258]",
        "isotopes": [
          {
@@ -35225,9 +35225,9 @@
        ]
      },
      {
-       "name": "102",
-       "protons": "No",
-       "symbol": "Nobelium",
+       "name": "Nobelium",
+       "protons": "102",
+       "symbol": "No",
        "mass": "[259]",
        "isotopes": [
          {
@@ -35422,9 +35422,9 @@
        ]
      },
      {
-       "name": "103",
-       "protons": "Lr",
-       "symbol": "Lawrencium",
+       "name": "Lawrencium",
+       "protons": "103",
+       "symbol": "Lr",
        "mass": "[262]",
        "isotopes": [
          {
@@ -35583,9 +35583,9 @@
        ]
      },
      {
-       "name": "104",
-       "protons": "Rf",
-       "symbol": "Rutherfordium",
+       "name": "Rutherfordium",
+       "protons": "104",
+       "symbol": "Rf",
        "mass": "[267]",
        "isotopes": [
          {
@@ -35735,9 +35735,9 @@
        ]
      },
      {
-       "name": "105",
-       "protons": "Db",
-       "symbol": "Dubnium",
+       "name": "Dubnium",
+       "protons": "105",
+       "symbol": "Db",
        "mass": "[268]",
        "isotopes": [
          {
@@ -35887,9 +35887,9 @@
        ]
      },
      {
-       "name": "106",
-       "protons": "Sg",
-       "symbol": "Seaborgium",
+       "name": "Seaborgium",
+       "protons": "106",
+       "symbol": "Sg",
        "mass": "[271]",
        "isotopes": [
          {
@@ -36048,9 +36048,9 @@
        ]
      },
      {
-       "name": "107",
-       "protons": "Bh",
-       "symbol": "Bohrium",
+       "name": "Bohrium",
+       "protons": "107",
+       "symbol": "Bh",
        "mass": "[272]",
        "isotopes": [
          {
@@ -36200,9 +36200,9 @@
        ]
      },
      {
-       "name": "108",
-       "protons": "Hs",
-       "symbol": "Hassium",
+       "name": "Hassium",
+       "protons": "108",
+       "symbol": "Hs",
        "mass": "[270]",
        "isotopes": [
          {
@@ -36352,9 +36352,9 @@
        ]
      },
      {
-       "name": "109",
-       "protons": "Mt",
-       "symbol": "Meitnerium",
+       "name": "Meitnerium",
+       "protons": "109",
+       "symbol": "Mt",
        "mass": "[276]",
        "isotopes": [
          {
@@ -36495,9 +36495,9 @@
        ]
      },
      {
-       "name": "110",
-       "protons": "Ds",
-       "symbol": "Darmstadtium",
+       "name": "Darmstadtium",
+       "protons": "110",
+       "symbol": "Ds",
        "mass": "[281]",
        "isotopes": [
          {
@@ -36647,9 +36647,9 @@
        ]
      },
      {
-       "name": "111",
-       "protons": "Rg",
-       "symbol": "Roentgenium",
+       "name": "Roentgenium",
+       "protons": "111",
+       "symbol": "Rg",
        "mass": "[280]",
        "isotopes": [
          {
@@ -36763,9 +36763,9 @@
        ]
      },
      {
-       "name": "112",
-       "protons": "Cn",
-       "symbol": "Copernicium",
+       "name": "Copernicium",
+       "protons": "112",
+       "symbol": "Cn",
        "mass": "[285]",
        "isotopes": [
          {
@@ -36852,9 +36852,9 @@
        ]
      },
      {
-       "name": "113",
-       "protons": "Uut",
-       "symbol": "Ununtrium",
+       "name": "Ununtrium",
+       "protons": "113",
+       "symbol": "Uut",
        "mass": "[284]",
        "isotopes": [
          {
@@ -36905,9 +36905,9 @@
        ]
      },
      {
-       "name": "114",
-       "protons": "Uuq",
-       "symbol": "Ununquadium",
+       "name": "Ununquadium",
+       "protons": "114",
+       "symbol": "Uuq",
        "mass": "[289]",
        "isotopes": [
          {
@@ -36958,9 +36958,9 @@
        ]
      },
      {
-       "name": "115",
-       "protons": "Uup",
-       "symbol": "Ununpentium",
+       "name": "Ununpentium",
+       "protons": "115",
+       "symbol": "Uup",
        "mass": "[288]",
        "isotopes": [
          {
@@ -37011,9 +37011,9 @@
        ]
      },
      {
-       "name": "116",
-       "protons": "Uuh",
-       "symbol": "Ununhexium",
+       "name": "Ununhexium",
+       "protons": "116",
+       "symbol": "Uuh",
        "mass": "[293]",
        "isotopes": [
          {
@@ -37064,9 +37064,9 @@
        ]
      },
      {
-       "name": "117",
-       "protons": "Uus",
-       "symbol": "Ununseptium",
+       "name": "Ununseptium",
+       "protons": "117",
+       "symbol": "Uus",
        "mass": "",
        "isotopes": [
          {
@@ -37090,9 +37090,9 @@
        ]
      },
      {
-       "name": "118",
-       "protons": "Uuo",
-       "symbol": "Ununoctium",
+       "name": "Ununoctium",
+       "protons": "118",
+       "symbol": "Uuo",
        "mass": "[294]",
        "isotopes": [
          {
