@@ -52,9 +52,11 @@ class Element {
             self._mass = mass
         }
         
+        // this should work because by this point, all of Elements values have been instantiated
+        // thus we can pass self to the Isotope for creation
         if let isotopes = element["isotopes"] as? [Dictionary<String, Any>] {
             for isotopeDict in isotopes {
-                _isotopes.append(Isotope(isotope: isotopeDict))
+                _isotopes.append(Isotope(isotope: isotopeDict, from: self))
             }
         }
         

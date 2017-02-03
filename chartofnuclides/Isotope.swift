@@ -10,6 +10,8 @@ import UIKit
 
 class Isotope {
     
+    weak var element: Element!
+    
     private var _atomicNumber: String!
     private var _neutrons: String!
     private var _mass: String!
@@ -46,18 +48,7 @@ class Isotope {
         return _isStable
     }
     
-    init(atomicNumber: String, neutrons: String, mass: String,
-         halfLife: String, abundance: String, hasIsomer: String, isStable: String ) {
-        self._atomicNumber = atomicNumber
-        self._neutrons = neutrons
-        self._mass = mass
-        self._halfLife = halfLife
-        self._abundance = abundance
-        self._hasIsomer = hasIsomer
-        self._isStable = isStable
-    }
-    
-    init(isotope: Dictionary<String, Any>) {
+    init(isotope: Dictionary<String, Any>, from element: Element) {
         if let atomicNumber = isotope["atomic number"] as? String {
             self._atomicNumber = atomicNumber
         }
@@ -85,6 +76,8 @@ class Isotope {
         if let hasIsomer = isotope["has_isomer"] as? String {
             self._hasIsomer = hasIsomer
         }
+        
+        self.element = element
         
     }
     
