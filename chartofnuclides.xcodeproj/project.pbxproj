@@ -21,6 +21,7 @@
 		AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4491E450CCB00A6D8DD /* ElementCell.swift */; };
 		AEB5D44C1E45114A00A6D8DD /* IsotopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */; };
 		AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */; };
+		AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AEB5D4491E450CCB00A6D8DD /* ElementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsotopeCell.swift; sourceTree = "<group>"; };
 		AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderlessSearchBar.swift; sourceTree = "<group>"; };
+		AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				AEB5D4491E450CCB00A6D8DD /* ElementCell.swift */,
 				AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */,
 				AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */,
+				AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */,
+				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
 				AEB5D4461E450A3500A6D8DD /* ShadowView.swift in Sources */,

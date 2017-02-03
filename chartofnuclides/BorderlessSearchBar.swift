@@ -16,6 +16,11 @@ class BorderlessSearchBar: UISearchBar {
         self.tintColor = GREEN_COLOR
         self.backgroundColor = GREEN_COLOR
         
+        layer.shadowColor = UIColor(red: SHADOW_GRAY, green: SHADOW_GRAY, blue: SHADOW_GRAY, alpha: SHADOW_GRAY).cgColor
+        layer.shadowOpacity = 0.8
+        layer.shadowRadius = 5.0
+        layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        
     }
     /*
     // Only override draw() if you perform custom drawing.
