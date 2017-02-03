@@ -8,13 +8,14 @@
 
 import UIKit
 
-class Element {
+class Element: NSCopying {
     
     private var _name: String!
     private var _protons: String!
     private var _symbol: String!
     private var _mass: String!
     private var _isotopes = [Isotope]()
+    var filteredIsotopes = [Isotope]()
     
     var name: String {
         return _name
@@ -34,6 +35,14 @@ class Element {
     
     var isotopes: [Isotope] {
         return _isotopes
+    }
+    
+    init(name: String, protons: String, symbol: String, mass: String, isotopes: [Isotope]) {
+        self._name = name
+        self._protons = protons
+        self._symbol = symbol
+        self._mass = mass
+        self._isotopes = isotopes
     }
     
     init(element: Dictionary<String, Any>) {
@@ -60,6 +69,20 @@ class Element {
             }
         }
         
+        filteredIsotopes = _isotopes
+    }
+    
+    func removeIsotopes() {
+        self._isotopes = []
+    }
+    
+    func addIsotope(isotope: Isotope) {
+        self._isotopes.append(isotope)
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Element(name: _name, protons: _protons, symbol: _symbol, mass: _mass, isotopes: _isotopes)
+        return copy
     }
     
     

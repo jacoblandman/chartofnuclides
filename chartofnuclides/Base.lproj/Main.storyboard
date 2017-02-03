@@ -165,6 +165,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="info" systemItem="bookmarks" id="OTE-7l-hz3"/>
                     <connections>
+                        <outlet property="searchBar" destination="gZD-Lv-qsu" id="PlP-jW-c0f"/>
                         <outlet property="tableView" destination="rdh-nr-HiJ" id="ZhX-f5-utn"/>
                     </connections>
                 </viewController>

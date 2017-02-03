@@ -10,9 +10,12 @@ import UIKit
 
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var searchBar: BorderlessSearchBar!
     @IBOutlet weak var tableView: UITableView!
     var elements = [Element]()
+    var filteredElements = [Element]()
     var storedOffsets = [Int: CGFloat]()
+    var inSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +23,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         
+        searchBar.delegate = self
+        
         elements = DataService.instance.parse_json()
+        filteredElements = elements
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Number of rows: \(elements.count)")
-        return elements.count
+        return filteredElements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,13 +80,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return elements[collectionView.tag].isotopes.count
+        return filteredElements[collectionView.tag].filteredIsotopes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IsotopeCell", for: indexPath) as? IsotopeCell {
-            let isotope = elements[collectionView.tag].isotopes[indexPath.row]
+            
+            let isotope = filteredElements[collectionView.tag].filteredIsotopes[indexPath.row]
             cell.updateCell(isotope: isotope)
             return cell
         } else {
@@ -90,5 +96,43 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
     
+}
+
+extension MainVC: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            filteredElements = elements
+            for element in filteredElements {
+                element.filteredIsotopes = element.isotopes
+            }
+            tableView.reloadData()
+            view.endEditing(true)
+            
+        } else {
+            
+            // we already know there is text
+            let lower = searchBar.text!.lowercased().replacingOccurrences(of: " ", with: "")
+            
+            for element in filteredElements {
+                element.filteredIsotopes = element.isotopes.filter({
+                    (($0.element.name) + ($0.atomicNumber)).lowercased().range(of: lower) != nil ||
+                    (($0.element.symbol) + ($0.atomicNumber)).lowercased().range(of: lower) != nil
+                })
+            }
+            
+            filteredElements = filteredElements.filter({ $0.filteredIsotopes.count != 0})
+            
+            tableView.reloadData()
+        }
+    }
+
 }
 
