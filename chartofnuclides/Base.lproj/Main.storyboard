@@ -24,7 +24,6 @@
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-nr-HiJ">
                                 <rect key="frame" x="5" y="113" width="365" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ElementCell" rowHeight="142" id="cJ1-5q-HTP" customClass="ElementCell" customModule="chartofnuclides" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="365" height="142"/>
@@ -150,6 +149,7 @@
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ODs-Sv-mDR" secondAttribute="trailing" id="0vW-JF-oHy"/>
                             <constraint firstItem="ODs-Sv-mDR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2iB-5w-I0A"/>
@@ -162,6 +162,9 @@
                             <constraint firstAttribute="trailing" secondItem="gZD-Lv-qsu" secondAttribute="trailing" id="uR6-KH-rgl"/>
                             <constraint firstItem="ODs-Sv-mDR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zUf-FK-rTK"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ZQS-Ui-zF1" appends="YES" id="StT-kH-DXk"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="info" systemItem="bookmarks" id="OTE-7l-hz3"/>
                     <connections>
@@ -170,8 +173,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZQS-Ui-zF1">
+                    <connections>
+                        <action selector="tappedScreen:" destination="BYZ-38-t0r" id="YdQ-SV-w1g"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="440.80000000000001" y="-48.125937031484263"/>
+            <point key="canvasLocation" x="457" y="-805"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JZy-oT-jlw">
@@ -190,7 +198,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyY-a0-5fq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457" y="696"/>
+            <point key="canvasLocation" x="457" y="-48"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iCd-UD-apC">
+            <objects>
+                <viewController id="IrS-l4-cgO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9tD-nD-NPT"/>
+                        <viewControllerLayoutGuide type="bottom" id="qUx-IY-RYH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ofO-WE-Mqb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="v2l-Bs-ZTd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ma-zN-cRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="457" y="744"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="L7A-gE-OH3">
@@ -206,6 +233,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sfT-pr-SIK"/>
                         <segue destination="da2-bd-qcM" kind="relationship" relationship="viewControllers" id="OcZ-UP-aIP"/>
+                        <segue destination="IrS-l4-cgO" kind="relationship" relationship="viewControllers" id="qOh-hk-756"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddf-vu-vli" userLabel="First Responder" sceneMemberID="firstResponder"/>

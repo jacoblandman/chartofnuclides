@@ -75,6 +75,10 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // set the content offset for each collectionView
         storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
     }
+
+    @IBAction func tappedScreen(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -109,14 +113,13 @@ extension MainVC: UISearchBarDelegate {
 
         if searchBar.text == nil || searchBar.text == "" {
             
-            filteredElements = elements
-            for element in filteredElements {
-                element.filteredIsotopes = element.isotopes
-            }
-            tableView.reloadData()
+            resetElements()
             view.endEditing(true)
             
         } else {
+            
+            // reset everything
+            resetElements()
             
             // we already know there is text
             let lower = searchBar.text!.lowercased().replacingOccurrences(of: " ", with: "")
@@ -134,5 +137,12 @@ extension MainVC: UISearchBarDelegate {
         }
     }
 
+    func resetElements() {
+        filteredElements = elements
+        for element in filteredElements {
+            element.filteredIsotopes = element.isotopes
+        }
+        tableView.reloadData()
+    }
 }
 

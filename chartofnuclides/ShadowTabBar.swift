@@ -16,5 +16,4 @@ class ShadowTabBar: UITabBar {
         layer.shadowRadius = 5.0
         layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
     }
-
 }
