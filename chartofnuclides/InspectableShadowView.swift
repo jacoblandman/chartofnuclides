@@ -8,14 +8,32 @@
 
 import UIKit
 
+@IBDesignable
 class InspectableShadowView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    // shadow code
+    @IBInspectable var _shadowColor: UIColor = UIColor.clear {
+        didSet {
+            layer.shadowColor = _shadowColor.cgColor
+        }
     }
-    */
+    
+    @IBInspectable var _shadowOffset: CGSize = CGSize.zero {
+        didSet {
+            layer.shadowOffset = _shadowOffset
+        }
+    }
+    
+    @IBInspectable var _shadowOpacity: Float = 1.0 {
+        didSet {
+            layer.shadowOpacity = _shadowOpacity
+        }
+    }
+    
+    @IBInspectable var _shadowRadius: CGFloat = 0.0 {
+        didSet {
+            layer.shadowRadius = _shadowRadius
+        }
+    }
 
 }

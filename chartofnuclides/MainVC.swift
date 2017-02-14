@@ -100,6 +100,27 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "DetailNuclideVC", sender: nil)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? IsotopeCell {
+            UIView.animate(withDuration: 0.05) { [] in
+                cell.highlight()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? IsotopeCell {
+            UIView.animate(withDuration: 0.05) { [] in
+                cell.unhighlight()
+            }
+        }
+    }
 }
 
 extension MainVC: UISearchBarDelegate {

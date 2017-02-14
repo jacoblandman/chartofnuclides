@@ -8,14 +8,25 @@
 
 import UIKit
 
-class InspectableBorderView: UIView {
+@IBDesignable
+class InspectableBorderView: InspectableShadowView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBInspectable var _cornerRadius: CGFloat = 0.0 {
+        didSet {
+            layer.cornerRadius = _cornerRadius
+        }
     }
-    */
-
+    
+    @IBInspectable var _borderColor: UIColor = UIColor.clear {
+        didSet {
+            layer.borderColor = _borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var _borderWidth: CGFloat = 0.0 {
+        didSet {
+            layer.borderWidth = _borderWidth
+        }
+    }
+    
 }
