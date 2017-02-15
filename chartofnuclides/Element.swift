@@ -66,6 +66,7 @@ class Element: NSCopying {
         if let isotopes = element["isotopes"] as? [Dictionary<String, Any>] {
             for isotopeDict in isotopes {
                 _isotopes.append(Isotope(isotope: isotopeDict, from: self))
+                DataService.instance.numberOfIsotopes = DataService.instance.numberOfIsotopes + 1
             }
         }
         

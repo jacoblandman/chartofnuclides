@@ -12,6 +12,11 @@ class DataService {
     
     static let instance = DataService()
     
+    var unitTypes = ["Angle", "Length", "Area", "Volume", "Mass", "Time", "Density", "Velocity", "Angular Velocity", "Acceleration",
+                     "Force", "Work", "Power", "Torque", "Temperature", "Pressure", "Electromagnitism", "Magnetics", "Radiation"]
+    
+    var numberOfIsotopes: Int = 0
+    
     let FILENAME = "nuclides"
     let FILE_EXTENSION = "json"
     
