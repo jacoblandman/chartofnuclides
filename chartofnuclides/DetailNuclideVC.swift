@@ -10,21 +10,26 @@ import UIKit
 
 class DetailNuclideVC: UIViewController {
 
-    @IBOutlet weak var hideView: UIView!
-    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var gradientView: LinearGradient!
+    @IBOutlet weak var mask: InspectableBorderView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-            //self.hideView.layoutIfNeeded()
+        // a nice animation for the done button
+        gradientView.leo_animateCircleExpand(from: mask, duration: 1.0, delay: 0.0, alpha: 1.0, options: LeoMaskAnimationOptions.default, compeletion: nil)
+        UIView.animate(withDuration: 0.6) {
+            self.gradientView.alpha = 1.0
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,7 +38,7 @@ class DetailNuclideVC: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: Any) {
-        leadingConstraint.constant = 0
+        self.gradientView.alpha = 0.0
         dismiss(animated: true, completion: nil)
     }
 

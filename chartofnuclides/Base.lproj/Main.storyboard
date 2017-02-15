@@ -156,62 +156,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJx-jp-a8w" customClass="LinearGradient" customModule="chartofnuclides" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="651" width="414" height="85"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tva-O2-kGS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="85" id="jhB-lg-6bL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="28"/>
-                                        <state key="normal" title="Done">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="donePressed:" destination="21y-E5-OMT" eventType="touchUpInside" id="2Yx-h9-3Lm"/>
-                                        </connections>
-                                    </button>
-                                    <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwX-fa-Tci">
-                                        <rect key="frame" x="0.0" y="0.0" width="10" height="85"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="85" id="OsG-N0-QXV"/>
-                                            <constraint firstAttribute="width" constant="10" id="vno-NH-XcF"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tva-O2-kGS" secondAttribute="trailing" id="A7N-qA-gpd"/>
-                                    <constraint firstItem="tva-O2-kGS" firstAttribute="leading" secondItem="kJx-jp-a8w" secondAttribute="leading" id="EiG-sf-pYi"/>
-                                    <constraint firstAttribute="height" constant="85" id="N4D-qX-72r"/>
-                                    <constraint firstItem="kwX-fa-Tci" firstAttribute="leading" secondItem="kJx-jp-a8w" secondAttribute="leading" id="Qf6-7z-7XI"/>
-                                    <constraint firstAttribute="bottom" secondItem="tva-O2-kGS" secondAttribute="bottom" id="XBu-Tc-KuL"/>
-                                    <constraint firstAttribute="bottom" secondItem="kwX-fa-Tci" secondAttribute="bottom" id="lXu-W2-LUW"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="leftColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="rightColor">
-                                        <color key="value" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                        <color key="value" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                        <point key="value" x="0.0" y="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                        <point key="value" x="300" y="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6md-br-kn8" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6md-br-kn8" userLabel="Real View" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="102" y="120" width="210" height="210"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUo294" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-qr-8FJ">
@@ -256,18 +201,79 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJx-jp-a8w" userLabel="Linear Gradient View" customClass="LinearGradient" customModule="chartofnuclides" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="651" width="414" height="85"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-yq-Mai" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
+                                        <rect key="frame" x="182" y="17.666666666666629" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="G6F-MI-3iW"/>
+                                            <constraint firstAttribute="width" constant="50" id="kqj-jW-tMC"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tva-O2-kGS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="lOg-mi-UrE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="28"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="donePressed:" destination="21y-E5-OMT" eventType="touchUpInside" id="2Yx-h9-3Lm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gDk-yq-Mai" firstAttribute="centerY" secondItem="kJx-jp-a8w" secondAttribute="centerY" id="99N-ce-TEu"/>
+                                    <constraint firstAttribute="height" constant="85" id="Adf-xU-99M"/>
+                                    <constraint firstAttribute="bottom" secondItem="tva-O2-kGS" secondAttribute="bottom" id="Goj-Df-Svk"/>
+                                    <constraint firstItem="gDk-yq-Mai" firstAttribute="centerX" secondItem="kJx-jp-a8w" secondAttribute="centerX" id="VN2-yI-at5"/>
+                                    <constraint firstItem="tva-O2-kGS" firstAttribute="leading" secondItem="kJx-jp-a8w" secondAttribute="leading" id="r1F-3Z-0Mf"/>
+                                    <constraint firstAttribute="trailing" secondItem="tva-O2-kGS" secondAttribute="trailing" id="zxY-dt-cBx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="rightColor">
+                                        <color key="value" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                        <point key="value" x="0.0" y="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                        <point key="value" x="300" y="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6md-br-kn8" firstAttribute="centerX" secondItem="Y46-oo-loD" secondAttribute="centerX" id="5jb-Pz-SgK"/>
-                            <constraint firstItem="kJx-jp-a8w" firstAttribute="leading" secondItem="Y46-oo-loD" secondAttribute="leading" id="7Ex-sh-SPk"/>
                             <constraint firstItem="6md-br-kn8" firstAttribute="top" secondItem="CsE-Xe-shm" secondAttribute="bottom" constant="100" id="86w-4h-qoE"/>
-                            <constraint firstAttribute="bottom" secondItem="kJx-jp-a8w" secondAttribute="bottom" id="aWH-uy-AgK"/>
-                            <constraint firstAttribute="trailing" secondItem="kJx-jp-a8w" secondAttribute="trailing" id="vL2-Lt-UDC"/>
+                            <constraint firstItem="kJx-jp-a8w" firstAttribute="leading" secondItem="Y46-oo-loD" secondAttribute="leading" id="UYn-rQ-JuQ"/>
+                            <constraint firstAttribute="trailing" secondItem="kJx-jp-a8w" secondAttribute="trailing" id="pRe-gL-BOJ"/>
+                            <constraint firstItem="CZM-og-zyQ" firstAttribute="top" secondItem="kJx-jp-a8w" secondAttribute="bottom" id="vud-yW-anv"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="leadingConstraint" destination="Qf6-7z-7XI" id="76q-tJ-koV"/>
+                        <outlet property="gradientView" destination="kJx-jp-a8w" id="8uI-IH-G6g"/>
+                        <outlet property="mask" destination="gDk-yq-Mai" id="YyJ-i8-ewf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ga-x8-MNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
