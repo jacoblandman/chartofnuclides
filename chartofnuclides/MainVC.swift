@@ -16,6 +16,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var filteredElements = [Element]()
     var storedOffsets = [Int: CGFloat]()
     var inSearchMode = false
+    let maskZoomTransition = MZMaskZoomTransitioningDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         
         searchBar.delegate = self
+        
+        self.transitioningDelegate = maskZoomTransition
+        navigationController!.transitioningDelegate = maskZoomTransition
         
         elements = DataService.instance.parse_json()
         filteredElements = elements
@@ -102,7 +106,8 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "DetailNuclideVC", sender: nil)
+        let cell = collectionView.cellForItem(at: indexPath) as! IsotopeCell
+        performSegue(withIdentifier: "DetailNuclideVC", sender: cell)
         
     }
     
@@ -118,6 +123,19 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         if let cell = collectionView.cellForItem(at: indexPath) as? IsotopeCell {
             UIView.animate(withDuration: 0.05) { [] in
                 cell.unhighlight()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailNuclideVC {
+            if let transitioningDelegate = navigationController?.transitioningDelegate as? MZMaskZoomTransitioningDelegate {
+                if let isotopeCell = sender as? IsotopeCell {
+                    transitioningDelegate.smallView = isotopeCell
+                    destination.transitioningDelegate = maskZoomTransition
+                    destination.modalPresentationStyle = UIModalPresentationStyle.custom
+                    destination.isotope = isotopeCell.isotope
+                }
             }
         }
     }

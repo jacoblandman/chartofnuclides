@@ -12,10 +12,12 @@ class IsotopeCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var shadowView: ShadowView!
+    var isotope: Isotope?
     
     func updateCell(isotope: Isotope) {
         
         self.nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
+        self.isotope = isotope
     }
     
     func highlight() {

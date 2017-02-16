@@ -256,7 +256,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6md-br-kn8" firstAttribute="centerX" secondItem="Y46-oo-loD" secondAttribute="centerX" id="5jb-Pz-SgK"/>
                             <constraint firstItem="6md-br-kn8" firstAttribute="top" secondItem="CsE-Xe-shm" secondAttribute="bottom" constant="100" id="86w-4h-qoE"/>
@@ -266,8 +266,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="IsotopeView" destination="6md-br-kn8" id="ajx-il-RLb"/>
                         <outlet property="gradientView" destination="kJx-jp-a8w" id="8uI-IH-G6g"/>
                         <outlet property="mask" destination="gDk-yq-Mai" id="YyJ-i8-ewf"/>
+                        <outlet property="nameLbl" destination="fWA-qr-8FJ" id="Fyj-zg-ZxX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ga-x8-MNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,20 +347,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3O9-oY-fsL">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="23"/>
-                                        <state key="normal" title="Uuh235">
+                                        <state key="normal" title="Isotope">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="selectIsotopePressed:" destination="da2-bd-qcM" eventType="touchUpInside" id="INA-is-WCF"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectIsotope" translatesAutoresizingMaskIntoConstraints="NO" id="Zj1-ab-Ze9">
-                                        <rect key="frame" x="121" y="16.666666666666686" width="11" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="11" id="2iY-Ae-63q"/>
-                                            <constraint firstAttribute="height" constant="17" id="6x8-MI-f2e"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -366,10 +361,8 @@
                                     <constraint firstAttribute="height" constant="50" id="3Jb-pY-sdt"/>
                                     <constraint firstItem="3O9-oY-fsL" firstAttribute="leading" secondItem="6el-qX-Rwj" secondAttribute="leading" id="Rs4-Cu-Mk0"/>
                                     <constraint firstAttribute="trailing" secondItem="3O9-oY-fsL" secondAttribute="trailing" id="emh-IQ-2Ts"/>
-                                    <constraint firstItem="Zj1-ab-Ze9" firstAttribute="centerY" secondItem="6el-qX-Rwj" secondAttribute="centerY" id="fAp-L1-dsX"/>
                                     <constraint firstAttribute="bottom" secondItem="3O9-oY-fsL" secondAttribute="bottom" id="gwf-9i-mk6"/>
                                     <constraint firstItem="3O9-oY-fsL" firstAttribute="top" secondItem="6el-qX-Rwj" secondAttribute="top" id="tgy-SX-qbF"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zj1-ab-Ze9" secondAttribute="trailing" constant="8" id="ulA-s2-cUQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_shadowColor">
@@ -508,25 +501,26 @@
                         <outlet property="radiationSymbolImg" destination="YbF-z3-H8K" id="NZc-zJ-iYI"/>
                         <outlet property="solutionLbl" destination="bW6-Jq-Mkx" id="nft-n8-iW7"/>
                         <outlet property="solutionView" destination="IGn-6A-aqa" id="urt-cz-dd4"/>
+                        <segue destination="10z-4k-5RK" kind="show" identifier="PopupSearchVC" id="yJr-ET-L7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyY-a0-5fq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1212" y="-281.10944527736132"/>
         </scene>
-        <!--Popup SearchVC-->
+        <!--Isotopes-->
         <scene sceneID="NB1-py-wgW">
             <objects>
-                <viewController storyboardIdentifier="PopupSearch" modalPresentationStyle="overCurrentContext" id="10z-4k-5RK" customClass="PopupSearchVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupSearch" title="Isotopes" modalPresentationStyle="overCurrentContext" id="10z-4k-5RK" customClass="PopupSearchVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uVj-II-Mtb"/>
                         <viewControllerLayoutGuide type="bottom" id="LxA-hk-AcM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tv5-wa-EGk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCx-Hx-sNx">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search Isotopes..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCx-Hx-sNx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -551,7 +545,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
@@ -749,10 +742,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qps-7J-EDj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calculator" image="calculatorIcon" id="5Ba-s7-zbf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aVu-78-tPv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="aVu-78-tPv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
@@ -842,7 +836,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SelectIsotope" width="11" height="17"/>
         <image name="calculatorIcon" width="27" height="26"/>
         <image name="converterIcon" width="29" height="27"/>
         <image name="definitionsIcon" width="27" height="22"/>
