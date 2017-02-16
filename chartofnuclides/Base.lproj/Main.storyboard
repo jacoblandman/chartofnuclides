@@ -560,7 +560,7 @@
         <scene sceneID="UZt-RP-QKU">
             <objects>
                 <collectionViewController title="Unit Converter" id="cjd-xu-Wc8" customClass="ConverterVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="S25-Of-02Y">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="S25-Of-02Y">
                         <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -625,7 +625,7 @@
         <scene sceneID="f05-5o-n5H">
             <objects>
                 <collectionViewController id="ziE-Mt-Gei" customClass="ConverterCalcVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="BJt-86-DjJ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BJt-86-DjJ">
                         <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -699,7 +699,7 @@
                         <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="biy-d1-7VT" kind="relationship" relationship="viewControllers" id="sfT-pr-SIK"/>
@@ -719,10 +719,10 @@
                     <tabBarItem key="tabBarItem" title="Nuclides" image="nuclideIcon" selectedImage="nuclideIcon" id="OTE-7l-hz3" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52531343698501587" green="0.52938878536224365" blue="0.53347319364547729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52357958081614819" green="0.53011906596555658" blue="0.53531487944162437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -754,13 +754,13 @@
         <scene sceneID="Ock-ra-Uo8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qps-7J-EDj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calculator" image="calculatorIcon" id="5Ba-s7-zbf" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="Calculator" image="calculatorIcon" selectedImage="calculatorIcon" id="5Ba-s7-zbf" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52150827473210948" green="0.5233413470307321" blue="0.52884056392659995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52148497104644775" green="0.52145546674728394" blue="0.52966570854187012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -815,10 +815,10 @@
                     <tabBarItem key="tabBarItem" title="Definitions" image="definitionsIcon" id="iwY-Dr-HHL" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52883594283728241" green="0.53407194227131494" blue="0.53407194227131494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.61960784313725492" green="0.62352941176470589" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52924686670303345" green="0.53338378667831421" blue="0.53331297636032104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -853,10 +853,10 @@
                     <tabBarItem key="tabBarItem" title="Converter" image="converterIcon" id="teG-lV-xfz" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52405026336928262" green="0.52589227061521093" blue="0.53141829235299587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.52541846036911011" green="0.52545124292373657" blue="0.52950656414031982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -864,7 +864,7 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="DPQ-oE-Y2U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="DPQ-oE-Y2U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
