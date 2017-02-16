@@ -274,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ga-x8-MNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="-1072"/>
+            <point key="canvasLocation" x="2003" y="-968"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="JZy-oT-jlw">
@@ -536,7 +536,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IaJ-UP-2bR" id="5v1-jh-XB8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -688,10 +688,10 @@
             </objects>
             <point key="canvasLocation" x="1982.608695652174" y="381.52173913043481"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Animated Tab Bar Controller-->
         <scene sceneID="L7A-gE-OH3">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5RI-8z-ov3" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5RI-8z-ov3" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Uuv-D5-mvx" customClass="ShadowTabBar" customModule="chartofnuclides" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -699,6 +699,7 @@
                         <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="biy-d1-7VT" kind="relationship" relationship="viewControllers" id="sfT-pr-SIK"/>
@@ -715,7 +716,19 @@
         <scene sceneID="7la-cA-6nh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="biy-d1-7VT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nuclides" image="nuclideIcon" selectedImage="nuclideIcon" id="OTE-7l-hz3"/>
+                    <tabBarItem key="tabBarItem" title="Nuclides" image="nuclideIcon" selectedImage="nuclideIcon" id="OTE-7l-hz3" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="DFu-5V-jmp" id="SFd-IA-fuf"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bh6-UX-TvL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -733,6 +746,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9d-nz-byd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="DFu-5V-jmp" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="457" y="-968"/>
         </scene>
@@ -740,9 +754,21 @@
         <scene sceneID="Ock-ra-Uo8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qps-7J-EDj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calculator" image="calculatorIcon" id="5Ba-s7-zbf"/>
+                    <tabBarItem key="tabBarItem" title="Calculator" image="calculatorIcon" id="5Ba-s7-zbf" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="aLx-Se-bLf" id="orx-01-jsP"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="aVu-78-tPv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aVu-78-tPv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -759,6 +785,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Utm-0b-gE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="aLx-Se-bLf" customClass="RAMRightRotationAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="457" y="-281"/>
         </scene>
@@ -785,7 +812,19 @@
         <scene sceneID="192-rM-xoU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tkc-jM-6wu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Definitions" image="definitionsIcon" id="iwY-Dr-HHL"/>
+                    <tabBarItem key="tabBarItem" title="Definitions" image="definitionsIcon" id="iwY-Dr-HHL" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="PZ8-Wz-ZXg" id="7a8-KE-nO6"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ear-KS-6qo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -803,6 +842,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ty2-l9-FJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="PZ8-Wz-ZXg" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="457" y="1209"/>
         </scene>
@@ -810,16 +850,28 @@
         <scene sceneID="vEc-F9-VSI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gMe-GV-jn4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Converter" image="converterIcon" id="teG-lV-xfz"/>
+                    <tabBarItem key="tabBarItem" title="Converter" image="converterIcon" id="teG-lV-xfz" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="UZc-ub-5ny" id="PkI-AR-xTk"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="DPQ-oE-Y2U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="DPQ-oE-Y2U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
@@ -831,6 +883,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xd0-JY-c3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Xbo-XJ-Cqy" customClass="NavigationControllerDelegate" customModule="chartofnuclides" customModuleProvider="target"/>
+                <customObject id="UZc-ub-5ny" customClass="RAMLeftRotationAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="467" y="382"/>
         </scene>
