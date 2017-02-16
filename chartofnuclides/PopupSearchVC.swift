@@ -17,6 +17,9 @@ class PopupSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var elements = [Element]()
     var filteredElements = [Element]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.superview?.layer.cornerRadius = 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

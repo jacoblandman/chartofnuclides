@@ -241,12 +241,6 @@
                                     <constraint firstAttribute="trailing" secondItem="tva-O2-kGS" secondAttribute="trailing" id="zxY-dt-cBx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="leftColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="rightColor">
-                                        <color key="value" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
@@ -278,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ga-x8-MNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982.608695652174" y="-996.19565217391312"/>
+            <point key="canvasLocation" x="1972" y="-1072"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="JZy-oT-jlw">
@@ -548,7 +542,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IaJ-UP-2bR" id="5v1-jh-XB8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -567,84 +561,137 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZ5-3m-AWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1986" y="-229"/>
+            <point key="canvasLocation" x="1983" y="-281"/>
         </scene>
-        <!--Converter-->
-        <scene sceneID="iCd-UD-apC">
+        <!--Unit Converter-->
+        <scene sceneID="UZt-RP-QKU">
             <objects>
-                <viewController id="IrS-l4-cgO" customClass="ConverterVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9tD-nD-NPT"/>
-                        <viewControllerLayoutGuide type="bottom" id="qUx-IY-RYH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ofO-WE-Mqb">
+                <collectionViewController title="Unit Converter" id="cjd-xu-Wc8" customClass="ConverterVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="S25-Of-02Y">
                         <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RBC-Uc-86i">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
-                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Ks-h5-WaJ">
-                                    <size key="itemSize" width="149" height="147"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UnitCell" id="sdi-TT-o05" customClass="ConversionUnitCell" customModule="chartofnuclides" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="149" height="147"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="149" height="147"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AUc-UI-jgk">
+                            <size key="itemSize" width="192" height="146"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UnitCell" id="TWb-j0-MKg" customClass="ConversionUnitCell" customModule="chartofnuclides" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="192" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="192" height="146"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="velocity" translatesAutoresizingMaskIntoConstraints="NO" id="fiR-iO-72J">
+                                            <rect key="frame" x="33" y="23" width="126" height="76"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="fiR-iO-72J" secondAttribute="height" multiplier="83:50" id="Kyb-I0-iAa"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcj-QJ-euz">
+                                            <rect key="frame" x="10" y="109" width="172" height="24.666666666666657"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                            <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="fiR-iO-72J" secondAttribute="trailing" constant="25" id="O0R-so-S6P"/>
+                                    <constraint firstItem="wcj-QJ-euz" firstAttribute="leading" secondItem="TWb-j0-MKg" secondAttribute="leadingMargin" constant="2" id="OPI-ey-ECB"/>
+                                    <constraint firstItem="fiR-iO-72J" firstAttribute="top" secondItem="TWb-j0-MKg" secondAttribute="topMargin" constant="15" id="egV-dA-wVe"/>
+                                    <constraint firstItem="wcj-QJ-euz" firstAttribute="top" secondItem="fiR-iO-72J" secondAttribute="bottom" constant="10" id="p6r-ru-agn"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="wcj-QJ-euz" secondAttribute="trailing" constant="2" id="sqU-oH-wZQ"/>
+                                    <constraint firstItem="fiR-iO-72J" firstAttribute="leading" secondItem="TWb-j0-MKg" secondAttribute="leadingMargin" constant="25" id="wiA-h7-cQA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="unitImg" destination="fiR-iO-72J" id="8FD-cD-eno"/>
+                                    <outlet property="unitLbl" destination="wcj-QJ-euz" id="tsv-CM-Mmz"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="cjd-xu-Wc8" id="EyJ-cs-8Vu"/>
+                            <outlet property="delegate" destination="cjd-xu-Wc8" id="M3C-lR-3by"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Unit Converter" id="gPB-Er-H1c"/>
+                    <connections>
+                        <segue destination="ziE-Mt-Gei" kind="show" identifier="ConverterCalcVC" id="0UQ-kr-KVd"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcD-Aw-eEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1212" y="382"/>
+        </scene>
+        <!--Converter CalcVC-->
+        <scene sceneID="f05-5o-n5H">
+            <objects>
+                <collectionViewController id="ziE-Mt-Gei" customClass="ConverterCalcVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BJt-86-DjJ">
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ewc-b4-oYk">
+                            <size key="itemSize" width="224" height="188"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ConverterCalcCell" id="WFp-G2-ySb" customClass="ConverterCalcCell" customModule="chartofnuclides" customModuleProvider="target">
+                                <rect key="frame" x="95" y="0.0" width="224" height="188"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="224" height="188"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrE-vR-Tod">
+                                            <rect key="frame" x="0.0" y="0.0" width="224" height="188"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="velocity" translatesAutoresizingMaskIntoConstraints="NO" id="gTX-YC-dBA">
-                                                    <rect key="frame" x="33" y="23" width="83" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="gTX-YC-dBA" secondAttribute="height" multiplier="83:50" id="eEd-KL-NoI"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B65-QD-X9G">
-                                                    <rect key="frame" x="10" y="83" width="129" height="24.666666666666671"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1f-fj-iTv">
+                                                    <rect key="frame" x="91" y="84" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerX" secondItem="lrE-vR-Tod" secondAttribute="centerX" id="9a0-1m-8ym"/>
+                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerY" secondItem="lrE-vR-Tod" secondAttribute="centerY" id="aq3-tq-UKw"/>
+                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerY" secondItem="lrE-vR-Tod" secondAttribute="centerY" id="qah-tX-vFI"/>
+                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerX" secondItem="lrE-vR-Tod" secondAttribute="centerX" id="tB3-ji-U0o"/>
+                                            </constraints>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="gTX-YC-dBA" firstAttribute="top" secondItem="sdi-TT-o05" secondAttribute="topMargin" constant="15" id="8rn-0H-aJS"/>
-                                            <constraint firstItem="B65-QD-X9G" firstAttribute="top" secondItem="gTX-YC-dBA" secondAttribute="bottom" constant="10" id="Hkv-RP-Ynt"/>
-                                            <constraint firstItem="gTX-YC-dBA" firstAttribute="leading" secondItem="sdi-TT-o05" secondAttribute="leadingMargin" constant="25" id="PZy-wh-mhJ"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="B65-QD-X9G" secondAttribute="trailing" constant="2" id="aXd-Bt-Mnu"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="gTX-YC-dBA" secondAttribute="trailing" constant="25" id="ltj-8I-QLT"/>
-                                            <constraint firstItem="B65-QD-X9G" firstAttribute="leading" secondItem="sdi-TT-o05" secondAttribute="leadingMargin" constant="2" id="tpj-Da-XCe"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="unitImg" destination="gTX-YC-dBA" id="fTO-cU-csr"/>
-                                            <outlet property="unitLbl" destination="B65-QD-X9G" id="8sX-rE-JUx"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qUx-IY-RYH" firstAttribute="top" secondItem="RBC-Uc-86i" secondAttribute="bottom" id="G1B-QD-bZY"/>
-                            <constraint firstItem="RBC-Uc-86i" firstAttribute="leading" secondItem="ofO-WE-Mqb" secondAttribute="leading" id="ILa-KB-pha"/>
-                            <constraint firstAttribute="trailing" secondItem="RBC-Uc-86i" secondAttribute="trailing" id="XJo-kk-mLz"/>
-                            <constraint firstItem="RBC-Uc-86i" firstAttribute="top" secondItem="9tD-nD-NPT" secondAttribute="bottom" id="pql-Qw-3tO"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Converter" id="wAQ-NO-cjt"/>
-                    <connections>
-                        <outlet property="collectionView" destination="RBC-Uc-86i" id="Tbp-qP-z7K"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7ma-zN-cRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lrE-vR-Tod" secondAttribute="bottom" id="Wt2-bi-u86"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrE-vR-Tod" secondAttribute="trailing" id="bWa-77-atr"/>
+                                    <constraint firstItem="lrE-vR-Tod" firstAttribute="leading" secondItem="WFp-G2-ySb" secondAttribute="leading" id="lNq-ax-hqz"/>
+                                    <constraint firstItem="lrE-vR-Tod" firstAttribute="top" secondItem="WFp-G2-ySb" secondAttribute="top" id="zdx-u3-qKa"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bgView" destination="lrE-vR-Tod" id="pB7-Kx-OJV"/>
+                                    <outlet property="mainLbl" destination="n1f-fj-iTv" id="wSc-St-ye8"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ziE-Mt-Gei" id="a4M-fb-rU4"/>
+                            <outlet property="delegate" destination="ziE-Mt-Gei" id="hmD-5o-AaH"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hp2-LB-Ztz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.5942028985507" y="409.23913043478262"/>
+            <point key="canvasLocation" x="1982.608695652174" y="381.52173913043481"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="L7A-gE-OH3">
@@ -661,8 +708,8 @@
                     <connections>
                         <segue destination="biy-d1-7VT" kind="relationship" relationship="viewControllers" id="sfT-pr-SIK"/>
                         <segue destination="qps-7J-EDj" kind="relationship" relationship="viewControllers" id="OcZ-UP-aIP"/>
-                        <segue destination="mT4-Iy-Pum" kind="relationship" relationship="viewControllers" id="qOh-hk-756"/>
-                        <segue destination="tkc-jM-6wu" kind="relationship" relationship="viewControllers" id="kMn-5d-sMc"/>
+                        <segue destination="gMe-GV-jn4" kind="relationship" relationship="viewControllers" id="vZH-fR-5iZ"/>
+                        <segue destination="tkc-jM-6wu" kind="relationship" relationship="viewControllers" id="Th9-Ys-pOQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddf-vu-vli" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -719,31 +766,6 @@
             </objects>
             <point key="canvasLocation" x="457" y="-281"/>
         </scene>
-        <!--Converter-->
-        <scene sceneID="fWT-y6-G1I">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mT4-Iy-Pum" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Converter" image="converterIcon" id="v2l-Bs-ZTd"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yAf-Qr-FqP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="IrS-l4-cgO" kind="relationship" relationship="rootViewController" id="tik-aO-dvb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w6p-DZ-BCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="457" y="410"/>
-        </scene>
         <!--Definitions-->
         <scene sceneID="aNV-s7-X7x">
             <objects>
@@ -761,7 +783,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16g-RM-qNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="1095"/>
+            <point key="canvasLocation" x="1251" y="1209"/>
         </scene>
         <!--Definitions-->
         <scene sceneID="192-rM-xoU">
@@ -786,7 +808,35 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ty2-l9-FJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457" y="1094"/>
+            <point key="canvasLocation" x="457" y="1209"/>
+        </scene>
+        <!--Converter-->
+        <scene sceneID="vEc-F9-VSI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gMe-GV-jn4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Converter" image="converterIcon" id="teG-lV-xfz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="DPQ-oE-Y2U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <outlet property="delegate" destination="Xbo-XJ-Cqy" id="xuT-g0-8do"/>
+                        <segue destination="cjd-xu-Wc8" kind="relationship" relationship="rootViewController" id="4Vd-6O-ESO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xd0-JY-c3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Xbo-XJ-Cqy" customClass="NavigationControllerDelegate" customModule="chartofnuclides" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="467" y="382"/>
         </scene>
     </scenes>
     <resources>

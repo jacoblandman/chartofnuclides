@@ -8,19 +8,14 @@
 
 import UIKit
 
-class ConverterVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    @IBOutlet weak var collectionView: UICollectionView!
+class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //var unitTypes = [
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        collectionView.delegate = self
-        collectionView.dataSource = self
         
-        setLayoutFor(collectionView, with: collectionView!.frame.size)
+        setLayoutFor(collectionView!, with: collectionView!.frame.size)
         
     }
     
@@ -44,18 +39,24 @@ class ConverterVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return DataService.instance.unitTypes.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UnitCell", for: indexPath) as! ConversionUnitCell
         cell.updateCell(unitName: DataService.instance.unitTypes[indexPath.row])
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
+        performSegue(withIdentifier: "ConverterCalcVC", sender: nil)
+    }
+    
 
 }

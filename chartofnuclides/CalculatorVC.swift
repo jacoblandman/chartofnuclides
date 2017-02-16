@@ -28,10 +28,15 @@ class CalculatorVC: UIViewController, UIPopoverPresentationControllerDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let popupVC = storyboard.instantiateViewController(withIdentifier: "PopupSearch")
         popupVC.modalPresentationStyle = UIModalPresentationStyle.popover
-        popupVC.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds
+        popupVC.popoverPresentationController?.sourceRect = (sender as! UIButton).frame
         popupVC.popoverPresentationController?.sourceView = (sender as! UIButton)
         popupVC.popoverPresentationController?.delegate = self
-        //popupVC.popoverPresentationController?.popoverLayoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        popupVC.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
+        // 623 is height - navHeight - tabHeight
+        popupVC.preferredContentSize = CGSize(width: 414, height: 100)
+        popupVC.popoverPresentationController?.popoverLayoutMargins = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: -10)
+
+        
         present(popupVC, animated: true, completion: nil)
     
     }

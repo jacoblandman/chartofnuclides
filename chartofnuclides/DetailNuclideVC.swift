@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LeoMaskAnimationKit
 
 class DetailNuclideVC: UIViewController {
 
