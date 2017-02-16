@@ -1,0 +1,12 @@
+PODS:
+  - LeoMaskAnimationKit (1.0.1)
+
+DEPENDENCIES:
+  - LeoMaskAnimationKit
+
+SPEC CHECKSUMS:
+  LeoMaskAnimationKit: 8f2d57ea5bc3e07a4f0aa4c20f1bc014c2b7b9b7
+
+PODFILE CHECKSUM: dbbe82c6743916499a079b68f6e3c8ab326e412b
+
+COCOAPODS: 1.1.1

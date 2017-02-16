@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508891488.70005"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.920087"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1412">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CKWaveCollectionViewTransition.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "CKWaveCollectionViewTransition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.921701"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1412">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508891490.297592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.924985"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "3540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CKWaveCollectionViewTransition.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "CKWaveCollectionViewTransition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.926495"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "3540">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508891499.196248"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.929588"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "2732">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CKWaveCollectionViewTransition.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "CKWaveCollectionViewTransition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.93114"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "2732">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508891528.862539"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.934183"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CKWaveCollectionViewTransition.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "CKWaveCollectionViewTransition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.935703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508891529.77402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.938987"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "644">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CKWaveCollectionViewTransition.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "CKWaveCollectionViewTransition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.94054"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "644">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508891548.224061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.943573"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CKWaveCollectionViewTransition.CKWaveCollectionViewAnimator.animateTransition (using : __ObjC.UIViewControllerContextTransitioning) -&gt; ()"
+                  moduleName = "CKWaveCollectionViewTransition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/Pods/CKWaveCollectionViewTransition/Classes/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508891704.945068"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

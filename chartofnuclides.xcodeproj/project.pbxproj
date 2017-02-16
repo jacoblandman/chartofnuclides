@@ -7,11 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46F7820452121C5017851CE1 /* Pods_chartofnuclides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5A563512EE6E4EE9E3FCE /* Pods_chartofnuclides.framework */; };
+		AE193B301E55094700030800 /* ConverterCalcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE193B2F1E55094700030800 /* ConverterCalcCell.swift */; };
 		AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */; };
 		AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */; };
 		AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */; };
-		AE5EDFF71E43FF1B00EEAD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF61E43FF1B00EEAD8C /* Assets.xcassets */; };
 		AE5EDFFA1E43FF1B00EEAD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF81E43FF1B00EEAD8C /* LaunchScreen.storyboard */; };
+		AE776E5C1E53661E00D3ADB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE776E5B1E53661E00D3ADB0 /* Assets.xcassets */; };
+		AE776E611E5367C500D3ADB0 /* InspectableBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E5D1E5367C500D3ADB0 /* InspectableBorderView.swift */; };
+		AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E5E1E5367C500D3ADB0 /* InspectableShadowView.swift */; };
+		AE776E631E5367C500D3ADB0 /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E5F1E5367C500D3ADB0 /* RadialGradientView.swift */; };
+		AE776E661E536B1B00D3ADB0 /* DetailNuclideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E651E536B1B00D3ADB0 /* DetailNuclideVC.swift */; };
+		AE776E6A1E537D2D00D3ADB0 /* LinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E691E537D2D00D3ADB0 /* LinearGradient.swift */; };
+		AE776E6C1E538CAE00D3ADB0 /* PopupSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */; };
+		AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E6D1E538F5800D3ADB0 /* PopupIsotopeCell.swift */; };
+		AE776E701E5390D900D3ADB0 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */; };
+		AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */; };
+		AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */; };
+		AE8A32781E55086E005D3405 /* ConverterCalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A32771E55086E005D3405 /* ConverterCalcVC.swift */; };
 		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
 		AEB5D43F1E44F90600A6D8DD /* nuclides.json in Resources */ = {isa = PBXBuildFile; fileRef = AEB5D43E1E44F90600A6D8DD /* nuclides.json */; };
 		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
@@ -22,16 +35,39 @@
 		AEB5D44C1E45114A00A6D8DD /* IsotopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */; };
 		AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */; };
 		AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */; };
+		AECD264B1E551B8C00282462 /* CKWaveCollectionViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26461E551B8C00282462 /* CKWaveCollectionViewAnimator.swift */; };
+		AECD264C1E551B8C00282462 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26471E551B8C00282462 /* UIApplicationExtension.swift */; };
+		AECD264D1E551B8C00282462 /* UICollectionViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26481E551B8C00282462 /* UICollectionViewControllerExtension.swift */; };
+		AECD264E1E551B8C00282462 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26491E551B8C00282462 /* UICollectionViewExtension.swift */; };
+		AECD264F1E551B8C00282462 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD264A1E551B8C00282462 /* UIViewControllerExtension.swift */; };
+		AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */; };
+		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
+		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70B5A563512EE6E4EE9E3FCE /* Pods_chartofnuclides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chartofnuclides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C9FBFF13B47E5C7710613D7 /* Pods-chartofnuclides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chartofnuclides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.debug.xcconfig"; sourceTree = "<group>"; };
+		AE193B2F1E55094700030800 /* ConverterCalcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcCell.swift; sourceTree = "<group>"; };
+		AE33CB2D1E53DFCC00E86E28 /* chartofnuclides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chartofnuclides-Bridging-Header.h"; sourceTree = "<group>"; };
 		AE5EDFEC1E43FF1B00EEAD8C /* chartofnuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartofnuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		AE5EDFF41E43FF1B00EEAD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AE5EDFF61E43FF1B00EEAD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE5EDFF91E43FF1B00EEAD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE5EDFFB1E43FF1B00EEAD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE776E5B1E53661E00D3ADB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE776E5D1E5367C500D3ADB0 /* InspectableBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectableBorderView.swift; sourceTree = "<group>"; };
+		AE776E5E1E5367C500D3ADB0 /* InspectableShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectableShadowView.swift; sourceTree = "<group>"; };
+		AE776E5F1E5367C500D3ADB0 /* RadialGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
+		AE776E651E536B1B00D3ADB0 /* DetailNuclideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNuclideVC.swift; sourceTree = "<group>"; };
+		AE776E691E537D2D00D3ADB0 /* LinearGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradient.swift; sourceTree = "<group>"; };
+		AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupSearchVC.swift; sourceTree = "<group>"; };
+		AE776E6D1E538F5800D3ADB0 /* PopupIsotopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupIsotopeCell.swift; sourceTree = "<group>"; };
+		AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
+		AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterVC.swift; sourceTree = "<group>"; };
+		AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionUnitCell.swift; sourceTree = "<group>"; };
+		AE8A32771E55086E005D3405 /* ConverterCalcVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcVC.swift; sourceTree = "<group>"; };
 		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		AEB5D43E1E44F90600A6D8DD /* nuclides.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nuclides.json; sourceTree = "<group>"; };
 		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
@@ -42,6 +78,15 @@
 		AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsotopeCell.swift; sourceTree = "<group>"; };
 		AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderlessSearchBar.swift; sourceTree = "<group>"; };
 		AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTabBar.swift; sourceTree = "<group>"; };
+		AECD26461E551B8C00282462 /* CKWaveCollectionViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKWaveCollectionViewAnimator.swift; sourceTree = "<group>"; };
+		AECD26471E551B8C00282462 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		AECD26481E551B8C00282462 /* UICollectionViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewControllerExtension.swift; sourceTree = "<group>"; };
+		AECD26491E551B8C00282462 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		AECD264A1E551B8C00282462 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
+		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
+		E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chartofnuclides.release.xcconfig"; path = "Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +94,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F7820452121C5017851CE1 /* Pods_chartofnuclides.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F2CAF32C1A275BDBA3B0424 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70B5A563512EE6E4EE9E3FCE /* Pods_chartofnuclides.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE5EDFE31E43FF1B00EEAD8C = {
 			isa = PBXGroup;
 			children = (
 				AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */,
 				AE5EDFED1E43FF1B00EEAD8C /* Products */,
+				FA8800B703CCDA3FA6E3F955 /* Pods */,
+				9F2CAF32C1A275BDBA3B0424 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +130,8 @@
 		AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */ = {
 			isa = PBXGroup;
 			children = (
+				AECD26521E551DAF00282462 /* Extensions */,
+				AECD26451E551B7A00282462 /* CKWaveCollectionViewTransition */,
 				AEB5D4421E44FCAC00A6D8DD /* Services */,
 				AE5EE0091E44001000EEAD8C /* Utilities */,
 				AE5EE0041E43FF3400EEAD8C /* Resources */,
@@ -81,7 +139,9 @@
 				AE5EE0021E43FF2600EEAD8C /* View */,
 				AE5EE0011E43FF2100EEAD8C /* Controller */,
 				AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */,
+				AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */,
 				AE5EDFFB1E43FF1B00EEAD8C /* Info.plist */,
+				AE33CB2D1E53DFCC00E86E28 /* chartofnuclides-Bridging-Header.h */,
 			);
 			path = chartofnuclides;
 			sourceTree = "<group>";
@@ -90,6 +150,11 @@
 			isa = PBXGroup;
 			children = (
 				AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */,
+				AE776E651E536B1B00D3ADB0 /* DetailNuclideVC.swift */,
+				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
+				AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */,
+				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
+				AE8A32771E55086E005D3405 /* ConverterCalcVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -97,13 +162,16 @@
 		AE5EE0021E43FF2600EEAD8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AE776E771E53CEEC00D3ADB0 /* Cells */,
+				AE776E5D1E5367C500D3ADB0 /* InspectableBorderView.swift */,
+				AE776E5E1E5367C500D3ADB0 /* InspectableShadowView.swift */,
+				AE776E5F1E5367C500D3ADB0 /* RadialGradientView.swift */,
 				AEB5D4451E450A3500A6D8DD /* ShadowView.swift */,
-				AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */,
-				AE5EDFF81E43FF1B00EEAD8C /* LaunchScreen.storyboard */,
-				AEB5D4491E450CCB00A6D8DD /* ElementCell.swift */,
-				AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */,
 				AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */,
 				AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */,
+				AE776E691E537D2D00D3ADB0 /* LinearGradient.swift */,
+				AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */,
+				AE5EDFF81E43FF1B00EEAD8C /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -120,8 +188,8 @@
 		AE5EE0041E43FF3400EEAD8C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AE776E5B1E53661E00D3ADB0 /* Assets.xcassets */,
 				AEB5D43E1E44F90600A6D8DD /* nuclides.json */,
-				AE5EDFF61E43FF1B00EEAD8C /* Assets.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -134,12 +202,54 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		AE776E771E53CEEC00D3ADB0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AE776E6D1E538F5800D3ADB0 /* PopupIsotopeCell.swift */,
+				AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */,
+				AEB5D4491E450CCB00A6D8DD /* ElementCell.swift */,
+				AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */,
+				AE193B2F1E55094700030800 /* ConverterCalcCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		AEB5D4421E44FCAC00A6D8DD /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				AEB5D4431E44FCC300A6D8DD /* DataService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		AECD26451E551B7A00282462 /* CKWaveCollectionViewTransition */ = {
+			isa = PBXGroup;
+			children = (
+				AECD26461E551B8C00282462 /* CKWaveCollectionViewAnimator.swift */,
+				AECD26471E551B8C00282462 /* UIApplicationExtension.swift */,
+				AECD26481E551B8C00282462 /* UICollectionViewControllerExtension.swift */,
+				AECD26491E551B8C00282462 /* UICollectionViewExtension.swift */,
+				AECD264A1E551B8C00282462 /* UIViewControllerExtension.swift */,
+			);
+			name = CKWaveCollectionViewTransition;
+			sourceTree = "<group>";
+		};
+		AECD26521E551DAF00282462 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */,
+				AECD26551E5520CD00282462 /* StringSubStringExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		FA8800B703CCDA3FA6E3F955 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C9FBFF13B47E5C7710613D7 /* Pods-chartofnuclides.debug.xcconfig */,
+				E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE5EDFFE1E43FF1B00EEAD8C /* Build configuration list for PBXNativeTarget "chartofnuclides" */;
 			buildPhases = (
+				1074099AB6566EEA344B3D14 /* [CP] Check Pods Manifest.lock */,
 				AE5EDFE81E43FF1B00EEAD8C /* Sources */,
 				AE5EDFE91E43FF1B00EEAD8C /* Frameworks */,
 				AE5EDFEA1E43FF1B00EEAD8C /* Resources */,
+				F051FE074C99192680AD87E8 /* [CP] Embed Pods Frameworks */,
+				4DC0D5539665BD34BC455831 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,29 +317,97 @@
 			files = (
 				AEB5D43F1E44F90600A6D8DD /* nuclides.json in Resources */,
 				AE5EDFFA1E43FF1B00EEAD8C /* LaunchScreen.storyboard in Resources */,
-				AE5EDFF71E43FF1B00EEAD8C /* Assets.xcassets in Resources */,
+				AE776E5C1E53661E00D3ADB0 /* Assets.xcassets in Resources */,
 				AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1074099AB6566EEA344B3D14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4DC0D5539665BD34BC455831 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F051FE074C99192680AD87E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AE5EDFE81E43FF1B00EEAD8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE776E701E5390D900D3ADB0 /* CalculatorVC.swift in Sources */,
 				AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
+				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
+				AE8A32781E55086E005D3405 /* ConverterCalcVC.swift in Sources */,
+				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
+				AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */,
+				AECD264D1E551B8C00282462 /* UICollectionViewControllerExtension.swift in Sources */,
+				AECD264B1E551B8C00282462 /* CKWaveCollectionViewAnimator.swift in Sources */,
 				AEB5D4461E450A3500A6D8DD /* ShadowView.swift in Sources */,
+				AE776E611E5367C500D3ADB0 /* InspectableBorderView.swift in Sources */,
+				AECD264F1E551B8C00282462 /* UIViewControllerExtension.swift in Sources */,
+				AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */,
+				AECD264E1E551B8C00282462 /* UICollectionViewExtension.swift in Sources */,
+				AECD264C1E551B8C00282462 /* UIApplicationExtension.swift in Sources */,
 				AEB5D44C1E45114A00A6D8DD /* IsotopeCell.swift in Sources */,
+				AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */,
+				AE776E6A1E537D2D00D3ADB0 /* LinearGradient.swift in Sources */,
+				AE193B301E55094700030800 /* ConverterCalcCell.swift in Sources */,
+				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
+				AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
 				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
 				AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */,
+				AE776E6C1E538CAE00D3ADB0 /* PopupSearchVC.swift in Sources */,
 				AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
+				AE776E661E536B1B00D3ADB0 /* DetailNuclideVC.swift in Sources */,
+				AE776E631E5367C500D3ADB0 /* RadialGradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +528,7 @@
 		};
 		AE5EDFFF1E43FF1B00EEAD8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C9FBFF13B47E5C7710613D7 /* Pods-chartofnuclides.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E294R2UKFW;
@@ -354,12 +536,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SSB.chartofnuclides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chartofnuclides/chartofnuclides-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		AE5EE0001E43FF1B00EEAD8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E294R2UKFW;
@@ -367,6 +551,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SSB.chartofnuclides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chartofnuclides/chartofnuclides-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

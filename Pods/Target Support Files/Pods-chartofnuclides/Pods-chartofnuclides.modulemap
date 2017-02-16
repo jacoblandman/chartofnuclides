@@ -1,0 +1,6 @@
+framework module Pods_chartofnuclides {
+  umbrella header "Pods-chartofnuclides-umbrella.h"
+
+  export *
+  module * { export * }
+}

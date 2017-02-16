@@ -1,0 +1,6 @@
+framework module LeoMaskAnimationKit {
+  umbrella header "LeoMaskAnimationKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
