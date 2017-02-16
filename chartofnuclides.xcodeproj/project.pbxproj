@@ -43,6 +43,12 @@
 		AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
+		AECD26581E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */; };
+		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
+		AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216B1E563B9C00FA4D4C /* MZMaskZoomTransition.m */; };
+		AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216D1E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m */; };
+		AECF21731E563B9C00FA4D4C /* UIViewController+MZContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216F1E563B9C00FA4D4C /* UIViewController+MZContentViewController.m */; };
+		AECF21761E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +92,16 @@
 		AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
+		AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlowLayoutExtension.swift; sourceTree = "<group>"; };
+		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
+		AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGradientCircleLayer.m; sourceTree = "<group>"; };
+		AECF216A1E563B9C00FA4D4C /* MZMaskZoomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMaskZoomTransition.h; sourceTree = "<group>"; };
+		AECF216B1E563B9C00FA4D4C /* MZMaskZoomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMaskZoomTransition.m; sourceTree = "<group>"; };
+		AECF216C1E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMaskZoomTransitioningDelegate.h; sourceTree = "<group>"; };
+		AECF216D1E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMaskZoomTransitioningDelegate.m; sourceTree = "<group>"; };
+		AECF216E1E563B9C00FA4D4C /* UIViewController+MZContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MZContentViewController.h"; sourceTree = "<group>"; };
+		AECF216F1E563B9C00FA4D4C /* UIViewController+MZContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MZContentViewController.m"; sourceTree = "<group>"; };
+		AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZMaskZoomTransitionPresentedViewControllerProtocol.swift; sourceTree = "<group>"; };
 		E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chartofnuclides.release.xcconfig"; path = "Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +146,7 @@
 		AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */ = {
 			isa = PBXGroup;
 			children = (
+				AECF21671E563B8800FA4D4C /* MaskZoomTransition */,
 				AECD26521E551DAF00282462 /* Extensions */,
 				AECD26451E551B7A00282462 /* CKWaveCollectionViewTransition */,
 				AEB5D4421E44FCAC00A6D8DD /* Services */,
@@ -151,8 +168,8 @@
 			children = (
 				AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */,
 				AE776E651E536B1B00D3ADB0 /* DetailNuclideVC.swift */,
-				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
 				AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */,
+				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
 				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
 				AE8A32771E55086E005D3405 /* ConverterCalcVC.swift */,
 			);
@@ -239,8 +256,33 @@
 			children = (
 				AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */,
 				AECD26551E5520CD00282462 /* StringSubStringExtension.swift */,
+				AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		AECF21671E563B8800FA4D4C /* MaskZoomTransition */ = {
+			isa = PBXGroup;
+			children = (
+				AECF21741E56443F00FA4D4C /* protocol */,
+				AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */,
+				AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */,
+				AECF216A1E563B9C00FA4D4C /* MZMaskZoomTransition.h */,
+				AECF216B1E563B9C00FA4D4C /* MZMaskZoomTransition.m */,
+				AECF216C1E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.h */,
+				AECF216D1E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m */,
+				AECF216E1E563B9C00FA4D4C /* UIViewController+MZContentViewController.h */,
+				AECF216F1E563B9C00FA4D4C /* UIViewController+MZContentViewController.m */,
+			);
+			name = MaskZoomTransition;
+			sourceTree = "<group>";
+		};
+		AECF21741E56443F00FA4D4C /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */,
+			);
+			name = protocol;
 			sourceTree = "<group>";
 		};
 		FA8800B703CCDA3FA6E3F955 /* Pods */ = {
@@ -379,6 +421,7 @@
 			files = (
 				AE776E701E5390D900D3ADB0 /* CalculatorVC.swift in Sources */,
 				AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */,
+				AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
@@ -390,21 +433,26 @@
 				AECD264B1E551B8C00282462 /* CKWaveCollectionViewAnimator.swift in Sources */,
 				AEB5D4461E450A3500A6D8DD /* ShadowView.swift in Sources */,
 				AE776E611E5367C500D3ADB0 /* InspectableBorderView.swift in Sources */,
+				AECF21761E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift in Sources */,
 				AECD264F1E551B8C00282462 /* UIViewControllerExtension.swift in Sources */,
 				AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */,
 				AECD264E1E551B8C00282462 /* UICollectionViewExtension.swift in Sources */,
 				AECD264C1E551B8C00282462 /* UIApplicationExtension.swift in Sources */,
 				AEB5D44C1E45114A00A6D8DD /* IsotopeCell.swift in Sources */,
+				AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */,
 				AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */,
 				AE776E6A1E537D2D00D3ADB0 /* LinearGradient.swift in Sources */,
 				AE193B301E55094700030800 /* ConverterCalcCell.swift in Sources */,
+				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
 				AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
 				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
 				AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */,
 				AE776E6C1E538CAE00D3ADB0 /* PopupSearchVC.swift in Sources */,
+				AECF21731E563B9C00FA4D4C /* UIViewController+MZContentViewController.m in Sources */,
 				AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */,
+				AECD26581E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
 				AE776E661E536B1B00D3ADB0 /* DetailNuclideVC.swift in Sources */,
 				AE776E631E5367C500D3ADB0 /* RadialGradientView.swift in Sources */,

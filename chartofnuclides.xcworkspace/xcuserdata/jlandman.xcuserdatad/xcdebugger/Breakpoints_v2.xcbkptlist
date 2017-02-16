@@ -291,5 +291,117 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chartofnuclides/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508966197.719729"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "setNewFrameToCells(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.(setNewFrameToCells in _A35F3BF9BDCA6F742047107809D47214) (__ObjC.UICollectionViewController) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/chartofnuclides/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508954462.442473"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "chartofnuclides.CKWaveCollectionViewAnimator.(setNewFrameToCells in _A35F3BF9BDCA6F742047107809D47214) (__ObjC.UICollectionViewController) -&gt; ()"
+                  moduleName = "chartofnuclides"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlandman/Library/Mobile%20Documents/com~apple~CloudDocs/Projects/iOS/chartofnuclides/chartofnuclides/CKWaveCollectionViewAnimator.swift"
+                  timestampString = "508954462.444025"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "844">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chartofnuclides/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508966569.928047"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "enumerateVisibleCellsAndAddAnimations(_:sourceCollectionViewController:destinationCollectionViewController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chartofnuclides/CKWaveCollectionViewAnimator.swift"
+            timestampString = "508966569.928047"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "enumerateVisibleCellsAndAddAnimations(_:sourceCollectionViewController:destinationCollectionViewController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chartofnuclides/MZMaskZoomTransitioningDelegate.m"
+            timestampString = "508971829.331353"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-maskZoomTransitionWithViewController:presenting:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chartofnuclides/MainVC.swift"
+            timestampString = "508973881.434651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

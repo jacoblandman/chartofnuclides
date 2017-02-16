@@ -7,5 +7,7 @@ target 'chartofnuclides' do
 
   # Pods for chartofnuclides
   pod 'LeoMaskAnimationKit'
+  pod 'RAMAnimatedTabBarController', "~> 2.0.13"
+
 
 end
