@@ -16,7 +16,7 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
     
     internal var animationDuration: Double! = 1.0
     internal let kCellAnimSmallDelta: Double! = 0.01
-    internal let kCellAnimBigDelta: Double! = 0.03
+    internal let kCellAnimBigDelta: Double! = 0.01
     
     
     fileprivate let kTopCellLayerZIndex: CGFloat! = 1000.0
@@ -73,13 +73,15 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
             //fake empty animation
             }) { (finished) -> Void in
                 
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                UIView.animate(withDuration: 0.4, animations: { () -> Void in
                     
                     toViewController.view.alpha = 1.0
+                    //sourceCollectionViewController.view.alpha = 0.0
                 })
                 
                 UIView.animate(withDuration: self.animationDuration, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
                     
+                    //toViewController.view.alpha = 1.0
                     toViewController.view.backgroundColor = destinationViewControllerViewBackgroundColor
                     
                     destinationCollectionViewController.collectionView?.backgroundColor = destinationCollectionViewBackgroundColor
@@ -95,12 +97,18 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
     
     fileprivate func reversedCollectionViewTransition(_ toViewController: UIViewController, fromViewController: UIViewController, transitionContext: UIViewControllerContextTransitioning, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: UICollectionViewController)
     {
+        
+        UIView.animate(withDuration: self.animationDuration, delay: self.animationDuration, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            fromViewController.view.alpha = 0.0
+        }, completion: nil)
+        
         UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
             
             //fake empty animation
             }) { (finished) -> Void in
                 
                 UIView.animate(withDuration: self.animationDuration, animations: { () -> Void in
+                    
                     
                     fromViewController.view.backgroundColor = UIColor.clear
                     sourceCollectionViewController.collectionView!.backgroundColor = UIColor.clear
@@ -159,10 +167,15 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
     fileprivate func addCellAnimations(_ animateFromPoint: CGPoint, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: UICollectionViewController, cell: UICollectionViewCell, fromCellColor: UIColor, cellIndexPath: IndexPath, rowsAndColumns: (rows: Int, columns: Int)) {
         
         //copy cell color
-        let cellOriginalColor = cell.backgroundColor
-        
         //temporary change cell color to selected cell background color
-        cell.backgroundColor = fromCellColor
+        var cellOriginalColor: UIColor!
+        if let cell = cell as? ConverterCalcCell {
+            cellOriginalColor = cell.bgView.backgroundColor
+            cell.bgView.backgroundColor = fromCellColor
+        } else {
+            cellOriginalColor = cell.backgroundColor
+            cell.backgroundColor = fromCellColor
+        }
         
         let source = sourceCollectionViewController.collectionView
         let destinationVC = destinationCollectionViewController as! ConverterCalcVC
@@ -189,7 +202,11 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
             
                 UIView.addKeyframe(withRelativeStartTime: 0.0 + (self.kCellAnimBigDelta*Double((cellIndexPath as NSIndexPath).row % rowsAndColumns.columns)), relativeDuration: relativeDuration, animations: { () -> Void in
                 
-                    cell.backgroundColor = cellOriginalColor
+                    if let cell = cell as? ConverterCalcCell {
+                        cell.bgView.backgroundColor = cellOriginalColor
+                    } else {
+                        cell.backgroundColor = cellOriginalColor
+                    }
                 })
             
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.1, animations: { () -> Void in
@@ -232,7 +249,7 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
                 if let cell = destinationCollectionViewController.collectionView?.cellForItem(at: index),
                 
                     let layoutAttributes = destinationCollectionViewController.collectionView?.layoutAttributesForItem(at: index) {
-            
+        
                         cell.frame = layoutAttributes.frame
                 }
             }
@@ -248,18 +265,23 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
             ip1.row < ip2.row
         })
         
+        sourceIndexPathsForVisibleCells = sourceIndexPathsForVisibleCells?.sorted(by: { (ip1, ip2) -> Bool in
+            ip1.section < ip2.section
+        })
+        
         let rowsAndColumns = destinationCollectionViewController.collectionView!.numberOfVisibleRowsAndColumn()
         
         for (idx, index) in sourceIndexPathsForVisibleCells!.reversed().enumerated() {
-            
+
             if let cell = sourceCollectionViewController.collectionView?.cellForItem(at: index),
                 let _ = sourceCollectionViewController.collectionView?.layoutAttributesForItem(at: index),
                 let lastSelectedCell = destinationCollectionViewController.collectionView?.cellForItem(at: destinationCollectionViewController.selectedIndexPath as IndexPath),
                 let flowLayout = destinationCollectionViewController.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-                    
+                
+                    let fromCellSize = (sourceCollectionViewController as! ConverterCalcVC).cellSize(for: index)
                     cell.layer.zPosition = kTopCellLayerZIndex - CGFloat(idx*self.kDeltaBetweenCellLayers)
-                    
-                    self.addCellReversedAnimations(destinationPoint, cell: cell, cellIndex: idx, cellSize: flowLayout.itemSize, cellBackgroundColor: lastSelectedCell.backgroundColor!, rowsAndColumns: rowsAndColumns)
+
+                    self.addCellReversedAnimations(destinationPoint, cell: cell, cellIndex: idx, toCellSize: flowLayout.itemSize, fromCellSize: fromCellSize, cellBackgroundColor: lastSelectedCell.backgroundColor!, rowsAndColumns: rowsAndColumns, indexPath: index)
             }
         }
     }
@@ -274,7 +296,8 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         destinationVC.view.alpha = 0.0
     }
 
-    fileprivate func addCellReversedAnimations(_ animateToPoint: CGPoint, cell: UICollectionViewCell, cellIndex: Int, cellSize: CGSize, cellBackgroundColor: UIColor, rowsAndColumns: (rows: Int, columns: Int)) {
+    fileprivate func addCellReversedAnimations(_ animateToPoint: CGPoint, cell: UICollectionViewCell, cellIndex: Int, toCellSize: CGSize, fromCellSize: CGSize, cellBackgroundColor: UIColor, rowsAndColumns: (rows: Int, columns: Int), indexPath: IndexPath) {
+
         
         let relativeStartTime = self.kCellAnimBigDelta * Double(cellIndex % rowsAndColumns.columns)
         var relativeDuration = self.animationDuration - (self.kCellAnimSmallDelta * Double(cellIndex))
@@ -285,14 +308,23 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         
         UIView.animateKeyframes(withDuration: self.animationDuration, delay: 0, options: UIViewKeyframeAnimationOptions(), animations: { () -> Void in
             
-            UIView.addKeyframe(withRelativeStartTime: 0.0 + (self.kCellAnimSmallDelta * Double(cellIndex)), relativeDuration: self.animationDuration - (self.kCellAnimSmallDelta * Double(cellIndex)), animations: { () -> Void in
+            UIView.addKeyframe(withRelativeStartTime: 0.0 + (self.kCellAnimSmallDelta * Double(cellIndex)), relativeDuration: relativeDuration, animations: { () -> Void in
                 
-                cell.backgroundColor = cellBackgroundColor
+                if let cell = cell as? ConverterCalcCell {
+                    cell.bgView.backgroundColor = UIColor.clear
+                    cell.mainLbl.alpha = 0.0
+                }
+                
+                cell.backgroundColor = UIColor.clear
             })
             
             UIView.addKeyframe(withRelativeStartTime: relativeStartTime, relativeDuration: relativeDuration, animations: { () -> Void in
-                
-                cell.frame = self.centerPointWithSizeToFrame(animateToPoint, size: cellSize)
+
+                let cell = cell as! ConverterCalcCell
+                let newFrame = self.centerPointWithSizeToFrame(animateToPoint, size: toCellSize)
+                cell.frame = self.centerPointWithSizeToFrame(animateToPoint, size: toCellSize)
+                cell.contentView.frame = CGRect(x: 0, y: 0, width: newFrame.width, height: newFrame.height)
+                cell.layoutIfNeeded()
             })
             
             }, completion: { (finished) -> Void in

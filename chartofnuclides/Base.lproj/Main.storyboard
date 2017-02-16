@@ -645,7 +645,7 @@
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ConverterCalcCell" id="WFp-G2-ySb" customClass="ConverterCalcCell" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="95" y="0.0" width="224" height="188"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="224" height="188"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -653,32 +653,34 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrE-vR-Tod">
                                             <rect key="frame" x="0.0" y="0.0" width="224" height="188"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1f-fj-iTv">
-                                                    <rect key="frame" x="91" y="84" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1f-fj-iTv">
+                                                    <rect key="frame" x="10" y="0.0" width="204" height="188"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerX" secondItem="lrE-vR-Tod" secondAttribute="centerX" id="9a0-1m-8ym"/>
-                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerY" secondItem="lrE-vR-Tod" secondAttribute="centerY" id="aq3-tq-UKw"/>
-                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerY" secondItem="lrE-vR-Tod" secondAttribute="centerY" id="qah-tX-vFI"/>
-                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="centerX" secondItem="lrE-vR-Tod" secondAttribute="centerX" id="tB3-ji-U0o"/>
+                                                <constraint firstAttribute="trailing" secondItem="n1f-fj-iTv" secondAttribute="trailing" constant="10" id="LEL-J4-g1e"/>
+                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="top" secondItem="lrE-vR-Tod" secondAttribute="top" id="Sfn-zz-8M5"/>
+                                                <constraint firstAttribute="bottom" secondItem="n1f-fj-iTv" secondAttribute="bottom" id="UAp-ws-3R7"/>
+                                                <constraint firstItem="n1f-fj-iTv" firstAttribute="leading" secondItem="lrE-vR-Tod" secondAttribute="leading" constant="10" id="XBx-8l-fPM"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="lrE-vR-Tod" secondAttribute="bottom" id="Wt2-bi-u86"/>
-                                    <constraint firstAttribute="trailing" secondItem="lrE-vR-Tod" secondAttribute="trailing" id="bWa-77-atr"/>
-                                    <constraint firstItem="lrE-vR-Tod" firstAttribute="leading" secondItem="WFp-G2-ySb" secondAttribute="leading" id="lNq-ax-hqz"/>
-                                    <constraint firstItem="lrE-vR-Tod" firstAttribute="top" secondItem="WFp-G2-ySb" secondAttribute="top" id="zdx-u3-qKa"/>
+                                    <constraint firstItem="lrE-vR-Tod" firstAttribute="leading" secondItem="WFp-G2-ySb" secondAttribute="leading" id="F7b-5D-B6M"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrE-vR-Tod" secondAttribute="trailing" id="LwQ-Nc-uc2"/>
+                                    <constraint firstItem="lrE-vR-Tod" firstAttribute="top" secondItem="WFp-G2-ySb" secondAttribute="top" id="M4M-PP-8mg"/>
+                                    <constraint firstAttribute="bottom" secondItem="lrE-vR-Tod" secondAttribute="bottom" id="a3p-F2-VwX"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="bgView" destination="lrE-vR-Tod" id="pB7-Kx-OJV"/>
+                                    <outlet property="lblLeadingConstraint" destination="XBx-8l-fPM" id="nF5-x6-cg4"/>
+                                    <outlet property="lblTrailingConstraint" destination="LEL-J4-g1e" id="k2C-74-0PI"/>
                                     <outlet property="mainLbl" destination="n1f-fj-iTv" id="wSc-St-ye8"/>
                                 </connections>
                             </collectionViewCell>
