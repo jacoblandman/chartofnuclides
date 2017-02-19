@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MZMaskZoomTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@interface MZMaskZoomTransition : NSObject <UIViewControllerAnimatedTransitioning, CAAnimationDelegate>
 
 /**
  * Small view to transition from.

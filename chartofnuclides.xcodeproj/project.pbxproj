@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		46F7820452121C5017851CE1 /* Pods_chartofnuclides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5A563512EE6E4EE9E3FCE /* Pods_chartofnuclides.framework */; };
 		AE193B301E55094700030800 /* ConverterCalcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE193B2F1E55094700030800 /* ConverterCalcCell.swift */; };
+		AE478B1F1E58E496002F8E5F /* LinearGradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE478B1E1E58E496002F8E5F /* LinearGradientExtension.swift */; };
 		AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */; };
 		AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */; };
 		AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */; };
@@ -49,6 +50,9 @@
 		AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216D1E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m */; };
 		AECF21731E563B9C00FA4D4C /* UIViewController+MZContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216F1E563B9C00FA4D4C /* UIViewController+MZContentViewController.m */; };
 		AECF21761E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */; };
+		AEF0AA301E58F8380061F998 /* Durations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0AA2B1E58F8380061F998 /* Durations.swift */; };
+		AEF0AA321E58F8380061F998 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0AA2E1E58F8380061F998 /* GradientView.swift */; };
+		AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,7 @@
 		7C9FBFF13B47E5C7710613D7 /* Pods-chartofnuclides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chartofnuclides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.debug.xcconfig"; sourceTree = "<group>"; };
 		AE193B2F1E55094700030800 /* ConverterCalcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcCell.swift; sourceTree = "<group>"; };
 		AE33CB2D1E53DFCC00E86E28 /* chartofnuclides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chartofnuclides-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE478B1E1E58E496002F8E5F /* LinearGradientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientExtension.swift; sourceTree = "<group>"; };
 		AE5EDFEC1E43FF1B00EEAD8C /* chartofnuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartofnuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -102,6 +107,9 @@
 		AECF216E1E563B9C00FA4D4C /* UIViewController+MZContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MZContentViewController.h"; sourceTree = "<group>"; };
 		AECF216F1E563B9C00FA4D4C /* UIViewController+MZContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MZContentViewController.m"; sourceTree = "<group>"; };
 		AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZMaskZoomTransitionPresentedViewControllerProtocol.swift; sourceTree = "<group>"; };
+		AEF0AA2B1E58F8380061F998 /* Durations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Durations.swift; sourceTree = "<group>"; };
+		AEF0AA2E1E58F8380061F998 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Initializers.swift"; sourceTree = "<group>"; };
 		E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chartofnuclides.release.xcconfig"; path = "Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +133,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE478B191E58D54D002F8E5F /* Pods-Manual */ = {
+			isa = PBXGroup;
+			children = (
+				AEF0AA2A1E58F8200061F998 /* GradientLoadingBar */,
+				AECD26451E551B7A00282462 /* CKWaveCollectionViewTransition */,
+				AECF21671E563B8800FA4D4C /* MaskZoomTransition */,
+			);
+			name = "Pods-Manual";
+			sourceTree = "<group>";
+		};
 		AE5EDFE31E43FF1B00EEAD8C = {
 			isa = PBXGroup;
 			children = (
@@ -146,9 +164,8 @@
 		AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */ = {
 			isa = PBXGroup;
 			children = (
-				AECF21671E563B8800FA4D4C /* MaskZoomTransition */,
+				AE478B191E58D54D002F8E5F /* Pods-Manual */,
 				AECD26521E551DAF00282462 /* Extensions */,
-				AECD26451E551B7A00282462 /* CKWaveCollectionViewTransition */,
 				AEB5D4421E44FCAC00A6D8DD /* Services */,
 				AE5EE0091E44001000EEAD8C /* Utilities */,
 				AE5EE0041E43FF3400EEAD8C /* Resources */,
@@ -182,6 +199,7 @@
 				AE776E771E53CEEC00D3ADB0 /* Cells */,
 				AE776E5D1E5367C500D3ADB0 /* InspectableBorderView.swift */,
 				AE776E5E1E5367C500D3ADB0 /* InspectableShadowView.swift */,
+				AEF0AA2E1E58F8380061F998 /* GradientView.swift */,
 				AE776E5F1E5367C500D3ADB0 /* RadialGradientView.swift */,
 				AEB5D4451E450A3500A6D8DD /* ShadowView.swift */,
 				AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */,
@@ -254,9 +272,11 @@
 		AECD26521E551DAF00282462 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */,
 				AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */,
 				AECD26551E5520CD00282462 /* StringSubStringExtension.swift */,
 				AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */,
+				AE478B1E1E58E496002F8E5F /* LinearGradientExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +303,14 @@
 				AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */,
 			);
 			name = protocol;
+			sourceTree = "<group>";
+		};
+		AEF0AA2A1E58F8200061F998 /* GradientLoadingBar */ = {
+			isa = PBXGroup;
+			children = (
+				AEF0AA2B1E58F8380061F998 /* Durations.swift */,
+			);
+			name = GradientLoadingBar;
 			sourceTree = "<group>";
 		};
 		FA8800B703CCDA3FA6E3F955 /* Pods */ = {
@@ -421,10 +449,13 @@
 			files = (
 				AE776E701E5390D900D3ADB0 /* CalculatorVC.swift in Sources */,
 				AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */,
+				AEF0AA301E58F8380061F998 /* Durations.swift in Sources */,
+				AEF0AA321E58F8380061F998 /* GradientView.swift in Sources */,
 				AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
+				AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */,
 				AE8A32781E55086E005D3405 /* ConverterCalcVC.swift in Sources */,
 				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
@@ -445,6 +476,7 @@
 				AE193B301E55094700030800 /* ConverterCalcCell.swift in Sources */,
 				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
+				AE478B1F1E58E496002F8E5F /* LinearGradientExtension.swift in Sources */,
 				AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
 				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
@@ -483,7 +515,9 @@
 /* Begin XCBuildConfiguration section */
 		AE5EDFFC1E43FF1B00EEAD8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C9FBFF13B47E5C7710613D7 /* Pods-chartofnuclides.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -533,7 +567,9 @@
 		};
 		AE5EDFFD1E43FF1B00EEAD8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -578,6 +614,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C9FBFF13B47E5C7710613D7 /* Pods-chartofnuclides.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E294R2UKFW;
 				INFOPLIST_FILE = chartofnuclides/Info.plist;
@@ -593,6 +630,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E294R2UKFW;
 				INFOPLIST_FILE = chartofnuclides/Info.plist;

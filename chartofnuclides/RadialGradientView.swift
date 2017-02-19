@@ -22,7 +22,7 @@ class RadialGradientView: InspectableShadowView {
         
         let gradient = CGGradient(colorsSpace: nil, colors: colors, locations: nil)
         
-        UIGraphicsGetCurrentContext()!.drawRadialGradient(gradient!, startCenter: centerPoint, startRadius: innerRadius, endCenter: centerPoint, endRadius: outerRadius, options: CGGradientDrawingOptions.drawsAfterEndLocation)
+        UIGraphicsGetCurrentContext()!.drawRadialGradient(gradient!, startCenter: centerPoint, startRadius: innerRadius, endCenter: centerPoint, endRadius: outerRadius, options: CGGradientDrawingOptions.drawsBeforeStartLocation)
     }
     
     

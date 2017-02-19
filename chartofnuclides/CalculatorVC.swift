@@ -13,6 +13,7 @@ class CalculatorVC: UIViewController, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var solutionView: InspectableBorderView!
     @IBOutlet weak var solutionLbl: UILabel!
     @IBOutlet weak var radiationSymbolImg: UIImageView!
+    @IBOutlet weak var calculateBtn: RadialGradientView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

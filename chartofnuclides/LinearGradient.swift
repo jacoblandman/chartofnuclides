@@ -7,21 +7,28 @@
 //
 
 import UIKit
+//import GBGradientView
+
 
 @IBDesignable
 class LinearGradient: UIView {
-
+    
     @IBInspectable var firstColor: UIColor = UIColor.clear
     @IBInspectable var secondColor: UIColor = UIColor.clear
-    @IBInspectable var startPoint: CGPoint = CGPoint.zero
-    @IBInspectable var endPoint: CGPoint = CGPoint.zero
+    @IBInspectable var thirdColor: UIColor = UIColor.clear
     
-    override func draw(_ rect: CGRect) {
-        let colors = [firstColor.cgColor, secondColor.cgColor] as CFArray
-        
-        let gradient = CGGradient(colorsSpace: nil, colors: colors, locations: nil)
-        
-        UIGraphicsGetCurrentContext()!.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: CGGradientDrawingOptions.drawsAfterEndLocation)
+    override class var layerClass: AnyClass {
+        return CAGradientLayer.self
     }
+    
+    override func layoutSubviews() {
+        print(self.frame.width)
+        (layer as! CAGradientLayer).colors = [firstColor.cgColor, secondColor.cgColor, thirdColor.cgColor]
+        (layer as! CAGradientLayer).locations = [0 , 0.5, 1]
+        (layer as! CAGradientLayer).startPoint = CGPoint(x: 0.0, y: 0.5)
+        (layer as! CAGradientLayer).endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+    }
+    
     
 }

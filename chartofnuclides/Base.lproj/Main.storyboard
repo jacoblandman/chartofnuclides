@@ -27,7 +27,7 @@
                                 <rect key="frame" x="5" y="49" width="404" height="569"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ElementCell" rowHeight="130" id="cJ1-5q-HTP" customClass="ElementCell" customModule="chartofnuclides" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ElementCell" rowHeight="130" id="cJ1-5q-HTP" customClass="ElementCell" customModule="chartofnuclides" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="404" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJ1-5q-HTP" id="SCf-J3-6hw">
@@ -201,22 +201,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJx-jp-a8w" userLabel="Linear Gradient View" customClass="LinearGradient" customModule="chartofnuclides" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-71-8Mm" customClass="GradientView" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="651" width="414" height="85"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDk-yq-Mai" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
-                                        <rect key="frame" x="182" y="17.666666666666629" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="G6F-MI-3iW"/>
-                                            <constraint firstAttribute="width" constant="50" id="kqj-jW-tMC"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
-                                                <real key="value" value="25"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tva-O2-kGS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                         <constraints>
@@ -231,50 +218,35 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="gDk-yq-Mai" firstAttribute="centerY" secondItem="kJx-jp-a8w" secondAttribute="centerY" id="99N-ce-TEu"/>
-                                    <constraint firstAttribute="height" constant="85" id="Adf-xU-99M"/>
-                                    <constraint firstAttribute="bottom" secondItem="tva-O2-kGS" secondAttribute="bottom" id="Goj-Df-Svk"/>
-                                    <constraint firstItem="gDk-yq-Mai" firstAttribute="centerX" secondItem="kJx-jp-a8w" secondAttribute="centerX" id="VN2-yI-at5"/>
-                                    <constraint firstItem="tva-O2-kGS" firstAttribute="leading" secondItem="kJx-jp-a8w" secondAttribute="leading" id="r1F-3Z-0Mf"/>
-                                    <constraint firstAttribute="trailing" secondItem="tva-O2-kGS" secondAttribute="trailing" id="zxY-dt-cBx"/>
+                                    <constraint firstAttribute="bottom" secondItem="tva-O2-kGS" secondAttribute="bottom" id="84c-jq-aY6"/>
+                                    <constraint firstItem="tva-O2-kGS" firstAttribute="leading" secondItem="mUC-71-8Mm" secondAttribute="leading" id="AeS-Zf-Pou"/>
+                                    <constraint firstItem="tva-O2-kGS" firstAttribute="top" secondItem="mUC-71-8Mm" secondAttribute="top" id="GuN-vu-Kd1"/>
+                                    <constraint firstAttribute="trailing" secondItem="tva-O2-kGS" secondAttribute="trailing" id="WR1-qH-HOv"/>
+                                    <constraint firstAttribute="height" constant="85" id="sex-QM-C2U"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                        <color key="value" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                        <point key="value" x="0.0" y="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                        <point key="value" x="300" y="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6md-br-kn8" firstAttribute="centerX" secondItem="Y46-oo-loD" secondAttribute="centerX" id="5jb-Pz-SgK"/>
                             <constraint firstItem="6md-br-kn8" firstAttribute="top" secondItem="CsE-Xe-shm" secondAttribute="bottom" constant="100" id="86w-4h-qoE"/>
-                            <constraint firstItem="kJx-jp-a8w" firstAttribute="leading" secondItem="Y46-oo-loD" secondAttribute="leading" id="UYn-rQ-JuQ"/>
-                            <constraint firstAttribute="trailing" secondItem="kJx-jp-a8w" secondAttribute="trailing" id="pRe-gL-BOJ"/>
-                            <constraint firstItem="CZM-og-zyQ" firstAttribute="top" secondItem="kJx-jp-a8w" secondAttribute="bottom" id="vud-yW-anv"/>
+                            <constraint firstItem="CZM-og-zyQ" firstAttribute="top" secondItem="mUC-71-8Mm" secondAttribute="bottom" id="Kfd-ge-aWb"/>
+                            <constraint firstItem="mUC-71-8Mm" firstAttribute="leading" secondItem="Y46-oo-loD" secondAttribute="leading" id="N76-jl-NR6"/>
+                            <constraint firstAttribute="trailing" secondItem="mUC-71-8Mm" secondAttribute="trailing" id="ur9-sY-hIY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="IsotopeView" destination="6md-br-kn8" id="ajx-il-RLb"/>
-                        <outlet property="gradientView" destination="kJx-jp-a8w" id="8uI-IH-G6g"/>
-                        <outlet property="mask" destination="gDk-yq-Mai" id="YyJ-i8-ewf"/>
+                        <outlet property="doneBtn" destination="tva-O2-kGS" id="cfN-19-y0y"/>
+                        <outlet property="gradientViewBg" destination="mUC-71-8Mm" id="0Nw-bE-JgM"/>
                         <outlet property="nameLbl" destination="fWA-qr-8FJ" id="Fyj-zg-ZxX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ga-x8-MNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2003" y="-968"/>
+            <point key="canvasLocation" x="2002.8985507246377" y="-968.47826086956525"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="JZy-oT-jlw">
@@ -393,7 +365,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="rw9-W3-aVU" firstAttribute="leading" secondItem="5c2-Us-ARg" secondAttribute="leading" id="0UY-v0-eVf"/>
                                     <constraint firstAttribute="bottom" secondItem="rw9-W3-aVU" secondAttribute="bottom" id="0zv-kn-xAl"/>
@@ -498,6 +469,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Calculator" id="0ve-ib-0e2"/>
                     <connections>
+                        <outlet property="calculateBtn" destination="5c2-Us-ARg" id="q6J-QG-0Gf"/>
                         <outlet property="radiationSymbolImg" destination="YbF-z3-H8K" id="NZc-zJ-iYI"/>
                         <outlet property="solutionLbl" destination="bW6-Jq-Mkx" id="nft-n8-iW7"/>
                         <outlet property="solutionView" destination="IGn-6A-aqa" id="urt-cz-dd4"/>
