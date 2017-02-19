@@ -59,7 +59,7 @@ class ConverterCalcVC: UICollectionViewController, UICollectionViewDelegateFlowL
             
             let cellHeight = (0.45*height - 2 * spacing) / 2
             if indexPath.row == 0 || indexPath.row == 2 {
-                let cellWidth = (width - 1 * spacing) / 3
+                let cellWidth = (width - 2 * spacing) / 3
                 return CGSize(width: cellWidth, height: cellHeight)
             } else {
                 let cellWidth = 2 * (width - 1 * spacing) / 3
