@@ -30,8 +30,16 @@ class LinearGradient: UIView {
         (layer as! CAGradientLayer).locations = [0 , 0.5, 1]
         (layer as! CAGradientLayer).startPoint = CGPoint(x: 0.0, y: 0.5)
         (layer as! CAGradientLayer).endPoint = CGPoint(x: 1.0, y: 0.5)
-        
     }
     
     
+    
+}
+
+extension LinearGradient {
+    func createGradientWithColors(from color1: UIColor, to color2: UIColor) {
+        self.firstColor = color1
+        self.secondColor = color2
+        self.layoutSubviews()
+    }
 }

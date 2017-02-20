@@ -49,6 +49,23 @@ class ConverterCalcVC: UICollectionViewController, UICollectionViewDelegateFlowL
         return cellSize(for: indexPath)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ConverterCalcCell {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+                cell.highlight()
+            }, completion: nil)
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ConverterCalcCell {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+                cell.unhighlight()
+            }, completion: nil)
+        }
+    }
+    
+    
     func cellSize(for indexPath: IndexPath) -> CGSize {
         // 64 is nav and status bar height?
         let height = view.frame.height
@@ -72,9 +89,4 @@ class ConverterCalcVC: UICollectionViewController, UICollectionViewDelegateFlowL
             return CGSize(width: cellWidth, height: cellHeight)
         }
     }
-    
-
-    
-
-
 }

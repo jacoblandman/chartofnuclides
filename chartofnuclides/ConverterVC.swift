@@ -58,5 +58,21 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
         performSegue(withIdentifier: "ConverterCalcVC", sender: nil)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ConversionUnitCell {
+            UIView.animate(withDuration: 0.2) { [] in
+                cell.highlight()
+            }
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ConversionUnitCell {
+            UIView.animate(withDuration: 0.2) { [] in
+                cell.unhighlight()
+            }
+        }
+    }
+    
 
 }

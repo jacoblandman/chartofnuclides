@@ -9,4 +9,4 @@
 import UIKit
 
 let SHADOW_GRAY: CGFloat = 155.0 / 255.0
-let GREEN_COLOR: UIColor = UIColor(red: 57/255, green: 210/255, blue: 148/255, alpha: 1.0)
+let GREEN_COLOR: UIColor = UIColor(hexString: "30DF96")

@@ -13,7 +13,7 @@ import LeoMaskAnimationKit
 class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var doneBtn: UIButton!
-    @IBOutlet weak var gradientViewBg: GradientView!
+    @IBOutlet weak var gradientViewBg: LinearGradient!
     @IBOutlet weak var IsotopeView: InspectableBorderView!
     @IBOutlet weak var nameLbl: UILabel!
     var isotope: Isotope!

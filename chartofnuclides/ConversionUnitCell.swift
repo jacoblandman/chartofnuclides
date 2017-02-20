@@ -34,4 +34,12 @@ class ConversionUnitCell: UICollectionViewCell {
         }
     }
     
+    func highlight() {
+        self.alpha = 0.2
+    }
+    
+    func unhighlight() {
+        self.alpha = 1.0
+    }
+    
 }
