@@ -1,14 +1,14 @@
 //
-//  ConverterCalcCell.swift
+//  ConverterCalcCellTest.swift
 //  chartofnuclides
 //
-//  Created by Jacob Landman on 2/15/17.
+//  Created by Jacob Landman on 2/20/17.
 //  Copyright © 2017 Jacob Landman. All rights reserved.
 //
 
 import UIKit
 
-class ConverterCalcCell: UICollectionViewCell {
+class ConverterCalcCellTest: UICollectionViewCell {
     
     @IBOutlet weak var mainLbl: UILabel!
     @IBOutlet weak var bgView: GradientView!
@@ -16,7 +16,6 @@ class ConverterCalcCell: UICollectionViewCell {
     @IBOutlet weak var lblTrailingConstraint: NSLayoutConstraint!
     
     func highlight() {
-        print("JACOB: Highlight called")
         self.alpha = 0.2
     }
     
@@ -31,7 +30,7 @@ class ConverterCalcCell: UICollectionViewCell {
             switch (indexPath.row) {
             case 0:
                 self.updateInputUnitCell()
-                //bgView.backgroundColor = colorWithHexString(hex: "FFD276")
+            //bgView.backgroundColor = colorWithHexString(hex: "FFD276")
             case 1:
                 self.updateInputValueCell()
                 
@@ -42,21 +41,21 @@ class ConverterCalcCell: UICollectionViewCell {
                 self.updateOutputValueCell()
                 
             }
-
+            
             mainLbl.text = "Hello"
             
         } else {
             
             switch (indexPath.row) {
-                case 0,1,2,3,4,5,6,7,8:
-                    self.updateNumberCell(row: indexPath.row)
-                case 9:
-                    mainLbl.text = "."
-                case 10:
-                    mainLbl.text = "0"
-                default:
-                    mainLbl.text = ""
-                    self.addDeleteImage()
+            case 0,1,2,3,4,5,6,7,8:
+                self.updateNumberCell(row: indexPath.row)
+            case 9:
+                mainLbl.text = "."
+            case 10:
+                mainLbl.text = "0"
+            default:
+                mainLbl.text = ""
+                self.addDeleteImage()
                 
             }
         }
@@ -124,6 +123,5 @@ class ConverterCalcCell: UICollectionViewCell {
         NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
         NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
     }
-    
     
 }
