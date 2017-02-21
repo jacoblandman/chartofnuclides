@@ -29,44 +29,51 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        var destinationCollectionViewController: UICollectionViewController!
-        var sourceCollectionViewController: UICollectionViewController!
-        
         let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         let container = transitionContext.containerView
         
         container.backgroundColor = UIColor.clear
 
-        destinationCollectionViewController = toViewController as? UICollectionViewController
-        assert(destinationCollectionViewController != nil, "Destination view controller is not a UICollectionViewController subclass!")
         
-        sourceCollectionViewController = fromViewController as? UICollectionViewController
-        assert(sourceCollectionViewController != nil, "Source view controller is not a UICollectionViewController subclass!")
         
         toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
         
         if self.reversed == false {
         
+            let destinationVC = toViewController as! ConverterCalcVC
+            let sourceVC = fromViewController as! UICollectionViewController
+            
             container.insertSubview(toViewController.view, aboveSubview: fromViewController.view)
             //copy colors
-            let destinationViewControllerViewBackgroundColor = toViewController.view.backgroundColor
-            let destinationCollectionViewBackgroundColor = destinationCollectionViewController.collectionView?.backgroundColor
+            let destinationViewControllerViewBackgroundColor = (toViewController as! ConverterCalcVC).view.backgroundColor
+            let destinationCollectionViewBackgroundColor = destinationVC.collectionView.backgroundColor
 
-            self.collectionViewTransition(toViewController, transitionContext: transitionContext, destinationCollectionViewController: destinationCollectionViewController, sourceCollectionViewController: sourceCollectionViewController, destinationViewControllerViewBackgroundColor: destinationViewControllerViewBackgroundColor, destinationCollectionViewBackgroundColor: destinationCollectionViewBackgroundColor)
+            self.collectionViewTransition(toViewController, transitionContext: transitionContext, destinationCollectionViewController: destinationVC, sourceCollectionViewController: sourceVC, destinationViewControllerViewBackgroundColor: destinationViewControllerViewBackgroundColor, destinationCollectionViewBackgroundColor: destinationCollectionViewBackgroundColor)
         } else {
         
+            let destinationVC = toViewController as! UICollectionViewController
+            let sourceVC = fromViewController as! ConverterCalcVC
+            
             container.insertSubview(toViewController.view, belowSubview: fromViewController.view)
 
-            self.reversedCollectionViewTransition(toViewController, fromViewController: fromViewController, transitionContext: transitionContext, sourceCollectionViewController: sourceCollectionViewController, destinationCollectionViewController: destinationCollectionViewController)
+            self.reversedCollectionViewTransition(toViewController, fromViewController: fromViewController, transitionContext: transitionContext, sourceCollectionViewController: sourceVC, destinationCollectionViewController: destinationVC)
         }
     }
 
     //MARK :- helper private methods
     
-    fileprivate func collectionViewTransition(_ toViewController: UIViewController, transitionContext: UIViewControllerContextTransitioning, destinationCollectionViewController: UICollectionViewController, sourceCollectionViewController: UICollectionViewController, destinationViewControllerViewBackgroundColor: UIColor?, destinationCollectionViewBackgroundColor: UIColor?) {
+    fileprivate func collectionViewTransition(_ toViewController: UIViewController, transitionContext: UIViewControllerContextTransitioning, destinationCollectionViewController: ConverterCalcVC, sourceCollectionViewController: UICollectionViewController, destinationViewControllerViewBackgroundColor: UIColor?, destinationCollectionViewBackgroundColor: UIColor?) {
         
         setupDestinationViewController(toViewController, context: transitionContext)
+        
+        destinationCollectionViewController.whiteBg.alpha = 0.0
+        destinationCollectionViewController.greyBg.alpha = 0.0
+        
+        UIView.animate(withDuration: 0, delay: animationDuration, options: [], animations: {
+            destinationCollectionViewController.whiteBg.alpha = 1.0
+            destinationCollectionViewController.greyBg.alpha = 1.0
+        }, completion: nil)
         
         UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
             
@@ -95,8 +102,14 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         }
     }
     
-    fileprivate func reversedCollectionViewTransition(_ toViewController: UIViewController, fromViewController: UIViewController, transitionContext: UIViewControllerContextTransitioning, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: UICollectionViewController)
+    fileprivate func reversedCollectionViewTransition(_ toViewController: UIViewController, fromViewController: UIViewController, transitionContext: UIViewControllerContextTransitioning, sourceCollectionViewController: ConverterCalcVC, destinationCollectionViewController: UICollectionViewController)
     {
+        sourceCollectionViewController.XView.alpha = 0.0
+        sourceCollectionViewController.tableViewBg.alpha = 0.0
+        
+        if sourceCollectionViewController.triangleLayer != nil {
+            sourceCollectionViewController.triangleLayer?.removeFromSuperlayer()
+        }
         
         UIView.animate(withDuration: self.animationDuration, delay: self.animationDuration, options: UIViewAnimationOptions.curveEaseIn, animations: {
             fromViewController.view.alpha = 0.0
@@ -125,14 +138,14 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         }
     }
     
-    fileprivate func calculateSourceAnimationPoint(_ selectedCellCenter: CGPoint, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: UICollectionViewController) -> CGPoint {
+    fileprivate func calculateSourceAnimationPoint(_ selectedCellCenter: CGPoint, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: ConverterCalcVC) -> CGPoint {
         
         let animateFromPoint = sourceCollectionViewController.collectionView?.convert(selectedCellCenter, to: sourceCollectionViewController.view)
         return CGPoint(x: animateFromPoint!.x,
                            y: animateFromPoint!.y - UIApplication.statusBarHeight() - destinationCollectionViewController.navigationBarHeight())
     }
 
-    fileprivate func addAnimationsToDestinationCollectionView(_ destinationCollectionViewController: UICollectionViewController, sourceCollectionViewController: UICollectionViewController, toViewController: UIViewController) {
+    fileprivate func addAnimationsToDestinationCollectionView(_ destinationCollectionViewController: ConverterCalcVC, sourceCollectionViewController: UICollectionViewController, toViewController: UIViewController) {
         
         let indexPaths: NSArray = sourceCollectionViewController.collectionView!.indexPathsForSelectedItems! as NSArray
         let selectedCellIndex: IndexPath = indexPaths.firstObject as! IndexPath
@@ -164,7 +177,7 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         }
     }
     
-    fileprivate func addCellAnimations(_ animateFromPoint: CGPoint, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: UICollectionViewController, cell: UICollectionViewCell, fromCellColor: UIColor, cellIndexPath: IndexPath, rowsAndColumns: (rows: Int, columns: Int)) {
+    fileprivate func addCellAnimations(_ animateFromPoint: CGPoint, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: ConverterCalcVC, cell: UICollectionViewCell, fromCellColor: UIColor, cellIndexPath: IndexPath, rowsAndColumns: (rows: Int, columns: Int)) {
         
         //copy cell color
         //temporary change cell color to selected cell background color
@@ -178,7 +191,7 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         }
         
         let source = sourceCollectionViewController.collectionView
-        let destinationVC = destinationCollectionViewController as! ConverterCalcVC
+        let destinationVC = destinationCollectionViewController
         let destination = destinationCollectionViewController.collectionView
         
         if let fromFlowLayout = source?.collectionViewLayout as? UICollectionViewFlowLayout,
@@ -227,7 +240,7 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         }
     }
     
-    fileprivate func calculateDestinationAnimationPoint(_ sourceCollectionViewController: UICollectionViewController, toViewController: UIViewController) -> CGPoint {
+    fileprivate func calculateDestinationAnimationPoint(_ sourceCollectionViewController: ConverterCalcVC, toViewController: UIViewController) -> CGPoint {
     
         let animateToPoint = sourceCollectionViewController.fromPoint
         let offset = sourceCollectionViewController.collectionView!.contentOffset.y
@@ -256,9 +269,12 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
         }
     }
     
-    fileprivate func enumerateVisibleCellsAndAddAnimations(_ destinationPoint: CGPoint, sourceCollectionViewController: UICollectionViewController, destinationCollectionViewController: UICollectionViewController) {
+    fileprivate func enumerateVisibleCellsAndAddAnimations(_ destinationPoint: CGPoint, sourceCollectionViewController: ConverterCalcVC, destinationCollectionViewController: UICollectionViewController) {
 
         assert(destinationCollectionViewController.selectedIndexPath != nil, "Forgot to set selectedIndexPath property?")
+        
+        sourceCollectionViewController.whiteBg.alpha = 0.0
+        sourceCollectionViewController.greyBg.alpha = 0.0
         
         var sourceIndexPathsForVisibleCells = sourceCollectionViewController.collectionView?.indexPathsForVisibleItems
         sourceIndexPathsForVisibleCells = sourceIndexPathsForVisibleCells?.sorted(by: { (ip1, ip2) -> Bool in
@@ -278,7 +294,7 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
                 let lastSelectedCell = destinationCollectionViewController.collectionView?.cellForItem(at: destinationCollectionViewController.selectedIndexPath as IndexPath),
                 let flowLayout = destinationCollectionViewController.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
                 
-                    let fromCellSize = (sourceCollectionViewController as! ConverterCalcVC).cellSize(for: index)
+                    let fromCellSize = sourceCollectionViewController.cellSize(for: index)
                     cell.layer.zPosition = kTopCellLayerZIndex - CGFloat(idx*self.kDeltaBetweenCellLayers)
 
                     self.addCellReversedAnimations(destinationPoint, cell: cell, cellIndex: idx, toCellSize: flowLayout.itemSize, fromCellSize: fromCellSize, cellBackgroundColor: lastSelectedCell.backgroundColor!, rowsAndColumns: rowsAndColumns, indexPath: index)
@@ -311,7 +327,13 @@ class CKWaveCollectionViewAnimator: NSObject, UIViewControllerAnimatedTransition
             UIView.addKeyframe(withRelativeStartTime: 0.0 + (self.kCellAnimSmallDelta * Double(cellIndex)), relativeDuration: relativeDuration, animations: { () -> Void in
                 
                 if let cell = cell as? ConverterCalcCell {
-                    cell.bgView.backgroundColor = UIColor.clear
+                    
+                    let imageViews = cell.subviews.filter{$0 is UIImageView}
+                    for subview in imageViews {
+                        subview.alpha = 0.0
+                    }
+                    cell.bgView.alpha = 0.0
+                    //cell.bgView.layer
                     cell.mainLbl.alpha = 0.0
                 }
                 

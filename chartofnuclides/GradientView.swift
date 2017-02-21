@@ -10,18 +10,18 @@ import UIKit
 
 class GradientView: UIView {
 
-    var firstColor: UIColor = UIColor.clear
-    var secondColor: UIColor = UIColor.clear
+    private var firstColor: UIColor = UIColor.clear
+    private var secondColor: UIColor = UIColor.clear
     
-    var startPoint: CGPoint?
-    var endPoint: CGPoint?
+    private var startPoint: CGPoint?
+    private var endPoint: CGPoint?
     
-    var centerPoint: CGPoint?
-    var innerRadius: CGFloat?
-    var outerRadius: CGFloat?
+    private var centerPoint: CGPoint?
+    private var innerRadius: CGFloat?
+    private var outerRadius: CGFloat?
     
-    var drawLinear: Bool = false
-    var drawRadial: Bool = false
+    private var drawLinear: Bool = false
+    private var drawRadial: Bool = false
     
 //    override class var layerClass: AnyClass {
 //        return CAGradientLayer.self

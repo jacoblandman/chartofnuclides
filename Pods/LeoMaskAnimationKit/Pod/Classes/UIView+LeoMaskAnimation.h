@@ -72,5 +72,29 @@ typedef NS_ENUM(NSInteger,LeoMaskAnimationDirections){
                                alpha:(CGFloat)alpha
                              options:(LeoMaskAnimationOptions)options
                          compeletion:(void (^)(void))completion;
+
+-(void)leo_animateReverseCircleExpandFromView:(UIView *)fromView
+                                     duration:(NSTimeInterval)duration
+                                        delay:(NSTimeInterval)delay
+                                        alpha:(CGFloat)alpha
+                                      options:(LeoMaskAnimationOptions)options
+                                   completion:(void (^)(void))completion;
+
+-(void)leo_animateReverseCircleExpandCenter:(CGPoint)center
+                              radius:(CGFloat)radius
+                            duration:(NSTimeInterval)duration
+                               delay:(NSTimeInterval)delay
+                               alpha:(CGFloat)alpha
+                             options:(LeoMaskAnimationOptions)options
+                         compeletion:(void (^)(void))completion;
+
+-(void)leo_animateReverseMaskFromPath:(UIBezierPath *)fromPath
+                               toPath:(UIBezierPath *)toPath
+                             duration:(NSTimeInterval)duration
+                                delay:(NSTimeInterval)delay
+                                alpha:(CGFloat)alpha
+                              options:(LeoMaskAnimationOptions)options
+                          compeletion:(void(^)(void))completion;
+
 -(void)leo_removeMaskAnimations;
 @end

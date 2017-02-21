@@ -101,6 +101,87 @@
     [self.layer.mask removeAnimationForKey:@"leoMaskAnimation"];
 }
 
+-(void)leo_animateReverseCircleExpandToView:(UIView *)toView
+                                     duration:(NSTimeInterval)duration
+                                        delay:(NSTimeInterval)delay
+                                        alpha:(CGFloat)alpha
+                                      options:(LeoMaskAnimationOptions)options
+                                   completion:(void (^)(void))completion {
+    CGFloat radius = [self leo_minSideOfView:toView]/2;
+    CGPoint center = toView.center;
+    
+    [self leo_animateReverseCircleExpandCenter:center radius:radius duration:duration delay:delay alpha:alpha options:options compeletion:completion];
+}
+
+-(void)leo_animateReverseCircleExpandCenter:(CGPoint)center
+                                     radius:(CGFloat)radius
+                                   duration:(NSTimeInterval)duration
+                                      delay:(NSTimeInterval)delay
+                                      alpha:(CGFloat)alpha
+                                    options:(LeoMaskAnimationOptions)options
+                                compeletion:(void (^)(void))completion {
+    
+    UIBezierPath * toPath = [UIBezierPath bezierPathWithArcCenter:center
+                                                             radius:radius
+                                                         startAngle:0
+                                                           endAngle:M_PI*2
+                                                          clockwise:true];
+    
+    CGFloat width = CGRectGetHeight(self.bounds);
+    CGFloat height = CGRectGetWidth(self.bounds);
+    CGFloat radius1 = sqrt(pow(center.x, 2) + pow(center.y, 2));
+    CGFloat radius2 = sqrt(pow(center.x - width, 2) + pow(center.y, 2));
+    CGFloat radius3 = sqrt(pow(center.x, 2) + pow(center.y - height, 2));
+    CGFloat radius4 = sqrt(pow(center.x - width, 2) + pow(center.y - height, 2));
+    CGFloat fromRadius;
+    fromRadius = MAX(radius1, radius2);
+    fromRadius = MAX(fromRadius, radius3);
+    fromRadius = MAX(fromRadius, radius4);
+    UIBezierPath * fromPath = [UIBezierPath bezierPathWithArcCenter:center
+                                                           radius:fromRadius
+                                                       startAngle:0
+                                                         endAngle:M_PI * 2
+                                                        clockwise:true];
+    [self leo_animateReverseMaskFromPath:fromPath toPath:toPath duration:duration delay:delay alpha:alpha options:options compeletion:completion];
+
+}
+
+-(void)leo_animateReverseMaskFromPath:(UIBezierPath *)fromPath
+                        toPath:(UIBezierPath *)toPath
+                      duration:(NSTimeInterval)duration
+                         delay:(NSTimeInterval)delay
+                         alpha:(CGFloat)alpha
+                       options:(LeoMaskAnimationOptions)options
+                   compeletion:(void(^)(void))completion;
+{
+    
+    CAShapeLayer * maskLayer = [CAShapeLayer layer];
+    maskLayer.path = fromPath.CGPath;
+    maskLayer.fillMode = kCAFillRuleEvenOdd;
+    maskLayer.fillColor = [UIColor colorWithWhite:1.0 alpha:alpha].CGColor;
+    self.layer.mask = maskLayer;
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:^{
+        if (completion != nil) {
+            completion();
+        }
+        self.layer.mask = nil;
+    }];
+    CABasicAnimation * animation = [CABasicAnimation animation];
+    animation.keyPath = @"path";
+    animation.beginTime = CACurrentMediaTime() + delay;
+    animation.fromValue = (__bridge id)fromPath.CGPath;
+    animation.toValue = (__bridge id)toPath.CGPath;
+    animation.duration = duration;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:[self mapOptionsToTimingFunction:options]];
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeRemoved;
+    //animation.fillMode = kCAFillModeForwards;
+    [maskLayer addAnimation:animation forKey:@"leoMaskAnimation"];
+    [CATransaction commit];
+}
+
+
 -(void)leo_animateCircleExpandFromView:(UIView *)fromView
                                duration:(NSTimeInterval)duration
                                   delay:(NSTimeInterval)delay

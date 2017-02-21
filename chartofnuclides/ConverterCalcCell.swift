@@ -1,5 +1,5 @@
 //
-//  ConverterCalcCellTest.swift
+//  ConverterCalcCell.swift
 //  chartofnuclides
 //
 //  Created by Jacob Landman on 2/20/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConverterCalcCellTest: UICollectionViewCell {
+class ConverterCalcCell: UICollectionViewCell {
     
     @IBOutlet weak var mainLbl: UILabel!
     @IBOutlet weak var bgView: GradientView!

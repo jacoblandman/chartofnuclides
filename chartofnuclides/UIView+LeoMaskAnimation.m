@@ -158,7 +158,7 @@
     CAShapeLayer * maskLayer = [CAShapeLayer layer];
     maskLayer.path = fromPath.CGPath;
     maskLayer.fillMode = kCAFillRuleEvenOdd;
-    maskLayer.fillColor = [UIColor colorWithWhite:1.0 alpha:alpha].CGColor;
+    maskLayer.fillColor = [UIColor colorWithWhite:1.0 alpha:1].CGColor;
     self.layer.mask = maskLayer;
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
@@ -175,7 +175,7 @@
     animation.duration = duration;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:[self mapOptionsToTimingFunction:options]];
     animation.removedOnCompletion = NO;
-    animation.fillMode = kCAFillModeRemoved;
+    animation.fillMode = kCAFillModeForwards;
     //animation.fillMode = kCAFillModeForwards;
     [maskLayer addAnimation:animation forKey:@"leoMaskAnimation"];
     [CATransaction commit];

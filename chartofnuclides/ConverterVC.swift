@@ -30,7 +30,6 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
     func setItemSize(for layout: UICollectionViewFlowLayout, with size: CGSize) {
         
         let viewWidth = view.frame.width
-        print("JACOB: The view widht is \(viewWidth)")
         layout.minimumInteritemSpacing = 2
         layout.minimumLineSpacing = 2
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

@@ -73,7 +73,7 @@ typedef NS_ENUM(NSInteger,LeoMaskAnimationDirections){
                              options:(LeoMaskAnimationOptions)options
                          compeletion:(void (^)(void))completion;
 
--(void)leo_animateReverseCircleExpandFromView:(UIView *)fromView
+-(void)leo_animateReverseCircleExpandToView:(UIView *)toView
                                      duration:(NSTimeInterval)duration
                                         delay:(NSTimeInterval)delay
                                         alpha:(CGFloat)alpha
