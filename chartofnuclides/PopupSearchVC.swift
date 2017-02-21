@@ -14,7 +14,7 @@ class PopupSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var elements = [Element]()
+    var elements = ElementManager.instance.elements
     var filteredElements = [Element]()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +29,6 @@ class PopupSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         searchBar.delegate = self
         
-        elements = DataService.instance.parse_json()
         filteredElements = elements
     }
 

@@ -12,7 +12,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var searchBar: BorderlessSearchBar!
     @IBOutlet weak var tableView: UITableView!
-    var elements = [Element]()
+    var elements = ElementManager.instance.elements
     var filteredElements = [Element]()
     var storedOffsets = [Int: CGFloat]()
     var inSearchMode = false
@@ -29,7 +29,6 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.transitioningDelegate = maskZoomTransition
         navigationController!.transitioningDelegate = maskZoomTransition
         
-        elements = DataService.instance.parse_json()
         filteredElements = elements
     }
     
