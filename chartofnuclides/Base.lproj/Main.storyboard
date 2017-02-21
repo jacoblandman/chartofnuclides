@@ -275,10 +275,13 @@
                                     <constraint firstAttribute="height" constant="28" id="hQg-Gu-5hx"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Q-Value"/>
+                                    <segment title="Binding Energy"/>
                                     <segment title="Separation Energy"/>
                                 </segments>
                                 <color key="tintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="calculatorTypeChanged:" destination="da2-bd-qcM" eventType="valueChanged" id="hKF-16-Ema"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGn-6A-aqa" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="20" y="56" width="374" height="180"/>
@@ -411,16 +414,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RG-dU-8oT" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RG-dU-8oT" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="168" y="254" width="226" height="50"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Wk-13-hiE">
                                         <rect key="frame" x="0.0" y="0.0" width="226" height="50"/>
                                         <segments>
                                             <segment title="Neutron"/>
-                                            <segment title="Electron"/>
+                                            <segment title="Proton"/>
                                         </segments>
                                         <color key="tintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="particleTypeChanged:" destination="da2-bd-qcM" eventType="valueChanged" id="x5q-b6-oe5"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -479,6 +485,10 @@
                     <navigationItem key="navigationItem" title="Calculator" id="0ve-ib-0e2"/>
                     <connections>
                         <outlet property="calculateBtn" destination="5c2-Us-ARg" id="q6J-QG-0Gf"/>
+                        <outlet property="calculatorController" destination="ii8-2C-C7w" id="vW3-Qa-L2L"/>
+                        <outlet property="isotopeBtn" destination="3O9-oY-fsL" id="lUa-GI-mQs"/>
+                        <outlet property="particleTypeControl" destination="5Wk-13-hiE" id="l77-PI-PFM"/>
+                        <outlet property="particleTypeView" destination="0RG-dU-8oT" id="qf5-wY-PlI"/>
                         <outlet property="radiationSymbolImg" destination="YbF-z3-H8K" id="NZc-zJ-iYI"/>
                         <outlet property="solutionLbl" destination="bW6-Jq-Mkx" id="nft-n8-iW7"/>
                         <outlet property="solutionView" destination="IGn-6A-aqa" id="urt-cz-dd4"/>
@@ -505,13 +515,43 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopupIsotopeCell" rowHeight="103" id="IaJ-UP-2bR">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="103"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopupIsotopeCell" rowHeight="50" id="IaJ-UP-2bR" customClass="PopupIsotopeCell" customModule="chartofnuclides" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IaJ-UP-2bR" id="5v1-jh-XB8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uuo294" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOW-Ua-5yR">
+                                                    <rect key="frame" x="18" y="8" width="70" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="PGh-oh-nVp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2V-Zb-Zc3">
+                                                    <rect key="frame" x="113" y="8" width="283" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tOW-Ua-5yR" firstAttribute="top" secondItem="5v1-jh-XB8" secondAttribute="topMargin" id="8Ea-Qw-O7m"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="D2V-Zb-Zc3" secondAttribute="trailing" constant="10" id="8gy-q3-L2t"/>
+                                                <constraint firstItem="D2V-Zb-Zc3" firstAttribute="bottom" secondItem="5v1-jh-XB8" secondAttribute="bottomMargin" id="EQ0-Tf-Www"/>
+                                                <constraint firstItem="D2V-Zb-Zc3" firstAttribute="top" secondItem="5v1-jh-XB8" secondAttribute="topMargin" id="Gjq-Zq-IXd"/>
+                                                <constraint firstItem="tOW-Ua-5yR" firstAttribute="bottom" secondItem="5v1-jh-XB8" secondAttribute="bottomMargin" id="Okv-KN-Te6"/>
+                                                <constraint firstItem="D2V-Zb-Zc3" firstAttribute="leading" secondItem="tOW-Ua-5yR" secondAttribute="trailing" constant="25" id="YX3-PO-c2t"/>
+                                                <constraint firstItem="tOW-Ua-5yR" firstAttribute="leading" secondItem="5v1-jh-XB8" secondAttribute="leadingMargin" constant="10" id="guq-EW-xFe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLbl" destination="D2V-Zb-Zc3" id="shL-49-jg4"/>
+                                            <outlet property="symbolLbl" destination="tOW-Ua-5yR" id="Im5-Jz-Gnx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -556,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZ5-3m-AWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="-281"/>
+            <point key="canvasLocation" x="1982.608695652174" y="-281.25"/>
         </scene>
         <!--Unit Converter-->
         <scene sceneID="UZt-RP-QKU">

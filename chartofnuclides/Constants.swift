@@ -8,5 +8,11 @@
 
 import UIKit
 
-let SHADOW_GRAY: CGFloat = 155.0 / 255.0
+let SHADOW_GRAY: CGFloat = 65 / 255.0
 let GREEN_COLOR: UIColor = UIColor(hexString: "30DF96")
+
+let C_2: Double = 931.494061
+let MASS_NEUTRON: Double = 1.008664923
+let MASS_HYDROGEN: Double = 1.007825032
+let MASS_ELECTRON: Double = 0.000548597
+let MASS_PROTON: Double = 1.0072766

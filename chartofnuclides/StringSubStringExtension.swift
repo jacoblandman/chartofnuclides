@@ -84,4 +84,9 @@ extension String {
         return self.substring(from: start, to: to)
     }
 
+    mutating func stripUncertainty() {
+        if let uncertainty = self.range(of: "+/-") {
+            self.removeSubrange(uncertainty.lowerBound..<self.endIndex)
+        }
+    }
 }

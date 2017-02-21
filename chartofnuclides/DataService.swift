@@ -29,8 +29,8 @@ class DataService {
                 do {
                     if let jsonResult = try JSONSerialization.jsonObject(with: jsonData as Data, options: []) as? Dictionary<String, Any> {
                         if let elements = jsonResult["element"] as? [Dictionary<String, Any>] {
-                            for element in elements {
-                                returnElements.append(Element(element: element))
+                            for (index, element) in elements.enumerated() {
+                                returnElements.append(Element(element: element, elementIndex: index))
                             }
                         }
                     }

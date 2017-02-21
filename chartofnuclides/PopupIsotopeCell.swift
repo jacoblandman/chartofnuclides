@@ -10,15 +10,12 @@ import UIKit
 
 class PopupIsotopeCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var symbolLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    
+    func updateCell(isotope: Isotope) {
+        symbolLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
+        nameLbl.text = "\(isotope.element.name) \(isotope.atomicNumber)"
     }
 
 }

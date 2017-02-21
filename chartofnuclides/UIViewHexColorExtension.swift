@@ -34,5 +34,9 @@ extension UIView {
         
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: 1.0)
     }
+    
+    func changeBorderColor(to color: UIColor) {
+        self.layer.borderColor = color.cgColor
+    }
 
 }

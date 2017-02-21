@@ -11,6 +11,9 @@
 		AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F2A1E5CBEAD00C72291 /* ElementManager.swift */; };
 		AE183F531E5CC94500C72291 /* FadeInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F521E5CC94500C72291 /* FadeInAnimator.swift */; };
 		AE183F551E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F541E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift */; };
+		AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */; };
+		AE183F5A1E5CEA4A00C72291 /* nuclides.json in Resources */ = {isa = PBXBuildFile; fileRef = AE183F591E5CEA4A00C72291 /* nuclides.json */; };
+		AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */; };
 		AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */; };
 		AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */; };
 		AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */; };
@@ -32,7 +35,6 @@
 		AE87BE341E5B8E02003576E9 /* ConverterCalcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */; };
 		AE87BE361E5B9332003576E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE351E5B9332003576E9 /* UIViewExtension.swift */; };
 		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
-		AEB5D43F1E44F90600A6D8DD /* nuclides.json in Resources */ = {isa = PBXBuildFile; fileRef = AEB5D43E1E44F90600A6D8DD /* nuclides.json */; };
 		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
 		AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4431E44FCC300A6D8DD /* DataService.swift */; };
 		AEB5D4461E450A3500A6D8DD /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4451E450A3500A6D8DD /* ShadowView.swift */; };
@@ -66,6 +68,9 @@
 		AE183F2A1E5CBEAD00C72291 /* ElementManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementManager.swift; sourceTree = "<group>"; };
 		AE183F521E5CC94500C72291 /* FadeInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInAnimator.swift; sourceTree = "<group>"; };
 		AE183F541E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorNavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendDataToPreviousViewController.swift; sourceTree = "<group>"; };
+		AE183F591E5CEA4A00C72291 /* nuclides.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nuclides.json; sourceTree = "<group>"; };
+		AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleRoundExtension.swift; sourceTree = "<group>"; };
 		AE33CB2D1E53DFCC00E86E28 /* chartofnuclides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chartofnuclides-Bridging-Header.h"; sourceTree = "<group>"; };
 		AE5EDFEC1E43FF1B00EEAD8C /* chartofnuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartofnuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +95,6 @@
 		AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcCell.swift; sourceTree = "<group>"; };
 		AE87BE351E5B9332003576E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		AEB5D43E1E44F90600A6D8DD /* nuclides.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nuclides.json; sourceTree = "<group>"; };
 		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
 		AEB5D4431E44FCC300A6D8DD /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		AEB5D4451E450A3500A6D8DD /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,14 @@
 			name = Animators;
 			sourceTree = "<group>";
 		};
+		AE183F561E5CDDE400C72291 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		AE478B191E58D54D002F8E5F /* Pods-Manual */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +197,7 @@
 		AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */ = {
 			isa = PBXGroup;
 			children = (
+				AE183F561E5CDDE400C72291 /* Protocols */,
 				AE183F511E5CC93800C72291 /* Animators */,
 				AE478B191E58D54D002F8E5F /* Pods-Manual */,
 				AECD26521E551DAF00282462 /* Extensions */,
@@ -248,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				AE776E5B1E53661E00D3ADB0 /* Assets.xcassets */,
-				AEB5D43E1E44F90600A6D8DD /* nuclides.json */,
+				AE183F591E5CEA4A00C72291 /* nuclides.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -301,6 +314,7 @@
 				AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */,
 				AECD26551E5520CD00282462 /* StringSubStringExtension.swift */,
 				AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */,
+				AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -418,7 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEB5D43F1E44F90600A6D8DD /* nuclides.json in Resources */,
+				AE183F5A1E5CEA4A00C72291 /* nuclides.json in Resources */,
 				AE5EDFFA1E43FF1B00EEAD8C /* LaunchScreen.storyboard in Resources */,
 				AE776E5C1E53661E00D3ADB0 /* Assets.xcassets in Resources */,
 				AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */,
@@ -485,6 +499,7 @@
 				AE183F551E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift in Sources */,
 				AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
+				AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */,
 				AE87BE301E5B61D3003576E9 /* RadialGradientLayer.swift in Sources */,
 				AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
@@ -523,6 +538,7 @@
 				AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */,
 				AECD26581E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift in Sources */,
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,
+				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
 				AE776E661E536B1B00D3ADB0 /* DetailNuclideVC.swift in Sources */,
 				AE776E631E5367C500D3ADB0 /* RadialGradientView.swift in Sources */,

@@ -13,6 +13,7 @@ class PopupSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    var delegate: SendDataToPreviousControllerDelegate?
     
     var elements = ElementManager.instance.elements
     var filteredElements = [Element]()
@@ -41,12 +42,31 @@ class PopupSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PopupIsotopeCell", for: indexPath)
-        cell.textLabel?.text = "\(filteredElements[indexPath.section].isotopes[indexPath.row].atomicNumber)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PopupIsotopeCell", for: indexPath) as! PopupIsotopeCell
+        let isotope = filteredElements[indexPath.section].isotopes[indexPath.row]
+        cell.updateCell(isotope: isotope)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let isotope = filteredElements[indexPath.section].isotopes[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // send the selected isotope back to the previous view controller
+        delegate?.sendDataToA(data: isotope)
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 
 extension PopupSearchVC: UISearchBarDelegate {
-    
+
 }

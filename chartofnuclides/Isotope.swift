@@ -19,6 +19,7 @@ class Isotope {
     private var _abundance: String!
     private var _hasIsomer: String!
     private var _isStable: String!
+    private var _index: Int!
     
     var atomicNumber: String {
         return _atomicNumber
@@ -48,7 +49,11 @@ class Isotope {
         return _isStable
     }
     
-    init(isotope: Dictionary<String, Any>, from element: Element) {
+    var index: Int {
+        return _index
+    }
+    
+    init(isotope: Dictionary<String, Any>, at index: Int, from element: Element) {
         if let atomicNumber = isotope["atomic number"] as? String {
             self._atomicNumber = atomicNumber
         }
@@ -57,7 +62,8 @@ class Isotope {
             self._neutrons = neutrons
         }
         
-        if let mass = isotope["weight"] as? String {
+        if var mass = isotope["weight"] as? String {
+            mass.stripUncertainty()
             self._mass = mass
         }
         
@@ -77,8 +83,45 @@ class Isotope {
             self._hasIsomer = hasIsomer
         }
         
+        self._index = index
+        
         self.element = element
         
+    }
+    
+    func calculatePSeparationEnergy() -> String {
+        
+        let secondaryIsotope = ElementManager.instance.getIsotope(A: Int(atomicNumber)! - 1, Z: Int(element.protons)! - 1)
+        
+        if let secondIsotope = secondaryIsotope {
+            let massY = Double(secondIsotope.mass)!
+            let energy = C_2 * (massY + MASS_HYDROGEN - Double(mass)!)
+            if energy > 0 { return "\(energy)" }
+            else { return "Cannot calculate separation energy" }
+        } else {
+            return "Cannot calculate separation energy"
+        }
+    }
+    
+    func calculateNSeparationEnergy() -> String {
+  
+        let secondaryIsotope = ElementManager.instance.getIsotope(A: Int(atomicNumber)! - 1, Z: Int(element.protons)!)
+        
+        if let secondIsotope = secondaryIsotope {
+            let secondMass = Double(secondIsotope.mass)!
+            let energy = C_2 * (secondMass + MASS_NEUTRON - Double(mass)!)
+            if energy > 0 { return "\(energy)" }
+            else { return "Cannot calculate separation energy" }
+        } else {
+            return "Cannot calculate separation energy"
+        }
+    
+    }
+    
+    func calculateBindingEnergy() -> String {
+        let BE = (C_2 * (Double(element.protons)! * MASS_HYDROGEN + Double(neutrons)! * MASS_NEUTRON - Double(mass)!))
+        assert(BE > 0.0)
+        return "\(BE)"
     }
     
 }
