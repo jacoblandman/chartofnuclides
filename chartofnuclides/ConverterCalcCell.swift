@@ -14,6 +14,7 @@ class ConverterCalcCell: UICollectionViewCell {
     @IBOutlet weak var bgView: GradientView!
     @IBOutlet weak var lblLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblTrailingConstraint: NSLayoutConstraint!
+    var deleteButton: UIButton?
     
     func highlight() {
         self.alpha = 0.2
@@ -30,7 +31,7 @@ class ConverterCalcCell: UICollectionViewCell {
             switch (indexPath.row) {
             case 0:
                 self.updateInputUnitCell()
-            //bgView.backgroundColor = colorWithHexString(hex: "FFD276")
+
             case 1:
                 self.updateInputValueCell()
                 
@@ -42,7 +43,7 @@ class ConverterCalcCell: UICollectionViewCell {
                 
             }
             
-            mainLbl.text = "Hello"
+            
             
         } else {
             
@@ -54,8 +55,8 @@ class ConverterCalcCell: UICollectionViewCell {
             case 10:
                 mainLbl.text = "0"
             default:
-                mainLbl.text = ""
-                self.addDeleteImage()
+                mainLbl.text = "E"
+                //self.addDeleteImage()
                 
             }
         }
@@ -72,12 +73,16 @@ class ConverterCalcCell: UICollectionViewCell {
         bgView.setValuesForLinearGradient(color1: UIColor.white, color2: colorWithHexString(hex: "FFEFCD"), startPoint: CGPoint(x: self.frame.width / 2, y: 0), endPoint: CGPoint(x: self.frame.width / 2, y: self.frame.height / 2))
         bgView.setNeedsDisplay()
         
-        lblLeadingConstraint.constant = self.frame.width / 6
-        lblTrailingConstraint.constant = self.frame.width / 6
+        lblLeadingConstraint.constant = max(self.frame.width / 15, 10)
+        lblTrailingConstraint.constant = 54
         mainLbl.textAlignment = .left
         
-        mainLbl.font = UIFont(name: "Avenir-Heavy", size: 48)
+        mainLbl.font = UIFont(name: "Avenir-Heavy", size: 32)
         mainLbl.textColor = colorWithHexString(hex: "FDBE4D")
+        mainLbl.text = "Enter Value"
+        mainLbl.adjustsFontSizeToFitWidth = true
+        
+        addDeleteButton(to: self)
         
     }
     
@@ -93,12 +98,14 @@ class ConverterCalcCell: UICollectionViewCell {
         bgView.setValuesForLinearGradient(color1: UIColor.white, color2: colorWithHexString(hex: "CAECFD"), startPoint: CGPoint(x: self.frame.width / 2, y: 0), endPoint: CGPoint(x: self.frame.width / 2, y: self.frame.height / 2))
         bgView.setNeedsDisplay()
         
-        lblLeadingConstraint.constant = self.frame.width / 6
-        lblTrailingConstraint.constant = self.frame.width / 6
+        lblLeadingConstraint.constant = max(self.frame.width / 15, 10)
+        lblTrailingConstraint.constant = 50
         mainLbl.textAlignment = .left
         
-        mainLbl.font = UIFont(name: "Avenir-Heavy", size: 48)
+        mainLbl.font = UIFont(name: "Avenir-Heavy", size: 32)
         mainLbl.textColor = colorWithHexString(hex: "55C6FE")
+        mainLbl.text = "Conversion"
+        mainLbl.adjustsFontSizeToFitWidth = true
         
         self.isUserInteractionEnabled = false
         
@@ -122,6 +129,53 @@ class ConverterCalcCell: UICollectionViewCell {
         NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1.0, constant: 0.0).isActive = true
         NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
         NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
+    }
+    
+    func addDeleteButton(to cell: ConverterCalcCell) {
+        
+        let btnFrame = CGRect(x: cell.frame.minX + cell.frame.width - 44, y: cell.frame.midY - 22, width: 44, height: 44)
+        
+        let image = UIImage(named: "delete_color")
+        let imageView = UIImageView(image: image!)
+        imageView.contentMode = .center
+        imageView.frame = btnFrame
+        cell.addSubview(imageView)
+        cell.bringSubview(toFront: imageView)
+        
+        deleteButton = UIButton()
+        deleteButton!.frame = btnFrame
+        let holdGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(buttonHeld))
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped))
+        deleteButton!.addGestureRecognizer(holdGesture)
+        deleteButton!.addGestureRecognizer(tapGesture)
+
+        cell.addSubview(deleteButton!)
+        cell.bringSubview(toFront: deleteButton!)
+        
+        deleteButton!.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0).isActive = true
+        NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0).isActive = true
+        NSLayoutConstraint(item: imageView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
+        
+        NSLayoutConstraint(item: deleteButton!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0).isActive = true
+        NSLayoutConstraint(item: deleteButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0).isActive = true
+        NSLayoutConstraint(item: deleteButton!, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: deleteButton!, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
+    }
+    
+    func buttonHeld() {
+        if let btn = deleteButton {
+            btn.delegate.buttonHeld()
+        }
+    }
+    
+    func buttonTapped() {
+        if let btn = deleteButton {
+            btn.delegate.buttonTapped()
+        }
     }
     
 }

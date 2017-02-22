@@ -43,18 +43,27 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DataService.instance.unitTypes.count
+        return UnitConversionManager.instance.unitTypes.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UnitCell", for: indexPath) as! ConversionUnitCell
-        cell.updateCell(unitName: DataService.instance.unitTypes[indexPath.row])
+        cell.updateCell(unitName: UnitConversionManager.instance.unitTypes[indexPath.row])
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         self.selectedIndexPath = indexPath
-        performSegue(withIdentifier: "ConverterCalcVC", sender: nil)
+        var unitType = UnitConversionManager.instance.unitTypes[indexPath.row]
+        
+        assert(UnitConversionManager.instance.unitTypesDict[unitType] != nil)
+        guard UnitConversionManager.instance.unitTypesDict[unitType] != nil else { return }
+        let units = UnitConversionManager.instance.unitTypesDict[unitType]!
+        
+        if unitType == "Work" { unitType = "Work/Energy" }
+        let sender = (unitType, units)
+        performSegue(withIdentifier: "ConverterCalcVC", sender: sender)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -69,6 +78,16 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
         if let cell = collectionView.cellForItem(at: indexPath) as? ConversionUnitCell {
             UIView.animate(withDuration: 0.2) { [] in
                 cell.unhighlight()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ConverterCalcVC {
+            destination.navigationController?.navigationItem.backBarButtonItem?.title = "Back"
+            if let tuple = sender as? (String, [String]) {
+                destination.title = tuple.0
+                destination.unitTypes = tuple.1
             }
         }
     }
