@@ -6,7 +6,6 @@ target 'chartofnuclides' do
   use_frameworks!
 
   # Pods for chartofnuclides
-  pod 'LeoMaskAnimationKit'
   pod 'RAMAnimatedTabBarController', "~> 2.0.13"
 
 

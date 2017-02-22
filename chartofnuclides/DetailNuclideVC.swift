@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import LeoMaskAnimationKit
-
 
 class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var doneBtn: UIButton!
-    @IBOutlet weak var gradientViewBg: LinearGradient!
+    @IBOutlet weak var gradientViewBg: GradientView!
     @IBOutlet weak var IsotopeView: InspectableBorderView!
     @IBOutlet weak var nameLbl: UILabel!
     var isotope: Isotope!
@@ -28,6 +26,9 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gradientViewBg.setValuesForLinearGradient(color1: UIColor.white, color2: GREEN_COLOR, relativeStartPoint: CGPoint(x: 0, y: 0.5), relativeEndPoint: CGPoint(x: 1, y: 0.5))
+        gradientViewBg.setNeedsDisplay()
         
         updateUI()
     }

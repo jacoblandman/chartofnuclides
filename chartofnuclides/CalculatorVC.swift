@@ -13,7 +13,7 @@ class CalculatorVC: UIViewController, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var solutionView: InspectableBorderView!
     @IBOutlet weak var solutionLbl: UILabel!
     @IBOutlet weak var radiationSymbolImg: UIImageView!
-    @IBOutlet weak var calculateBtn: RadialGradientView!
+    @IBOutlet weak var calculateBtn: GradientView!
     @IBOutlet weak var calculatorController: UISegmentedControl!
     @IBOutlet weak var particleTypeView: InspectableBorderView!
     @IBOutlet weak var particleTypeControl: UISegmentedControl!
@@ -28,6 +28,10 @@ class CalculatorVC: UIViewController, UIPopoverPresentationControllerDelegate {
         if view.frame.width < 374 {
             radiationSymbolImg.isHidden = true
         }
+        
+        calculateBtn.setValuesForRadialGradient(color1: GREEN_COLOR, color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: 5 , outerRadius: calculateBtn.frame.width * 0.75)
+        calculateBtn.setNeedsDisplay()
+        calculateBtn.addDarkShadow()
     }
     
     @IBAction func selectIsotopePressed(_ sender: Any) {

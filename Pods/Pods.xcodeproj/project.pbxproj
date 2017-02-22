@@ -7,162 +7,98 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BEB14A5318E42DE2F84EF0B2C17A385 /* LeoMaskAnimationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C121469112E3E1EB1D09EC70E46D635 /* LeoMaskAnimationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2024CC2DB6D50FAAD4C87556CC0F3A17 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862E2D8FE86D73EFD003BA4658CDDB21 /* RAMBounceAnimation.swift */; };
-		4EDC39798A14EC4346B43DC59CCEBB3C /* RAMAnimatedTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 294467F9B070AA9D056FCF123CDC66F9 /* RAMAnimatedTabBarController-dummy.m */; };
-		51B2539A6A0BF0D694DD352C60775512 /* Pods-chartofnuclides-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF0E605A53963ADD1F4E1B93E4C3A210 /* Pods-chartofnuclides-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		53A02C1808A2650FBE715259B09D1CCB /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279165C6D32D00B8C96A26709C9AEFC /* RAMFumeAnimation.swift */; };
-		5521E3500747AC4AECB4FF2E329655E8 /* RAMTransitionItemAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CCC03BC77BDCF9EEF011A1B7441807 /* RAMTransitionItemAnimations.swift */; };
-		5A006FDC57D95A1C84F05B1FB103CA86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		604F3F02104078F11EE9CD8FA441A87B /* Pods-chartofnuclides-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2067CE8C29151EC70B32F99101582DB3 /* Pods-chartofnuclides-dummy.m */; };
-		691020968E39E6AE8889C309FB7A6EC1 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF9EA998762E308153952BF5437762 /* RAMItemAnimationProtocol.swift */; };
-		8A83D776A647BB38CB1AEB581BB8CE75 /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308FABA4A0898FF68DDA26E421AE8B39 /* RAMFrameItemAnimation.swift */; };
-		9A199B5E8DE54031E70BA8D6D312A522 /* LeoMaskAnimationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1132DF5A2DBBE16B70963B2EEC521 /* LeoMaskAnimationKit-dummy.m */; };
-		A015F621E1DADC6975D8BA85CC364223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		A5DC0B8179298C0B2A1C150314F8091A /* UIView+LeoMaskAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4D6FD924D115B09683A89C901961 /* UIView+LeoMaskAnimation.m */; };
-		AD359C4CF45488D44788E89D89C374B1 /* RAMAnimatedTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7EA403AD407B040A59D518557B6B4CD /* RAMAnimatedTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF50799E864234838CEC5534D9401236 /* UIView+LeoMaskAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5F2073EF465CDD6EF2D79F85CA9831 /* UIView+LeoMaskAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B77069E767A58A8D60CDC068DC99E183 /* LeoMaskAnimationKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CFE29FC3CED10003B1E5D5116730C8E0 /* LeoMaskAnimationKit.bundle */; };
-		BC4A205A4068A393E35E746E67418263 /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C477C6E3DC4E8F87B11C8B6AF68CB /* RAMBadge.swift */; };
-		F1B44547FDFCD70E6B438980F87157E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		F1ED7473D9DAB1CA9B04195C2503F12C /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945A1AF19F81488C92706D4433CA5502 /* RAMAnimatedTabBarController.swift */; };
-		F4C7242D60557B452D9A22D7014D2595 /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139BF6A43B1BAAC9C56CF2FB3D2BC44 /* RAMRotationAnimation.swift */; };
+		01C4A2AD440D61DDCAD37E34D9EC28FC /* Pods-chartofnuclides-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2067CE8C29151EC70B32F99101582DB3 /* Pods-chartofnuclides-dummy.m */; };
+		021ACB199D6C4668B8938E3E537F0512 /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515A64C42A3818CBD3F3A1902B8D443 /* RAMFumeAnimation.swift */; };
+		1E6B0D918C2C25C6125F26F4C646C970 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		666FD6A724ADA700D66C551C063D0E04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		73F2D731A048DF525AEB705A9D1E2334 /* RAMAnimatedTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 42654EBCDD1653775E88840823C27686 /* RAMAnimatedTabBarController-dummy.m */; };
+		80204393A3CAD083E1C27C9A8E49E7BC /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023D8039CB078CEEB1EDF8D240DAF5 /* RAMRotationAnimation.swift */; };
+		8A829EBBB22CD4C2FE5A230B2E5150B9 /* RAMAnimatedTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E734DC81903D302362657FB550E4427D /* RAMAnimatedTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8C48C21FEFB3CD41058B8B684188C6F /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C00B91C7AAA98C14298B2318E34BC3 /* RAMItemAnimationProtocol.swift */; };
+		AD1807279F077B7FF9F1BF2F54163753 /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC510AB60276142AAE9F0F468783A86 /* RAMFrameItemAnimation.swift */; };
+		AD9FA8469C8225B1F0B8C7FD2B947011 /* RAMTransitionItemAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D21B9D6706FBB1A35B9C7047F4913 /* RAMTransitionItemAnimations.swift */; };
+		B7FF51C724E534382CADCC7F6B5AE28F /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BAAB3A254E2F8C9888A9184B2F7B54 /* RAMBadge.swift */; };
+		CE93BA84506734E5326BB5404011AA58 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2445545968E24E9401AF006077B5FD /* RAMBounceAnimation.swift */; };
+		E1713C5C9000FBABDBDC67B081E0BC5B /* Pods-chartofnuclides-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF0E605A53963ADD1F4E1B93E4C3A210 /* Pods-chartofnuclides-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E951A160E4070D0DAA8A91B053948E3F /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B219C7C94F74C9623C1D991F741D984E /* RAMAnimatedTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		40AE32635BFFA854DAA96DCA86F373D1 /* PBXContainerItemProxy */ = {
+		95A8A6B5470FA6DD1B46D44E8D83CFC8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0B749065F9949A095DD27121B92C0CC5;
-			remoteInfo = LeoMaskAnimationKit;
-		};
-		8717FE916852DD8A7534B77E9243E6BD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CF1167C5F19E744FF04B4C93BE5558DD;
-			remoteInfo = "LeoMaskAnimationKit-LeoMaskAnimationKit";
-		};
-		FD4F735BF211BAD4E18C0C2229F26173 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0B041DBD46DE00117E2B80982263ED4D;
+			remoteGlobalIDString = 1F1FEF77CAAD12D5EC28132C1B20CC05;
 			remoteInfo = RAMAnimatedTabBarController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06CF9EA998762E308153952BF5437762 /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMItemAnimationProtocol.swift; path = RAMAnimatedTabBarController/RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
-		0FC1132DF5A2DBBE16B70963B2EEC521 /* LeoMaskAnimationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LeoMaskAnimationKit-dummy.m"; sourceTree = "<group>"; };
-		1982D65FA27785B84FB3254864815238 /* RAMAnimatedTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RAMAnimatedTabBarController.framework; path = RAMAnimatedTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A2D34D5ABE56D8E3B3020BC9F8BA75 /* Pods-chartofnuclides-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-chartofnuclides-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1C3BAA3629F6D9DDCD778CB29218A12B /* RAMAnimatedTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RAMAnimatedTabBarController.framework; path = RAMAnimatedTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2067CE8C29151EC70B32F99101582DB3 /* Pods-chartofnuclides-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-chartofnuclides-dummy.m"; sourceTree = "<group>"; };
 		25FF065E1B240C4CCE7CCF6220B4E53F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		294467F9B070AA9D056FCF123CDC66F9 /* RAMAnimatedTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RAMAnimatedTabBarController-dummy.m"; sourceTree = "<group>"; };
-		2A7C96E20040CEF5F7003FF229064B36 /* RAMAnimatedTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAMAnimatedTabBarController.xcconfig; sourceTree = "<group>"; };
-		2C121469112E3E1EB1D09EC70E46D635 /* LeoMaskAnimationKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LeoMaskAnimationKit-umbrella.h"; sourceTree = "<group>"; };
-		308FABA4A0898FF68DDA26E421AE8B39 /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFrameItemAnimation.swift; path = RAMAnimatedTabBarController/Animations/FrameAnimation/RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
 		35999388C67E5890EEDE3470CD2FF5D3 /* Pods-chartofnuclides-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-chartofnuclides-resources.sh"; sourceTree = "<group>"; };
-		4CD6232172A22E712DA3127645C774D8 /* Pods_chartofnuclides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_chartofnuclides.framework; path = "Pods-chartofnuclides.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42654EBCDD1653775E88840823C27686 /* RAMAnimatedTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RAMAnimatedTabBarController-dummy.m"; sourceTree = "<group>"; };
 		51E6CCE2724597C730732FCCFBC6B4BB /* Pods-chartofnuclides.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-chartofnuclides.modulemap"; sourceTree = "<group>"; };
-		52E80142178DF913DC2F54CAA1B1BAEC /* LeoMaskAnimationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = LeoMaskAnimationKit.modulemap; sourceTree = "<group>"; };
-		5F3F4D6FD924D115B09683A89C901961 /* UIView+LeoMaskAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+LeoMaskAnimation.m"; path = "Pod/Classes/UIView+LeoMaskAnimation.m"; sourceTree = "<group>"; };
 		608C697B41E52A69DE78AC3B9D305599 /* Pods-chartofnuclides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-chartofnuclides.debug.xcconfig"; sourceTree = "<group>"; };
-		6139BF6A43B1BAAC9C56CF2FB3D2BC44 /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMRotationAnimation.swift; path = RAMAnimatedTabBarController/Animations/RotationAnimation/RAMRotationAnimation.swift; sourceTree = "<group>"; };
-		637874DB35898EF2A3F7201BA1136E34 /* RAMAnimatedTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-prefix.pch"; sourceTree = "<group>"; };
-		6E5F2073EF465CDD6EF2D79F85CA9831 /* UIView+LeoMaskAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+LeoMaskAnimation.h"; path = "Pod/Classes/UIView+LeoMaskAnimation.h"; sourceTree = "<group>"; };
-		74BEDCA4A24CD80AD9C1EE5E81D6311B /* LeoMaskAnimationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LeoMaskAnimationKit-prefix.pch"; sourceTree = "<group>"; };
-		7953EDF3DF6DE6383328E1C6DECE2EC8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69BAAB3A254E2F8C9888A9184B2F7B54 /* RAMBadge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBadge.swift; path = RAMAnimatedTabBarController/RAMBadge/RAMBadge.swift; sourceTree = "<group>"; };
+		71C00B91C7AAA98C14298B2318E34BC3 /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMItemAnimationProtocol.swift; path = RAMAnimatedTabBarController/RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		797AFF89E616F29FCC25476C7543127D /* Pods-chartofnuclides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-chartofnuclides.release.xcconfig"; sourceTree = "<group>"; };
-		79CCC03BC77BDCF9EEF011A1B7441807 /* RAMTransitionItemAnimations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMTransitionItemAnimations.swift; path = RAMAnimatedTabBarController/Animations/TransitionAniamtions/RAMTransitionItemAnimations.swift; sourceTree = "<group>"; };
-		862E2D8FE86D73EFD003BA4658CDDB21 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBounceAnimation.swift; path = RAMAnimatedTabBarController/Animations/BounceAnimation/RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		7EC510AB60276142AAE9F0F468783A86 /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFrameItemAnimation.swift; path = RAMAnimatedTabBarController/Animations/FrameAnimation/RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
+		7F43DC193F72F85F23F11933E6ADA518 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84023D8039CB078CEEB1EDF8D240DAF5 /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMRotationAnimation.swift; path = RAMAnimatedTabBarController/Animations/RotationAnimation/RAMRotationAnimation.swift; sourceTree = "<group>"; };
+		8C5D21B9D6706FBB1A35B9C7047F4913 /* RAMTransitionItemAnimations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMTransitionItemAnimations.swift; path = RAMAnimatedTabBarController/Animations/TransitionAniamtions/RAMTransitionItemAnimations.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		945A1AF19F81488C92706D4433CA5502 /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMAnimatedTabBarController.swift; path = RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
-		A279165C6D32D00B8C96A26709C9AEFC /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFumeAnimation.swift; path = RAMAnimatedTabBarController/Animations/FumeAnimation/RAMFumeAnimation.swift; sourceTree = "<group>"; };
-		A28C477C6E3DC4E8F87B11C8B6AF68CB /* RAMBadge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBadge.swift; path = RAMAnimatedTabBarController/RAMBadge/RAMBadge.swift; sourceTree = "<group>"; };
-		A7EA403AD407B040A59D518557B6B4CD /* RAMAnimatedTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-umbrella.h"; sourceTree = "<group>"; };
-		B4E89CA3593E93DC28C76F2AB589F0D1 /* LeoMaskAnimationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LeoMaskAnimationKit.framework; path = LeoMaskAnimationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B219C7C94F74C9623C1D991F741D984E /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMAnimatedTabBarController.swift; path = RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
+		B515A64C42A3818CBD3F3A1902B8D443 /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFumeAnimation.swift; path = RAMAnimatedTabBarController/Animations/FumeAnimation/RAMFumeAnimation.swift; sourceTree = "<group>"; };
 		BB2AE96C2656A0A73E3D428346C687D7 /* Pods-chartofnuclides-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-chartofnuclides-frameworks.sh"; sourceTree = "<group>"; };
-		BB2EDC01CC454A9D509C04B8DA0C31B3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC037304F5101A66408437C9367D911A /* Pods_chartofnuclides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_chartofnuclides.framework; path = "Pods-chartofnuclides.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A27A29BB4B1BD592C40E65CB5E6345 /* RAMAnimatedTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RAMAnimatedTabBarController.modulemap; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CF0E605A53963ADD1F4E1B93E4C3A210 /* Pods-chartofnuclides-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-chartofnuclides-umbrella.h"; sourceTree = "<group>"; };
-		CF21B7489E893627692E7764A5F90684 /* ResourceBundle-LeoMaskAnimationKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-LeoMaskAnimationKit-Info.plist"; sourceTree = "<group>"; };
-		CFE29FC3CED10003B1E5D5116730C8E0 /* LeoMaskAnimationKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LeoMaskAnimationKit.bundle; path = LeoMaskAnimationKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C8D072D23A64FF64F43AC796781FEE /* Pods-chartofnuclides-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-chartofnuclides-acknowledgements.plist"; sourceTree = "<group>"; };
-		E00987066787E50B7233A43504D57BD0 /* RAMAnimatedTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RAMAnimatedTabBarController.modulemap; sourceTree = "<group>"; };
-		E437B0D6658D663ECEC7D58682698348 /* LeoMaskAnimationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LeoMaskAnimationKit.xcconfig; sourceTree = "<group>"; };
+		D6DF1FAE883945675D63B833E9F7DCC5 /* RAMAnimatedTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAMAnimatedTabBarController.xcconfig; sourceTree = "<group>"; };
+		E734DC81903D302362657FB550E4427D /* RAMAnimatedTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-umbrella.h"; sourceTree = "<group>"; };
+		E75D0C64489FA2B2726F7C6F79174878 /* RAMAnimatedTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-prefix.pch"; sourceTree = "<group>"; };
+		EF2445545968E24E9401AF006077B5FD /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBounceAnimation.swift; path = RAMAnimatedTabBarController/Animations/BounceAnimation/RAMBounceAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		92BA8FE625E3D278C417B0B0C13E42B4 /* Frameworks */ = {
+		D5321B0C2437D34C255740BDDBBF186D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B44547FDFCD70E6B438980F87157E3 /* Foundation.framework in Frameworks */,
+				1E6B0D918C2C25C6125F26F4C646C970 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A3D8305C7D2D6290400389C490E57D9A /* Frameworks */ = {
+		D938E4E3162B322421591CD6A3059D19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A015F621E1DADC6975D8BA85CC364223 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7CE4495A013B1C911449A48C955A472 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A006FDC57D95A1C84F05B1FB103CA86 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D599EA783650E33B1F24C38A6ECFD415 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				666FD6A724ADA700D66C551C063D0E04 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05A1CE3B558A432B3B121C5CED1D07F2 /* LeoMaskAnimationKit */ = {
+		54E39F4A0C7795A0DEA16A08C85DC8E7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6E5F2073EF465CDD6EF2D79F85CA9831 /* UIView+LeoMaskAnimation.h */,
-				5F3F4D6FD924D115B09683A89C901961 /* UIView+LeoMaskAnimation.m */,
-				5A60E5F7E8EDBB2E01165977A8036055 /* Support Files */,
+				BC037304F5101A66408437C9367D911A /* Pods_chartofnuclides.framework */,
+				1C3BAA3629F6D9DDCD778CB29218A12B /* RAMAnimatedTabBarController.framework */,
 			);
-			name = LeoMaskAnimationKit;
-			path = LeoMaskAnimationKit;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		2DBB46055D7714196A5AF58AC6F09A6E /* Pods */ = {
+		5BC7936933AD004FBD1FC68B2C6FD2F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				05A1CE3B558A432B3B121C5CED1D07F2 /* LeoMaskAnimationKit */,
-				75BCD0A3807670685A85679B07858C2D /* RAMAnimatedTabBarController */,
+				A672D7EED91E4A7ACD601BAE53E66F72 /* RAMAnimatedTabBarController */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		5A60E5F7E8EDBB2E01165977A8036055 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7953EDF3DF6DE6383328E1C6DECE2EC8 /* Info.plist */,
-				52E80142178DF913DC2F54CAA1B1BAEC /* LeoMaskAnimationKit.modulemap */,
-				E437B0D6658D663ECEC7D58682698348 /* LeoMaskAnimationKit.xcconfig */,
-				0FC1132DF5A2DBBE16B70963B2EEC521 /* LeoMaskAnimationKit-dummy.m */,
-				74BEDCA4A24CD80AD9C1EE5E81D6311B /* LeoMaskAnimationKit-prefix.pch */,
-				2C121469112E3E1EB1D09EC70E46D635 /* LeoMaskAnimationKit-umbrella.h */,
-				CF21B7489E893627692E7764A5F90684 /* ResourceBundle-LeoMaskAnimationKit-Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/LeoMaskAnimationKit";
 			sourceTree = "<group>";
 		};
 		689ABCE70F93176D40F4B8E47E16AEC3 /* Pods-chartofnuclides */ = {
@@ -199,46 +135,32 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		75BCD0A3807670685A85679B07858C2D /* RAMAnimatedTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				945A1AF19F81488C92706D4433CA5502 /* RAMAnimatedTabBarController.swift */,
-				A28C477C6E3DC4E8F87B11C8B6AF68CB /* RAMBadge.swift */,
-				862E2D8FE86D73EFD003BA4658CDDB21 /* RAMBounceAnimation.swift */,
-				308FABA4A0898FF68DDA26E421AE8B39 /* RAMFrameItemAnimation.swift */,
-				A279165C6D32D00B8C96A26709C9AEFC /* RAMFumeAnimation.swift */,
-				06CF9EA998762E308153952BF5437762 /* RAMItemAnimationProtocol.swift */,
-				6139BF6A43B1BAAC9C56CF2FB3D2BC44 /* RAMRotationAnimation.swift */,
-				79CCC03BC77BDCF9EEF011A1B7441807 /* RAMTransitionItemAnimations.swift */,
-				A5D2B076057AA3881EA335D7BC5322A8 /* Support Files */,
-			);
-			name = RAMAnimatedTabBarController;
-			path = RAMAnimatedTabBarController;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				2DBB46055D7714196A5AF58AC6F09A6E /* Pods */,
-				D778521913B78E8F1B4EC6E3772A6917 /* Products */,
+				5BC7936933AD004FBD1FC68B2C6FD2F7 /* Pods */,
+				54E39F4A0C7795A0DEA16A08C85DC8E7 /* Products */,
 				6D29560B87262D74EE3FEE9B22AF9A16 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A5D2B076057AA3881EA335D7BC5322A8 /* Support Files */ = {
+		A672D7EED91E4A7ACD601BAE53E66F72 /* RAMAnimatedTabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				BB2EDC01CC454A9D509C04B8DA0C31B3 /* Info.plist */,
-				E00987066787E50B7233A43504D57BD0 /* RAMAnimatedTabBarController.modulemap */,
-				2A7C96E20040CEF5F7003FF229064B36 /* RAMAnimatedTabBarController.xcconfig */,
-				294467F9B070AA9D056FCF123CDC66F9 /* RAMAnimatedTabBarController-dummy.m */,
-				637874DB35898EF2A3F7201BA1136E34 /* RAMAnimatedTabBarController-prefix.pch */,
-				A7EA403AD407B040A59D518557B6B4CD /* RAMAnimatedTabBarController-umbrella.h */,
+				B219C7C94F74C9623C1D991F741D984E /* RAMAnimatedTabBarController.swift */,
+				69BAAB3A254E2F8C9888A9184B2F7B54 /* RAMBadge.swift */,
+				EF2445545968E24E9401AF006077B5FD /* RAMBounceAnimation.swift */,
+				7EC510AB60276142AAE9F0F468783A86 /* RAMFrameItemAnimation.swift */,
+				B515A64C42A3818CBD3F3A1902B8D443 /* RAMFumeAnimation.swift */,
+				71C00B91C7AAA98C14298B2318E34BC3 /* RAMItemAnimationProtocol.swift */,
+				84023D8039CB078CEEB1EDF8D240DAF5 /* RAMRotationAnimation.swift */,
+				8C5D21B9D6706FBB1A35B9C7047F4913 /* RAMTransitionItemAnimations.swift */,
+				F2629F9AB7CADEF7D3FE8CBD53B81ABC /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/RAMAnimatedTabBarController";
+			name = RAMAnimatedTabBarController;
+			path = RAMAnimatedTabBarController;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -249,55 +171,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D778521913B78E8F1B4EC6E3772A6917 /* Products */ = {
+		F2629F9AB7CADEF7D3FE8CBD53B81ABC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CFE29FC3CED10003B1E5D5116730C8E0 /* LeoMaskAnimationKit.bundle */,
-				B4E89CA3593E93DC28C76F2AB589F0D1 /* LeoMaskAnimationKit.framework */,
-				4CD6232172A22E712DA3127645C774D8 /* Pods_chartofnuclides.framework */,
-				1982D65FA27785B84FB3254864815238 /* RAMAnimatedTabBarController.framework */,
+				7F43DC193F72F85F23F11933E6ADA518 /* Info.plist */,
+				C8A27A29BB4B1BD592C40E65CB5E6345 /* RAMAnimatedTabBarController.modulemap */,
+				D6DF1FAE883945675D63B833E9F7DCC5 /* RAMAnimatedTabBarController.xcconfig */,
+				42654EBCDD1653775E88840823C27686 /* RAMAnimatedTabBarController-dummy.m */,
+				E75D0C64489FA2B2726F7C6F79174878 /* RAMAnimatedTabBarController-prefix.pch */,
+				E734DC81903D302362657FB550E4427D /* RAMAnimatedTabBarController-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/RAMAnimatedTabBarController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		07A9320B92C684CF4C0A18076B0FD77C /* Headers */ = {
+		11E375214FAFDC59A9353E570A843AEE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BEB14A5318E42DE2F84EF0B2C17A385 /* LeoMaskAnimationKit-umbrella.h in Headers */,
-				AF50799E864234838CEC5534D9401236 /* UIView+LeoMaskAnimation.h in Headers */,
+				8A829EBBB22CD4C2FE5A230B2E5150B9 /* RAMAnimatedTabBarController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		892583EBFB2EC0BDAA488C4536CA2732 /* Headers */ = {
+		307D9E8FB15B0E5AECE9F1F7828E6CA6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD359C4CF45488D44788E89D89C374B1 /* RAMAnimatedTabBarController-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9DC1778ED949F363363DB49443889A32 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				51B2539A6A0BF0D694DD352C60775512 /* Pods-chartofnuclides-umbrella.h in Headers */,
+				E1713C5C9000FBABDBDC67B081E0BC5B /* Pods-chartofnuclides-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0B041DBD46DE00117E2B80982263ED4D /* RAMAnimatedTabBarController */ = {
+		1F1FEF77CAAD12D5EC28132C1B20CC05 /* RAMAnimatedTabBarController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BB845EFF396D5C40202A931C4342E48 /* Build configuration list for PBXNativeTarget "RAMAnimatedTabBarController" */;
+			buildConfigurationList = 267E8AEC711BD02878C843C72B84F99B /* Build configuration list for PBXNativeTarget "RAMAnimatedTabBarController" */;
 			buildPhases = (
-				D0819AC2216F89F4D045986A8E90196C /* Sources */,
-				92BA8FE625E3D278C417B0B0C13E42B4 /* Frameworks */,
-				892583EBFB2EC0BDAA488C4536CA2732 /* Headers */,
+				93A3DD921A84DB5044718B4230A48149 /* Sources */,
+				D938E4E3162B322421591CD6A3059D19 /* Frameworks */,
+				11E375214FAFDC59A9353E570A843AEE /* Headers */,
 			);
 			buildRules = (
 			);
@@ -305,63 +221,26 @@
 			);
 			name = RAMAnimatedTabBarController;
 			productName = RAMAnimatedTabBarController;
-			productReference = 1982D65FA27785B84FB3254864815238 /* RAMAnimatedTabBarController.framework */;
+			productReference = 1C3BAA3629F6D9DDCD778CB29218A12B /* RAMAnimatedTabBarController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		0B749065F9949A095DD27121B92C0CC5 /* LeoMaskAnimationKit */ = {
+		53821013B1203C9FCC15C805A1058F14 /* Pods-chartofnuclides */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42A21DFC89A0821A79990E1DECDD2E83 /* Build configuration list for PBXNativeTarget "LeoMaskAnimationKit" */;
+			buildConfigurationList = D73CAC099CBC976A1155CCEB7061865C /* Build configuration list for PBXNativeTarget "Pods-chartofnuclides" */;
 			buildPhases = (
-				2287E7FCFA71674A466A23A18C15795D /* Sources */,
-				B7CE4495A013B1C911449A48C955A472 /* Frameworks */,
-				BEF1A750A2757DED81A65B3DF1F123EE /* Resources */,
-				07A9320B92C684CF4C0A18076B0FD77C /* Headers */,
+				AB0EC757725D93BF244A59C6CF24098C /* Sources */,
+				D5321B0C2437D34C255740BDDBBF186D /* Frameworks */,
+				307D9E8FB15B0E5AECE9F1F7828E6CA6 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AB3D2EB5ABC4A510FB32D2B048ADB132 /* PBXTargetDependency */,
-			);
-			name = LeoMaskAnimationKit;
-			productName = LeoMaskAnimationKit;
-			productReference = B4E89CA3593E93DC28C76F2AB589F0D1 /* LeoMaskAnimationKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		9FC9019A7196DF0CFBBC88BE399F96CB /* Pods-chartofnuclides */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 71DCF186961C1C8802F5421BB9CCDC1C /* Build configuration list for PBXNativeTarget "Pods-chartofnuclides" */;
-			buildPhases = (
-				415462889BE888D71FE29AF5112D9ABF /* Sources */,
-				A3D8305C7D2D6290400389C490E57D9A /* Frameworks */,
-				9DC1778ED949F363363DB49443889A32 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1BA964DBF754E46C208347424BB99635 /* PBXTargetDependency */,
-				6E4B79226C36B53B52AFDA14AE6CE888 /* PBXTargetDependency */,
+				AF5432E2D8DE783CE87B74BD8F9AB591 /* PBXTargetDependency */,
 			);
 			name = "Pods-chartofnuclides";
 			productName = "Pods-chartofnuclides";
-			productReference = 4CD6232172A22E712DA3127645C774D8 /* Pods_chartofnuclides.framework */;
+			productReference = BC037304F5101A66408437C9367D911A /* Pods_chartofnuclides.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		CF1167C5F19E744FF04B4C93BE5558DD /* LeoMaskAnimationKit-LeoMaskAnimationKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FC5A04038DE86F6FAA5D20BD8651C44 /* Build configuration list for PBXNativeTarget "LeoMaskAnimationKit-LeoMaskAnimationKit" */;
-			buildPhases = (
-				26610FFA87F7939508557EF354A5A8A2 /* Sources */,
-				D599EA783650E33B1F24C38A6ECFD415 /* Frameworks */,
-				CC107069548A432D727B062931281913 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "LeoMaskAnimationKit-LeoMaskAnimationKit";
-			productName = "LeoMaskAnimationKit-LeoMaskAnimationKit";
-			productReference = CFE29FC3CED10003B1E5D5116730C8E0 /* LeoMaskAnimationKit.bundle */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -380,101 +259,86 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = D778521913B78E8F1B4EC6E3772A6917 /* Products */;
+			productRefGroup = 54E39F4A0C7795A0DEA16A08C85DC8E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0B749065F9949A095DD27121B92C0CC5 /* LeoMaskAnimationKit */,
-				CF1167C5F19E744FF04B4C93BE5558DD /* LeoMaskAnimationKit-LeoMaskAnimationKit */,
-				9FC9019A7196DF0CFBBC88BE399F96CB /* Pods-chartofnuclides */,
-				0B041DBD46DE00117E2B80982263ED4D /* RAMAnimatedTabBarController */,
+				53821013B1203C9FCC15C805A1058F14 /* Pods-chartofnuclides */,
+				1F1FEF77CAAD12D5EC28132C1B20CC05 /* RAMAnimatedTabBarController */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		BEF1A750A2757DED81A65B3DF1F123EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B77069E767A58A8D60CDC068DC99E183 /* LeoMaskAnimationKit.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC107069548A432D727B062931281913 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		2287E7FCFA71674A466A23A18C15795D /* Sources */ = {
+		93A3DD921A84DB5044718B4230A48149 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A199B5E8DE54031E70BA8D6D312A522 /* LeoMaskAnimationKit-dummy.m in Sources */,
-				A5DC0B8179298C0B2A1C150314F8091A /* UIView+LeoMaskAnimation.m in Sources */,
+				73F2D731A048DF525AEB705A9D1E2334 /* RAMAnimatedTabBarController-dummy.m in Sources */,
+				E951A160E4070D0DAA8A91B053948E3F /* RAMAnimatedTabBarController.swift in Sources */,
+				B7FF51C724E534382CADCC7F6B5AE28F /* RAMBadge.swift in Sources */,
+				CE93BA84506734E5326BB5404011AA58 /* RAMBounceAnimation.swift in Sources */,
+				AD1807279F077B7FF9F1BF2F54163753 /* RAMFrameItemAnimation.swift in Sources */,
+				021ACB199D6C4668B8938E3E537F0512 /* RAMFumeAnimation.swift in Sources */,
+				A8C48C21FEFB3CD41058B8B684188C6F /* RAMItemAnimationProtocol.swift in Sources */,
+				80204393A3CAD083E1C27C9A8E49E7BC /* RAMRotationAnimation.swift in Sources */,
+				AD9FA8469C8225B1F0B8C7FD2B947011 /* RAMTransitionItemAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		26610FFA87F7939508557EF354A5A8A2 /* Sources */ = {
+		AB0EC757725D93BF244A59C6CF24098C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		415462889BE888D71FE29AF5112D9ABF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				604F3F02104078F11EE9CD8FA441A87B /* Pods-chartofnuclides-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D0819AC2216F89F4D045986A8E90196C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4EDC39798A14EC4346B43DC59CCEBB3C /* RAMAnimatedTabBarController-dummy.m in Sources */,
-				F1ED7473D9DAB1CA9B04195C2503F12C /* RAMAnimatedTabBarController.swift in Sources */,
-				BC4A205A4068A393E35E746E67418263 /* RAMBadge.swift in Sources */,
-				2024CC2DB6D50FAAD4C87556CC0F3A17 /* RAMBounceAnimation.swift in Sources */,
-				8A83D776A647BB38CB1AEB581BB8CE75 /* RAMFrameItemAnimation.swift in Sources */,
-				53A02C1808A2650FBE715259B09D1CCB /* RAMFumeAnimation.swift in Sources */,
-				691020968E39E6AE8889C309FB7A6EC1 /* RAMItemAnimationProtocol.swift in Sources */,
-				F4C7242D60557B452D9A22D7014D2595 /* RAMRotationAnimation.swift in Sources */,
-				5521E3500747AC4AECB4FF2E329655E8 /* RAMTransitionItemAnimations.swift in Sources */,
+				01C4A2AD440D61DDCAD37E34D9EC28FC /* Pods-chartofnuclides-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1BA964DBF754E46C208347424BB99635 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LeoMaskAnimationKit;
-			target = 0B749065F9949A095DD27121B92C0CC5 /* LeoMaskAnimationKit */;
-			targetProxy = 40AE32635BFFA854DAA96DCA86F373D1 /* PBXContainerItemProxy */;
-		};
-		6E4B79226C36B53B52AFDA14AE6CE888 /* PBXTargetDependency */ = {
+		AF5432E2D8DE783CE87B74BD8F9AB591 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RAMAnimatedTabBarController;
-			target = 0B041DBD46DE00117E2B80982263ED4D /* RAMAnimatedTabBarController */;
-			targetProxy = FD4F735BF211BAD4E18C0C2229F26173 /* PBXContainerItemProxy */;
-		};
-		AB3D2EB5ABC4A510FB32D2B048ADB132 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "LeoMaskAnimationKit-LeoMaskAnimationKit";
-			target = CF1167C5F19E744FF04B4C93BE5558DD /* LeoMaskAnimationKit-LeoMaskAnimationKit */;
-			targetProxy = 8717FE916852DD8A7534B77E9243E6BD /* PBXContainerItemProxy */;
+			target = 1F1FEF77CAAD12D5EC28132C1B20CC05 /* RAMAnimatedTabBarController */;
+			targetProxy = 95A8A6B5470FA6DD1B46D44E8D83CFC8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		260F57FA3351CEE78FE4163F58248DEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6DF1FAE883945675D63B833E9F7DCC5 /* RAMAnimatedTabBarController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RAMAnimatedTabBarController/RAMAnimatedTabBarController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RAMAnimatedTabBarController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RAMAnimatedTabBarController/RAMAnimatedTabBarController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RAMAnimatedTabBarController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		673254EEAF0B5BF4596080C749645884 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -515,41 +379,9 @@
 			};
 			name = Release;
 		};
-		742E3F7D32BD5EBA3BB2D883B1CA0235 /* Release */ = {
+		8D36E8F50C37E4F7A9AB0A79286CA1CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E437B0D6658D663ECEC7D58682698348 /* LeoMaskAnimationKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LeoMaskAnimationKit/LeoMaskAnimationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LeoMaskAnimationKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LeoMaskAnimationKit/LeoMaskAnimationKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = LeoMaskAnimationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		85692D98758D0802885D975E84C91C51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A7C96E20040CEF5F7003FF229064B36 /* RAMAnimatedTabBarController.xcconfig */;
+			baseConfigurationReference = D6DF1FAE883945675D63B833E9F7DCC5 /* RAMAnimatedTabBarController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -579,92 +411,7 @@
 			};
 			name = Release;
 		};
-		98A1F683F2431AB87DDB973D2BA933E4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 797AFF89E616F29FCC25476C7543127D /* Pods-chartofnuclides.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-chartofnuclides/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_chartofnuclides;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9BCA8A832C9DCA19E893F6836276D8D2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A7C96E20040CEF5F7003FF229064B36 /* RAMAnimatedTabBarController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/RAMAnimatedTabBarController/RAMAnimatedTabBarController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RAMAnimatedTabBarController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RAMAnimatedTabBarController/RAMAnimatedTabBarController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = RAMAnimatedTabBarController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9DE448F95D8E41A9ACFF96AC11AB1B6E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E437B0D6658D663ECEC7D58682698348 /* LeoMaskAnimationKit.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/LeoMaskAnimationKit";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/LeoMaskAnimationKit/ResourceBundle-LeoMaskAnimationKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = LeoMaskAnimationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		CDF0719CDF1A8EFBD1E933ABD4926E5F /* Debug */ = {
+		A05F8C4F629655A419EC1AE44A0C4B30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 608C697B41E52A69DE78AC3B9D305599 /* Pods-chartofnuclides.debug.xcconfig */;
 			buildSettings = {
@@ -700,37 +447,40 @@
 			};
 			name = Debug;
 		};
-		CF50F8FA73E7D2673A1545F2D3CCB829 /* Debug */ = {
+		BDBF8BDB68314C6BFAA825EAC053FCE2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E437B0D6658D663ECEC7D58682698348 /* LeoMaskAnimationKit.xcconfig */;
+			baseConfigurationReference = 797AFF89E616F29FCC25476C7543127D /* Pods-chartofnuclides.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LeoMaskAnimationKit/LeoMaskAnimationKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LeoMaskAnimationKit/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-chartofnuclides/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LeoMaskAnimationKit/LeoMaskAnimationKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = LeoMaskAnimationKit;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_chartofnuclides;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -776,31 +526,14 @@
 			};
 			name = Debug;
 		};
-		FF4CD24D0A938A736B22AC2CE694DEAC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E437B0D6658D663ECEC7D58682698348 /* LeoMaskAnimationKit.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/LeoMaskAnimationKit";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/LeoMaskAnimationKit/ResourceBundle-LeoMaskAnimationKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = LeoMaskAnimationKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0FC5A04038DE86F6FAA5D20BD8651C44 /* Build configuration list for PBXNativeTarget "LeoMaskAnimationKit-LeoMaskAnimationKit" */ = {
+		267E8AEC711BD02878C843C72B84F99B /* Build configuration list for PBXNativeTarget "RAMAnimatedTabBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9DE448F95D8E41A9ACFF96AC11AB1B6E /* Debug */,
-				FF4CD24D0A938A736B22AC2CE694DEAC /* Release */,
+				260F57FA3351CEE78FE4163F58248DEA /* Debug */,
+				8D36E8F50C37E4F7A9AB0A79286CA1CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -814,29 +547,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		42A21DFC89A0821A79990E1DECDD2E83 /* Build configuration list for PBXNativeTarget "LeoMaskAnimationKit" */ = {
+		D73CAC099CBC976A1155CCEB7061865C /* Build configuration list for PBXNativeTarget "Pods-chartofnuclides" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF50F8FA73E7D2673A1545F2D3CCB829 /* Debug */,
-				742E3F7D32BD5EBA3BB2D883B1CA0235 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5BB845EFF396D5C40202A931C4342E48 /* Build configuration list for PBXNativeTarget "RAMAnimatedTabBarController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9BCA8A832C9DCA19E893F6836276D8D2 /* Debug */,
-				85692D98758D0802885D975E84C91C51 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		71DCF186961C1C8802F5421BB9CCDC1C /* Build configuration list for PBXNativeTarget "Pods-chartofnuclides" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDF0719CDF1A8EFBD1E933ABD4926E5F /* Debug */,
-				98A1F683F2431AB87DDB973D2BA933E4 /* Release */,
+				A05F8C4F629655A419EC1AE44A0C4B30 /* Debug */,
+				BDBF8BDB68314C6BFAA825EAC053FCE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

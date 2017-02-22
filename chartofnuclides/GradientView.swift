@@ -37,11 +37,33 @@ class GradientView: UIView {
         drawLinear = true
     }
     
+    func setValuesForLinearGradient(color1: UIColor, color2: UIColor, relativeStartPoint: CGPoint, relativeEndPoint: CGPoint) {
+        firstColor = color1
+        secondColor = color2
+        
+        print(frame)
+        self.startPoint = CGPoint(x: relativeStartPoint.x * frame.width, y: relativeStartPoint.y * frame.height)
+        self.endPoint = CGPoint(x: relativeEndPoint.x * frame.width, y: relativeEndPoint.y * frame.height)
+        
+        drawLinear = true
+    }
+    
     func setValuesForRadialGradient(color1: UIColor, color2: UIColor, centerPoint: CGPoint, innerRadius: CGFloat, outerRadius: CGFloat) {
         firstColor = color1
         secondColor = color2
         
         self.centerPoint = centerPoint
+        self.innerRadius = innerRadius
+        self.outerRadius = outerRadius
+        
+        drawRadial = true
+    }
+    
+    func setValuesForRadialGradient(color1: UIColor, color2: UIColor, relativeCenterPoint: CGPoint, innerRadius: CGFloat, outerRadius: CGFloat) {
+        firstColor = color1
+        secondColor = color2
+        
+        self.centerPoint = CGPoint(x: relativeCenterPoint.x * frame.width, y: relativeCenterPoint.y * frame.height)
         self.innerRadius = innerRadius
         self.outerRadius = outerRadius
         
@@ -62,7 +84,7 @@ class GradientView: UIView {
         if drawRadial {
             if let innerRadius = innerRadius, let outerRadius = outerRadius, let centerPoint = centerPoint {
                 //let context = UIGraphicsBeginImageContext(self.frame.size)
-                UIGraphicsGetCurrentContext()!.drawRadialGradient(gradient!, startCenter: centerPoint, startRadius: innerRadius, endCenter: centerPoint, endRadius: outerRadius, options: CGGradientDrawingOptions.drawsBeforeStartLocation)
+                UIGraphicsGetCurrentContext()!.drawRadialGradient(gradient!, startCenter: centerPoint, startRadius: innerRadius, endCenter: centerPoint, endRadius: outerRadius, options: [CGGradientDrawingOptions.drawsAfterEndLocation, CGGradientDrawingOptions.drawsBeforeStartLocation])
             } else {
                 print("JACOB: Not creating the radial gradient. One of the required values for drawing is not set.")
             }
@@ -70,7 +92,7 @@ class GradientView: UIView {
         
         if drawLinear {
             if let startPoint = startPoint, let endPoint = endPoint {
-                UIGraphicsGetCurrentContext()!.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: CGGradientDrawingOptions.drawsAfterEndLocation)
+                UIGraphicsGetCurrentContext()!.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: [CGGradientDrawingOptions.drawsAfterEndLocation, CGGradientDrawingOptions.drawsBeforeStartLocation])
             } else {
                 print("JACOB: Not creating the linear gradient")
             }

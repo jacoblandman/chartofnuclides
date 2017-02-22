@@ -1,15 +1,12 @@
 PODS:
-  - LeoMaskAnimationKit (1.0.1)
   - RAMAnimatedTabBarController (2.0.13)
 
 DEPENDENCIES:
-  - LeoMaskAnimationKit
   - RAMAnimatedTabBarController (~> 2.0.13)
 
 SPEC CHECKSUMS:
-  LeoMaskAnimationKit: 8f2d57ea5bc3e07a4f0aa4c20f1bc014c2b7b9b7
   RAMAnimatedTabBarController: 2510f3b66954c3f77ea1042a35d34df8f5f3b604
 
-PODFILE CHECKSUM: 443ef70c4791e368e3ee35993ad32b808878ddae
+PODFILE CHECKSUM: a336985878e7934c6f7899e3f81fef4729e111c1
 
 COCOAPODS: 1.1.1
