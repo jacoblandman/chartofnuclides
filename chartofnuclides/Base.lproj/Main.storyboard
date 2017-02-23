@@ -956,11 +956,11 @@
             </objects>
             <point key="canvasLocation" x="1212" y="1104"/>
         </scene>
-        <!--Definitions-->
+        <!--Community-->
         <scene sceneID="192-rM-xoU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tkc-jM-6wu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Definitions" image="definitionsIcon" id="iwY-Dr-HHL" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="Community" image="definitionsIcon" id="iwY-Dr-HHL" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                 <color key="value" red="0.52883594283728241" green="0.53407194227131494" blue="0.53407194227131494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

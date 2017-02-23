@@ -353,7 +353,16 @@ extension ConverterCalcVC: ButtonControllerDelegate, UITextFieldDelegate {
             }
             
             if inputTextField.text != "" && inputTextField.text != nil {
-                inputTextField.text?.remove(at: inputTextField.text!.index(before: inputTextField.text!.endIndex))
+                 if let selectedRange = inputTextField.selectedTextRange {
+                    let cursorPosition = inputTextField.offset(from: inputTextField.beginningOfDocument, to: selectedRange.start)
+                    
+                    guard cursorPosition > 0 else { return }
+                    
+                    inputTextField.text?.remove(at: inputTextField.text!.index(inputTextField.text!.startIndex, offsetBy: cursorPosition - 1))
+                    if let newCursorPosition = inputTextField.position(from: selectedRange.start, offset: -1) {
+                        inputTextField.selectedTextRange = inputTextField.textRange(from: newCursorPosition, to: newCursorPosition)
+                    }
+                }
             }
         }
     }
