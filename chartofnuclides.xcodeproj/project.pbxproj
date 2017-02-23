@@ -58,6 +58,7 @@
 		AEDF0EC11E5E079D006FA58F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */; };
 		AEDF0EC31E5E17A6006FA58F /* UnitConversionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC21E5E17A6006FA58F /* UnitConversionManager.swift */; };
 		AEDF0EC51E5E2814006FA58F /* UnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC41E5E2814006FA58F /* UnitCell.swift */; };
+		AEDF0EC71E5E5762006FA58F /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC61E5E5762006FA58F /* InputTextField.swift */; };
 		AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		AEDF0EC21E5E17A6006FA58F /* UnitConversionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConversionManager.swift; sourceTree = "<group>"; };
 		AEDF0EC41E5E2814006FA58F /* UnitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCell.swift; sourceTree = "<group>"; };
+		AEDF0EC61E5E5762006FA58F /* InputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Initializers.swift"; sourceTree = "<group>"; };
 		E67CC75D03BE64CB7305DEBB /* Pods-chartofnuclides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chartofnuclides.release.xcconfig"; path = "Pods/Target Support Files/Pods-chartofnuclides/Pods-chartofnuclides.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +238,7 @@
 				AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */,
 				AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */,
 				AE87BE2D1E5B599C003576E9 /* GradientView.swift */,
+				AEDF0EC61E5E5762006FA58F /* InputTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */,
 				AE776E6C1E538CAE00D3ADB0 /* PopupSearchVC.swift in Sources */,
 				AECF21731E563B9C00FA4D4C /* UIViewController+MZContentViewController.m in Sources */,
+				AEDF0EC71E5E5762006FA58F /* InputTextField.swift in Sources */,
 				AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */,
 				AECD26581E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift in Sources */,
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,

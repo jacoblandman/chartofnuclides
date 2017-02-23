@@ -38,6 +38,10 @@ class ConverterCalcVC: UIViewController {
     var inputUnitLbl: UILabel!
     var outputUnitLbl: UILabel!
     
+    var enteredValue: Bool = false
+    
+    var inputTextField: InputTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +55,9 @@ class ConverterCalcVC: UIViewController {
         
         XView.setValuesForLinearGradient(color1: UIColor.white, color2: GREEN_COLOR, startPoint: CGPoint(x: XView.frame.width / 2, y: 0.0), endPoint: CGPoint(x: XView.frame.width / 2, y: XView.frame.height / 2))
         XView.setNeedsDisplay()
+        
+        
+        
     
     }
     
@@ -169,6 +176,7 @@ extension ConverterCalcVC: UICollectionViewDelegate, UICollectionViewDataSource,
         
         if (indexPath.section == 0 && indexPath.row == 1) {
             setButtonDelegate(for: cell)
+            setTextFieldDelegate(for: cell)
         }
         
         return cell
@@ -216,7 +224,23 @@ extension ConverterCalcVC: UICollectionViewDelegate, UICollectionViewDataSource,
                 
                 
             }
+        } else {
+            
+            let cell = collectionView.cellForItem(at: indexPath) as! ConverterCalcCell
+            if !enteredValue {
+                enteredValue = true
+                inputTextField.text = ""
+                inputLbl.text = ""
+            }
+
+            inputTextField.text?.append(cell.mainLbl.text!)
+            setOutputValue()
+            
         }
+    }
+    
+    func setOutputValue() {
+        outputLbl.text = "0.0"
     }
     
     func cellSize(for indexPath: IndexPath) -> CGSize {
@@ -288,7 +312,7 @@ extension ConverterCalcVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ConverterCalcVC: ButtonControllerDelegate {
+extension ConverterCalcVC: ButtonControllerDelegate, UITextFieldDelegate {
     
     func setButtonDelegate(for cell: ConverterCalcCell) {
         
@@ -300,12 +324,43 @@ extension ConverterCalcVC: ButtonControllerDelegate {
         }
     }
     
+    func setTextFieldDelegate(for cell: ConverterCalcCell) {
+        let subviews = cell.subviews.filter{$0 is InputTextField}
+        for view in subviews {
+            if let textField = view as? InputTextField {
+                textField.delegate = self
+                UITextField.appearance().tintColor = UIColor(hexString: "FDBE4D")
+                inputTextField = textField
+                
+                
+                let dummyView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                inputTextField.inputView = dummyView
+                inputTextField.becomeFirstResponder()
+                inputTextField.adjustsFontSizeToFitWidth = false
+                
+            }
+        }
+    }
+    
     func buttonTapped() {
-        print("JACOB: Button Tapped")
+        
+        if !enteredValue {
+            inputLbl.text = ""
+            inputTextField.text = ""
+        } else {
+            if inputLbl.text != "" && inputLbl.text != nil {
+                inputLbl.text?.remove(at: inputLbl.text!.index(before: inputLbl.text!.endIndex))
+            }
+            
+            if inputTextField.text != "" && inputTextField.text != nil {
+                inputTextField.text?.remove(at: inputTextField.text!.index(before: inputTextField.text!.endIndex))
+            }
+        }
     }
     
     func buttonHeld() {
-        print("JACOB: Button Held")
+        inputLbl.text = ""
+        inputTextField.text = ""
     }
 }
 

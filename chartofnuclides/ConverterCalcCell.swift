@@ -82,6 +82,23 @@ class ConverterCalcCell: UICollectionViewCell {
         mainLbl.text = "Enter Value"
         mainLbl.adjustsFontSizeToFitWidth = true
         
+        
+        let textField = InputTextField(frame: self.frame)
+        textField.font = UIFont(name: "Avenir-Heavy", size: 32)
+        textField.textColor = colorWithHexString(hex: "FDBE4D")
+        textField.text = "Enter Value"
+        textField.adjustsFontSizeToFitWidth = true
+        
+        self.addSubview(textField)
+        
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint(item: textField, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: textField, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -lblTrailingConstraint.constant).isActive = true
+        NSLayoutConstraint(item: textField, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: textField, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0.0).isActive = true
+        
+        
         addDeleteButton(to: self)
         
     }
@@ -104,7 +121,7 @@ class ConverterCalcCell: UICollectionViewCell {
         
         mainLbl.font = UIFont(name: "Avenir-Heavy", size: 32)
         mainLbl.textColor = colorWithHexString(hex: "55C6FE")
-        mainLbl.text = "Conversion"
+        mainLbl.text = "0.0"
         mainLbl.adjustsFontSizeToFitWidth = true
         
         self.isUserInteractionEnabled = false
