@@ -28,6 +28,11 @@
 		AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */; };
 		AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */; };
 		AE7DF1B41E5F4D4A00B686B5 /* UnitConversionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1B31E5F4D4A00B686B5 /* UnitConversionManager.swift */; };
+		AE7DF1B61E5F5F6E00B686B5 /* ConversionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */; };
+		AE7DF1B81E5F621700B686B5 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1B71E5F621700B686B5 /* NSObjectExtension.swift */; };
+		AE7DF1BA1E5F64EE00B686B5 /* ConversionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1B91E5F64EE00B686B5 /* ConversionButton.swift */; };
+		AE7DF1BC1E5F757700B686B5 /* NSNumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BB1E5F757700B686B5 /* NSNumberExtension.swift */; };
+		AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */; };
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
 		AE87BE321E5B8D5B003576E9 /* ConverterCalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */; };
 		AE87BE341E5B8E02003576E9 /* ConverterCalcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */; };
@@ -89,6 +94,11 @@
 		AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterVC.swift; sourceTree = "<group>"; };
 		AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionUnitCell.swift; sourceTree = "<group>"; };
 		AE7DF1B31E5F4D4A00B686B5 /* UnitConversionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConversionManager.swift; sourceTree = "<group>"; };
+		AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionVC.swift; sourceTree = "<group>"; };
+		AE7DF1B71E5F621700B686B5 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		AE7DF1B91E5F64EE00B686B5 /* ConversionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionButton.swift; sourceTree = "<group>"; };
+		AE7DF1BB1E5F757700B686B5 /* NSNumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberExtension.swift; sourceTree = "<group>"; };
+		AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLGeneralWaveAnimation.swift; sourceTree = "<group>"; };
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcVC.swift; sourceTree = "<group>"; };
 		AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcCell.swift; sourceTree = "<group>"; };
@@ -155,6 +165,7 @@
 			children = (
 				AE183F521E5CC94500C72291 /* FadeInAnimator.swift */,
 				AE183F541E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift */,
+				AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -227,6 +238,7 @@
 				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
 				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
 				AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */,
+				AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -241,6 +253,7 @@
 				AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */,
 				AE87BE2D1E5B599C003576E9 /* GradientView.swift */,
 				AEDF0EC61E5E5762006FA58F /* InputTextField.swift */,
+				AE7DF1B91E5F64EE00B686B5 /* ConversionButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -318,6 +331,8 @@
 				AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */,
 				AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */,
 				AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */,
+				AE7DF1B71E5F621700B686B5 /* NSObjectExtension.swift */,
+				AE7DF1BB1E5F757700B686B5 /* NSNumberExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -490,21 +505,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE776E701E5390D900D3ADB0 /* CalculatorVC.swift in Sources */,
+				AE7DF1B81E5F621700B686B5 /* NSObjectExtension.swift in Sources */,
 				AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */,
 				AEDF0EC51E5E2814006FA58F /* UnitCell.swift in Sources */,
 				AE183F551E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift in Sources */,
 				AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
+				AE7DF1BA1E5F64EE00B686B5 /* ConversionButton.swift in Sources */,
 				AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */,
 				AE7DF1B41E5F4D4A00B686B5 /* UnitConversionManager.swift in Sources */,
 				AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
+				AE7DF1BC1E5F757700B686B5 /* NSNumberExtension.swift in Sources */,
 				AEDF0EBF1E5E06D3006FA58F /* ButtonControllerDelegate.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
 				AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */,
 				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
 				AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */,
+				AE7DF1B61E5F5F6E00B686B5 /* ConversionVC.swift in Sources */,
 				AECD264D1E551B8C00282462 /* UICollectionViewControllerExtension.swift in Sources */,
 				AECD264B1E551B8C00282462 /* CKWaveCollectionViewAnimator.swift in Sources */,
 				AE776E611E5367C500D3ADB0 /* InspectableBorderView.swift in Sources */,
@@ -537,6 +556,7 @@
 				AEDF0EC11E5E079D006FA58F /* UIButtonExtension.swift in Sources */,
 				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
+				AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */,
 				AE776E661E536B1B00D3ADB0 /* DetailNuclideVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

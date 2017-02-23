@@ -20,7 +20,7 @@ class NavigationControllerDelegate : NSObject, UINavigationControllerDelegate {
                 
                 animator.reversed = true
             }
-            
+            return nil
             return animator
     }
 }

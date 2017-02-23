@@ -63,7 +63,7 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
         
         if unitType == "Work" { unitType = "Work/Energy" }
         let sender = (unitType, units)
-        performSegue(withIdentifier: "ConverterCalcVC", sender: sender)
+        performSegue(withIdentifier: "ConversionVC", sender: sender)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

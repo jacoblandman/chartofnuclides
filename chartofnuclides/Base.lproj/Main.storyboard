@@ -377,20 +377,6 @@
                                     <constraint firstAttribute="height" constant="50" id="8r2-9d-lfD"/>
                                     <constraint firstAttribute="trailing" secondItem="rw9-W3-aVU" secondAttribute="trailing" id="C7Z-4p-Swb"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_shadowColor">
-                                        <color key="value" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="_shadowOffset">
-                                        <size key="value" width="2" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="_shadowRadius">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="_shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RG-dU-8oT" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="168" y="254" width="226" height="50"/>
@@ -497,7 +483,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IaJ-UP-2bR" id="5v1-jh-XB8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uuo294" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOW-Ua-5yR">
@@ -637,6 +623,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="Hai-fg-TYQ" kind="show" identifier="ConverterCalcVC" id="wZe-qG-T1o"/>
+                        <segue destination="g81-Sx-IGL" kind="show" identifier="ConversionVC" id="SqQ-dx-znp"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcD-Aw-eEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -752,11 +739,11 @@
                                                 <rect key="frame" x="0.0" y="28" width="276" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vPI-ln-PoD" id="HU8-cO-onL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="276" height="49"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="276" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="angle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loQ-Zl-05q">
-                                                            <rect key="frame" x="18" y="12.333333333333336" width="70" height="25"/>
+                                                            <rect key="frame" x="18" y="12" width="70" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="Ty8-eD-abF"/>
                                                             </constraints>
@@ -765,7 +752,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUx-hd-zu8">
-                                                            <rect key="frame" x="113" y="13.333333333333336" width="153" height="23.333333333333329"/>
+                                                            <rect key="frame" x="113" y="13" width="153" height="24"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -833,6 +820,374 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Msf-jQ-Bwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1982.608695652174" y="381.52173913043481"/>
+        </scene>
+        <!--ConversionVC-->
+        <scene sceneID="JJc-rS-x4o">
+            <objects>
+                <viewController id="g81-Sx-IGL" customClass="ConversionVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SXR-NL-akn"/>
+                        <viewControllerLayoutGuide type="bottom" id="k5u-PA-jwh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0rV-Hl-1W9">
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2e-eM-Mr4" userLabel="whiteBg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="l06-i8-DFj">
+                                        <rect key="frame" x="0.0" y="1" width="414" height="280"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="NEh-zP-Nqq">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="139.66666666666666"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UO-uO-NBX" customClass="GradientView" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="139.66666666666666"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6z1-5a-tVf">
+                                                                <rect key="frame" x="38.999999999999993" y="47" width="59.333333333333321" height="46"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degree" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da9-FW-v9T">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="59.333333333333329" height="23.333333333333329"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Angle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-RC-5MR">
+                                                                        <rect key="frame" x="0.0" y="25.333333333333329" width="59.333333333333329" height="20.666666666666671"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.48496400393699468" green="0.7503556783055243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="6z1-5a-tVf" firstAttribute="centerX" secondItem="6UO-uO-NBX" secondAttribute="centerX" id="Chi-ZY-Ms1"/>
+                                                            <constraint firstItem="6z1-5a-tVf" firstAttribute="centerY" secondItem="6UO-uO-NBX" secondAttribute="centerY" id="zZp-rg-MKd"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDb-XU-LtK" customClass="GradientView" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="138.33333333333331" y="0.0" width="275.66666666666663" height="139.66666666666666"/>
+                                                        <subviews>
+                                                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete_color" translatesAutoresizingMaskIntoConstraints="NO" id="lDe-8s-TG5">
+                                                                <rect key="frame" x="231.66666666666666" y="47.666666666666671" width="43.999999999999972" height="44.000000000000014"/>
+                                                                <gestureRecognizers/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="44" id="igT-5d-fxv"/>
+                                                                    <constraint firstAttribute="width" constant="44" id="wyN-ST-ur0"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="p1P-xa-cIF" appends="YES" id="eh0-mH-Wue"/>
+                                                                    <outletCollection property="gestureRecognizers" destination="Igc-NR-6fv" appends="YES" id="cKN-El-xnn"/>
+                                                                </connections>
+                                                            </imageView>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Value" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGu-nK-ht8" customClass="InputTextField" customModule="chartofnuclides" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="221.66666666666666" height="139.66666666666666"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="tintColor" red="0.99215686270000003" green="0.74509803919999995" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.99215686274509807" green="0.74509803921568629" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="28"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="OGu-nK-ht8" firstAttribute="top" secondItem="YDb-XU-LtK" secondAttribute="top" id="EwX-uI-S0v"/>
+                                                            <constraint firstAttribute="trailing" secondItem="lDe-8s-TG5" secondAttribute="trailing" id="G7w-9f-B2p"/>
+                                                            <constraint firstItem="OGu-nK-ht8" firstAttribute="leading" secondItem="YDb-XU-LtK" secondAttribute="leading" id="Tzt-UR-muY"/>
+                                                            <constraint firstItem="lDe-8s-TG5" firstAttribute="leading" secondItem="OGu-nK-ht8" secondAttribute="trailing" constant="10" id="Yt4-wR-Nza"/>
+                                                            <constraint firstAttribute="bottom" secondItem="OGu-nK-ht8" secondAttribute="bottom" id="vKn-L4-ytZ"/>
+                                                            <constraint firstItem="lDe-8s-TG5" firstAttribute="centerY" secondItem="YDb-XU-LtK" secondAttribute="centerY" id="zjB-9a-Ice"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="09f-G0-fXS">
+                                                <rect key="frame" x="0.0" y="140.66666666666663" width="414" height="139.33333333333337"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iu-v5-62N" customClass="GradientView" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="139.33333333333334"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-EH-ySZ">
+                                                                <rect key="frame" x="41.666666666666671" y="46.666666666666686" width="54.000000000000014" height="46"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radian" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXJ-SB-MC4">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="54.000000000000007" height="23.333333333333314"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZS-Es-wlS">
+                                                                        <rect key="frame" x="0.0" y="25.333333333333314" width="54.000000000000007" height="20.666666666666686"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="1" green="0.72198136168671856" blue="0.32845408094621353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Toc-EH-ySZ" firstAttribute="centerX" secondItem="2iu-v5-62N" secondAttribute="centerX" id="8kB-OP-Hd5"/>
+                                                            <constraint firstItem="Toc-EH-ySZ" firstAttribute="centerY" secondItem="2iu-v5-62N" secondAttribute="centerY" id="ouJ-xL-na3"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBb-8M-CcW" customClass="GradientView" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="138.33333333333331" y="0.0" width="275.66666666666663" height="139.33333333333334"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AeF-2O-NwM" customClass="InputTextField" customModule="chartofnuclides" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="221.66666666666666" height="139.33333333333334"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.33333333333333331" green="0.77647058823529413" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="28"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="AeF-2O-NwM" firstAttribute="top" secondItem="QBb-8M-CcW" secondAttribute="top" id="cAL-1y-SHU"/>
+                                                            <constraint firstAttribute="bottom" secondItem="AeF-2O-NwM" secondAttribute="bottom" id="gYG-mj-liu"/>
+                                                            <constraint firstItem="AeF-2O-NwM" firstAttribute="leading" secondItem="QBb-8M-CcW" secondAttribute="leading" id="hGN-FB-5U9"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="AeF-2O-NwM" firstAttribute="height" secondItem="OGu-nK-ht8" secondAttribute="height" id="2zT-6G-fBm"/>
+                                            <constraint firstItem="2iu-v5-62N" firstAttribute="height" secondItem="6UO-uO-NBX" secondAttribute="height" id="ErJ-Qg-Edx"/>
+                                            <constraint firstItem="6UO-uO-NBX" firstAttribute="width" secondItem="2iu-v5-62N" secondAttribute="width" id="XBy-Zs-TZi"/>
+                                            <constraint firstItem="AeF-2O-NwM" firstAttribute="width" secondItem="OGu-nK-ht8" secondAttribute="width" id="y8l-oH-KFj"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="l06-i8-DFj" secondAttribute="trailing" id="RUM-Ca-wCb"/>
+                                    <constraint firstItem="l06-i8-DFj" firstAttribute="top" secondItem="R2e-eM-Mr4" secondAttribute="top" constant="1" id="bvf-3a-irX"/>
+                                    <constraint firstAttribute="bottom" secondItem="l06-i8-DFj" secondAttribute="bottom" id="fhf-3g-B1A"/>
+                                    <constraint firstItem="l06-i8-DFj" firstAttribute="leading" secondItem="R2e-eM-Mr4" secondAttribute="leading" id="upX-Jo-anC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWd-FI-hFr" userLabel="greyBg">
+                                <rect key="frame" x="0.0" y="280" width="414" height="343"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-hq-azC">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="343"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pfd-As-kFc">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrz-K7-wVx" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="1">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="gKH-bU-W3d"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX7-Jf-brd" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="2">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="gEB-dE-P5q"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-Da-U8g" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="3">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="Vsm-l1-iDH"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="uGK-Ig-oZj">
+                                                <rect key="frame" x="0.0" y="86" width="414" height="85"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUq-PU-A9F" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="4">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="bgh-qq-QuR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rir-E6-0ON" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="5">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="mHd-gL-yin"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPZ-4s-hWL" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="6">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="DIo-5L-Tgd"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="pv9-T4-0fo">
+                                                <rect key="frame" x="0.0" y="172" width="414" height="85"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbh-E1-ubz" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="7">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="o9A-OF-Jko"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPm-sJ-6bz" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="8">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="hgV-KE-vzK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a75-yN-2YW" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="9">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="AL4-uZ-vGu"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="D3P-0J-okc">
+                                                <rect key="frame" x="0.0" y="258" width="414" height="85"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xL-l5-bbQ" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title=".">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="fZ4-03-r61"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R18-Re-9GK" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="0">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="mig-iv-GDh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBx-Wo-tWp" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
+                                                        <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="85"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="E">
+                                                            <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="digitClick:" destination="g81-Sx-IGL" eventType="touchUpInside" id="59D-zh-nxO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OWV-hq-azC" secondAttribute="trailing" id="2Jj-Bi-ryk"/>
+                                    <constraint firstItem="OWV-hq-azC" firstAttribute="leading" secondItem="kWd-FI-hFr" secondAttribute="leading" id="8YE-tl-NNU"/>
+                                    <constraint firstItem="OWV-hq-azC" firstAttribute="top" secondItem="kWd-FI-hFr" secondAttribute="top" id="vGf-To-t7p"/>
+                                    <constraint firstAttribute="bottom" secondItem="OWV-hq-azC" secondAttribute="bottom" id="xZs-AS-W2o"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kWd-FI-hFr" firstAttribute="leading" secondItem="0rV-Hl-1W9" secondAttribute="leading" id="3GE-ou-gg8"/>
+                            <constraint firstAttribute="trailing" secondItem="kWd-FI-hFr" secondAttribute="trailing" id="Aea-9j-DTY"/>
+                            <constraint firstItem="kWd-FI-hFr" firstAttribute="height" secondItem="0rV-Hl-1W9" secondAttribute="height" multiplier="0.55" id="BC8-bf-gKj"/>
+                            <constraint firstItem="R2e-eM-Mr4" firstAttribute="leading" secondItem="0rV-Hl-1W9" secondAttribute="leading" id="FJj-3y-wYZ"/>
+                            <constraint firstItem="2iu-v5-62N" firstAttribute="width" secondItem="Yrz-K7-wVx" secondAttribute="width" id="KyF-al-dUd"/>
+                            <constraint firstItem="R2e-eM-Mr4" firstAttribute="top" secondItem="SXR-NL-akn" secondAttribute="bottom" id="hju-8s-FyT"/>
+                            <constraint firstAttribute="bottom" secondItem="kWd-FI-hFr" secondAttribute="bottom" id="prC-ZZ-khW"/>
+                            <constraint firstAttribute="trailing" secondItem="R2e-eM-Mr4" secondAttribute="trailing" id="tPd-3N-8tg"/>
+                            <constraint firstItem="R2e-eM-Mr4" firstAttribute="height" secondItem="0rV-Hl-1W9" secondAttribute="height" multiplier="0.45" constant="1" id="x3i-uD-q4k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deleteKeyImg" destination="lDe-8s-TG5" id="cjf-bI-Slq"/>
+                        <outlet property="inputTextField" destination="OGu-nK-ht8" id="U2K-Fw-qvd"/>
+                        <outlet property="inputUnitBg" destination="6UO-uO-NBX" id="OCB-xw-ifk"/>
+                        <outlet property="inputUnitLbl" destination="Da9-FW-v9T" id="ftP-MZ-LsX"/>
+                        <outlet property="inputUnitSymbol" destination="Dem-RC-5MR" id="x5d-Ow-SGp"/>
+                        <outlet property="inputValueBg" destination="YDb-XU-LtK" id="GFX-q3-pAQ"/>
+                        <outlet property="outputTextField" destination="AeF-2O-NwM" id="O2V-Nr-gtP"/>
+                        <outlet property="outputUnitBg" destination="2iu-v5-62N" id="ce3-Eh-TRk"/>
+                        <outlet property="outputUnitLbl" destination="IXJ-SB-MC4" id="aFK-rf-k9K"/>
+                        <outlet property="outputUnitSymbol" destination="WZS-Es-wlS" id="LNv-P9-7qm"/>
+                        <outlet property="outputValueBg" destination="QBb-8M-CcW" id="wd9-ni-qGH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4O-0b-8bA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="p1P-xa-cIF">
+                    <connections>
+                        <action selector="deleteHeld:" destination="g81-Sx-IGL" id="Wfg-vQ-Wc3"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="Igc-NR-6fv">
+                    <connections>
+                        <action selector="deleteTapped:" destination="g81-Sx-IGL" id="HcN-mn-yjM"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1966.6666666666667" y="1094.8369565217392"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="L7A-gE-OH3">
@@ -1040,6 +1395,7 @@
         <image name="calculatorIcon" width="27" height="26"/>
         <image name="converterIcon" width="29" height="27"/>
         <image name="definitionsIcon" width="27" height="22"/>
+        <image name="delete_color" width="30" height="24"/>
         <image name="nuclideIcon" width="27" height="25"/>
         <image name="nuclide_symbol_color" width="165" height="154"/>
         <image name="velocity" width="61" height="40"/>

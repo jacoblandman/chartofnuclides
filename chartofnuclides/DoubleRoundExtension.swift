@@ -12,4 +12,16 @@ extension Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
+    
+    struct Formatter {
+        static var instance = NumberFormatter()
+    }
+    
+    var scientificStyle: String {
+        Formatter.instance.numberStyle = .scientific
+        Formatter.instance.positiveFormat = "0.####E+0"
+        Formatter.instance.exponentSymbol = "E"
+        let number = NSNumber(value: self)
+        return Formatter.instance.string(from: number) ?? description
+    }
 }
