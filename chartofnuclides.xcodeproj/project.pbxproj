@@ -27,6 +27,7 @@
 		AE776E701E5390D900D3ADB0 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */; };
 		AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */; };
 		AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */; };
+		AE7DF1B41E5F4D4A00B686B5 /* UnitConversionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1B31E5F4D4A00B686B5 /* UnitConversionManager.swift */; };
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
 		AE87BE321E5B8D5B003576E9 /* ConverterCalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */; };
 		AE87BE341E5B8E02003576E9 /* ConverterCalcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */; };
@@ -56,7 +57,7 @@
 		AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AED614DF1E5BBE95008BA18C /* UIView+LeoMaskAnimation.m */; };
 		AEDF0EBF1E5E06D3006FA58F /* ButtonControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EBE1E5E06D3006FA58F /* ButtonControllerDelegate.swift */; };
 		AEDF0EC11E5E079D006FA58F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */; };
-		AEDF0EC31E5E17A6006FA58F /* UnitConversionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC21E5E17A6006FA58F /* UnitConversionManager.swift */; };
+		AEDF0EC31E5E17A6006FA58F /* UnitConversionTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC21E5E17A6006FA58F /* UnitConversionTypeManager.swift */; };
 		AEDF0EC51E5E2814006FA58F /* UnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC41E5E2814006FA58F /* UnitCell.swift */; };
 		AEDF0EC71E5E5762006FA58F /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC61E5E5762006FA58F /* InputTextField.swift */; };
 		AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */; };
@@ -87,6 +88,7 @@
 		AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
 		AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterVC.swift; sourceTree = "<group>"; };
 		AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionUnitCell.swift; sourceTree = "<group>"; };
+		AE7DF1B31E5F4D4A00B686B5 /* UnitConversionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConversionManager.swift; sourceTree = "<group>"; };
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcVC.swift; sourceTree = "<group>"; };
 		AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcCell.swift; sourceTree = "<group>"; };
@@ -121,7 +123,7 @@
 		AED614DF1E5BBE95008BA18C /* UIView+LeoMaskAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LeoMaskAnimation.m"; sourceTree = "<group>"; };
 		AEDF0EBE1E5E06D3006FA58F /* ButtonControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonControllerDelegate.swift; sourceTree = "<group>"; };
 		AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		AEDF0EC21E5E17A6006FA58F /* UnitConversionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConversionManager.swift; sourceTree = "<group>"; };
+		AEDF0EC21E5E17A6006FA58F /* UnitConversionTypeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConversionTypeManager.swift; sourceTree = "<group>"; };
 		AEDF0EC41E5E2814006FA58F /* UnitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCell.swift; sourceTree = "<group>"; };
 		AEDF0EC61E5E5762006FA58F /* InputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Initializers.swift"; sourceTree = "<group>"; };
@@ -249,7 +251,8 @@
 				AEB5D43C1E44F85C00A6D8DD /* Element.swift */,
 				AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */,
 				AE183F2A1E5CBEAD00C72291 /* ElementManager.swift */,
-				AEDF0EC21E5E17A6006FA58F /* UnitConversionManager.swift */,
+				AEDF0EC21E5E17A6006FA58F /* UnitConversionTypeManager.swift */,
+				AE7DF1B31E5F4D4A00B686B5 /* UnitConversionManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
 				AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */,
+				AE7DF1B41E5F4D4A00B686B5 /* UnitConversionManager.swift in Sources */,
 				AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
 				AEDF0EBF1E5E06D3006FA58F /* ButtonControllerDelegate.swift in Sources */,
@@ -516,7 +520,7 @@
 				AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */,
 				AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */,
 				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
-				AEDF0EC31E5E17A6006FA58F /* UnitConversionManager.swift in Sources */,
+				AEDF0EC31E5E17A6006FA58F /* UnitConversionTypeManager.swift in Sources */,
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
 				AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,

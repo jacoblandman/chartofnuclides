@@ -7,6 +7,7 @@ target 'chartofnuclides' do
 
   # Pods for chartofnuclides
   pod 'RAMAnimatedTabBarController', "~> 2.0.13"
+  pod 'HHUnitConverter'
 
 
 end

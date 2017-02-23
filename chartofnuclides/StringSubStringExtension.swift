@@ -89,4 +89,14 @@ extension String {
             self.removeSubrange(uncertainty.lowerBound..<self.endIndex)
         }
     }
+    
+    struct Formatter {
+        static let instance = NumberFormatter()
+    }
+    var doubleValue:Double? {
+        return Formatter.instance.number(from: self)?.doubleValue
+    }
+    var integerValue:Int? {
+        return Formatter.instance.number(from: self)?.intValue
+    }
 }

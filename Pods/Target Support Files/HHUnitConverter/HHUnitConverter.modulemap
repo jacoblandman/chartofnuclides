@@ -1,0 +1,6 @@
+framework module HHUnitConverter {
+  umbrella header "HHUnitConverter-umbrella.h"
+
+  export *
+  module * { export * }
+}

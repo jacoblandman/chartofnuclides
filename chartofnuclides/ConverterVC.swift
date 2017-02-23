@@ -43,23 +43,23 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return UnitConversionManager.instance.unitTypes.count
+        return UnitConversionTypeManager.instance.unitTypes.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UnitCell", for: indexPath) as! ConversionUnitCell
-        cell.updateCell(unitName: UnitConversionManager.instance.unitTypes[indexPath.row])
+        cell.updateCell(unitName: UnitConversionTypeManager.instance.unitTypes[indexPath.row])
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.selectedIndexPath = indexPath
-        var unitType = UnitConversionManager.instance.unitTypes[indexPath.row]
+        var unitType = UnitConversionTypeManager.instance.unitTypes[indexPath.row]
         
-        assert(UnitConversionManager.instance.unitTypesDict[unitType] != nil)
-        guard UnitConversionManager.instance.unitTypesDict[unitType] != nil else { return }
-        let units = UnitConversionManager.instance.unitTypesDict[unitType]!
+        assert(UnitConversionTypeManager.instance.unitTypesDict[unitType] != nil)
+        guard UnitConversionTypeManager.instance.unitTypesDict[unitType] != nil else { return }
+        let units = UnitConversionTypeManager.instance.unitTypesDict[unitType]!
         
         if unitType == "Work" { unitType = "Work/Energy" }
         let sender = (unitType, units)

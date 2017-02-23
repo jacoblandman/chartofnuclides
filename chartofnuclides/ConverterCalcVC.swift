@@ -240,7 +240,15 @@ extension ConverterCalcVC: UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func setOutputValue() {
-        outputLbl.text = "0.0"
+        if let value = inputTextField.text!.doubleValue {
+            if let convertedSolution = UnitConversionTypeManager.instance.converter.value(value, convertedFromUnit: inputUnitLbl.text!.lowercased(), toUnit: outputUnitLbl.text!.lowercased()) {
+                outputLbl.text = "\(convertedSolution)"
+            } else {
+                outputLbl.text = "Invalid Conversion"
+            }
+        } else {
+            outputLbl.text = "NAN"
+        }
     }
     
     func cellSize(for indexPath: IndexPath) -> CGSize {
