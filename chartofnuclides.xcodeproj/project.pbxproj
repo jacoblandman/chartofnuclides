@@ -33,6 +33,7 @@
 		AE7DF1BA1E5F64EE00B686B5 /* ConversionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1B91E5F64EE00B686B5 /* ConversionButton.swift */; };
 		AE7DF1BC1E5F757700B686B5 /* NSNumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BB1E5F757700B686B5 /* NSNumberExtension.swift */; };
 		AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */; };
+		AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */; };
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
 		AE87BE321E5B8D5B003576E9 /* ConverterCalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */; };
 		AE87BE341E5B8E02003576E9 /* ConverterCalcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */; };
@@ -99,6 +100,7 @@
 		AE7DF1B91E5F64EE00B686B5 /* ConversionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionButton.swift; sourceTree = "<group>"; };
 		AE7DF1BB1E5F757700B686B5 /* NSNumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberExtension.swift; sourceTree = "<group>"; };
 		AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLGeneralWaveAnimation.swift; sourceTree = "<group>"; };
+		AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLWaveNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcVC.swift; sourceTree = "<group>"; };
 		AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcCell.swift; sourceTree = "<group>"; };
@@ -163,9 +165,8 @@
 		AE183F511E5CC93800C72291 /* Animators */ = {
 			isa = PBXGroup;
 			children = (
-				AE183F521E5CC94500C72291 /* FadeInAnimator.swift */,
-				AE183F541E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift */,
-				AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */,
+				AE7DF1C21E5F8D7000B686B5 /* JLWaveAnimation */,
+				AE7DF1C11E5F8D6300B686B5 /* FadeIn */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -298,6 +299,24 @@
 				AEDF0EC41E5E2814006FA58F /* UnitCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		AE7DF1C11E5F8D6300B686B5 /* FadeIn */ = {
+			isa = PBXGroup;
+			children = (
+				AE183F521E5CC94500C72291 /* FadeInAnimator.swift */,
+				AE183F541E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift */,
+			);
+			name = FadeIn;
+			sourceTree = "<group>";
+		};
+		AE7DF1C21E5F8D7000B686B5 /* JLWaveAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */,
+				AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */,
+			);
+			name = JLWaveAnimation;
 			sourceTree = "<group>";
 		};
 		AEB5D4421E44FCAC00A6D8DD /* Services */ = {
@@ -552,6 +571,7 @@
 				AEDF0EC71E5E5762006FA58F /* InputTextField.swift in Sources */,
 				AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */,
 				AECD26581E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift in Sources */,
+				AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */,
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,
 				AEDF0EC11E5E079D006FA58F /* UIButtonExtension.swift in Sources */,
 				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,

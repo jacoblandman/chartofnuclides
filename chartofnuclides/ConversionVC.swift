@@ -27,6 +27,12 @@ class ConversionVC: UIViewController {
     @IBOutlet weak var outputUnitLbl: UILabel!
     @IBOutlet weak var inputUnitSymbol: UILabel!
     @IBOutlet weak var outputUnitSymbol: UILabel!
+    @IBOutlet weak var whiteBg: UIView!
+    @IBOutlet weak var greyBg: UIView!
+    @IBOutlet var btns: [ConversionButton]!
+    
+    var viewsShownAfterAnimation = [UIView]()
+    var orderedViewsToBeAnimated = [AnyObject]()
     
     var selectingUnit: SelectingUnit = .none
     
@@ -42,6 +48,7 @@ class ConversionVC: UIViewController {
         inputTextField.setPlaceholder(with: "Enter Value")
         outputTextField.setPlaceholder(with: "0.0", color: colorWithHexString(hex: "98D8F7"))
         setTextFieldKeyboards()
+        setAnimationViews()
     }
     
     func setOutputValue() {
@@ -110,5 +117,12 @@ class ConversionVC: UIViewController {
         outputTextField.inputView = dummyView
     }
     
+    func setAnimationViews() {
+        viewsShownAfterAnimation = [whiteBg, greyBg]
+        orderedViewsToBeAnimated = [inputUnitBg, inputValueBg, outputUnitBg, outputValueBg]
+        for btn in btns {
+            orderedViewsToBeAnimated.append(btn)
+        }
+    }
 }
 
