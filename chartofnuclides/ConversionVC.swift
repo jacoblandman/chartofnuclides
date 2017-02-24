@@ -16,6 +16,10 @@ class ConversionVC: UIViewController {
         case none
     }
     
+    @IBOutlet weak var tableViewBg: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mask: UIView!
+    @IBOutlet weak var XView: GradientView!
     @IBOutlet weak var inputUnitBg: GradientView!
     @IBOutlet weak var outputUnitBg: GradientView!
     @IBOutlet weak var inputValueBg: GradientView!
@@ -49,6 +53,90 @@ class ConversionVC: UIViewController {
         outputTextField.setPlaceholder(with: "0.0", color: colorWithHexString(hex: "98D8F7"))
         setTextFieldKeyboards()
         setAnimationViews()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func animateXView() {
+        // a nice animation for the done button
+        if XView.alpha != 1.0 {
+            XView.leo_animateCircleExpand(from: mask, duration: 0.35, delay: 0.0, alpha: 1.0, options: LeoMaskAnimationOptions.easeIn, compeletion: nil)
+            
+            tableViewBg.leo_animateCircleExpand(from: tableMask!, duration: 0.5, delay: 0.0, alpha: 1.0, options:LeoMaskAnimationOptions.easeIn, compeletion: nil)
+            UIView.animate(withDuration: 0.0) {
+                self.XView.alpha = 1.0
+                self.tableViewBg.alpha = 1.0
+            }
+        }
+    }
+    
+    func createTriangle(size: CGFloat, x: CGFloat, y: CGFloat) {
+        // create an arrow that points to the left
+        
+        if let triangle = triangleLayer {
+            triangle.position = CGPoint(x: x ,y: y)
+        } else {
+            triangleLayer = CAShapeLayer()
+            let trianglePath = UIBezierPath()
+            trianglePath.move(to: .zero)
+            trianglePath.addLine(to: CGPoint(x: size, y: size))
+            trianglePath.addLine(to: CGPoint(x: size, y: -size))
+            trianglePath.close()
+            
+            triangleLayer!.path = trianglePath.cgPath
+            triangleLayer!.fillColor = UIColor.white.cgColor
+            triangleLayer!.anchorPoint = .zero
+            triangleLayer!.position = CGPoint(x: x ,y: y)
+            triangleLayer!.name = "triangle"
+            view.layer.addSublayer(triangleLayer!)
+        }
+    }
+    
+    @IBAction func outputLblTapped(_ sender: Any) {
+        let size: CGFloat = 10
+        // convert the triangle x and y to the super view coordinate system
+        var triPoint = CGPoint(x: outputUnitBg.frame.maxX, y: outputUnitBg.frame.midY)
+        triPoint = view.convert(triPoint, from: outputUnitBg)
+        createTriangle(size: size, x: triPoint.x - size + 1, y: triPoint.y)
+        tableMask = UIView(frame: CGRect(x: -10, y: triangleLayer!.frame.minY, width: 10, height: 10))
+        
+        selectingUnit = .output
+        animateXView()
+
+    }
+    
+    @IBAction func inputLblTapped(_ sender: Any) {
+        let size: CGFloat = 10
+        // convert the triangle x and y to the super view coordinate system
+        var triPoint = CGPoint(x: inputUnitBg.frame.maxX, y: inputUnitBg.frame.midY)
+        triPoint = view.convert(triPoint, from: inputUnitBg)
+        createTriangle(size: size, x: triPoint.x - size + 1, y: triPoint.y)
+        tableMask = UIView(frame: CGRect(x: -10, y: triangleLayer!.frame.minY, width: 10, height: 10))
+        
+        selectingUnit = .input
+        animateXView()
+    }
+    
+    @IBAction func XBtnPressed(_ sender: Any) {
+        
+        removeTableView()
+    }
+    
+    func removeTableView() {
+        selectingUnit = .none
+        
+        XView.leo_removeMaskAnimations()
+        XView.leo_animateReverseCircleExpand(to: mask, duration: 0.5, delay: 0.0, alpha: 0.0, options: LeoMaskAnimationOptions.easeOut, completion: nil)
+        tableViewBg.leo_animateReverseCircleExpand(to: tableMask!, duration: 0.5, delay: 0.0, alpha: 0.0, options: LeoMaskAnimationOptions.easeOut, completion: nil)
+        
+        
+        UIView.animate(withDuration: 0.0, delay: 0.5, options: [], animations: {
+            self.XView.alpha = 0.0
+            self.tableViewBg.alpha = 0.0
+            self.triangleLayer?.removeFromSuperlayer()
+            self.triangleLayer = nil
+        }, completion: nil)
     }
     
     func setOutputValue() {
@@ -107,6 +195,7 @@ class ConversionVC: UIViewController {
         inputValueBg.setValuesForLinearGradient(color1: UIColor.white, color2: colorWithHexString(hex: "FFEFCD"), relativeStartPoint: CGPoint(x: 0.5, y: 0), relativeEndPoint: CGPoint(x: 0.5, y: 0.5))
         outputUnitBg.setValuesForRadialGradient(color1: colorWithHexString(hex: "98D8F7"), color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: outputUnitBg.frame.width / 6, outerRadius: outputUnitBg.frame.width * 1.5)
         outputValueBg.setValuesForLinearGradient(color1: UIColor.white, color2: colorWithHexString(hex: "CAECFD"), relativeStartPoint: CGPoint(x: 0.5, y: 0), relativeEndPoint: CGPoint(x: 0.5, y: 0.5))
+        XView.setValuesForLinearGradient(color1: UIColor.white, color2: GREEN_COLOR, startPoint: CGPoint(x: XView.frame.width / 2, y: 0.0), endPoint: CGPoint(x: XView.frame.width / 2, y: XView.frame.height / 2))
     }
     
     func setTextFieldKeyboards() {
@@ -123,6 +212,48 @@ class ConversionVC: UIViewController {
         for btn in btns {
             orderedViewsToBeAnimated.append(btn)
         }
+    }
+}
+
+extension ConversionVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return unitTypes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UnitCell", for: indexPath) as! UnitCell
+        print(unitTypes)
+        print(unitTypes[indexPath.row])
+        cell.update(unit: unitTypes[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch selectingUnit {
+        case .input:
+            inputUnitLbl.text = unitTypes[indexPath.row].capitalized
+        case .output:
+            outputUnitLbl.text = unitTypes[indexPath.row].capitalized
+        default:
+            break
+        }
+        
+        removeTableView()
     }
 }
 

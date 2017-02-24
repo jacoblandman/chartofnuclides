@@ -83,8 +83,14 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ConversionVC {
+            if let tuple = sender as? (String, [String]) {
+                destination.title = tuple.0
+                destination.unitTypes = tuple.1
+            }
+        }
+        
         if let destination = segue.destination as? ConverterCalcVC {
-            destination.navigationController?.navigationItem.backBarButtonItem?.title = "Back"
             if let tuple = sender as? (String, [String]) {
                 destination.title = tuple.0
                 destination.unitTypes = tuple.1
