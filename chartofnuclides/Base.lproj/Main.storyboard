@@ -103,12 +103,13 @@
                             </tableView>
                             <searchBar contentMode="redraw" placeholder="Search Isotopes..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZD-Lv-qsu" customClass="BorderlessSearchBar" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tcr-cS-Z4h"/>
                                 </constraints>
-                                <color key="tintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </searchBar>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4am-iA-cEe" userLabel="Line above Search">
                                 <rect key="frame" x="0.0" y="-1" width="414" height="2"/>
@@ -133,15 +134,24 @@
                             <constraint firstItem="4am-iA-cEe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tec-gn-xRr"/>
                             <constraint firstAttribute="trailing" secondItem="gZD-Lv-qsu" secondAttribute="trailing" id="uR6-KH-rgl"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ASB-uz-2AP" appends="YES" id="Wsr-EO-dxO"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Table of Nuclides" id="NPn-fz-Rkx"/>
                     <connections>
                         <outlet property="searchBar" destination="gZD-Lv-qsu" id="PlP-jW-c0f"/>
                         <outlet property="tableView" destination="rdh-nr-HiJ" id="ZhX-f5-utn"/>
+                        <outlet property="tapGesture" destination="ASB-uz-2AP" id="juS-Qf-LyP"/>
                         <segue destination="21y-E5-OMT" kind="presentation" identifier="DetailNuclideVC" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="cKC-pO-cHP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ASB-uz-2AP">
+                    <connections>
+                        <action selector="endEditing:" destination="BYZ-38-t0r" id="FkW-SS-miW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1212" y="-968"/>
         </scene>
@@ -519,14 +529,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search Isotopes..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCx-Hx-sNx">
+                            <searchBar contentMode="redraw" placeholder="Search Isotopes..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCx-Hx-sNx" customClass="BorderlessSearchBar" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3XF-xz-LHh"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.18823529410000001" green="0.87450980389999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </searchBar>
                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAU-Kj-q3W" userLabel="Line above Search">
                                 <rect key="frame" x="0.0" y="-1" width="414" height="2"/>
@@ -537,6 +548,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="C1j-43-13w" firstAttribute="leading" secondItem="tv5-wa-EGk" secondAttribute="leading" id="9nK-PA-AcH"/>
                             <constraint firstAttribute="trailing" secondItem="qAU-Kj-q3W" secondAttribute="trailing" id="LtE-Td-XQP"/>
@@ -549,6 +561,9 @@
                             <constraint firstAttribute="bottom" secondItem="C1j-43-13w" secondAttribute="bottom" id="up1-Ah-3Rg"/>
                             <constraint firstItem="sCx-Hx-sNx" firstAttribute="leading" secondItem="tv5-wa-EGk" secondAttribute="leading" id="x7s-Lk-qr0"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Xp8-BC-54K" appends="YES" id="yP4-j8-HTD"/>
+                        </connections>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -556,9 +571,15 @@
                     <connections>
                         <outlet property="searchBar" destination="sCx-Hx-sNx" id="Cu7-Ki-XdD"/>
                         <outlet property="tableView" destination="C1j-43-13w" id="s7w-hT-LaQ"/>
+                        <outlet property="tapGesture" destination="Xp8-BC-54K" id="qp3-c6-lHo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZ5-3m-AWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Xp8-BC-54K">
+                    <connections>
+                        <action selector="endEditing:" destination="10z-4k-5RK" id="Tbu-xF-P4r"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1982.608695652174" y="-281.25"/>
         </scene>

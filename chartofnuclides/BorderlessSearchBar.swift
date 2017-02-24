@@ -11,10 +11,7 @@ import UIKit
 class BorderlessSearchBar: UISearchBar {
 
     override func awakeFromNib() {
-        self.isTranslucent = false
         self.backgroundImage = UIImage()
-        self.tintColor = GREEN_COLOR
-        self.backgroundColor = GREEN_COLOR
         
         layer.shadowColor = UIColor(red: SHADOW_GRAY, green: SHADOW_GRAY, blue: SHADOW_GRAY, alpha: SHADOW_GRAY).cgColor
         layer.shadowOpacity = 0.8

@@ -11,13 +11,18 @@ import UIKit
 class PopupSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: BorderlessSearchBar!
     var delegate: SendDataToPreviousControllerDelegate?
     
     var elements = ElementManager.instance.elements
     var filteredElements = [Element]()
     
+    @IBAction func endEditing(_ sender: Any) {
+        view.endEditing(true)
+        tapGesture.isEnabled = false
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.view.superview?.layer.cornerRadius = 0
     }
@@ -31,6 +36,8 @@ class PopupSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         searchBar.delegate = self
         
         filteredElements = elements
+        
+        tapGesture.isEnabled = false
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +79,7 @@ extension PopupSearchVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         view.endEditing(true)
+        tapGesture.isEnabled = false
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -108,6 +116,21 @@ extension PopupSearchVC: UISearchBarDelegate {
             element.filteredIsotopes = element.isotopes
         }
         tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        tapGesture.isEnabled = true
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        tapGesture.isEnabled = false
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tapGesture.isEnabled = false
+        view.endEditing(true)
     }
 
 }

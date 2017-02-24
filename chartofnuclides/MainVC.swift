@@ -10,6 +10,7 @@ import UIKit
 
 class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var searchBar: BorderlessSearchBar!
     @IBOutlet weak var tableView: UITableView!
     var elements = ElementManager.instance.elements
@@ -29,7 +30,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.transitioningDelegate = maskZoomTransition
         navigationController!.transitioningDelegate = maskZoomTransition
         
+        tapGesture.isEnabled = false
+        
         filteredElements = elements
+    }
+    
+    @IBAction func endEditing(_ sender: Any) {
+        view.endEditing(true)
+        tapGesture.isEnabled = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -145,6 +153,7 @@ extension MainVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         view.endEditing(true)
+        tapGesture.isEnabled = false
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -181,6 +190,20 @@ extension MainVC: UISearchBarDelegate {
             element.filteredIsotopes = element.isotopes
         }
         tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        tapGesture.isEnabled = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        tapGesture.isEnabled = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }
 

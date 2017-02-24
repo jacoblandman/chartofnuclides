@@ -126,17 +126,19 @@ class ConversionVC: UIViewController {
     func removeTableView() {
         selectingUnit = .none
         
+        let animationDuration = 0.5
+        
         XView.leo_removeMaskAnimations()
-        XView.leo_animateReverseCircleExpand(to: mask, duration: 0.5, delay: 0.0, alpha: 0.0, options: LeoMaskAnimationOptions.easeOut, completion: nil)
-        tableViewBg.leo_animateReverseCircleExpand(to: tableMask!, duration: 0.5, delay: 0.0, alpha: 0.0, options: LeoMaskAnimationOptions.easeOut, completion: nil)
+        XView.leo_animateReverseCircleExpand(to: mask, duration: animationDuration, delay: 0.0, alpha: 0.0, options: LeoMaskAnimationOptions.easeOut, completion: nil)
+        tableViewBg.leo_animateReverseCircleExpand(to: tableMask!, duration: animationDuration, delay: 0.0, alpha: 0.0, options: LeoMaskAnimationOptions.easeOut, completion: nil)
         
-        
-        UIView.animate(withDuration: 0.0, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.0, delay: animationDuration, options: [], animations: {
             self.XView.alpha = 0.0
             self.tableViewBg.alpha = 0.0
             self.triangleLayer?.removeFromSuperlayer()
             self.triangleLayer = nil
         }, completion: nil)
+        
     }
     
     func setOutputValue() {
@@ -227,8 +229,6 @@ extension ConversionVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UnitCell", for: indexPath) as! UnitCell
-        print(unitTypes)
-        print(unitTypes[indexPath.row])
         cell.update(unit: unitTypes[indexPath.row])
         return cell
     }
