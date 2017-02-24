@@ -14,6 +14,7 @@
 		AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */; };
 		AE183F5A1E5CEA4A00C72291 /* nuclides.json in Resources */ = {isa = PBXBuildFile; fileRef = AE183F591E5CEA4A00C72291 /* nuclides.json */; };
 		AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */; };
+		AE4B34A51E60E18E0083BB8B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B34A41E60E18E0083BB8B /* UIViewExtension.swift */; };
 		AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */; };
 		AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */; };
 		AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */; };
@@ -35,9 +36,6 @@
 		AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */; };
 		AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */; };
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
-		AE87BE321E5B8D5B003576E9 /* ConverterCalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */; };
-		AE87BE341E5B8E02003576E9 /* ConverterCalcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */; };
-		AE87BE361E5B9332003576E9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE351E5B9332003576E9 /* UIViewExtension.swift */; };
 		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
 		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
 		AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4431E44FCC300A6D8DD /* DataService.swift */; };
@@ -46,23 +44,14 @@
 		AEB5D44C1E45114A00A6D8DD /* IsotopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */; };
 		AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */; };
 		AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */; };
-		AECD264B1E551B8C00282462 /* CKWaveCollectionViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26461E551B8C00282462 /* CKWaveCollectionViewAnimator.swift */; };
-		AECD264C1E551B8C00282462 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26471E551B8C00282462 /* UIApplicationExtension.swift */; };
-		AECD264D1E551B8C00282462 /* UICollectionViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26481E551B8C00282462 /* UICollectionViewControllerExtension.swift */; };
-		AECD264E1E551B8C00282462 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26491E551B8C00282462 /* UICollectionViewExtension.swift */; };
-		AECD264F1E551B8C00282462 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD264A1E551B8C00282462 /* UIViewControllerExtension.swift */; };
-		AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
-		AECD26581E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */; };
 		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
 		AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216B1E563B9C00FA4D4C /* MZMaskZoomTransition.m */; };
 		AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216D1E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m */; };
 		AECF21731E563B9C00FA4D4C /* UIViewController+MZContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF216F1E563B9C00FA4D4C /* UIViewController+MZContentViewController.m */; };
 		AECF21761E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */; };
 		AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AED614DF1E5BBE95008BA18C /* UIView+LeoMaskAnimation.m */; };
-		AEDF0EBF1E5E06D3006FA58F /* ButtonControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EBE1E5E06D3006FA58F /* ButtonControllerDelegate.swift */; };
-		AEDF0EC11E5E079D006FA58F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */; };
 		AEDF0EC31E5E17A6006FA58F /* UnitConversionTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC21E5E17A6006FA58F /* UnitConversionTypeManager.swift */; };
 		AEDF0EC51E5E2814006FA58F /* UnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC41E5E2814006FA58F /* UnitCell.swift */; };
 		AEDF0EC71E5E5762006FA58F /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF0EC61E5E5762006FA58F /* InputTextField.swift */; };
@@ -79,6 +68,7 @@
 		AE183F591E5CEA4A00C72291 /* nuclides.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nuclides.json; sourceTree = "<group>"; };
 		AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleRoundExtension.swift; sourceTree = "<group>"; };
 		AE33CB2D1E53DFCC00E86E28 /* chartofnuclides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chartofnuclides-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE4B34A41E60E18E0083BB8B /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		AE5EDFEC1E43FF1B00EEAD8C /* chartofnuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartofnuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -102,9 +92,6 @@
 		AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLGeneralWaveAnimation.swift; sourceTree = "<group>"; };
 		AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLWaveNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcVC.swift; sourceTree = "<group>"; };
-		AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterCalcCell.swift; sourceTree = "<group>"; };
-		AE87BE351E5B9332003576E9 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
 		AEB5D4431E44FCC300A6D8DD /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -113,15 +100,8 @@
 		AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsotopeCell.swift; sourceTree = "<group>"; };
 		AEB5D44D1E451E3E00A6D8DD /* BorderlessSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderlessSearchBar.swift; sourceTree = "<group>"; };
 		AEB5D44F1E45290600A6D8DD /* ShadowTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTabBar.swift; sourceTree = "<group>"; };
-		AECD26461E551B8C00282462 /* CKWaveCollectionViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKWaveCollectionViewAnimator.swift; sourceTree = "<group>"; };
-		AECD26471E551B8C00282462 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
-		AECD26481E551B8C00282462 /* UICollectionViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewControllerExtension.swift; sourceTree = "<group>"; };
-		AECD26491E551B8C00282462 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
-		AECD264A1E551B8C00282462 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
-		AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlowLayoutExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
 		AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGradientCircleLayer.m; sourceTree = "<group>"; };
 		AECF216A1E563B9C00FA4D4C /* MZMaskZoomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMaskZoomTransition.h; sourceTree = "<group>"; };
@@ -133,8 +113,6 @@
 		AECF21751E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZMaskZoomTransitionPresentedViewControllerProtocol.swift; sourceTree = "<group>"; };
 		AED614DE1E5BBE95008BA18C /* UIView+LeoMaskAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LeoMaskAnimation.h"; sourceTree = "<group>"; };
 		AED614DF1E5BBE95008BA18C /* UIView+LeoMaskAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LeoMaskAnimation.m"; sourceTree = "<group>"; };
-		AEDF0EBE1E5E06D3006FA58F /* ButtonControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonControllerDelegate.swift; sourceTree = "<group>"; };
-		AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		AEDF0EC21E5E17A6006FA58F /* UnitConversionTypeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConversionTypeManager.swift; sourceTree = "<group>"; };
 		AEDF0EC41E5E2814006FA58F /* UnitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCell.swift; sourceTree = "<group>"; };
 		AEDF0EC61E5E5762006FA58F /* InputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
@@ -175,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */,
-				AEDF0EBE1E5E06D3006FA58F /* ButtonControllerDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -184,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				AED614DD1E5BBE80008BA18C /* LeoMask */,
-				AECD26451E551B7A00282462 /* CKWaveCollectionViewTransition */,
 				AECF21671E563B8800FA4D4C /* MaskZoomTransition */,
 			);
 			name = "Pods-Manual";
@@ -238,7 +214,6 @@
 				AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */,
 				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
 				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
-				AE87BE311E5B8D5B003576E9 /* ConverterCalcVC.swift */,
 				AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */,
 			);
 			name = Controller;
@@ -295,7 +270,6 @@
 				AEB5D44B1E45114A00A6D8DD /* IsotopeCell.swift */,
 				AE776E6D1E538F5800D3ADB0 /* PopupIsotopeCell.swift */,
 				AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */,
-				AE87BE331E5B8E02003576E9 /* ConverterCalcCell.swift */,
 				AEDF0EC41E5E2814006FA58F /* UnitCell.swift */,
 			);
 			name = Cells;
@@ -327,29 +301,14 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		AECD26451E551B7A00282462 /* CKWaveCollectionViewTransition */ = {
-			isa = PBXGroup;
-			children = (
-				AECD26501E551C7400282462 /* NavigationControllerDelegate.swift */,
-				AECD26461E551B8C00282462 /* CKWaveCollectionViewAnimator.swift */,
-				AECD26471E551B8C00282462 /* UIApplicationExtension.swift */,
-				AECD26481E551B8C00282462 /* UICollectionViewControllerExtension.swift */,
-				AECD26491E551B8C00282462 /* UICollectionViewExtension.swift */,
-				AECD264A1E551B8C00282462 /* UIViewControllerExtension.swift */,
-				AE87BE351E5B9332003576E9 /* UIViewExtension.swift */,
-			);
-			name = CKWaveCollectionViewTransition;
-			sourceTree = "<group>";
-		};
 		AECD26521E551DAF00282462 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AE4B34A41E60E18E0083BB8B /* UIViewExtension.swift */,
 				AEF0AA2F1E58F8380061F998 /* UIColor+Initializers.swift */,
 				AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */,
 				AECD26551E5520CD00282462 /* StringSubStringExtension.swift */,
-				AECD26571E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift */,
 				AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */,
-				AEDF0EC01E5E079D006FA58F /* UIButtonExtension.swift */,
 				AE7DF1B71E5F621700B686B5 /* NSObjectExtension.swift */,
 				AE7DF1BB1E5F757700B686B5 /* NSNumberExtension.swift */,
 			);
@@ -536,44 +495,33 @@
 				AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
 				AE7DF1BC1E5F757700B686B5 /* NSNumberExtension.swift in Sources */,
-				AEDF0EBF1E5E06D3006FA58F /* ButtonControllerDelegate.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
 				AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */,
 				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
 				AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */,
 				AE7DF1B61E5F5F6E00B686B5 /* ConversionVC.swift in Sources */,
-				AECD264D1E551B8C00282462 /* UICollectionViewControllerExtension.swift in Sources */,
-				AECD264B1E551B8C00282462 /* CKWaveCollectionViewAnimator.swift in Sources */,
 				AE776E611E5367C500D3ADB0 /* InspectableBorderView.swift in Sources */,
-				AE87BE361E5B9332003576E9 /* UIViewExtension.swift in Sources */,
 				AECF21761E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift in Sources */,
-				AECD264F1E551B8C00282462 /* UIViewControllerExtension.swift in Sources */,
-				AE87BE321E5B8D5B003576E9 /* ConverterCalcVC.swift in Sources */,
 				AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */,
-				AECD264E1E551B8C00282462 /* UICollectionViewExtension.swift in Sources */,
-				AECD264C1E551B8C00282462 /* UIApplicationExtension.swift in Sources */,
 				AEB5D44C1E45114A00A6D8DD /* IsotopeCell.swift in Sources */,
 				AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */,
 				AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */,
+				AE4B34A51E60E18E0083BB8B /* UIViewExtension.swift in Sources */,
 				AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */,
 				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
 				AEDF0EC31E5E17A6006FA58F /* UnitConversionTypeManager.swift in Sources */,
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
-				AECD26511E551C7400282462 /* NavigationControllerDelegate.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
 				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
-				AE87BE341E5B8E02003576E9 /* ConverterCalcCell.swift in Sources */,
 				AE183F531E5CC94500C72291 /* FadeInAnimator.swift in Sources */,
 				AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */,
 				AE776E6C1E538CAE00D3ADB0 /* PopupSearchVC.swift in Sources */,
 				AECF21731E563B9C00FA4D4C /* UIViewController+MZContentViewController.m in Sources */,
 				AEDF0EC71E5E5762006FA58F /* InputTextField.swift in Sources */,
 				AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */,
-				AECD26581E560B4E00282462 /* UICollectionViewFlowLayoutExtension.swift in Sources */,
 				AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */,
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,
-				AEDF0EC11E5E079D006FA58F /* UIButtonExtension.swift in Sources */,
 				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
 				AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */,

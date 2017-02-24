@@ -13,8 +13,7 @@ extension UIView {
     func changeBorderColor(to color: UIColor) {
         self.layer.borderColor = color.cgColor
     }
-    
-    
+
     func addLightShadow() {
         layer.shadowColor = UIColor(red: SHADOW_GRAY, green: SHADOW_GRAY, blue: SHADOW_GRAY, alpha: SHADOW_GRAY).cgColor
         layer.shadowOpacity = 0.8

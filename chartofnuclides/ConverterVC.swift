@@ -89,13 +89,6 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
                 destination.unitTypes = tuple.1
             }
         }
-        
-        if let destination = segue.destination as? ConverterCalcVC {
-            if let tuple = sender as? (String, [String]) {
-                destination.title = tuple.0
-                destination.unitTypes = tuple.1
-            }
-        }
     }
     
 
