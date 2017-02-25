@@ -21,24 +21,53 @@ class UnitConversionTypeManager: NSObject {
     
     private var _unitTypesDict: Dictionary<String, [String]>
     
-    private var _angleTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
-    private var _lengthTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
-    private var _areaTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
-    private var _volumeTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
-    private var _massTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
-    private var _timeTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
-    private var _densityTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _angleTypes = ["degrees", "radians", "grades", "minutes", "seconds", "solid angle", "square degrees", "steradians"]
+    
+    private var _lengthTypes = ["angstroms", "meters", "astronomical units", "feet", "inches", "light years", "mils", "miles", "nautical miles", "parsecs",
+                                "yards", "links", "survey feet", "rods", "chains", "statute miles", "furlongs", "yottameters", "zettameters",
+                                "exameters", "petameters", "terameters", "gigameters", "megameters", "kilometers", "hectometers", "dekameters", "decimeters",
+                                "centimeters", "millimeters", "micrometers", "nanometers", "picometers", "femtometers", "attometers", "zeptometers", "yoctometers"]
+    
+    private var _areaTypes = ["barns", "square meters", "circular mils", "hectares", "square feet", "square inches", "square miles", "square yards",
+                              "square survey feet", "square rods", "square chains", "acres", "square survey miles", "circular inches", "square mils",
+                              "square kilometers", "square hectometers", "square dekameters", "square decimeters", "square centimeters",
+                              "square millimeters", "square micrometers", "square nanometers"]
+    
+    private var _volumeTypes = ["cubic feet", "cubic meters", "cubic inches", "cubic yards", "liters", "steres",
+                                "dry pints", "dry quarts", "pecks", "bushels", "fluid ounces", "liquid pints",
+                                "liquid quarts", "gallons", "cubic gigameters", "cubic megameters", "cubic kilometers",
+                                "cubic hectometers", "cubic dekameters", "cubic decimeters", "cubic centimeters",
+                                "cubic millimeters", "cubic micrometers", "cubic nanometers"]
+    
+    private var _massTypes = ["grams", "kilograms", "grains", "drams", "ounces", "pounds", "short tons", "stones", "metric tons", "tonnes"]
+    
+    private var _timeTypes = ["seconds", "minutes", "hours", "days", "years", "shakes"]
+    
+    private var _densityTypes = ["grams per cubic centimeter", "pounds per cubic foot", "pounds per cubic inch",
+                                 "grams per cubic meter", "kilograms per cubic centimeter", "kilograms per cubic meter"]
+    
     private var _velocityTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _angularvelocityTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _accelerationTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _forceTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _workTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _powerTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _torqueTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _temperatureTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _pressureTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _electromagnitismTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _magneticsTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    
     private var _radiationTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
     
     override init() {

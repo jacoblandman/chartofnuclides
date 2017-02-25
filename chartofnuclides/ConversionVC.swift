@@ -49,6 +49,8 @@ class ConversionVC: UIViewController {
         super.viewDidLoad()
 
         setGradients()
+        inputUnitLbl.text = unitTypes[0]
+        outputUnitLbl.text = unitTypes[1]
         inputTextField.setPlaceholder(with: "Enter Value")
         outputTextField.setPlaceholder(with: "0.0", color: colorWithHexString(hex: "98D8F7"))
         setTextFieldKeyboards()
