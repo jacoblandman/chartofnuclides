@@ -14,6 +14,8 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var gradientViewBg: GradientView!
     @IBOutlet weak var IsotopeView: InspectableBorderView!
     @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var massLbl: UILabel!
+    
     var isotope: Isotope!
     
     var viewsToFadeIn: Array<UIView> {
@@ -35,6 +37,10 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         
     func updateUI() {
         nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
+        
+        if let mass = isotope.mass.doubleValue {
+            massLbl.text = "\(mass.roundedTo(places: 4))"
+        }
     }
     
     

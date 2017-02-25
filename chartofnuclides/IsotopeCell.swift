@@ -11,6 +11,7 @@ import UIKit
 class IsotopeCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var massLbl: UILabel!
     @IBOutlet weak var shadowView: UIView!
     var isotope: Isotope?
     
@@ -25,8 +26,14 @@ class IsotopeCell: UICollectionViewCell {
     
     func updateCell(isotope: Isotope) {
         
-        self.nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
         self.isotope = isotope
+        self.nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
+        
+        if let mass = isotope.mass.doubleValue {
+            self.massLbl.text = "\(mass.roundedTo(places: 4))"
+        }
+        
+        
     }
     
     func highlight() {

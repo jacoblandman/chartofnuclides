@@ -15,6 +15,8 @@
 		AE183F5A1E5CEA4A00C72291 /* nuclides.json in Resources */ = {isa = PBXBuildFile; fileRef = AE183F591E5CEA4A00C72291 /* nuclides.json */; };
 		AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */; };
 		AE4B34A51E60E18E0083BB8B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B34A41E60E18E0083BB8B /* UIViewExtension.swift */; };
+		AE4B34A71E61F3BC0083BB8B /* CommunityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B34A61E61F3BC0083BB8B /* CommunityVC.swift */; };
+		AE4B34A91E61F6CD0083BB8B /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B34A81E61F6CD0083BB8B /* QuestionCell.swift */; };
 		AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */; };
 		AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */; };
 		AE5EDFF51E43FF1B00EEAD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5EDFF31E43FF1B00EEAD8C /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleRoundExtension.swift; sourceTree = "<group>"; };
 		AE33CB2D1E53DFCC00E86E28 /* chartofnuclides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chartofnuclides-Bridging-Header.h"; sourceTree = "<group>"; };
 		AE4B34A41E60E18E0083BB8B /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		AE4B34A61E61F3BC0083BB8B /* CommunityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityVC.swift; sourceTree = "<group>"; };
+		AE4B34A81E61F6CD0083BB8B /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		AE5EDFEC1E43FF1B00EEAD8C /* chartofnuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartofnuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5EDFEF1E43FF1B00EEAD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
 				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
 				AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */,
+				AE4B34A61E61F3BC0083BB8B /* CommunityVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				AE776E6D1E538F5800D3ADB0 /* PopupIsotopeCell.swift */,
 				AE776E751E53CB0500D3ADB0 /* ConversionUnitCell.swift */,
 				AEDF0EC41E5E2814006FA58F /* UnitCell.swift */,
+				AE4B34A81E61F6CD0083BB8B /* QuestionCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -500,8 +506,10 @@
 				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
 				AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */,
+				AE4B34A71E61F3BC0083BB8B /* CommunityVC.swift in Sources */,
 				AE7DF1B61E5F5F6E00B686B5 /* ConversionVC.swift in Sources */,
 				AE776E611E5367C500D3ADB0 /* InspectableBorderView.swift in Sources */,
+				AE4B34A91E61F6CD0083BB8B /* QuestionCell.swift in Sources */,
 				AECF21761E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift in Sources */,
 				AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */,
 				AEB5D44C1E45114A00A6D8DD /* IsotopeCell.swift in Sources */,
