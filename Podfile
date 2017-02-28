@@ -8,6 +8,10 @@ target 'chartofnuclides' do
   # Pods for chartofnuclides
   pod 'RAMAnimatedTabBarController', "~> 2.0.13"
   pod 'HHUnitConverter'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
 
 
 end

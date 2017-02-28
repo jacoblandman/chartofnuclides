@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CommunityVC: UIViewController {
 
@@ -53,6 +54,16 @@ class CommunityVC: UIViewController {
     }
     
     @IBAction func profileTapped(_ sender: Any) {
+        if FIRAuth.auth()?.currentUser != nil {
+            // User is signed in.
+            // segue to the profile view controller
+            print("Current User Found")
+            performSegue(withIdentifier: "LoginVC", sender: nil)
+//            performSegue(withIdentifier: "ProfileVC", sender: nil)
+        } else {
+            // No user is signed in.
+            performSegue(withIdentifier: "LoginVC", sender: nil)
+        }
     }
 
     @IBAction func mostRecentPressed(_ sender: Any) {

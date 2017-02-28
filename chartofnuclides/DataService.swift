@@ -7,21 +7,115 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
+
+let FIR_CHILD_USERS = "users"
+let FIR_CHILD_USERNAMES = "usernames"
+let FIR_CHILD_QUESTIONS = "questions"
+let FIR_CHILD_COMMENTS = "comments"
+let FILENAME_NUCLIDES = "nuclides"
+let FILE_EXTENSION_NUCLIDES = "json"
+
+typealias uniqueUsernameCompletion = (_ isUnique: Bool) -> Void
 
 class DataService {
     
-    static let instance = DataService()
+    private static let _instance = DataService()
     
+    static var instance: DataService {
+        return _instance
+    }
+    
+    
+    // Firebase database/storage stuff
+    var mainRef: FIRDatabaseReference {
+        return FIRDatabase.database().reference()
+    }
+    
+    var usersRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_USERS)
+    }
+    
+    var usernamesRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_USERNAMES)
+    }
+    
+    var questionsRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_QUESTIONS)
+    }
+    
+    var commentsRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_COMMENTS)
+    }
+    
+    var mainStorageRef: FIRStorageReference {
+        return FIRStorage.storage().reference()
+    }
+    
+    var imagesStorageRef: FIRStorageReference {
+        return mainStorageRef.child("images")
+    }
+    
+    func saveUser(uid: String) {
+        let profile: Dictionary<String, AnyObject> = ["reputation": "0" as AnyObject,
+                                                      "questionsAsked": "0" as AnyObject,
+                                                      "comments": "0" as AnyObject,
+                                                      "imageURL": "" as AnyObject]
+        
+        mainRef.child(FIR_CHILD_USERS).child(uid).child("profile").setValue(profile)
+    }
+    
+    func verifyIsUnique(_ username: String, completion: @escaping uniqueUsernameCompletion) {
+        
+        let user = FIRAuth.auth()!.currentUser
+        
+        print("JACOB: ", username)
+        mainRef.updateChildValues([ "users/\(user!.uid)/username/username": username,
+                                    "usernames/\(username)": user!.uid], withCompletionBlock: { (error, reference) in
+            if (error != nil) {
+                
+                print("JACOB: The username already exists")
+                completion(false)
+                // Write was disallowed because username exists
+                    
+            } else {
+                print("JACOB: The username is unique")
+                completion(true)
+            }
+        })
+    }
+    
+
+        
+        
+//        usersRef.queryOrdered(byChild: "username")
+//                .queryEqual(toValue: username.lowercased())
+//                .observeSingleEvent(of: .value, with: { snapshot in
+//                if !snapshot.exists(){
+//                    
+//                    let currentUser = FIRAuth.auth()!.currentUser
+//                    let uid = currentUser!.uid
+//                    
+//                    
+//                    self.mainRef.child(FIR_CHILD_USERS).child("profile").child("username").setValue(username)
+//                }
+//            }) { error in
+//                print(error.localizedDescription)
+//        }
+//        return false
+//    }
+    
+    
+    // nuclide data stuff
     var numberOfIsotopes: Int = 0
-    
-    let FILENAME = "nuclides"
-    let FILE_EXTENSION = "json"
     
     func parse_json() -> [Element] {
         
         var returnElements = [Element]()
         
-        if let path = Bundle.main.path(forResource: FILENAME, ofType: FILE_EXTENSION) {
+        if let path = Bundle.main.path(forResource: FILENAME_NUCLIDES, ofType: FILE_EXTENSION_NUCLIDES) {
             if let jsonData = NSData(contentsOfFile: path) {
                 do {
                     if let jsonResult = try JSONSerialization.jsonObject(with: jsonData as Data, options: []) as? Dictionary<String, Any> {

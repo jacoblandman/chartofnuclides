@@ -8,6 +8,7 @@
 
 import UIKit
 import RAMAnimatedTabBarController
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabController = window?.rootViewController as? RAMAnimatedTabBarController {
             tabController.changeSelectedColor(UIColor.white, iconSelectedColor: UIColor.white)
         }
+        
+        FIRApp.configure()
         
         return true
     }
