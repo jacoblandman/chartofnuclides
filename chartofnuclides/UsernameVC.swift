@@ -36,9 +36,11 @@ class UsernameVC: UIViewController {
             
             // now segue to the profile VC
             if let presentingVC = self.presentingViewController?.presentingViewController?.presentingViewController {
-                presentingVC.dismiss(animated: false, completion: nil)
+                // if we are here then the user logged in with an email
+                presentingVC.dismiss(animated: true, completion: nil)
             } else {
-                self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                // if we are here then the user logged in through facebook, so there was one less view controller
+                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }
     }

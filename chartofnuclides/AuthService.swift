@@ -86,4 +86,28 @@ class AuthService {
             }
         }
     }
+    
+    func deleteCurrentUser(uid: String, username: String) {
+        if let user = FIRAuth.auth()?.currentUser {
+            user.delete(completion: { (error) in
+                if let error = error {
+                    print("JACOB: An error occured trying to delete the user \(error.localizedDescription)")
+                } else {
+                    DataService.instance.delete(username)
+                    DataService.instance.deleteUserDataWith(uid)
+                    print("JACOB: Succesfully deleted user")
+                }
+            })
+        }
+    }
+    
+    func signOutCurrentUser() {
+        if let _ = FIRAuth.auth()?.currentUser {
+            do {
+               try FIRAuth.auth()?.signOut()
+            } catch let error as NSError {
+                print("JACOB: Error signing out: \(error.localizedDescription)")
+            }
+        }
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class EmailLoginVC: UIViewController {
 
@@ -54,9 +55,23 @@ class EmailLoginVC: UIViewController {
                 return
             }
             
-            
-            self.performSegue(withIdentifier: "UsernameVC", sender: nil)
-            
+            // we should have a user at this point. If not, then thats a problem, so alert the user
+            if let currentUser = FIRAuth.auth()?.currentUser {
+                let uid = currentUser.uid
+                _ = DataService.instance.checkIfPreviousUser(uid: uid, completed: { (isPreviousUser) in
+                    if (isPreviousUser) {
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                    } else {
+                        self.performSegue(withIdentifier: "UsernameVC", sender: nil)
+                    }
+                })
+                
+            } else {
+                let ac = UIAlertController(title: "An error occurred", message: "Please try again", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(ac, animated: true, completion: nil)
+                return
+            }
         }
     }
 

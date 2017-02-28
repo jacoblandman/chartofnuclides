@@ -19,6 +19,7 @@ let FILENAME_NUCLIDES = "nuclides"
 let FILE_EXTENSION_NUCLIDES = "json"
 
 typealias uniqueUsernameCompletion = (_ isUnique: Bool) -> Void
+typealias previousUserCheckCompletion = (_ isPreviousUser: Bool) -> Void
 
 class DataService {
     
@@ -67,11 +68,22 @@ class DataService {
         mainRef.child(FIR_CHILD_USERS).child(uid).child("profile").setValue(profile)
     }
     
+    func checkIfPreviousUser(uid: String, completed: @escaping previousUserCheckCompletion ) {
+        let usernameRef = usersRef.child(uid).child("username").child("username")
+        usernameRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                print("JACOB: Not previous user")
+                completed(false)
+            } else {
+                print("JACOB: PREVIOUS USER")
+                completed(true)
+            }
+        })
+    }
+    
     func verifyIsUnique(_ username: String, completion: @escaping uniqueUsernameCompletion) {
         
         let user = FIRAuth.auth()!.currentUser
-        
-        print("JACOB: ", username)
         mainRef.updateChildValues([ "users/\(user!.uid)/username/username": username,
                                     "usernames/\(username)": user!.uid], withCompletionBlock: { (error, reference) in
             if (error != nil) {
@@ -86,27 +98,6 @@ class DataService {
             }
         })
     }
-    
-
-        
-        
-//        usersRef.queryOrdered(byChild: "username")
-//                .queryEqual(toValue: username.lowercased())
-//                .observeSingleEvent(of: .value, with: { snapshot in
-//                if !snapshot.exists(){
-//                    
-//                    let currentUser = FIRAuth.auth()!.currentUser
-//                    let uid = currentUser!.uid
-//                    
-//                    
-//                    self.mainRef.child(FIR_CHILD_USERS).child("profile").child("username").setValue(username)
-//                }
-//            }) { error in
-//                print(error.localizedDescription)
-//        }
-//        return false
-//    }
-    
     
     // nuclide data stuff
     var numberOfIsotopes: Int = 0
@@ -133,5 +124,13 @@ class DataService {
         }
         
         return returnElements
+    }
+    
+    func deleteUserDataWith(_ uid: String) {
+        usersRef.child(uid).removeValue()
+    }
+    
+    func delete(_ username: String) {
+        usernamesRef.child(username).removeValue()
     }
 }

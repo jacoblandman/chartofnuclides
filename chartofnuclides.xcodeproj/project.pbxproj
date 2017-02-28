@@ -54,6 +54,8 @@
 		AEBEFE431E64B129006331AB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE421E64B129006331AB /* AuthService.swift */; };
 		AEBEFE451E64B22A006331AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE441E64B22A006331AB /* User.swift */; };
 		AEBEFE471E64D6B7006331AB /* UsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE461E64D6B7006331AB /* UsernameVC.swift */; };
+		AEBEFE491E6616C8006331AB /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE481E6616C8006331AB /* CircleImageView.swift */; };
+		AEBEFE4B1E661D20006331AB /* InspectableRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
 		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
@@ -120,6 +122,8 @@
 		AEBEFE421E64B129006331AB /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AEBEFE441E64B22A006331AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AEBEFE461E64D6B7006331AB /* UsernameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameVC.swift; sourceTree = "<group>"; };
+		AEBEFE481E6616C8006331AB /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectableRoundButton.swift; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				AEDF0EC61E5E5762006FA58F /* InputTextField.swift */,
 				AE7DF1B91E5F64EE00B686B5 /* ConversionButton.swift */,
 				AE4B34B01E64AA6D0083BB8B /* LoginField.swift */,
+				AEBEFE481E6616C8006331AB /* CircleImageView.swift */,
+				AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
 				AEBEFE471E64D6B7006331AB /* UsernameVC.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
+				AEBEFE4B1E661D20006331AB /* InspectableRoundButton.swift in Sources */,
 				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
 				AE183F531E5CC94500C72291 /* FadeInAnimator.swift in Sources */,
 				AE4B34AB1E649B960083BB8B /* LoginVC.swift in Sources */,
@@ -559,6 +566,7 @@
 				AEDF0EC71E5E5762006FA58F /* InputTextField.swift in Sources */,
 				AEB5D44A1E450CCB00A6D8DD /* ElementCell.swift in Sources */,
 				AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */,
+				AEBEFE491E6616C8006331AB /* CircleImageView.swift in Sources */,
 				AE4B34AF1E64A6400083BB8B /* EmailLoginVC.swift in Sources */,
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,
 				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,
