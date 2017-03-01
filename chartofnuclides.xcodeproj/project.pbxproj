@@ -56,6 +56,8 @@
 		AEBEFE471E64D6B7006331AB /* UsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE461E64D6B7006331AB /* UsernameVC.swift */; };
 		AEBEFE491E6616C8006331AB /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE481E6616C8006331AB /* CircleImageView.swift */; };
 		AEBEFE4B1E661D20006331AB /* InspectableRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */; };
+		AEBEFE4D1E676F04006331AB /* ReauthenticateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */; };
+		AEBEFE4F1E676F42006331AB /* ReauthenticateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
 		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
@@ -124,6 +126,8 @@
 		AEBEFE461E64D6B7006331AB /* UsernameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameVC.swift; sourceTree = "<group>"; };
 		AEBEFE481E6616C8006331AB /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectableRoundButton.swift; sourceTree = "<group>"; };
+		AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReauthenticateVC.swift; sourceTree = "<group>"; };
+		AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReauthenticateField.swift; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 				AE4B34AC1E64A2D20083BB8B /* ProfileVC.swift */,
 				AE4B34AE1E64A6400083BB8B /* EmailLoginVC.swift */,
 				AEBEFE461E64D6B7006331AB /* UsernameVC.swift */,
+				AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				AE4B34B01E64AA6D0083BB8B /* LoginField.swift */,
 				AEBEFE481E6616C8006331AB /* CircleImageView.swift */,
 				AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */,
+				AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -551,8 +557,10 @@
 				AE4B34A51E60E18E0083BB8B /* UIViewExtension.swift in Sources */,
 				AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */,
 				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
+				AEBEFE4D1E676F04006331AB /* ReauthenticateVC.swift in Sources */,
 				AEDF0EC31E5E17A6006FA58F /* UnitConversionTypeManager.swift in Sources */,
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
+				AEBEFE4F1E676F42006331AB /* ReauthenticateField.swift in Sources */,
 				AEBEFE471E64D6B7006331AB /* UsernameVC.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
 				AEBEFE4B1E661D20006331AB /* InspectableRoundButton.swift in Sources */,

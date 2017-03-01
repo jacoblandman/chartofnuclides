@@ -44,7 +44,7 @@ class EmailLoginVC: UIViewController {
         
         activityIndicatorView.isHidden = false
         
-        AuthService.instance.login(email: email, password: pwd) { (errMsg, data) in
+        AuthService.instance.login(email: email, password: pwd) { (errMsg, user) in
             
             self.activityIndicatorView.isHidden = true
             
@@ -56,7 +56,7 @@ class EmailLoginVC: UIViewController {
             }
             
             // we should have a user at this point. If not, then thats a problem, so alert the user
-            if let currentUser = FIRAuth.auth()?.currentUser {
+            if let currentUser = user as? FIRUser {
                 let uid = currentUser.uid
                 _ = DataService.instance.checkIfPreviousUser(uid: uid, completed: { (isPreviousUser) in
                     if (isPreviousUser) {

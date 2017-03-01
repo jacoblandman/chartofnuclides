@@ -60,9 +60,9 @@ class DataService {
     }
     
     func saveUser(uid: String) {
-        let profile: Dictionary<String, AnyObject> = ["reputation": "0" as AnyObject,
-                                                      "questionsAsked": "0" as AnyObject,
-                                                      "comments": "0" as AnyObject,
+        let profile: Dictionary<String, AnyObject> = ["reputation": 0 as AnyObject,
+                                                      "questionsAsked": 0 as AnyObject,
+                                                      "comments": 0 as AnyObject,
                                                       "imageURL": "" as AnyObject]
         
         mainRef.child(FIR_CHILD_USERS).child(uid).child("profile").setValue(profile)
@@ -127,7 +127,14 @@ class DataService {
     }
     
     func deleteUserDataWith(_ uid: String) {
-        usersRef.child(uid).removeValue()
+        // here we actually want to delete the username, then modify it to say "Unknown User"
+        // then we can delete the profile
+        // this is because a user may wish to delete their account, but may have questions or answers
+        // we don't want to delete those questions and answers, instead just specify that its from an unknown user
+        usersRef.child(uid).child("username").removeValue()
+        usersRef.updateChildValues(["\(uid)/username/username": "User Unknown"])
+        usersRef.child(uid).child("profile").removeValue()
+        
     }
     
     func delete(_ username: String) {

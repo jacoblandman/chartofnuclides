@@ -14,9 +14,9 @@ typealias userDownloadComplete = () -> ()
 class User {
     private var _uid: String
     private var _username: String!
-    private var _repuation: String!
-    private var _questions: String!
-    private var _comments: String!
+    private var _repuation: Int!
+    private var _questions: Int!
+    private var _comments: Int!
     
     var uid: String {
         return _uid
@@ -29,23 +29,23 @@ class User {
         return _username
     }
     
-    var reputation: String {
+    var reputation: Int {
         if _repuation == nil {
-            _repuation = ""
+            _repuation = 0
         }
         return _repuation
     }
     
-    var questions: String {
+    var questions: Int {
         if _questions == nil {
-            _questions = ""
+            _questions = 0
         }
         return _questions
     }
     
-    var comments: String {
+    var comments: Int {
         if _comments == nil {
-            _comments = ""
+            _comments = 0
         }
         return _comments
     }
@@ -62,13 +62,13 @@ class User {
         let profileSnap = snapshot.childSnapshot(forPath: "profile")
             print("JACOB: Found profile")
             if let profileDict = profileSnap.value as? Dictionary<String, AnyObject> {
-                if let questionsAsked = profileDict["questionsAsked"] as? String {
+                if let questionsAsked = profileDict["questionsAsked"] as? Int {
                     self._questions = questionsAsked
                 }
-                if let comments = profileDict["comments"] as? String {
+                if let comments = profileDict["comments"] as? Int {
                     self._comments = comments
                 }
-                if let reputation = profileDict["reputation"] as? String {
+                if let reputation = profileDict["reputation"] as? Int {
                     self._repuation = reputation
                     print("REPUTATION: ", reputation)
                 }

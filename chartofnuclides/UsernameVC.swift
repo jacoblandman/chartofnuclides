@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UsernameVC: UIViewController {
 
@@ -47,17 +48,30 @@ class UsernameVC: UIViewController {
     
     @IBAction func xPressed(_ sender: Any) {
         
-        if let presentingVC = self.presentingViewController?.presentingViewController?.presentingViewController {
-            presentingVC.dismiss(animated: false, completion: nil)
-        } else {
-            self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
-        }
+        view.endEditing(true)
+        let ac = UIAlertController(title: "Cancel Sign Up", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert: UIAlertAction!) in
+            AuthService.instance.deleteCurrentUser(uid: FIRAuth.auth()!.currentUser!.uid, username: nil, completed: nil)
+            self.dismissView()
+        }))
+        
+        ac.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        present(ac, animated: true, completion: nil)
         
     }
     
     @IBAction func usernameReturnPressed(_ sender: Any) {
         usernameField.resignFirstResponder()
         view.endEditing(true)
+    }
+    
+    func dismissView() {
+        if let presentingVC = self.presentingViewController?.presentingViewController?.presentingViewController {
+            presentingVC.dismiss(animated: true, completion: nil)
+        } else {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

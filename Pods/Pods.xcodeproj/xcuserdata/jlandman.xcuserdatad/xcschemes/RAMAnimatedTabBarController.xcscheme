@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2F344CF67A96C50716F5C36FE4BAB194"
+               BlueprintIdentifier = "2A451FA0B65DACA7BB48D6E2F98ACF73"
                BuildableName = "RAMAnimatedTabBarController.framework"
                BlueprintName = "RAMAnimatedTabBarController"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2F344CF67A96C50716F5C36FE4BAB194"
+            BlueprintIdentifier = "2A451FA0B65DACA7BB48D6E2F98ACF73"
             BuildableName = "RAMAnimatedTabBarController.framework"
             BlueprintName = "RAMAnimatedTabBarController"
             ReferencedContainer = "container:Pods.xcodeproj">

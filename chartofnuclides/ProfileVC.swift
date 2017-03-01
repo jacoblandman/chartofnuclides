@@ -37,9 +37,9 @@ class ProfileVC: UIViewController {
     func updateUI() {
         // we know a user exists at this point
         self.usernameLbl.text = user!.username
-        self.commentsLbl.text = user!.comments
-        self.questionsLbl.text = user!.questions
-        self.repuationLbl.text = user!.reputation
+        self.commentsLbl.text = "\(user!.comments)"
+        self.questionsLbl.text = "\(user!.questions)"
+        self.repuationLbl.text = "\(user!.reputation)"
         activityIndicatorView.isHidden = true
     }
 
@@ -65,11 +65,46 @@ class ProfileVC: UIViewController {
         let ac = UIAlertController(title: "Deleting Account", message: "Are you sure about this? There is no going back...", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         ac.addAction(UIAlertAction(title: "Yes, I'm sure", style: .default, handler: { (alert: UIAlertAction!) in
-            AuthService.instance.deleteCurrentUser(uid: uid, username: username)
-            self.dismiss(animated: true, completion: nil)
+            AuthService.instance.deleteCurrentUser(uid: uid, username: username, completed: { (errorCode) in
+                self.handle(errorCode)
+            })
         }))
+            
         present(ac, animated: true, completion: nil)
+    }
+    
+    func handle(_ errCode: FIRAuthErrorCode?) {
         
+        if let errorCode = errCode {
+            print("JACOB Error code: ", errorCode.rawValue)
+            switch(errorCode) {
+            case .errorCodeUserMismatch:
+                let ac = UIAlertController(title: "Incorrect user", message: "Please log out of the current account and sign back in before attempting to delete.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                present(ac, animated: true, completion: nil)
+                break
+            
+            case .errorCodeInvalidUserToken:
+                reauthenticateUser()
+                break
+                
+            case .errorCodeRequiresRecentLogin:
+                print("JACOB: Need to reauthenticte")
+                reauthenticateUser()
+                break
+                
+            default:
+                break
+            }
+        } else {
+            // the user deletion was a success
+            print("JACOB: Deletion success. About to dismiss the view")
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func reauthenticateUser() {
+        performSegue(withIdentifier: "ReauthenticateVC", sender: nil)
     }
 
     @IBAction func exitPressed(_ sender: Any) {

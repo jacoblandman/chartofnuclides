@@ -8,8 +8,12 @@
 
 import Foundation
 import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 typealias Completion = (_ errMsg: String?, _ data: AnyObject?) -> Void
+typealias deleteUserCompletion = (_ errCode: FIRAuthErrorCode?) -> Void
+typealias reauthenticationCompletion = (_ errMsg: String?) -> Void
 
 class AuthService {
     private static let _instance = AuthService()
@@ -87,15 +91,23 @@ class AuthService {
         }
     }
     
-    func deleteCurrentUser(uid: String, username: String) {
+    func deleteCurrentUser(uid: String, username: String?, completed: deleteUserCompletion?) {
         if let user = FIRAuth.auth()?.currentUser {
             user.delete(completion: { (error) in
                 if let error = error {
-                    print("JACOB: An error occured trying to delete the user \(error.localizedDescription)")
+                    // may need to reauthenticate user here
+                    if let errorCode = FIRAuthErrorCode(rawValue: error._code) {
+                        completed?(errorCode)
+                    }
+                    print("JACOB: An error occured trying to delete the user: \(error.localizedDescription)")
                 } else {
-                    DataService.instance.delete(username)
+                    // the username is optional because the user may cancel the sign up process before choosing a username
+                    if let username = username {
+                       DataService.instance.delete(username)
+                    }
                     DataService.instance.deleteUserDataWith(uid)
                     print("JACOB: Succesfully deleted user")
+                    completed?(nil)
                 }
             })
         }
@@ -109,5 +121,60 @@ class AuthService {
                 print("JACOB: Error signing out: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func reauthenticateUser(withCredential credential: FIRAuthCredential, completed: reauthenticationCompletion?) {
+        
+        let currentUser = FIRAuth.auth()?.currentUser
+        
+        if let user = currentUser {
+            user.reauthenticate(with: credential, completion: { (error) in
+                if error != nil {
+                    self.handleReauthenticationError(error: error as! NSError, completed: completed)
+                } else {
+                    completed?(nil)
+                    print("JACOB: reauthentication successful")
+                }
+            })
+        } else {
+            completed?("Error: The current user doesn't exist.")
+        }
+    }
+    
+    func handleReauthenticationError(error: NSError, completed: reauthenticationCompletion?) {
+        print("JACOB: Need to handle reauthentication error")
+    }
+    
+    func authenticateWithFacebook(fromVC: UIViewController, completed: Completion?) {
+        let facebookLogin = FBSDKLoginManager()
+        
+        facebookLogin.logIn(withReadPermissions: ["email"], from: fromVC) { (result, error) in
+            if error != nil {
+                print("JACOB: Unable to authenticate with Facebook - \(error)")
+                completed?(error!.localizedDescription, nil)
+            } else if result?.isCancelled == true {
+                print("JACOB: User cancelled Facebook authentication")
+                completed?("User cancelled authentication", nil)
+            } else {
+                print("JACOB: Successfully authenticated with Facebook")
+                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                self.loginWithFacebook(credential, completed: completed)
+            }
+        }
+    }
+    
+    func loginWithFacebook(_ credential: FIRAuthCredential, completed: Completion?) {
+        FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            if error != nil {
+                print("JACOB: Unable to authenticate with Firebase - \(error)")
+                completed?(error!.localizedDescription, nil)
+            } else {
+                print("JACOB: Successfully authenticated with Firebase")
+                completed?(nil, user)
+                if let user = user {
+                    DataService.instance.saveUser(uid: user.uid)
+                }
+            }
+        })
     }
 }
