@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import RSKImageCropper
+import Firebase
 
 class ProfileVC: UIViewController {
 
@@ -19,9 +21,15 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var activityIndicatorView: InspectableBorderView!
     var user: User?
     
+    var imagePicker: UIImagePickerController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imagePicker = UIImagePickerController()
+        //imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         if let currentUser = FIRAuth.auth()?.currentUser {
             activityIndicatorView.isHidden = false
@@ -40,10 +48,25 @@ class ProfileVC: UIViewController {
         self.commentsLbl.text = "\(user!.comments)"
         self.questionsLbl.text = "\(user!.questions)"
         self.repuationLbl.text = "\(user!.reputation)"
-        activityIndicatorView.isHidden = true
+        
+        DataService.instance.setImage(forURL: user!.imageURL) { (error, image) in
+            if error != nil {
+                print("JACOB: Error downloading image from firebase storage")
+            } else {
+                print("JACOB: Image download successful")
+                if let img = image {
+                    self.profileImgView.image = img
+                }
+            }
+            
+            self.activityIndicatorView.isHidden = true
+        }
+        
+        
     }
 
     @IBAction func changeProfileImgPressed(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func logOutPressed(_ sender: Any) {
@@ -109,5 +132,57 @@ class ProfileVC: UIViewController {
 
     @IBAction func exitPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            print("JACOB: Made it within the imagePickerController")
+            var imageCropVC : RSKImageCropViewController!
+            imageCropVC = RSKImageCropViewController(image: image, cropMode: RSKImageCropMode.circle)
+            imageCropVC.delegate = self
+            
+            self.presentedViewController?.present(imageCropVC, animated: true, completion: nil)
+
+        } else {
+            print("JACOB: A valid image wasn't selected")
+        }
+    }
+}
+
+extension ProfileVC: RSKImageCropViewControllerDelegate {
+    
+    func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
+        //self.profileImgView.image = croppedImage.resizeWith(width: 150)
+        self.profileImgView.image = croppedImage
+        if let user = user {
+            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid)
+        }
+        
+        imagePicker.dismiss(animated: false, completion: nil)
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
+    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
+        //self.profileImgView.image = croppedImage.resizeWith(width: 150)
+        self.profileImgView.image = croppedImage
+        if let user = user {
+            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid)
+        }
+        imagePicker.dismiss(animated: false, completion: nil)
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imageCropViewController(_ controller: RSKImageCropViewController, willCropImage originalImage: UIImage) {
     }
 }

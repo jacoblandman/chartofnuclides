@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91EE39F10A844F3CADBEC54DD8746C0B"
+               BlueprintIdentifier = "A789B3F18C76646EE62711538FD6F295"
                BuildableName = "Pods_chartofnuclides.framework"
                BlueprintName = "Pods-chartofnuclides"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91EE39F10A844F3CADBEC54DD8746C0B"
+            BlueprintIdentifier = "A789B3F18C76646EE62711538FD6F295"
             BuildableName = "Pods_chartofnuclides.framework"
             BlueprintName = "Pods-chartofnuclides"
             ReferencedContainer = "container:Pods.xcodeproj">

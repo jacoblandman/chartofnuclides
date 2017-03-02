@@ -1046,7 +1046,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7n-Nb-Dzr">
-                                                            <rect key="frame" x="113" y="9" width="144.66666666666669" height="24"/>
+                                                            <rect key="frame" x="113" y="9" width="145" height="24"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -1443,7 +1443,7 @@
                                 <rect key="frame" x="20" y="9" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon copy" translatesAutoresizingMaskIntoConstraints="NO" id="Eeq-CP-wEb">
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon copy" translatesAutoresizingMaskIntoConstraints="NO" id="Eeq-CP-wEb" customClass="CircleImageView" customModule="chartofnuclides" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd2-H7-1li">
@@ -1488,7 +1488,7 @@
                         <outlet property="topBtn" destination="0cg-yQ-3MS" id="uv2-vI-NUm"/>
                         <outlet property="unansweredBtn" destination="3gO-TE-5KC" id="uM3-2W-2SU"/>
                         <segue destination="bVu-BE-qpW" kind="presentation" identifier="LoginVC" modalTransitionStyle="coverVertical" id="jKS-fd-Fvz"/>
-                        <segue destination="rwH-km-q9c" kind="presentation" identifier="ProfileVC" id="Wer-Bb-4tA"/>
+                        <segue destination="rwH-km-q9c" kind="presentation" identifier="ProfileVC" modalTransitionStyle="coverVertical" id="lip-eb-4RB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16g-RM-qNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1875,7 +1875,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssg-Is-W8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="1972"/>
+            <point key="canvasLocation" x="2937.68115942029" y="1971.1956521739132"/>
         </scene>
         <!--UsernameVC-->
         <scene sceneID="rFh-DO-7ul">
@@ -2064,7 +2064,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eY7-cq-boG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997" y="1481"/>
+            <point key="canvasLocation" x="3902.898550724638" y="1480.4347826086957"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="9vX-0F-a0N">
@@ -2084,7 +2084,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZv-i4-l3S">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon_big" translatesAutoresizingMaskIntoConstraints="NO" id="pBa-d9-NkK" customClass="CircleImageView" customModule="chartofnuclides" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon_big" translatesAutoresizingMaskIntoConstraints="NO" id="pBa-d9-NkK" customClass="CircleImageView" customModule="chartofnuclides" customModuleProvider="target">
                                         <rect key="frame" x="132" y="34" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="C19-xC-VMF"/>
@@ -2288,7 +2288,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esR-kJ-Rn7" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
-                                <rect key="frame" x="169" y="330" width="75" height="75"/>
+                                <rect key="frame" x="169" y="330.66666666666669" width="75" height="75"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="q2v-oX-Fzb">
                                         <rect key="frame" x="27.333333333333343" y="27.333333333333314" width="20" height="20"/>
@@ -2322,6 +2322,7 @@
                             <constraint firstItem="vxc-Og-too" firstAttribute="leading" secondItem="Wb8-Is-DAg" secondAttribute="leading" id="pI1-Do-l9M"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="C0t-oc-qG5"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="esR-kJ-Rn7" id="KGb-Y2-xY2"/>
@@ -2335,7 +2336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2r-W3-3VG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="1955"/>
+            <point key="canvasLocation" x="1423" y="1926"/>
         </scene>
         <!--ReauthenticateVC-->
         <scene sceneID="UVK-GI-aum">
@@ -2349,49 +2350,137 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-ay-DTB" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
-                                <rect key="frame" x="70" y="138" width="274" height="313"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-ay-DTB" userLabel="ChooseAuthentication" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
+                                <rect key="frame" x="70" y="174.33333333333331" width="274" height="239.99999999999994"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to delete this account we need you to reenter your credentials!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugz-6I-hH4">
-                                        <rect key="frame" x="8" y="8" width="258" height="80.333333333333343"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHM-28-4Uf">
+                                        <rect key="frame" x="254" y="-20" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="TPX-9M-dR9"/>
+                                            <constraint firstAttribute="width" constant="40" id="YJt-hs-N6f"/>
+                                            <constraint firstAttribute="height" constant="40" id="abR-Hf-dHS"/>
+                                        </constraints>
+                                        <state key="normal" image="RedExit"/>
+                                        <connections>
+                                            <action selector="backOut:" destination="GPJ-c6-IdM" eventType="touchUpInside" id="ctn-sc-aGb"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to delete this account we need you to re-enter your credentials. Then try again." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugz-6I-hH4">
+                                        <rect key="frame" x="8" y="8" width="258" height="74.999999999999972"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="TPX-9M-dR9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eN4-En-jhm" customClass="ReauthenticateField" customModule="chartofnuclides" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="123" width="254" height="50"/>
-                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHG-cb-dJb" customClass="InspectableRoundButton" customModule="chartofnuclides" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="181.99999999999997" width="254" height="50"/>
+                                        <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="1LB-X9-0LV"/>
+                                            <constraint firstAttribute="height" constant="50" id="khq-nj-MOU"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="sRW-lI-3uM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Facebook Authentication">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="facebookAuthenticationPressed:" destination="GPJ-c6-IdM" eventType="touchUpInside" id="bU0-CV-a6M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbj-h9-OaN" customClass="InspectableRoundButton" customModule="chartofnuclides" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="121.99999999999997" width="254" height="50"/>
+                                        <color key="backgroundColor" red="0.75686274509803919" green="0.10588235294117647" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ufa-8U-46r"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Email Authentication">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="emailAuthenticationPressed:" destination="GPJ-c6-IdM" eventType="touchUpInside" id="g80-Ow-Oxi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Ugz-6I-hH4" firstAttribute="top" secondItem="lw0-ay-DTB" secondAttribute="top" constant="8" id="3Kg-Ag-EKu"/>
+                                    <constraint firstItem="eHG-cb-dJb" firstAttribute="leading" secondItem="lw0-ay-DTB" secondAttribute="leading" constant="10" id="4A7-Ua-NqE"/>
+                                    <constraint firstItem="Xbj-h9-OaN" firstAttribute="leading" secondItem="lw0-ay-DTB" secondAttribute="leading" constant="10" id="EC7-UZ-5Wo"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xbj-h9-OaN" secondAttribute="trailing" constant="10" id="OyQ-Rx-bHP"/>
+                                    <constraint firstItem="eHG-cb-dJb" firstAttribute="top" secondItem="Xbj-h9-OaN" secondAttribute="bottom" constant="10" id="SC0-kg-3xq"/>
+                                    <constraint firstAttribute="trailing" secondItem="vHM-28-4Uf" secondAttribute="trailing" constant="-20" id="TVA-Cg-c5c"/>
+                                    <constraint firstItem="vHM-28-4Uf" firstAttribute="top" secondItem="lw0-ay-DTB" secondAttribute="top" constant="-20" id="XSC-5z-9TK"/>
+                                    <constraint firstItem="Ugz-6I-hH4" firstAttribute="leading" secondItem="lw0-ay-DTB" secondAttribute="leading" constant="8" id="aBc-2m-YBL"/>
+                                    <constraint firstAttribute="bottom" secondItem="eHG-cb-dJb" secondAttribute="bottom" constant="8" id="c3D-Za-BMv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ugz-6I-hH4" secondAttribute="trailing" constant="8" id="cpU-iE-ghV"/>
+                                    <constraint firstAttribute="trailing" secondItem="eHG-cb-dJb" secondAttribute="trailing" constant="10" id="kSu-lh-ugf"/>
+                                    <constraint firstAttribute="height" constant="240" id="xi3-hH-8Jk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axF-J1-8u8" userLabel="EmailAuthentication" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
+                                <rect key="frame" x="70" y="135" width="274" height="280"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0T-9u-nnO">
+                                        <rect key="frame" x="254" y="-20" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Uwu-4j-xVT"/>
+                                            <constraint firstAttribute="width" constant="40" id="aFL-nt-8YD"/>
+                                        </constraints>
+                                        <state key="normal" image="RedExit"/>
+                                        <connections>
+                                            <action selector="backToAuthenticationChoice:" destination="GPJ-c6-IdM" eventType="touchUpInside" id="VKv-w3-dwh"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKc-Fi-Dw8" customClass="ReauthenticateField" customModule="chartofnuclides" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="90" width="254" height="50"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="AaR-iO-aaC"/>
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
-                                            <action selector="emailReturned:" destination="GPJ-c6-IdM" eventType="primaryActionTriggered" id="duh-2O-L67"/>
+                                            <action selector="emailReturned:" destination="GPJ-c6-IdM" eventType="primaryActionTriggered" id="EKP-Ke-Qem"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="64i-nI-qZd" customClass="ReauthenticateField" customModule="chartofnuclides" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="183" width="254" height="50"/>
-                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-qa-qXf" customClass="ReauthenticateField" customModule="chartofnuclides" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="150" width="254" height="50"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Mtf-hY-NKr"/>
+                                            <constraint firstAttribute="height" constant="50" id="SVu-IM-k8Y"/>
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                         <connections>
-                                            <action selector="passwordReturned:" destination="GPJ-c6-IdM" eventType="primaryActionTriggered" id="Q0W-EN-Qen"/>
+                                            <action selector="passwordReturned:" destination="GPJ-c6-IdM" eventType="primaryActionTriggered" id="Dih-OS-yhP"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbj-h9-OaN" customClass="InspectableRoundButton" customModule="chartofnuclides" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="253" width="254" height="50"/>
-                                        <color key="backgroundColor" red="0.75686274509803919" green="0.10588235294117647" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-zw-e9c" customClass="InspectableRoundButton" customModule="chartofnuclides" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="220" width="254" height="50"/>
+                                        <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ufa-8U-46r"/>
+                                            <constraint firstAttribute="height" constant="50" id="XLn-Q9-XVf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="Authenticate">
@@ -2404,25 +2493,33 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="authenticatePressed:" destination="GPJ-c6-IdM" eventType="touchUpInside" id="N9j-YO-nD3"/>
+                                            <action selector="authenticatePressed:" destination="GPJ-c6-IdM" eventType="touchUpInside" id="bcr-g9-A9B"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your username and password." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsc-4H-npW">
+                                        <rect key="frame" x="10" y="10" width="254" height="46.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Ugz-6I-hH4" firstAttribute="top" secondItem="lw0-ay-DTB" secondAttribute="top" constant="8" id="3Kg-Ag-EKu"/>
-                                    <constraint firstAttribute="bottom" secondItem="Xbj-h9-OaN" secondAttribute="bottom" constant="10" id="9Ay-RH-Vbv"/>
-                                    <constraint firstItem="Xbj-h9-OaN" firstAttribute="leading" secondItem="lw0-ay-DTB" secondAttribute="leading" constant="10" id="EC7-UZ-5Wo"/>
-                                    <constraint firstItem="64i-nI-qZd" firstAttribute="top" secondItem="eN4-En-jhm" secondAttribute="bottom" constant="10" id="KN4-1a-Hvr"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xbj-h9-OaN" secondAttribute="trailing" constant="10" id="OyQ-Rx-bHP"/>
-                                    <constraint firstAttribute="trailing" secondItem="64i-nI-qZd" secondAttribute="trailing" constant="10" id="X3f-9I-e5U"/>
-                                    <constraint firstItem="Ugz-6I-hH4" firstAttribute="leading" secondItem="lw0-ay-DTB" secondAttribute="leading" constant="8" id="aBc-2m-YBL"/>
-                                    <constraint firstItem="64i-nI-qZd" firstAttribute="leading" secondItem="lw0-ay-DTB" secondAttribute="leading" constant="10" id="b8T-zJ-42C"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ugz-6I-hH4" secondAttribute="trailing" constant="8" id="cpU-iE-ghV"/>
-                                    <constraint firstItem="eN4-En-jhm" firstAttribute="leading" secondItem="lw0-ay-DTB" secondAttribute="leading" constant="10" id="gYY-qV-yiB"/>
-                                    <constraint firstAttribute="trailing" secondItem="eN4-En-jhm" secondAttribute="trailing" constant="10" id="rLh-UK-ovG"/>
-                                    <constraint firstItem="Xbj-h9-OaN" firstAttribute="top" secondItem="64i-nI-qZd" secondAttribute="bottom" constant="20" id="vQU-oS-iQT"/>
-                                    <constraint firstAttribute="height" constant="313" id="xi3-hH-8Jk"/>
+                                    <constraint firstAttribute="bottom" secondItem="xkJ-zw-e9c" secondAttribute="bottom" constant="10" id="63S-uX-wrI"/>
+                                    <constraint firstItem="xkJ-zw-e9c" firstAttribute="leading" secondItem="axF-J1-8u8" secondAttribute="leading" constant="10" id="9Xx-Iy-3Yd"/>
+                                    <constraint firstItem="Xsc-4H-npW" firstAttribute="top" secondItem="axF-J1-8u8" secondAttribute="top" constant="10" id="Mz4-Kt-Ja6"/>
+                                    <constraint firstAttribute="trailing" secondItem="DKc-Fi-Dw8" secondAttribute="trailing" constant="10" id="NIV-HV-YMh"/>
+                                    <constraint firstItem="nGP-qa-qXf" firstAttribute="leading" secondItem="axF-J1-8u8" secondAttribute="leading" constant="10" id="SLQ-W6-41i"/>
+                                    <constraint firstItem="DKc-Fi-Dw8" firstAttribute="leading" secondItem="axF-J1-8u8" secondAttribute="leading" constant="10" id="fdY-r9-wxY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xsc-4H-npW" secondAttribute="trailing" constant="10" id="iPO-xh-Reu"/>
+                                    <constraint firstAttribute="trailing" secondItem="xkJ-zw-e9c" secondAttribute="trailing" constant="10" id="lOS-Mp-eg7"/>
+                                    <constraint firstItem="nGP-qa-qXf" firstAttribute="top" secondItem="DKc-Fi-Dw8" secondAttribute="bottom" constant="10" id="m82-z9-rcC"/>
+                                    <constraint firstAttribute="trailing" secondItem="V0T-9u-nnO" secondAttribute="trailing" constant="-20" id="rVc-DG-jXD"/>
+                                    <constraint firstItem="V0T-9u-nnO" firstAttribute="top" secondItem="axF-J1-8u8" secondAttribute="top" constant="-20" id="t5B-Sz-qR5"/>
+                                    <constraint firstAttribute="height" constant="280" id="uVe-rv-XmJ"/>
+                                    <constraint firstItem="Xsc-4H-npW" firstAttribute="leading" secondItem="axF-J1-8u8" secondAttribute="leading" constant="10" id="v1e-JG-d7b"/>
+                                    <constraint firstAttribute="trailing" secondItem="nGP-qa-qXf" secondAttribute="trailing" constant="10" id="vbh-gO-78L"/>
+                                    <constraint firstItem="xkJ-zw-e9c" firstAttribute="top" secondItem="nGP-qa-qXf" secondAttribute="bottom" constant="20" id="yXt-Ps-uws"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
@@ -2433,19 +2530,24 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="axF-J1-8u8" secondAttribute="trailing" constant="50" id="4ZW-8c-8GH"/>
+                            <constraint firstItem="axF-J1-8u8" firstAttribute="leading" secondItem="E87-FA-WiZ" secondAttribute="leadingMargin" constant="50" id="Mnr-cZ-T0O"/>
+                            <constraint firstItem="axF-J1-8u8" firstAttribute="bottom" secondItem="lw0-ay-DTB" secondAttribute="bottom" id="WIS-sN-EC9"/>
                             <constraint firstItem="lw0-ay-DTB" firstAttribute="leading" secondItem="E87-FA-WiZ" secondAttribute="leadingMargin" constant="50" id="hLb-gr-I9r"/>
                             <constraint firstItem="lw0-ay-DTB" firstAttribute="centerY" secondItem="E87-FA-WiZ" secondAttribute="centerY" multiplier="0.8" id="qbh-Be-erx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lw0-ay-DTB" secondAttribute="trailing" constant="50" id="ss2-I9-vDo"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="eN4-En-jhm" id="vpf-Un-O6u"/>
-                        <outlet property="passwordField" destination="64i-nI-qZd" id="FX3-Zu-z8r"/>
+                        <outlet property="chooseAuthView" destination="lw0-ay-DTB" id="ib0-hs-Hjc"/>
+                        <outlet property="emailAuthView" destination="axF-J1-8u8" id="esp-bD-rpz"/>
+                        <outlet property="emailField" destination="DKc-Fi-Dw8" id="9Vf-7E-lF0"/>
+                        <outlet property="passwordField" destination="nGP-qa-qXf" id="TwR-5z-pdy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOs-0K-QDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.5942028985507" y="2682.0652173913045"/>
+            <point key="canvasLocation" x="2119" y="2697"/>
         </scene>
         <!--Community-->
         <scene sceneID="192-rM-xoU">
@@ -2531,6 +2633,7 @@
     <resources>
         <image name="Facebook" width="19" height="18"/>
         <image name="Nuclide Symbol Color" width="165" height="154"/>
+        <image name="RedExit" width="40" height="40"/>
         <image name="calculatorIcon" width="27" height="26"/>
         <image name="converterIcon" width="29" height="27"/>
         <image name="definitionsIcon" width="27" height="22"/>
@@ -2546,6 +2649,6 @@
         <image name="x" width="53" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="04F-QG-s7c"/>
+        <segue reference="mY0-Yy-scK"/>
     </inferredMetricsTieBreakers>
 </document>

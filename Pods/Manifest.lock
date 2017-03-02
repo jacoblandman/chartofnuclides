@@ -52,6 +52,7 @@ PODS:
     - PESGraph
   - PESGraph (0.2.1)
   - RAMAnimatedTabBarController (2.0.13)
+  - RSKImageCropper (1.6.0)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - HHUnitConverter
   - RAMAnimatedTabBarController (~> 2.0.13)
+  - RSKImageCropper
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -78,7 +80,8 @@ SPEC CHECKSUMS:
   HHUnitConverter: 77f06b83f6fcdd17418cf57b8fd96184c8b509cc
   PESGraph: 679c7d032cf46d3979214d8584ae70062aa4277d
   RAMAnimatedTabBarController: 2510f3b66954c3f77ea1042a35d34df8f5f3b604
+  RSKImageCropper: 6903235c7a8a79acb1e1f3490e2c911b858f8208
 
-PODFILE CHECKSUM: 6904ce6c29b7148015a541e1f027151083092159
+PODFILE CHECKSUM: ec2ab3ff1a82bb962494baedb1aa8bec1248b18e
 
 COCOAPODS: 1.1.1

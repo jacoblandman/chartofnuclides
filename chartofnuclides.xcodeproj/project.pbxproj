@@ -58,6 +58,7 @@
 		AEBEFE4B1E661D20006331AB /* InspectableRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */; };
 		AEBEFE4D1E676F04006331AB /* ReauthenticateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */; };
 		AEBEFE4F1E676F42006331AB /* ReauthenticateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */; };
+		AEC28FE41E67A4B2002A60BE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC28FE31E67A4B2002A60BE /* UIImageExtension.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
 		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
@@ -128,6 +129,7 @@
 		AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectableRoundButton.swift; sourceTree = "<group>"; };
 		AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReauthenticateVC.swift; sourceTree = "<group>"; };
 		AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReauthenticateField.swift; sourceTree = "<group>"; };
+		AEC28FE31E67A4B2002A60BE /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				AE183F5B1E5CEBCA00C72291 /* DoubleRoundExtension.swift */,
 				AE7DF1B71E5F621700B686B5 /* NSObjectExtension.swift */,
 				AE7DF1BB1E5F757700B686B5 /* NSNumberExtension.swift */,
+				AEC28FE31E67A4B2002A60BE /* UIImageExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */,
 				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
+				AEC28FE41E67A4B2002A60BE /* UIImageExtension.swift in Sources */,
 				AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */,
 				AE4B34A71E61F3BC0083BB8B /* CommunityVC.swift in Sources */,
 				AE7DF1B61E5F5F6E00B686B5 /* ConversionVC.swift in Sources */,

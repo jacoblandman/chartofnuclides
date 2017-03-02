@@ -20,6 +20,7 @@ let FILE_EXTENSION_NUCLIDES = "json"
 
 typealias uniqueUsernameCompletion = (_ isUnique: Bool) -> Void
 typealias previousUserCheckCompletion = (_ isPreviousUser: Bool) -> Void
+typealias imageDownloadCompletion = (_ error: NSError?, _ image: UIImage?) -> Void
 
 class DataService {
     
@@ -65,7 +66,7 @@ class DataService {
                                                       "comments": 0 as AnyObject,
                                                       "imageURL": "" as AnyObject]
         
-        mainRef.child(FIR_CHILD_USERS).child(uid).child("profile").setValue(profile)
+        usersRef.child(uid).child("profile").setValue(profile)
     }
     
     func checkIfPreviousUser(uid: String, completed: @escaping previousUserCheckCompletion ) {
@@ -139,5 +140,48 @@ class DataService {
     
     func delete(_ username: String) {
         usernamesRef.child(username).removeValue()
+    }
+    
+    func saveProfileImage(image: UIImage, uid: String) {
+        
+        if let imgData = UIImageJPEGRepresentation(image, 0.2) {
+            
+            let imgUid = NSUUID().uuidString
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            imagesStorageRef.child(imgUid).put(imgData, metadata: metaData, completion: { (metadata, error) in
+                
+                if error != nil {
+                    print(error.debugDescription)
+                    print("JACOB: Unable to upload image to Firebase storage")
+                } else {
+                    
+                    print("JACOB: Successfully uploaded image to Firebase storage")
+                    let downloadURL = metadata?.downloadURL()?.absoluteString
+                    if let url = downloadURL {
+                        self.usersRef.child(uid).child("profile").child("imageURL").setValue(url as AnyObject)
+                    }
+                }
+            })
+        }
+    }
+    
+    func setImage(forURL url: String, completed: @escaping imageDownloadCompletion) {
+        let ref = FIRStorage.storage().reference(forURL: url)
+        // max size is 2 MB
+        ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+            if error != nil {
+                print("JACOB: Unable to download image from Firebase storage")
+                completed(error as NSError?, nil)
+            } else {
+                print("JACOB: Image downloaded from Firebase storage")
+                if let imgData = data {
+                    if let img = UIImage(data: imgData) {
+                        completed(nil, img)
+                    }
+                }
+            }
+        })
     }
 }

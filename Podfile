@@ -13,6 +13,7 @@ target 'chartofnuclides' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'FBSDKLoginKit'
+  pod 'RSKImageCropper'
 
 
 end
