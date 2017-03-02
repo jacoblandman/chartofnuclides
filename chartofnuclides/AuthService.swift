@@ -170,9 +170,18 @@ class AuthService {
                 completed?(error!.localizedDescription, nil)
             } else {
                 print("JACOB: Successfully authenticated with Firebase")
-                completed?(nil, user)
-                if let user = user {
-                    DataService.instance.saveUser(uid: user.uid)
+                
+                // check if a previous user
+                if let currentUser = user {
+                    
+                    _ = DataService.instance.checkIfPreviousUser(uid: currentUser.uid, completed: { (isPreviousUser) in
+                        if (isPreviousUser) {
+                            completed?(nil, user)
+                        } else {
+                            DataService.instance.saveUser(uid: currentUser.uid)
+                            completed?(nil, user)
+                        }
+                    })
                 }
             }
         })
