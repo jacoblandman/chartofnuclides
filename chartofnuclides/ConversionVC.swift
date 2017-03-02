@@ -164,7 +164,21 @@ class ConversionVC: UIViewController {
         
         // we know the button has a title label and text
         // if it doesn't then that is a problem
-        inputTextField.text?.append(sender.titleLabel!.text!)
+        inputTextField.becomeFirstResponder()
+        if let selectedRange = inputTextField.selectedTextRange {
+            let cursorPosition = inputTextField.offset(from: inputTextField.beginningOfDocument, to: selectedRange.start)
+            
+            print(cursorPosition)
+            let index = inputTextField.text!.index(inputTextField.text!.startIndex, offsetBy: cursorPosition)
+            let character = sender.titleLabel!.text!.firstCharacter()
+            
+            inputTextField.text?.insert(character, at: index)
+            
+            if let newCursorPosition = inputTextField.position(from: selectedRange.start, offset: 1) {
+                inputTextField.selectedTextRange = inputTextField.textRange(from: newCursorPosition, to: newCursorPosition)
+            }
+        }
+
         setOutputValue()
         
     }

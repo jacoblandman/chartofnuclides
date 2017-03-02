@@ -90,6 +90,10 @@ extension String {
         }
     }
     
+    func firstCharacter() -> Character {
+        return self[self.startIndex]
+    }
+    
     struct Formatter {
         static let instance = NumberFormatter()
     }

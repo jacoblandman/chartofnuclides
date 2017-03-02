@@ -29,7 +29,8 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gradientViewBg.setValuesForLinearGradient(color1: UIColor.white, color2: GREEN_COLOR, relativeStartPoint: CGPoint(x: 0, y: 0.5), relativeEndPoint: CGPoint(x: 1, y: 0.5))
+        gradientViewBg.setValuesForRadialGradient(color1: GREEN_COLOR, color2: UIColor.white,
+                                                  relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: 10, outerRadius: gradientViewBg.frame.width)
         gradientViewBg.setNeedsDisplay()
         
         updateUI()

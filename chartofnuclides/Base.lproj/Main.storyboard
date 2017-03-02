@@ -867,16 +867,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="140"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6z1-5a-tVf">
-                                                        <rect key="frame" x="39.666666666666657" y="47.333333333333329" width="59.333333333333343" height="45.999999999999986"/>
+                                                        <rect key="frame" x="8" y="35.333333333333329" width="121.33333333333334" height="69.333333333333343"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Degree" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da9-FW-v9T">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="23.333333333333336"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pounds per square inch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da9-FW-v9T">
+                                                                <rect key="frame" x="0.0" y="0.0" width="121.33333333333334" height="46.666666666666664"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Angle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-RC-5MR">
-                                                                <rect key="frame" x="0.0" y="25.333333333333336" width="59.333333333333336" height="20.666666666666657"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Angle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-RC-5MR">
+                                                                <rect key="frame" x="0.0" y="48.666666666666664" width="121.33333333333334" height="20.666666666666679"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -887,7 +887,9 @@
                                                 <color key="backgroundColor" red="0.48496400393699468" green="0.7503556783055243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="6z1-5a-tVf" secondAttribute="trailing" constant="8" id="BFG-Ou-Sw1"/>
                                                     <constraint firstItem="6z1-5a-tVf" firstAttribute="centerX" secondItem="6UO-uO-NBX" secondAttribute="centerX" id="Chi-ZY-Ms1"/>
+                                                    <constraint firstItem="6z1-5a-tVf" firstAttribute="leading" secondItem="6UO-uO-NBX" secondAttribute="leading" constant="8" id="s09-J1-Rc2"/>
                                                     <constraint firstItem="6z1-5a-tVf" firstAttribute="centerY" secondItem="6UO-uO-NBX" secondAttribute="centerY" id="zZp-rg-MKd"/>
                                                 </constraints>
                                                 <connections>
@@ -937,16 +939,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="140.33333333333331"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-EH-ySZ">
-                                                        <rect key="frame" x="41" y="47" width="54" height="46"/>
+                                                        <rect key="frame" x="8" y="47" width="121.33333333333334" height="46"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radian" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXJ-SB-MC4">
-                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="23.333333333333343"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radian" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXJ-SB-MC4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="121.33333333333334" height="23.333333333333343"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZS-Es-wlS">
-                                                                <rect key="frame" x="0.0" y="25.333333333333343" width="54" height="20.666666666666657"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rad" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZS-Es-wlS">
+                                                                <rect key="frame" x="0.0" y="25.333333333333343" width="121.33333333333334" height="20.666666666666657"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -958,6 +960,8 @@
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="Toc-EH-ySZ" firstAttribute="centerX" secondItem="2iu-v5-62N" secondAttribute="centerX" id="8kB-OP-Hd5"/>
+                                                    <constraint firstItem="Toc-EH-ySZ" firstAttribute="leading" secondItem="2iu-v5-62N" secondAttribute="leading" constant="8" id="elV-zi-U6A"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Toc-EH-ySZ" secondAttribute="trailing" constant="8" id="k3J-py-tUQ"/>
                                                     <constraint firstItem="Toc-EH-ySZ" firstAttribute="centerY" secondItem="2iu-v5-62N" secondAttribute="centerY" id="ouJ-xL-na3"/>
                                                 </constraints>
                                                 <connections>
@@ -1033,7 +1037,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="276" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVk-u2-3gQ" id="ba3-wY-GUm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="275.66666666666663" height="43.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="276" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="angle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlD-bx-eKd">
