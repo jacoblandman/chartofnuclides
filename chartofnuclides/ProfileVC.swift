@@ -49,20 +49,22 @@ class ProfileVC: UIViewController {
         self.questionsLbl.text = "\(user!.questions)"
         self.repuationLbl.text = "\(user!.reputation)"
         
-        DataService.instance.setImage(forURL: user!.imageURL) { (error, image) in
-            if error != nil {
-                print("JACOB: Error downloading image from firebase storage")
-            } else {
-                print("JACOB: Image download successful")
-                if let img = image {
-                    self.profileImgView.image = img
+        if user!.imageURL != "" {
+            DataService.instance.setImage(forURL: user!.imageURL) { (error, image) in
+                if error != nil {
+                    print("JACOB: Error downloading image from firebase storage")
+                } else {
+                    print("JACOB: Image download successful")
+                    if let img = image {
+                        self.profileImgView.image = img
+                    }
                 }
+                
+                self.activityIndicatorView.isHidden = true
             }
-            
+        } else {
             self.activityIndicatorView.isHidden = true
         }
-        
-        
     }
 
     @IBAction func changeProfileImgPressed(_ sender: Any) {
