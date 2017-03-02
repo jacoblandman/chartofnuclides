@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
 
+    @IBOutlet weak var activityIndicatorView: InspectableBorderView!
     let fadeInTransitionAnimator = FadeInAnimator()
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
     @IBAction func facebookLoginPressed(_ sender: Any) {
         
         // authenticate with facebook
+        activityIndicatorView.isHidden = false
         AuthService.instance.authenticateWithFacebook(fromVC: self) { (errorMsg, user) in
             
             if let errMsg = errorMsg {
@@ -43,6 +45,8 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
                         } else {
                             self.performSegue(withIdentifier: "UsernameVC", sender: nil)
                         }
+                        
+                        self.activityIndicatorView.isHidden = true
                     })
                 }
             }

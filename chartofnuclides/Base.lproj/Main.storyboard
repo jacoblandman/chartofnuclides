@@ -518,7 +518,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IaJ-UP-2bR" id="5v1-jh-XB8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uuo294" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOW-Ua-5yR">
@@ -612,7 +612,7 @@
         <scene sceneID="UZt-RP-QKU">
             <objects>
                 <collectionViewController title="Unit Converter" id="cjd-xu-Wc8" customClass="ConverterVC" customModule="chartofnuclides" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" delaysContentTouches="NO" dataMode="prototypes" id="S25-Of-02Y">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" id="S25-Of-02Y">
                         <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1033,7 +1033,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="276" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVk-u2-3gQ" id="ba3-wY-GUm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="275.66666666666663" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="275.66666666666663" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="angle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlD-bx-eKd">
@@ -1666,6 +1666,25 @@
                                     <constraint firstItem="AqW-Bi-Ns7" firstAttribute="top" secondItem="OG0-0a-zFZ" secondAttribute="bottom" constant="10" id="wjq-rV-gQk"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugY-t2-fDQ" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
+                                <rect key="frame" x="169" y="330" width="75" height="75"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZHD-v5-uhR">
+                                        <rect key="frame" x="27.333333333333343" y="27.333333333333314" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="78G-fD-f0c"/>
+                                    <constraint firstAttribute="width" constant="75" id="yaL-oa-zU0"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1676,11 +1695,14 @@
                             <constraint firstAttribute="bottom" secondItem="M48-3U-9tB" secondAttribute="bottom" id="blw-jC-FKD"/>
                             <constraint firstItem="For-LB-tQm" firstAttribute="top" secondItem="lCr-KK-peB" secondAttribute="bottom" id="gY5-eD-ega"/>
                             <constraint firstItem="M48-3U-9tB" firstAttribute="leading" secondItem="wA8-AB-ViC" secondAttribute="leading" id="oB3-Qe-GsN"/>
+                            <constraint firstItem="ugY-t2-fDQ" firstAttribute="centerX" secondItem="wA8-AB-ViC" secondAttribute="centerX" id="oTI-TW-M44"/>
+                            <constraint firstItem="ugY-t2-fDQ" firstAttribute="centerY" secondItem="wA8-AB-ViC" secondAttribute="centerY" id="qMb-CW-037"/>
                             <constraint firstItem="M48-3U-9tB" firstAttribute="top" secondItem="wA8-AB-ViC" secondAttribute="top" id="xx1-em-PSw"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="ugY-t2-fDQ" id="6tN-YG-UsT"/>
                         <segue destination="Dcz-9Y-N54" kind="presentation" identifier="EmailLoginVC" id="S1Q-vX-cb3"/>
                         <segue destination="9EG-PJ-k1B" kind="presentation" identifier="UsernameVC" id="mY0-Yy-scK"/>
                     </connections>
