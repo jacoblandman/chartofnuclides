@@ -27,8 +27,14 @@ class CommunityVC: UIViewController {
     
     let GRAY_COLOR = UIColor(hexString: "DCDCDC")
     
+    var user: User?
+    var profileURL: String?
+    var imageIsSet: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        questionFilterView.addLightShadow()
         
         // initialize the refresh control
         refreshControl = UIRefreshControl()
@@ -50,6 +56,73 @@ class CommunityVC: UIViewController {
 
     }
     
+    func loadUserImage() {
+        // this function is mainly to get the image and the image url
+        
+        // make sure a user has been authorized by firebase
+        // if not  then reset the profile image and return
+        guard FIRAuth.auth()?.currentUser != nil else {
+            self.profileURL = nil
+            profileImgView.image = UIImage(named: "profile_icon")
+            return
+        }
+        
+        // make the user if we havnt yet
+        if user == nil {
+            user = User(uid: FIRAuth.auth()!.currentUser!.uid)
+        }
+        
+        // load the user data and load the image if it changed
+        user?.loadImageURL {
+            if self.user!.imageURL != "" {
+                // only load the image if it has changed
+                if self.profileURL != self.user!.imageURL {
+                    print("JACOB: Image url not equal to profile url")
+                    print(self.user!.imageURL)
+                    DataService.instance.setImage(forURL: self.user!.imageURL) { (error, image) in
+                        if error != nil {
+                            print("JACOB: Error downloading image from firebase storage")
+                        } else {
+                            print("JACOB: Image download successful")
+                            if let img = image {
+                                self.profileImgView.image = img
+                                self.profileURL = self.user!.imageURL
+                                self.imageIsSet = true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadUserImage()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ProfileVC {
+            
+            destination.delegate = self
+            
+            if let dict = sender as? Dictionary<String, Any> {
+                if let user = dict["user"] as? User {
+                    destination.user = user
+                }
+                
+                if let image = dict["profileImage"] as? UIImage {
+                    destination.profileImage = image
+                }
+                
+                if let setImage = dict["imageIsSet"] as? Bool {
+                    destination.imageIsSet = setImage
+                }
+            }
+        }
+    }
+    
     @IBAction func AddQuestionTapped(_ sender: Any) {
     }
     
@@ -58,7 +131,8 @@ class CommunityVC: UIViewController {
             // User is signed in.
             // segue to the profile view controller
             print("Current User Found")
-            performSegue(withIdentifier: "ProfileVC", sender: nil)
+            let dict = ["user": user!, "profileImage": profileImgView.image!, "imageIsSet": imageIsSet] as [String : Any]
+            performSegue(withIdentifier: "ProfileVC", sender: dict)
         } else {
             // No user is signed in.
             performSegue(withIdentifier: "LoginVC", sender: nil)
@@ -177,5 +251,19 @@ extension CommunityVC: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tapGesture.isEnabled = false
         view.endEditing(true)
+    }
+}
+
+extension CommunityVC: SendDataToPreviousControllerDelegate {
+    
+    func sendDataToA(data: Any) {
+        if let dict = data as? Dictionary<String, Any> {
+            if let imageURL = dict["imageURL"] as? String {
+                profileURL = imageURL
+            }
+            if let image = dict["image"] as? UIImage {
+                profileImgView.image = image
+            }
+        }
     }
 }

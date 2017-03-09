@@ -99,6 +99,25 @@ class User {
         
     }
     
+    func loadImageURL(completed: @escaping userDownloadComplete) {
+        let userRef = DataService.instance.usersRef.child(self.uid)
+        
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let profileSnap = snapshot.childSnapshot(forPath: "profile")
+            print("JACOB: Found profile")
+            if let profileDict = profileSnap.value as? Dictionary<String, AnyObject> {
+
+                if let imageURL = profileDict["imageURL"] as? String {
+                    self._imageURL = imageURL
+                    print("ImageURL: ", imageURL)
+                }
+            }
+            
+            completed()
+        })
+    }
+    
     deinit {
         print("JACOB: User object has been deinited")
     }

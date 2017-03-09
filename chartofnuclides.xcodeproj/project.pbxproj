@@ -339,8 +339,8 @@
 		AEB5D4421E44FCAC00A6D8DD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				AEBEFE421E64B129006331AB /* AuthService.swift */,
 				AEB5D4431E44FCC300A6D8DD /* DataService.swift */,
+				AEBEFE421E64B129006331AB /* AuthService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";

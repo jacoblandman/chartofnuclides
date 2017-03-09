@@ -1354,10 +1354,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="JK9-pl-EA5">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kK-pN-phR">
-                                                <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Most Recent">
@@ -1368,7 +1368,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cg-yQ-3MS">
-                                                <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="43"/>
+                                                <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Top">
@@ -1379,7 +1379,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gO-TE-5KC">
-                                                <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="43"/>
+                                                <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Unanswered">
@@ -1392,9 +1392,9 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="JK9-pl-EA5" secondAttribute="bottom" constant="1" id="HxE-1D-RDV"/>
+                                    <constraint firstAttribute="bottom" secondItem="JK9-pl-EA5" secondAttribute="bottom" id="HxE-1D-RDV"/>
                                     <constraint firstAttribute="trailing" secondItem="JK9-pl-EA5" secondAttribute="trailing" id="IkA-Oc-EUb"/>
                                     <constraint firstItem="JK9-pl-EA5" firstAttribute="leading" secondItem="ioh-Hx-4OB" secondAttribute="leading" id="Ua1-Yr-wRp"/>
                                     <constraint firstItem="JK9-pl-EA5" firstAttribute="top" secondItem="ioh-Hx-4OB" secondAttribute="top" id="Yra-uE-DLe"/>
@@ -1443,11 +1443,11 @@
                     <navigationItem key="navigationItem" title="The Community" id="Oxc-le-kfq">
                         <barButtonItem key="backBarButtonItem" title="Back" id="iBC-oB-wFo"/>
                         <barButtonItem key="leftBarButtonItem" image="profile_icon copy" id="1K9-9J-3SZ">
-                            <view key="customView" contentMode="scaleToFill" id="hxf-bl-uXy">
+                            <view key="customView" clipsSubviews="YES" contentMode="scaleToFill" id="hxf-bl-uXy" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="20" y="9" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon copy" translatesAutoresizingMaskIntoConstraints="NO" id="Eeq-CP-wEb" customClass="CircleImageView" customModule="chartofnuclides" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon_big" translatesAutoresizingMaskIntoConstraints="NO" id="Eeq-CP-wEb" customClass="CircleImageView" customModule="chartofnuclides" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd2-H7-1li">
@@ -1469,6 +1469,17 @@
                                     <constraint firstAttribute="trailing" secondItem="Wd2-H7-1li" secondAttribute="trailing" id="n7f-Cb-l5b"/>
                                     <constraint firstAttribute="bottom" secondItem="Eeq-CP-wEb" secondAttribute="bottom" id="zak-Td-1kq"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
+                                        <real key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_borderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <connections>
                                 <action selector="profileTapped:" destination="CDy-1I-nty" id="yg2-FL-zul"/>

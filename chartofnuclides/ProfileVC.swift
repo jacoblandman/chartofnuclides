@@ -20,6 +20,10 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var repuationLbl: UILabel!
     @IBOutlet weak var activityIndicatorView: InspectableBorderView!
     var user: User?
+    var profileImage: UIImage!
+    var imageIsSet = false
+    
+    var delegate: SendDataToPreviousControllerDelegate?
     
     var imagePicker: UIImagePickerController!
     
@@ -31,15 +35,14 @@ class ProfileVC: UIViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
-        if let currentUser = FIRAuth.auth()?.currentUser {
-            activityIndicatorView.isHidden = false
-            user = User(uid: currentUser.uid)
-            user?.loadUserInfo(completed: { 
-                self.updateUI()
-            })
-        } else {
-            print("JACOB: Error current user not found")
-        }
+        profileImgView.image = profileImage
+        
+        activityIndicatorView.isHidden = false
+        user?.loadUserInfo(completed: { 
+            self.updateUI()
+            if self.imageIsSet { self.activityIndicatorView.isHidden = true }
+           
+        })
     }
     
     func updateUI() {
@@ -48,6 +51,8 @@ class ProfileVC: UIViewController {
         self.commentsLbl.text = "\(user!.comments)"
         self.questionsLbl.text = "\(user!.questions)"
         self.repuationLbl.text = "\(user!.reputation)"
+        
+        if imageIsSet { return }
         
         if user!.imageURL != "" {
             DataService.instance.setImage(forURL: user!.imageURL) { (error, image) in
@@ -165,7 +170,12 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
         //self.profileImgView.image = croppedImage.resizeWith(width: 150)
         self.profileImgView.image = croppedImage
         if let user = user {
-            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid)
+            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
+                if error == nil && url != nil {
+                    let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
+                    self.delegate?.sendDataToA(data: dict)
+                }
+            })
         }
         
         imagePicker.dismiss(animated: false, completion: nil)
@@ -178,8 +188,14 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
         //self.profileImgView.image = croppedImage.resizeWith(width: 150)
         self.profileImgView.image = croppedImage
         if let user = user {
-            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid)
+            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
+                if error == nil && url != nil {
+                    let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
+                    self.delegate?.sendDataToA(data: dict)
+                }
+            })
         }
+    
         imagePicker.dismiss(animated: false, completion: nil)
         self.presentedViewController?.dismiss(animated: true, completion: nil)
         

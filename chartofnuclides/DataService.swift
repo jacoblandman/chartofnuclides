@@ -21,6 +21,7 @@ let FILE_EXTENSION_NUCLIDES = "json"
 typealias uniqueUsernameCompletion = (_ isUnique: Bool) -> Void
 typealias previousUserCheckCompletion = (_ isPreviousUser: Bool) -> Void
 typealias imageDownloadCompletion = (_ error: NSError?, _ image: UIImage?) -> Void
+typealias imageUploadCompletion = (_ error: NSError?, _ url: String?) -> Void
 
 class DataService {
     
@@ -142,7 +143,7 @@ class DataService {
         usernamesRef.child(username).removeValue()
     }
     
-    func saveProfileImage(image: UIImage, uid: String) {
+    func saveProfileImage(image: UIImage, uid: String, completed: @escaping imageUploadCompletion ) {
         
         if let imgData = UIImageJPEGRepresentation(image, 0.2) {
             
@@ -155,12 +156,15 @@ class DataService {
                 if error != nil {
                     print(error.debugDescription)
                     print("JACOB: Unable to upload image to Firebase storage")
+                    completed(error as NSError?, nil)
                 } else {
                     
                     print("JACOB: Successfully uploaded image to Firebase storage")
                     let downloadURL = metadata?.downloadURL()?.absoluteString
                     if let url = downloadURL {
-                        self.usersRef.child(uid).child("profile").child("imageURL").setValue(url as AnyObject)
+                        self.usersRef.child(uid).child("profile").child("imageURL").setValue(url as AnyObject, withCompletionBlock: { (error, ref) in
+                            completed(error as NSError?, url)
+                        })
                     }
                 }
             })
