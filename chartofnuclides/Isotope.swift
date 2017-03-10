@@ -75,7 +75,8 @@ class Isotope {
             self._isStable = isStable
         }
         
-        if let abundance = isotope["abundance"] as? String {
+        if var abundance = isotope["abundance"] as? String {
+            abundance.stripUncertainty()
             self._abundance = abundance
         }
         

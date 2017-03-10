@@ -29,5 +29,12 @@ extension UIView {
         layer.shadowOffset = CGSize(width: 3.0, height: 2.0)
         layer.cornerRadius = 1.0
     }
+    
+    func addWhiteShadow() {
+        layer.shadowColor = UIColor.white.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowRadius = 3
+        layer.shadowOffset = CGSize(width: 1, height: 2)
+    }
 
 }

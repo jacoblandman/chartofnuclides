@@ -103,4 +103,44 @@ extension String {
     var integerValue:Int? {
         return Formatter.instance.number(from: self)?.intValue
     }
+    
+    func toBool() -> Bool {
+        switch self.lowercased() {
+        case "true", "yes", "1":
+            return true
+        case "false", "no", "0":
+            return false
+        default:
+            return false
+        }
+    }
+    
+    func timeConverted() -> String? {
+        
+        if let doubleValue = self.doubleValue {
+            if doubleValue > 1E7 {
+                // convert to years
+                if let convertedSolution = UnitConversionTypeManager.instance.converter.value(doubleValue, convertedFromUnit: "seconds", toUnit: "years") {
+                    return "\(convertedSolution.doubleValue.roundedTo(places: 5)) yrs"
+                }
+            } else if doubleValue > 1E5 {
+                // convert to days
+                if let convertedSolution = UnitConversionTypeManager.instance.converter.value(doubleValue, convertedFromUnit: "seconds", toUnit: "days") {
+                    return "\(convertedSolution.doubleValue.roundedTo(places: 5)) days"
+                }
+            } else if doubleValue > 1E4 {
+                // convert to hours
+                if let convertedSolution = UnitConversionTypeManager.instance.converter.value(doubleValue, convertedFromUnit: "seconds", toUnit: "hours") {
+                    return "\(convertedSolution.doubleValue.roundedTo(places: 5)) hrs"
+                }
+            } else if doubleValue > 1E3 {
+                // convert to minutes
+                if let convertedSolution = UnitConversionTypeManager.instance.converter.value(doubleValue, convertedFromUnit: "seconds", toUnit: "minutes") {
+                    return "\(convertedSolution.doubleValue.roundedTo(places: 5)) mins"
+                }
+            }
+        }
+        
+        return nil
+    }
 }

@@ -15,6 +15,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var IsotopeView: InspectableBorderView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var massLbl: UILabel!
+    @IBOutlet weak var halfLifeLbl: UILabel!
     
     var isotope: Isotope!
     
@@ -29,6 +30,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gradientViewBg.addWhiteShadow()
         gradientViewBg.setValuesForRadialGradient(color1: GREEN_COLOR, color2: UIColor.white,
                                                   relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: 10, outerRadius: gradientViewBg.frame.width)
         gradientViewBg.setNeedsDisplay()
@@ -42,12 +44,34 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         if let mass = isotope.mass.doubleValue {
             massLbl.text = "\(mass.roundedTo(places: 4))"
         }
+        
+        if isotope.isStable.toBool() {
+            if let abundance = isotope.abundance.doubleValue {
+                self.halfLifeLbl.text = "\(abundance.roundedTo(places: 6))"
+            }
+        } else {
+            if let halfLife = isotope.halfLife.timeConverted() {
+                halfLifeLbl.text = halfLife
+            } else {
+                halfLifeLbl.text = isotope.halfLife
+            }
+        }
+        
+        setBackgroundColor()
     }
     
     
     @IBAction func donePressed(_ sender: Any) {
         gradientViewBg.alpha = 1
         dismiss(animated: true, completion: nil)
+    }
+    
+    func setBackgroundColor() {
+        if isotope!.isStable.toBool() {
+            IsotopeView.backgroundColor = colorWithHexString(hex: "DCDCDC")
+        } else {
+            IsotopeView.backgroundColor = UIColor.white
+        }
     }
     
     

@@ -13,7 +13,9 @@ class IsotopeCell: UICollectionViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var massLbl: UILabel!
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var halfLifeLbl: UILabel!
     var isotope: Isotope?
+    var originalBGColor = UIColor.white
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,21 +31,44 @@ class IsotopeCell: UICollectionViewCell {
         self.isotope = isotope
         self.nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
         
+        if isotope.isStable.toBool() {
+            if let abundance = isotope.abundance.doubleValue {
+                self.halfLifeLbl.text = "\(abundance.roundedTo(places: 6))"
+            }
+        } else {
+            if let halfLife = isotope.halfLife.timeConverted() {
+                halfLifeLbl.text = halfLife
+            } else {
+                halfLifeLbl.text = "\(isotope.halfLife) s"
+            }
+        }
+        
         if let mass = isotope.mass.doubleValue {
             self.massLbl.text = "\(mass.roundedTo(places: 4))"
         }
         
+        setBackgroundColor()
         
+    }
+    
+    func setBackgroundColor() {
+        if isotope!.isStable.toBool() {
+            shadowView.backgroundColor = colorWithHexString(hex: "DCDCDC")
+        } else {
+            shadowView.backgroundColor = UIColor.white
+        }
     }
     
     func highlight() {
         
+        originalBGColor = shadowView.backgroundColor!
         shadowView.backgroundColor = UIColor.black
         shadowView.alpha = 0.5
     }
     
     func unhighlight() {
-        shadowView.backgroundColor = UIColor.white
+        
+        shadowView.backgroundColor = originalBGColor
         shadowView.alpha = 1.0
     }
 }
