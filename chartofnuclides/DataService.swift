@@ -22,6 +22,7 @@ typealias uniqueUsernameCompletion = (_ isUnique: Bool) -> Void
 typealias previousUserCheckCompletion = (_ isPreviousUser: Bool) -> Void
 typealias imageDownloadCompletion = (_ error: NSError?, _ image: UIImage?) -> Void
 typealias imageUploadCompletion = (_ error: NSError?, _ url: String?) -> Void
+typealias imageDeleteCompletion = (_ error: NSError?) -> Void
 
 class DataService {
     
@@ -187,5 +188,24 @@ class DataService {
                 }
             }
         })
+    }
+    
+    func deleteImage(forURL url: String, completed: @escaping imageDeleteCompletion) {
+        
+        guard url != "" else {
+            completed(nil)
+            return
+        }
+        let ref = FIRStorage.storage().reference(forURL: url)
+        
+        ref.delete { (error) in
+            if error != nil {
+                print("JACOB: Error deleting image")
+                completed(error as NSError?)
+            } else {
+                print("JACOB: Successfully deleted image from storage")
+                completed(nil)
+            }
+        }
     }
 }

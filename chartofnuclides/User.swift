@@ -52,10 +52,16 @@ class User {
     }
     
     var imageURL: String {
-        if _imageURL == nil {
-            _imageURL = ""
+        get {
+            if _imageURL == nil {
+                _imageURL = ""
+            }
+            return _imageURL
         }
-        return _imageURL
+        
+        set {
+            _imageURL = newValue
+        }
     }
     
     init(uid: String) {

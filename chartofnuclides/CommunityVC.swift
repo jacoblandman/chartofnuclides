@@ -63,7 +63,7 @@ class CommunityVC: UIViewController {
         // if not  then reset the profile image and return
         guard FIRAuth.auth()?.currentUser != nil else {
             self.profileURL = nil
-            profileImgView.image = UIImage(named: "profile_icon")
+            profileImgView.image = UIImage(named: "profile_icon_big")
             return
         }
         

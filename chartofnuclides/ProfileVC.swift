@@ -170,10 +170,21 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
         //self.profileImgView.image = croppedImage.resizeWith(width: 150)
         self.profileImgView.image = croppedImage
         if let user = user {
-            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
-                if error == nil && url != nil {
-                    let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
-                    self.delegate?.sendDataToA(data: dict)
+            
+            let oldImageURL = user.imageURL
+            
+            DataService.instance.deleteImage(forURL: oldImageURL, completed: { (error) in
+                if error != nil {
+                    print("JACOB: Error deleting old image. Please try again.")
+                } else {
+                    // continue on and set the new image
+                    DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
+                        if error == nil && url != nil {
+                            self.user?.imageURL = url!
+                            let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
+                            self.delegate?.sendDataToA(data: dict)
+                        }
+                    })
                 }
             })
         }
@@ -185,13 +196,24 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
     }
     
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
-        //self.profileImgView.image = croppedImage.resizeWith(width: 150)
-        self.profileImgView.image = croppedImage
+
         if let user = user {
-            DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
-                if error == nil && url != nil {
-                    let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
-                    self.delegate?.sendDataToA(data: dict)
+            let oldImageURL = user.imageURL
+            
+            DataService.instance.deleteImage(forURL: oldImageURL, completed: { (error) in
+                if error != nil {
+                    print("JACOB: Error deleting old image. Please try again.")
+                } else {
+                    
+                    // continue on and set the new image
+                    self.profileImgView.image = croppedImage
+                    DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
+                        if error == nil && url != nil {
+                            self.user?.imageURL = url!
+                            let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
+                            self.delegate?.sendDataToA(data: dict)
+                        }
+                    })
                 }
             })
         }
