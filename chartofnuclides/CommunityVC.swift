@@ -124,6 +124,7 @@ class CommunityVC: UIViewController {
     }
     
     @IBAction func AddQuestionTapped(_ sender: Any) {
+        performSegue(withIdentifier: "QuestionVC", sender: nil)
     }
     
     @IBAction func profileTapped(_ sender: Any) {

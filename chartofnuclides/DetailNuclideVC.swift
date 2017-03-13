@@ -53,7 +53,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
             if let halfLife = isotope.halfLife.timeConverted() {
                 halfLifeLbl.text = halfLife
             } else {
-                halfLifeLbl.text = isotope.halfLife
+                halfLifeLbl.text = "\(isotope.halfLife) s"
             }
         }
         

@@ -62,7 +62,7 @@ class IsotopeCell: UICollectionViewCell {
     func highlight() {
         
         originalBGColor = shadowView.backgroundColor!
-        shadowView.backgroundColor = UIColor.black
+        shadowView.backgroundColor = UIColor.darkGray
         shadowView.alpha = 0.5
     }
     
