@@ -41,6 +41,7 @@ class ConversionVC: UIViewController {
     var selectingUnit: SelectingUnit = .none
     
     var unitTypes = [String]()
+    var unitAbbreviations = [String: Any]()
     
     var triangleLayer: CAShapeLayer?
     var tableMask: UIView?
@@ -51,6 +52,7 @@ class ConversionVC: UIViewController {
         setGradients()
         inputUnitLbl.text = unitTypes[0]
         outputUnitLbl.text = unitTypes[1]
+        setSymbols()
         inputTextField.setPlaceholder(with: "Enter Value")
         outputTextField.setPlaceholder(with: "0.0", color: colorWithHexString(hex: "98D8F7"))
         setTextFieldKeyboards()
@@ -58,6 +60,24 @@ class ConversionVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func setSymbols() {
+        
+        let inputAbb = unitAbbreviations[unitTypes[0]]
+        if let inAbb = inputAbb as? NSMutableAttributedString {
+            inputUnitSymbol.attributedText = inAbb
+        } else {
+            inputUnitSymbol.text = inputAbb as? String
+        }
+        
+        let outputAbb = unitAbbreviations[unitTypes[1]]
+        if let outAbb = outputAbb as? NSMutableAttributedString {
+            outputUnitSymbol.attributedText = outAbb
+        } else {
+            outputUnitSymbol.text = outputAbb as? String
+        }
+        
     }
     
     func animateXView() {
@@ -245,7 +265,8 @@ extension ConversionVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UnitCell", for: indexPath) as! UnitCell
-        cell.update(unit: unitTypes[indexPath.row])
+        let unit = unitTypes[indexPath.row]
+        cell.update(unit: unit, abb: unitAbbreviations[unit] ?? "")
         return cell
     }
     
@@ -262,9 +283,28 @@ extension ConversionVC: UITableViewDelegate, UITableViewDataSource {
         
         switch selectingUnit {
         case .input:
-            inputUnitLbl.text = unitTypes[indexPath.row].capitalized
+            let unit = unitTypes[indexPath.row]
+            inputUnitLbl.text = unit.capitalized
+            
+            let abb = unitAbbreviations[unit] ?? ""
+            if let abbreviation = abb as? NSMutableAttributedString {
+                inputUnitSymbol.attributedText = abbreviation
+            } else {
+                inputUnitSymbol.text = abb as? String
+            }
+            
+            
         case .output:
-            outputUnitLbl.text = unitTypes[indexPath.row].capitalized
+            let unit = unitTypes[indexPath.row]
+            outputUnitLbl.text = unit.capitalized
+            
+            let abb = unitAbbreviations[unit] ?? ""
+            if let abbreviation = abb as? NSMutableAttributedString {
+                outputUnitSymbol.attributedText = abbreviation
+            } else {
+                outputUnitSymbol.text = abb as? String
+            }
+            
         default:
             break
         }

@@ -143,4 +143,22 @@ extension String {
         
         return nil
     }
+    
+    func squared() -> NSMutableAttributedString {
+        
+        let font = UIFont(name: "Avenir-medium", size: 16)
+        let fontSuper = UIFont(name: "Avenir-light", size: 8)
+        let attStr = NSMutableAttributedString(string: self.appending("2"), attributes: [NSFontAttributeName:font!])
+        attStr.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName: 10], range: NSRange(location: self.characters.count, length: 1))
+        return attStr
+    }
+    
+    func cubed() -> NSMutableAttributedString {
+        
+        let font = UIFont(name: "Avenir-medium", size: 16)
+        let fontSuper = UIFont(name: "Avenir-light", size: 8)
+        let attStr = NSMutableAttributedString(string: self.appending("3"), attributes: [NSFontAttributeName:font!])
+        attStr.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName: 10], range: NSRange(location: self.characters.count, length: 1))
+        return attStr
+    }
 }

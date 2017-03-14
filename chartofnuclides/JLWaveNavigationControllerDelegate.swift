@@ -21,7 +21,7 @@ class JLWaveNavigationControllerDelegate: NSObject, UINavigationControllerDelega
             animator.reversed = true
             return nil
         }
-        
-        return animator
+        return nil
+//        return animator
     }
 }

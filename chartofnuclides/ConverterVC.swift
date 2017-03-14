@@ -61,8 +61,9 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
         guard UnitConversionTypeManager.instance.unitTypesDict[unitType] != nil else { return }
         let units = UnitConversionTypeManager.instance.unitTypesDict[unitType]!
         
+        let unitAbbreviations = UnitConversionTypeManager.instance.unitTypeAbbsDict[unitType] ?? [String : Any]()
         if unitType == "Work" { unitType = "Work/Energy" }
-        let sender = (unitType, units)
+        let sender = ["unitType": unitType, "units": units, "unitAbbreviations": unitAbbreviations] as [String : Any]
         performSegue(withIdentifier: "ConversionVC", sender: sender)
     }
     
@@ -84,9 +85,19 @@ class ConverterVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ConversionVC {
-            if let tuple = sender as? (String, [String]) {
-                destination.title = tuple.0
-                destination.unitTypes = tuple.1
+            if let dict = sender as? [String : Any] {
+                
+                if let unitTitle = dict["unitType"] as? String {
+                    destination.title = unitTitle
+                }
+                
+                if let units = dict["units"] as? [String] {
+                    destination.unitTypes = units
+                }
+                
+                if let abbreviations = dict["unitAbbreviations"] as? [String : Any] {
+                    destination.unitAbbreviations = abbreviations
+                }
             }
         }
     }

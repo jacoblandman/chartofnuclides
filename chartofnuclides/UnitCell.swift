@@ -18,8 +18,15 @@ class UnitCell: UITableViewCell {
         // Initialization code
     }
     
-    func update(unit: String) {
+    func update(unit: String, abb: Any) {
+        
         unitLbl.text = unit
+        
+        if let abbreviation = abb as? NSMutableAttributedString {
+            unitAbbreviationLbl.attributedText = abbreviation
+        } else {
+            unitAbbreviationLbl.text = abb as? String
+        }
     }
 
 }

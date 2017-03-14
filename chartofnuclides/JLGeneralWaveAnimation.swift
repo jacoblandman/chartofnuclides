@@ -48,8 +48,8 @@ class JLGeneralWaveAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             self.viewTransition(toVC, transitionContext: transitionContext, destinationVC: destinationVC, sourceVC: sourceVC, destinationVCBackgroundColor: destinationVCBackgroundColor)
         } else {
             
-            let destinationVC = toVC as! fromVCClassType
-            let sourceVC = toVC as! toVCClassType
+//            let destinationVC = toVC as! fromVCClassType
+//            let sourceVC = fromVC as! toVCClassType
             
             container.insertSubview(toVC.view, belowSubview: fromVC.view)
             
@@ -198,7 +198,7 @@ class JLGeneralWaveAnimation: NSObject, UIViewControllerAnimatedTransitioning {
                 view.layoutIfNeeded()
                 
                 UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: UIViewKeyframeAnimationOptions(), animations: {
-                    var relativeStartTime = (self.kCellAnimBigDelta*Double(viewIndex % 1))
+                    var relativeStartTime = (self.kCellAnimBigDelta*Double(viewIndex % 3))
                     
                     var relativeDuration = self.animationDuration - (self.kCellAnimSmallDelta * Double(viewIndex))
                     
