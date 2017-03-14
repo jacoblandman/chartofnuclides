@@ -46,29 +46,34 @@ class UnitConversionTypeManager: NSObject {
     private var _densityTypes = ["grams per cubic centimeter", "pounds per cubic foot", "pounds per cubic inch",
                                  "grams per cubic meter", "kilograms per cubic centimeter", "kilograms per cubic meter"]
     
-    private var _velocityTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _velocityTypes = ["feet per hour", "meters per second", "feet per minute", "feet per second", "inches per second", "kilometers per hour"]
     
-    private var _angularvelocityTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _angularvelocityTypes = ["revolutions per second", "radians per second", "revolutions per minute", "degrees per second"]
     
-    private var _accelerationTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _accelerationTypes = ["feet per second squared", "meters per second squared", "standard free fall", "inches per second squared", "centimeters per second squared"]
     
-    private var _forceTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _forceTypes = ["pounds-force", "newtons", "ounces-force", "poundals", "kips", "dynes"]
     
-    private var _workTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _workTypes = ["electronvolts", "joules", "calories (15°C)", "calories (20°C)", "calories (mean)", "Btus (39°F)", "Btus (59°F)", "Btus (60°F)", "Btus (mean)",
+                              "ergs", "feet poundals", "feet pounds-force", "kilowatt hours", "watt hours", "watt seconds", "tons (nuclear equivalent of TNT)"]
     
-    private var _powerTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _powerTypes = ["Btus (mean) per second", "watts", "ergs per second", "feet pounds-force per hour", "feet pounds-force per minute", "feet pounds-force per second", "horsepower (550 ft lbf/s)", "horsepower (boiler)", "horsepower (electric)", "horsepower (metric)", "horsepower (water)"]
     
-    private var _torqueTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _torqueTypes = ["dyne centimeters", "newton meters", "ounce-force inches", "pound-force inches", "pound-force feet"]
     
-    private var _temperatureTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _temperatureTypes = ["degrees celcius", "kelvin", "degrees fahrenheit", "degrees rankine"]
     
-    private var _pressureTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _pressureTypes = ["standard atmosphere", "pascal", "technical atmosphere", "bar", "millibar", "kilogram-force per square centimeter",
+                                  "kilogram-force per square meter", "kilogram-force per square millimeter"]
     
-    private var _electromagnitismTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _electromagnitismTypes = ["statampere", "abampere", "ampere", "statcoulomb", "abcoulomb", "coulomb", "statvolt", "abvolt", "volt",
+                                          "statfarad", "abfarad", "farad", "statohm", "abohm", "ohm", "statmho", "abmho", "siemens", "stathenry", "abhenry", "henry",
+                                          "esu of electric field", "emu of electric field", "volt per meter", "esu of magnetic field", "gauss", "tesla"]
     
-    private var _magneticsTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _magneticsTypes = ["maxwell", "weber", "gamma", "gauss", "tesla"]
     
-    private var _radiationTypes = ["degree", "radian", "grade", "minute", "second", "solid angle", "square degree", "steradians"]
+    private var _radiationTypes = ["roentgen", "coulombs per kilogram", "curies", "becquerels", "rad (gamma)", "rad (beta)", "rad (alpha)", "rad (neutron)",
+                                   "gray (gamma)", "gray (alpha)", "gray (beta)", "gray (neutron)", "rem", "sieverts", "millisieverts"]
     
     override init() {
         _unitTypesDict = ["Angle": _angleTypes, "Length": _lengthTypes, "Area": _areaTypes, "Volume": _volumeTypes,

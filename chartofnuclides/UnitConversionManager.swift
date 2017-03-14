@@ -18,6 +18,18 @@ class UnitConversionManager: HHUnitConverter {
         setMassRules()
         setTimeRules()
         setDensityRules()
+        setVelocityRules()
+        setAngularVelocityRules()
+        setAccelerationRules()
+        setForceRules()
+        setWorkRules()
+        setPowerRules()
+        setTorqueRules()
+        setTemperatureRules()
+        setPressureRules()
+        setElectromagnitismRules()
+        setMagneticsRules()
+        setRadiationRules()
     }
     
     private func setAngleRules() {
@@ -207,6 +219,139 @@ class UnitConversionManager: HHUnitConverter {
         self.letUnit("grams per cubic meter", convertToUnit: "kilograms per cubic meter", byMultiplyingBy: 1E-3)
         self.letUnit("kilograms per cubic centimeter", convertToUnit: "kilograms per cubic meter", byMultiplyingBy: 1E6)
 
+    }
+    
+    private func setVelocityRules() {
+        self.letUnit("feet per hour", convertToUnit: "meters per second", byMultiplyingBy: 8.466667E-5)
+        self.letUnit("feet per minute", convertToUnit: "meters per second", byMultiplyingBy: 5.08E-3)
+        self.letUnit("feet per second", convertToUnit: "meters per second", byMultiplyingBy: 3.048E-1)
+        self.letUnit("inches per second", convertToUnit: "meters per second", byMultiplyingBy: 2.54E-2)
+        self.letUnit("kilometers per hour", convertToUnit: "meters per second", byMultiplyingBy: 2.777778E-1)
+    }
+    
+    private func setAngularVelocityRules() {
+        self.letUnit("revolutions per second", convertToUnit: "radians per second", byMultiplyingBy: 6.283185)
+        self.letUnit("revolutions per minute", convertToUnit: "radians per second", byMultiplyingBy: 1.047198E-1)
+        self.letUnit("degrees per second", convertToUnit: "radians per second", byMultiplyingBy: 1.745329E-2)
+    }
+    
+    private func setAccelerationRules() {
+        self.letUnit("feet per second squared", convertToUnit: "meters per second squared", byMultiplyingBy: 3.048E-1)
+        self.letUnit("standard free fall", convertToUnit: "meters per second squared", byMultiplyingBy: 9.80665)
+        self.letUnit("inches per second squared", convertToUnit: "meters per second squared", byMultiplyingBy: 2.54E-2)
+        self.letUnit("feet per second squared", convertToUnit: "centimeters per second squared", byMultiplyingBy: 3.048E1)
+    }
+    
+    private func setForceRules() {
+        self.letUnit("dynes", convertToUnit: "newtons", byMultiplyingBy: 1.0E-5)
+        self.letUnit("pounds-force", convertToUnit: "newtons", byMultiplyingBy: 4.448222)
+        self.letUnit("ounces-force", convertToUnit: "newtons", byMultiplyingBy: 2.780139E-1)
+        self.letUnit("poundals", convertToUnit: "newtons", byMultiplyingBy: 1.382550E-1)
+        self.letUnit("kips", convertToUnit: "newtons", byMultiplyingBy: 4.448222E3)
+    }
+    
+    private func setWorkRules() {
+        // conversion to joules from other units
+        self.letUnit("electronvolts", convertToUnit: "joules", byMultiplyingBy: 1.602176E-19)
+        self.letUnit("calories (15°C)", convertToUnit: "joules", byMultiplyingBy: 4.18580)
+        self.letUnit("calories (20°C)", convertToUnit: "joules", byMultiplyingBy: 4.1819)
+        self.letUnit("calories (mean)", convertToUnit: "joules", byMultiplyingBy: 4.19002)
+        self.letUnit("Btus (39°F)", convertToUnit: "joules", byMultiplyingBy: 1.05967E3)
+        self.letUnit("Btus (59°F)", convertToUnit: "joules", byMultiplyingBy: 1.0548E3)
+        self.letUnit("Btus (60°F)", convertToUnit: "joules", byMultiplyingBy: 1.05468E3)
+        self.letUnit("Btus (mean)", convertToUnit: "joules", byMultiplyingBy: 1.05587E3)
+        self.letUnit("ergs", convertToUnit: "joules", byMultiplyingBy: 1E-7)
+        self.letUnit("feet poundals", convertToUnit: "joules", byMultiplyingBy: 4.214011E-2)
+        self.letUnit("feet pounds-force", convertToUnit: "joules", byMultiplyingBy: 1.355818)
+        self.letUnit("kilowatt hours", convertToUnit: "joules", byMultiplyingBy: 3.6E6)
+        self.letUnit("watt hours", convertToUnit: "joules", byMultiplyingBy: 3.6E3)
+        self.letUnit("watt seconds", convertToUnit: "joules", byMultiplyingBy: 1)
+        self.letUnit("tons (nuclear equivalent of TNT)", convertToUnit: "joules", byMultiplyingBy: 4.184E9)
+    }
+    
+    private func setPowerRules() {
+        // conversion to watts from other units
+        self.letUnit("Btus (mean) per second", convertToUnit: "watts", byMultiplyingBy: 1.05587E3)
+        self.letUnit("ergs per second", convertToUnit: "watts", byMultiplyingBy: 1E-7)
+        self.letUnit("feet pounds-force per hour", convertToUnit: "watts", byMultiplyingBy: 3.766161E-4)
+        self.letUnit("feet pounds-force per minute", convertToUnit: "watts", byMultiplyingBy: 2.259697E-2)
+        self.letUnit("feet pounds-force per second", convertToUnit: "watts", byMultiplyingBy: 1.355818)
+        self.letUnit("horsepower (550 ft lbf/s)", convertToUnit: "watts", byMultiplyingBy: 7.456999E2)
+        self.letUnit("horsepower (boiler)", convertToUnit: "watts", byMultiplyingBy: 9.8095E3)
+        self.letUnit("horsepower (electric)", convertToUnit: "watts", byMultiplyingBy: 7.46E2)
+        self.letUnit("horsepower (metric)", convertToUnit: "watts", byMultiplyingBy: 7.354988E2)
+        self.letUnit("horsepower (water)", convertToUnit: "watts", byMultiplyingBy: 7.46043E2)
+    }
+    
+    private func setTorqueRules() {
+        self.letUnit("dyne centimeters", convertToUnit: "newton meters", byMultiplyingBy: 1E-7)
+        self.letUnit("ounce-force inches", convertToUnit: "newton meters", byMultiplyingBy: 7.061552E-3)
+        self.letUnit("pound-force inches", convertToUnit: "newton meters", byMultiplyingBy: 1.129848E-1)
+        self.letUnit("pound-force feet", convertToUnit: "newton meters", byMultiplyingBy: 1.355818)
+    }
+    
+    private func setTemperatureRules() {
+        self.letUnit("degrees celcius", convertToUnit: "kelvin", byAdding: 273.15)
+        self.letUnit("degrees rankine", convertToUnit: "kelvin", byMultiplyingBy: 1/1.8)
+        self.letUnit("degrees fahrenheit", convertToUnit: "kelvin", byMultiplyingBy: 1/1.8, andAdding: 459.67/1.8)
+    }
+    
+    private func setPressureRules() {
+        letUnit("standard atmosphere", convertToUnit: "pascal", byMultiplyingBy: 1.01325E5)
+        letUnit("technical atmosphere", convertToUnit: "pascal", byMultiplyingBy: 9.80665E4)
+        letUnit("bar", convertToUnit: "pascal", byMultiplyingBy: 1E5)
+        letUnit("millibar", convertToUnit: "pascal", byMultiplyingBy: 1E2)
+        letUnit("kilogram-force per square centimeter", convertToUnit: "pascal", byMultiplyingBy: 9.80665E4)
+        letUnit("kilogram-force per square meter", convertToUnit: "pascal", byMultiplyingBy: 9.80665)
+        letUnit("kilogram-force per square millimeter", convertToUnit: "pascal", byMultiplyingBy: 9.80665E6)
+    }
+    
+    private func setElectromagnitismRules() {
+        letUnit("statampere", convertToUnit: "ampere", byMultiplyingBy: 3.335641E-10)
+        letUnit("abampere", convertToUnit: "ampere", byMultiplyingBy: 1.0E1)
+        letUnit("statcoulomb", convertToUnit: "coulomb", byMultiplyingBy: 3.335641E-10)
+        letUnit("abcoulomb", convertToUnit: "coulomb", byMultiplyingBy: 1E1)
+        letUnit("statvolt", convertToUnit: "volt", byMultiplyingBy: 2.997925E2)
+        letUnit("abvolt", convertToUnit: "volt", byMultiplyingBy: 1E-8)
+        letUnit("statfarad", convertToUnit: "farad", byMultiplyingBy: 1.112650E-12)
+        letUnit("abfarad", convertToUnit: "farad", byMultiplyingBy: 1E9)
+        letUnit("statohm", convertToUnit: "ohm", byMultiplyingBy: 8.987552E11)
+        letUnit("abohm", convertToUnit: "ohm", byMultiplyingBy: 1E-9)
+        letUnit("statmho", convertToUnit: "siemens", byMultiplyingBy: 1.112650E-12)
+        letUnit("abmho", convertToUnit: "siemens", byMultiplyingBy: 1E9)
+        letUnit("stathenry", convertToUnit: "henry", byMultiplyingBy: 8.987552E11)
+        letUnit("abhenry", convertToUnit: "henry", byMultiplyingBy: 1E-9)
+        letUnit("esu of electric field", convertToUnit: "volt per meter", byMultiplyingBy: 2.997925E4)
+        letUnit("emu of electric field", convertToUnit: "volt per meter", byMultiplyingBy: 1E-6)
+        letUnit("esu of magnetic field", convertToUnit: "tesla", byMultiplyingBy: 2.997925E6)
+        letUnit("gauss", convertToUnit: "tesla", byMultiplyingBy: 1E-4)
+    }
+    
+    
+    private func setMagneticsRules() {
+        letUnit("maxwell", convertToUnit: "weber", byMultiplyingBy: 1E-8)
+        letUnit("unit pole", convertToUnit: "weber", byMultiplyingBy: 1.256637E-7)
+        letUnit("gamma", convertToUnit: "tesla", byMultiplyingBy: 1E-9)
+        letUnit("gauss", convertToUnit: "tesla", byMultiplyingBy: 1E-4)
+    }
+    
+    private func setRadiationRules() {
+        letUnit("roentgen", convertToUnit: "coulombs per kilogram", byMultiplyingBy: 2.58E-4)
+        letUnit("curies", convertToUnit: "becquerels", byMultiplyingBy: 3.7E10)
+        letUnit("rad (gamma)", convertToUnit: "gray (gamma)", byMultiplyingBy: 1E-2)
+        letUnit("rad (beta)", convertToUnit: "rad (gamma)", byMultiplyingBy: 1)
+        letUnit("rad (alpha)", convertToUnit: "rad (gamma)", byMultiplyingBy: 20)
+        letUnit("rad (neutron)", convertToUnit: "rad (gamma)", byMultiplyingBy: 10)
+        
+        letUnit("gray (beta)", convertToUnit: "gray (gamma)", byMultiplyingBy: 1)
+        letUnit("gray (alpha)", convertToUnit: "gray (gamma)", byMultiplyingBy: 20)
+        letUnit("gray (neutron)", convertToUnit: "gray (gamma)", byMultiplyingBy: 10)
+        
+        letUnit("rem", convertToUnit: "rad (gamma)", byMultiplyingBy: 1)
+        letUnit("rem", convertToUnit: "sieverts", byMultiplyingBy: 1E-2)
+        
+        letUnit("millisieverts", convertToUnit: "sieverts", byMultiplyingBy: 0.001)
+        
     }
     
 }
