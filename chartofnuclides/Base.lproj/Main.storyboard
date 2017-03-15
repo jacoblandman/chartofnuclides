@@ -2476,7 +2476,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0Fd-7v-9Xd">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="44"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILS-fq-dc6">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILS-fq-dc6">
                                                         <rect key="frame" x="0.0" y="0.0" width="138" height="22"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2633,7 +2633,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="esR-kJ-Rn7" id="KGb-Y2-xY2"/>
-                        <outlet property="commentsLbl" destination="mrK-qz-WjA" id="Xj5-LB-Lx0"/>
+                        <outlet property="answersLbl" destination="mrK-qz-WjA" id="ijc-sd-Q1Y"/>
                         <outlet property="profileImgView" destination="pBa-d9-NkK" id="efJ-3p-U2U"/>
                         <outlet property="questionsLbl" destination="0vq-wC-jrW" id="kMG-PB-hvy"/>
                         <outlet property="repuationLbl" destination="lRu-eu-Aw9" id="zF2-Yi-SZX"/>

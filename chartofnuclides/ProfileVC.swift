@@ -15,7 +15,7 @@ class ProfileVC: UIViewController {
 
     @IBOutlet weak var profileImgView: CircleImageView!
     @IBOutlet weak var usernameLbl: UILabel!
-    @IBOutlet weak var commentsLbl: UILabel!
+    @IBOutlet weak var answersLbl: UILabel!
     @IBOutlet weak var questionsLbl: UILabel!
     @IBOutlet weak var repuationLbl: UILabel!
     @IBOutlet weak var activityIndicatorView: InspectableBorderView!
@@ -48,7 +48,7 @@ class ProfileVC: UIViewController {
     func updateUI() {
         // we know a user exists at this point
         self.usernameLbl.text = user!.username
-        self.commentsLbl.text = "\(user!.comments)"
+        self.answersLbl.text = "\(user!.answers)"
         self.questionsLbl.text = "\(user!.questions)"
         self.repuationLbl.text = "\(user!.reputation)"
         

@@ -65,7 +65,7 @@ class DataService {
     func saveUser(uid: String) {
         let profile: Dictionary<String, AnyObject> = ["reputation": 0 as AnyObject,
                                                       "questionsAsked": 0 as AnyObject,
-                                                      "comments": 0 as AnyObject,
+                                                      "answers": 0 as AnyObject,
                                                       "imageURL": "" as AnyObject]
         
         usersRef.child(uid).child("profile").setValue(profile)

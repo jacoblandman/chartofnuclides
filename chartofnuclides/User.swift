@@ -16,7 +16,7 @@ class User {
     private var _username: String!
     private var _repuation: Int!
     private var _questions: Int!
-    private var _comments: Int!
+    private var _answers: Int!
     private var _imageURL: String!
     
     var uid: String {
@@ -44,11 +44,11 @@ class User {
         return _questions
     }
     
-    var comments: Int {
-        if _comments == nil {
-            _comments = 0
+    var answers: Int {
+        if _answers == nil {
+            _answers = 0
         }
-        return _comments
+        return _answers
     }
     
     var imageURL: String {
@@ -79,8 +79,8 @@ class User {
                 if let questionsAsked = profileDict["questionsAsked"] as? Int {
                     self._questions = questionsAsked
                 }
-                if let comments = profileDict["comments"] as? Int {
-                    self._comments = comments
+                if let answers = profileDict["answers"] as? Int {
+                    self._answers = answers
                 }
                 if let reputation = profileDict["reputation"] as? Int {
                     self._repuation = reputation
