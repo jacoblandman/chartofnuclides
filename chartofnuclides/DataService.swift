@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseStorage
-import FirebaseAuth
+import Firebase
 
 let FIR_CHILD_USERS = "users"
 let FIR_CHILD_USERNAMES = "usernames"
 let FIR_CHILD_QUESTIONS = "questions"
-let FIR_CHILD_COMMENTS = "comments"
+let FIR_CHILD_ANSWERS = "answers"
+let FIR_CHILD_DETAILS = "applicationDetails"
 let FILENAME_NUCLIDES = "nuclides"
 let FILE_EXTENSION_NUCLIDES = "json"
 
@@ -22,7 +21,8 @@ typealias uniqueUsernameCompletion = (_ isUnique: Bool) -> Void
 typealias previousUserCheckCompletion = (_ isPreviousUser: Bool) -> Void
 typealias imageDownloadCompletion = (_ error: NSError?, _ image: UIImage?) -> Void
 typealias imageUploadCompletion = (_ error: NSError?, _ url: String?) -> Void
-typealias imageDeleteCompletion = (_ error: NSError?) -> Void
+typealias errorCompletion = (_ error: NSError?) -> Void
+typealias boolCompletion = (_ bool: Bool) -> Void
 
 class DataService {
     
@@ -50,8 +50,12 @@ class DataService {
         return mainRef.child(FIR_CHILD_QUESTIONS)
     }
     
-    var commentsRef: FIRDatabaseReference {
-        return mainRef.child(FIR_CHILD_COMMENTS)
+    var answersRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_ANSWERS)
+    }
+    
+    var applicationDetailsRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_DETAILS)
     }
     
     var mainStorageRef: FIRStorageReference {
@@ -190,7 +194,7 @@ class DataService {
         })
     }
     
-    func deleteImage(forURL url: String, completed: @escaping imageDeleteCompletion) {
+    func deleteImage(forURL url: String, completed: @escaping errorCompletion) {
         
         guard url != "" else {
             completed(nil)
@@ -207,5 +211,46 @@ class DataService {
                 completed(nil)
             }
         }
+    }
+    
+    func submitQuestion(question: Question, completed: @escaping errorCompletion) {
+        // create the dictionary that will be posted to the database
+        let newQuestion: Dictionary<String, AnyObject> = [
+            "title": question.title as AnyObject,
+            "body": question.body as AnyObject,
+            "userid": question.uid as AnyObject,
+            "votes": question.votes as AnyObject,
+            "timestamp": FIRServerValue.timestamp() as AnyObject
+        ]
+        
+        // automatically get an id for the post
+        let firebasePost = DataService.instance.questionsRef.childByAutoId()
+        firebasePost.setValue(newQuestion) { (error, ref) in
+            if error != nil {
+                // an error occurred
+                completed(error as NSError?)
+            } else {
+                // no error occurred
+                completed(nil)
+            }
+        }
+    }
+    
+    func checkIfLoadedAllData(index: Int, completed: @escaping boolCompletion) {
+    
+        applicationDetailsRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let detailDict = snapshot.value as? Dictionary<String, Any> {
+                print("JACOB: Found detailsDict")
+                if let num = detailDict["numQuestions"] as? Int {
+                    print("JACOB: Number of questions is: ", num)
+                    // index + 1 because indexing starts at 0, not 1
+                    if (index + 1) >= num {
+                        completed(true)
+                    } else {
+                        completed(false)
+                    }
+                }
+            }
+        })        
     }
 }

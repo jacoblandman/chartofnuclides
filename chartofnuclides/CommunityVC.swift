@@ -103,28 +103,45 @@ class CommunityVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ProfileVC {
-            
-            destination.delegate = self
-            
-            if let dict = sender as? Dictionary<String, Any> {
-                if let user = dict["user"] as? User {
-                    destination.user = user
-                }
+        
+        if segue.identifier == "ProfileVC" {
+            if let destination = segue.destination as? ProfileVC {
                 
-                if let image = dict["profileImage"] as? UIImage {
-                    destination.profileImage = image
-                }
+                destination.delegate = self
                 
-                if let setImage = dict["imageIsSet"] as? Bool {
-                    destination.imageIsSet = setImage
+                if let dict = sender as? Dictionary<String, Any> {
+                    if let user = dict["user"] as? User {
+                        destination.user = user
+                    }
+                    
+                    if let image = dict["profileImage"] as? UIImage {
+                        destination.profileImage = image
+                    }
+                    
+                    if let setImage = dict["imageIsSet"] as? Bool {
+                        destination.imageIsSet = setImage
+                    }
                 }
             }
+        } else if segue.identifier == "QuestionVC" {
+            if let destination = segue.destination as? QuestionVC {
+                
+                destination.user = self.user
+            }
         }
+        
     }
     
     @IBAction func AddQuestionTapped(_ sender: Any) {
-        performSegue(withIdentifier: "QuestionVC", sender: nil)
+        
+        if FIRAuth.auth()?.currentUser != nil {
+            performSegue(withIdentifier: "QuestionVC", sender: nil)
+        } else {
+            let ac = UIAlertController(title: "Hault!", message: "You must be a member of the community to login!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Gotcha", style: .cancel, handler: nil))
+            present(ac, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func profileTapped(_ sender: Any) {
@@ -207,6 +224,21 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 145
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // FIX THIS
+        // only call this if the user is scrolling to the bottom
+        // i.e. questions.count == indexPath.row
+        DataService.instance.checkIfLoadedAllData(index: indexPath.row) { (didLoadAll) in
+            if didLoadAll {
+                print("setting table footer to nil")
+                tableView.tableFooterView = nil
+            } else {
+                // here we will load more data is the user is scrolling to the bottom
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

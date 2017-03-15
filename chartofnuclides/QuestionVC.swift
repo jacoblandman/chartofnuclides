@@ -12,6 +12,10 @@ class QuestionVC: UIViewController {
 
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var bodyTextView: UITextView!
+    @IBOutlet weak var questionView: NewQuestionView!
+    @IBOutlet weak var activityMonitorView: InspectableBorderView!
+    
+    var user: User!
 
     let titlePlaceholder = "Type your question here. Try to be specific."
     let bodyPlaceholder = "Type a more detailed description of your question here."
@@ -51,9 +55,39 @@ class QuestionVC: UIViewController {
     }
     
     @IBAction func postPressed(_ sender: Any) {
+        
+        // make sure the user has entered text into the title and body before submitting question
+        if titleTextView.text == titlePlaceholder || bodyTextView.text == bodyPlaceholder ||
+           titleTextView.text.isEmpty || bodyTextView.text.isEmpty {
+            let ac = UIAlertController(title: "Error", message: "You must input both a title and a body", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Gotcha", style: .cancel, handler: nil))
+            present(ac, animated: true, completion: nil)
+        } else {
+            
+            // will attempt to post the question to the database
+            // while attempting hide the question view and show an activity monitor
+            questionView.isHidden = true
+            activityMonitorView.isHidden = false
+            
+            let newQuestion = Question(title: titleTextView.text, body: bodyTextView.text, uid: user.uid, votes: 0)
+            
+            DataService.instance.submitQuestion(question: newQuestion, completed: { (error) in
+                
+                // now unhide the question view and hide the activity monitor
+                self.questionView.isHidden = false
+                self.activityMonitorView.isHidden = true
+                
+                if error != nil {
+                    let message = ErrorHandler.handleFirebaseError(error: error!)
+                    let ac = UIAlertController(title: "Error please try again", message: message, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                    self.present(ac, animated: true, completion: nil)
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+        }
     }
-    
-    
 }
 
 extension QuestionVC: UITextViewDelegate {

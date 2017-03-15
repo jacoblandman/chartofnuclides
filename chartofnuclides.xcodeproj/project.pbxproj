@@ -44,6 +44,8 @@
 		AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */; };
 		AE8367191E770BA0005137A3 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367181E770BA0005137A3 /* QuestionVC.swift */; };
 		AE83671D1E7724F2005137A3 /* NewQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83671C1E7724F2005137A3 /* NewQuestionView.swift */; };
+		AE83671F1E79B7A6005137A3 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */; };
+		AE8367211E79BBFB005137A3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367201E79BBFB005137A3 /* Question.swift */; };
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
 		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
 		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
@@ -117,6 +119,8 @@
 		AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLWaveNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		AE8367181E770BA0005137A3 /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		AE83671C1E7724F2005137A3 /* NewQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewQuestionView.swift; sourceTree = "<group>"; };
+		AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		AE8367201E79BBFB005137A3 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 				AE183F2A1E5CBEAD00C72291 /* ElementManager.swift */,
 				AEDF0EC21E5E17A6006FA58F /* UnitConversionTypeManager.swift */,
 				AE7DF1B31E5F4D4A00B686B5 /* UnitConversionManager.swift */,
+				AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */,
+				AE8367201E79BBFB005137A3 /* Question.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -547,6 +553,7 @@
 				AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */,
 				AE7DF1B41E5F4D4A00B686B5 /* UnitConversionManager.swift in Sources */,
 				AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */,
+				AE8367211E79BBFB005137A3 /* Question.swift in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
 				AE7DF1BC1E5F757700B686B5 /* NSNumberExtension.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
@@ -566,6 +573,7 @@
 				AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */,
 				AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */,
 				AE4B34A51E60E18E0083BB8B /* UIViewExtension.swift in Sources */,
+				AE83671F1E79B7A6005137A3 /* ErrorHandler.swift in Sources */,
 				AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */,
 				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
 				AEBEFE4D1E676F04006331AB /* ReauthenticateVC.swift in Sources */,

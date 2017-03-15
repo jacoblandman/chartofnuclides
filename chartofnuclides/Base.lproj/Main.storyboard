@@ -2355,17 +2355,40 @@
                                     <constraint firstItem="6jg-lx-aLn" firstAttribute="top" secondItem="5oj-Xh-jqR" secondAttribute="bottom" constant="5" id="yk9-ax-8lk"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6j6-Ct-EET" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
+                                <rect key="frame" x="169" y="330" width="75" height="75"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WNC-GI-Oex">
+                                        <rect key="frame" x="27.333333333333343" y="27.333333333333314" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="6le-Ou-0zu"/>
+                                    <constraint firstAttribute="height" constant="75" id="OOS-9I-NY9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6j6-Ct-EET" firstAttribute="centerX" secondItem="zk8-Gu-fCi" secondAttribute="centerX" id="HTb-g2-yfz"/>
                             <constraint firstAttribute="trailing" secondItem="wmL-zk-fHE" secondAttribute="trailing" id="OVj-io-7sc"/>
                             <constraint firstItem="wmL-zk-fHE" firstAttribute="leading" secondItem="zk8-Gu-fCi" secondAttribute="leading" id="PCt-yV-vvH"/>
+                            <constraint firstItem="6j6-Ct-EET" firstAttribute="centerY" secondItem="zk8-Gu-fCi" secondAttribute="centerY" id="QCw-8R-7wF"/>
                             <constraint firstItem="15K-IJ-WzJ" firstAttribute="top" secondItem="wmL-zk-fHE" secondAttribute="bottom" id="p5A-VN-H3x"/>
                             <constraint firstItem="wmL-zk-fHE" firstAttribute="top" secondItem="zk8-Gu-fCi" secondAttribute="top" id="pB9-kR-WmB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityMonitorView" destination="6j6-Ct-EET" id="awj-vW-lQV"/>
                         <outlet property="bodyTextView" destination="clL-5n-gKJ" id="6Px-SB-RF9"/>
+                        <outlet property="questionView" destination="6jg-lx-aLn" id="vTM-oq-hp3"/>
                         <outlet property="titleTextView" destination="wiq-yg-lxi" id="1jd-sH-t2W"/>
                     </connections>
                 </viewController>
