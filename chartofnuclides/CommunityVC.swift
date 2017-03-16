@@ -11,13 +11,18 @@ import FirebaseAuth
 
 class CommunityVC: UIViewController {
 
+    enum FilterType {
+        case recent
+        case top
+        case contributing
+    }
     
     @IBOutlet weak var searchBar: BorderlessSearchBar!
     @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mostRecentBtn: UIButton!
     @IBOutlet weak var topBtn: UIButton!
-    @IBOutlet weak var unansweredBtn: UIButton!
+    @IBOutlet weak var contributingBtn: UIButton!
     @IBOutlet weak var questionFilterView: UIView!
     @IBOutlet weak var questionFilterTopConstraint: NSLayoutConstraint!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
@@ -30,6 +35,12 @@ class CommunityVC: UIViewController {
     var user: User?
     var profileURL: String?
     var imageIsSet: Bool = false
+    
+    var questions = [Question]()
+    var _startTimestamp: Int? = nil
+    var startKey: String? = nil
+    let questionsPerPage = 10
+    var reachedBottom = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +64,54 @@ class CommunityVC: UIViewController {
         
         searchBar.delegate = self
         tapGesture.isEnabled = false
-
+        
+        loadQuestions(startTimestamp: nil)
+    }
+    
+    func loadQuestions(startTimestamp: Int?) {
+        
+        DataService.instance.loadQuestions(startTimestamp: startTimestamp, numberOfItemsPerPage: questionsPerPage) { (error, questionArray) in
+            
+            if error != nil {
+                let message = ErrorHandler.handleFirebaseError(error: error!)
+                let ac = UIAlertController(title: "Error please try again", message: message, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(ac, animated: true, completion: nil)
+            } else {
+                
+                // if starting fresh then empty the questions array
+                if startTimestamp == nil {
+                    self.questions = []
+                }
+                
+                if let newQuestions = questionArray as? [Question] {
+                    if newQuestions.count < self.questionsPerPage { self.tableView.tableFooterView = nil }
+                    for question in newQuestions.reversed() {
+                        self.questions.append(question)
+                    }
+                    
+                    // if array is empty the first/last property is nil, so unwrap it
+                    // use the first item because we aren't reversing the array this time
+                    if let lastQuestion = newQuestions.first {
+                        self._startTimestamp = lastQuestion.timestamp
+                    }
+                }
+            }
+            
+            
+            // set the content off set if loading data from scrolling to the bototm of tableview
+            if startTimestamp != nil {
+                var contentOffset = self.tableView.contentOffset
+                if self.tableView.tableFooterView == nil { contentOffset.y = contentOffset.y + 44 }
+                self.tableView.reloadData()
+                self.tableView.layoutIfNeeded()
+                self.tableView.setContentOffset(contentOffset, animated: false)
+            } else {
+                self.tableView.reloadData()
+            }
+        
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func loadUserImage() {
@@ -159,27 +217,26 @@ class CommunityVC: UIViewController {
 
     @IBAction func mostRecentPressed(_ sender: Any) {
         topBtn.setTitleColor(GRAY_COLOR, for: .normal)
-        unansweredBtn.setTitleColor(GRAY_COLOR, for: .normal)
+        contributingBtn.setTitleColor(GRAY_COLOR, for: .normal)
         mostRecentBtn.setTitleColor(GREEN_COLOR, for: .normal)
     }
 
     @IBAction func topPressed(_ sender: Any) {
         topBtn.setTitleColor(GREEN_COLOR, for: .normal)
-        unansweredBtn.setTitleColor(GRAY_COLOR, for: .normal)
+        contributingBtn.setTitleColor(GRAY_COLOR, for: .normal)
         mostRecentBtn.setTitleColor(GRAY_COLOR, for: .normal)
     }
     
     @IBAction func unansweredPressed(_ sender: Any) {
         topBtn.setTitleColor(GRAY_COLOR, for: .normal)
-        unansweredBtn.setTitleColor(GREEN_COLOR, for: .normal)
+        contributingBtn.setTitleColor(GREEN_COLOR, for: .normal)
         mostRecentBtn.setTitleColor(GRAY_COLOR, for: .normal)
     }
     
     func getLatestQuestions() {
         
-        UIView.animate(withDuration: 0.0, delay: 1.0, options: [], animations: { 
-            self.refreshControl.endRefreshing()
-        }, completion: nil)
+        tableView.tableFooterView = indicatorFooter
+        loadQuestions(startTimestamp: nil)
         
     }
     
@@ -210,11 +267,13 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return questions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
+        let question = questions[indexPath.row]
+        cell.update(question: question)
         return cell
     }
     
@@ -228,15 +287,10 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        // FIX THIS
         // only call this if the user is scrolling to the bottom
-        // i.e. questions.count == indexPath.row
-        DataService.instance.checkIfLoadedAllData(index: indexPath.row) { (didLoadAll) in
-            if didLoadAll {
-                print("setting table footer to nil")
-                tableView.tableFooterView = nil
-            } else {
-                // here we will load more data is the user is scrolling to the bottom
+        if tableView.tableFooterView != nil {
+            if indexPath.row == (questions.count - 1) {
+                //loadQuestions(startTimestamp: _startTimestamp)
             }
         }
     }
@@ -250,15 +304,25 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
         
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView)
         
-        if translation.y < 0 {
+        if translation.y < 0 && scrollView.contentOffset.y > 75 {
             hideQuestionFilter()
         }
         
         // some number near the top to inform the question filter to be shown
-        if scrollView.contentOffset.y < 75 {
+        if scrollView.contentOffset.y < 75 && questionFilterTopConstraint.constant != 0 {
             showQuestionFilter()
         }
-
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        // check if scrolled to bottom to load more data
+        if tableView.contentOffset.y >= tableView.contentSize.height - tableView.frame.size.height {
+            print("JACOB: Loading more data")
+            if tableView.tableFooterView != nil {
+                loadQuestions(startTimestamp: _startTimestamp)
+            }
+        }
     }
     
 }

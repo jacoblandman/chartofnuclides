@@ -14,6 +14,8 @@ class QuestionCell: UITableViewCell {
     @IBOutlet weak var questionDescription: UILabel!
     @IBOutlet weak var mainView: InspectableShadowView!
     
+    var question: Question!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,5 +35,13 @@ class QuestionCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         self.selectionStyle = UITableViewCellSelectionStyle.default
+    }
+    
+    func update(question: Question) {
+        
+        self.question = question
+        questionTitle.text = question.title
+        questionDescription.text = question.body
+        
     }
 }

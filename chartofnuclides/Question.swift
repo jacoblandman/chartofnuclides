@@ -17,6 +17,7 @@ class Question: NSObject {
     private var _votes: Int!
     private var _questionKey: String!
     private var _questionRef: FIRDatabaseReference!
+    private var _timestamp: Int!
     
     var title: String {
         return _title
@@ -36,6 +37,10 @@ class Question: NSObject {
     
     var questionKey: String {
         return _questionKey
+    }
+    
+    var timestamp: Int {
+        return _timestamp
     }
     
     init(title: String, body: String, uid: String, votes: Int) {
@@ -63,6 +68,11 @@ class Question: NSObject {
         
         if let uid = questionData["userid"] as? String {
             self._uid = uid
+        }
+        
+        if let timestamp = questionData["timestamp"] as? Int {
+            print("JACOB: Found Timestamp: ", timestamp)
+            self._timestamp = timestamp
         }
         
         _questionRef = DataService.instance.questionsRef.child(questionKey)

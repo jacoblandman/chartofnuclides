@@ -23,6 +23,7 @@ typealias imageDownloadCompletion = (_ error: NSError?, _ image: UIImage?) -> Vo
 typealias imageUploadCompletion = (_ error: NSError?, _ url: String?) -> Void
 typealias errorCompletion = (_ error: NSError?) -> Void
 typealias boolCompletion = (_ bool: Bool) -> Void
+typealias errorArrayCompletion = (_ error: NSError?, _ arr: [AnyObject]?) -> Void
 
 class DataService {
     
@@ -214,6 +215,7 @@ class DataService {
     }
     
     func submitQuestion(question: Question, completed: @escaping errorCompletion) {
+        
         // create the dictionary that will be posted to the database
         let newQuestion: Dictionary<String, AnyObject> = [
             "title": question.title as AnyObject,
@@ -236,13 +238,48 @@ class DataService {
         }
     }
     
+    func loadQuestions(startTimestamp: Int?, numberOfItemsPerPage: Int, completed: @escaping errorArrayCompletion) {
+        
+        var count = numberOfItemsPerPage
+        
+        var query = questionsRef.queryOrdered(byChild: "timestamp")
+        
+        if startTimestamp != nil {
+            query = query.queryEnding(atValue: startTimestamp)
+            count += 1
+        }
+        
+        query.queryLimited(toLast: UInt(count)).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard var children = snapshot.children.allObjects as? [FIRDataSnapshot] else {
+                // handle error here
+                let error = NSError()
+                completed(error, nil)
+                return
+            }
+            
+            if startTimestamp != nil && !children.isEmpty {
+                children.removeLast()
+            }
+            
+            // now do something with the children
+            var newQuestions = [Question]()
+            for child in children {
+                if let questionDict = child.value as? Dictionary<String, AnyObject> {
+                    newQuestions.append(Question(questionKey: child.key, questionData: questionDict))
+                }
+            }
+            
+            completed(nil, newQuestions)
+        })
+        
+    }
+    
+    
     func checkIfLoadedAllData(index: Int, completed: @escaping boolCompletion) {
     
         applicationDetailsRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let detailDict = snapshot.value as? Dictionary<String, Any> {
-                print("JACOB: Found detailsDict")
                 if let num = detailDict["numQuestions"] as? Int {
-                    print("JACOB: Number of questions is: ", num)
                     // index + 1 because indexing starts at 0, not 1
                     if (index + 1) >= num {
                         completed(true)
@@ -251,6 +288,8 @@ class DataService {
                     }
                 }
             }
-        })        
+        })
     }
+    
+    
 }
