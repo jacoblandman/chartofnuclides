@@ -55,7 +55,7 @@ class ProfileVC: UIViewController {
         if imageIsSet { return }
         
         if user!.imageURL != "" {
-            DataService.instance.setImage(forURL: user!.imageURL) { (error, image) in
+            DataService.instance.getImage(fromURL: user!.imageURL) { (error, image) in
                 if error != nil {
                     print("JACOB: Error downloading image from firebase storage")
                 } else {
@@ -212,6 +212,7 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
                             self.user?.imageURL = url!
                             let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
                             self.delegate?.sendDataToA(data: dict)
+                            CustomFileManager.saveImageToDisk(image: croppedImage)
                         }
                     })
                 }
@@ -225,4 +226,5 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
     
     func imageCropViewController(_ controller: RSKImageCropViewController, willCropImage originalImage: UIImage) {
     }
+    
 }

@@ -45,6 +45,8 @@ class CommunityVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadUserImage()
+        
         questionFilterView.addLightShadow()
         
         // initialize the refresh control
@@ -131,18 +133,27 @@ class CommunityVC: UIViewController {
         }
         
         // load the user data and load the image if it changed
+        // first check to see if it is saved to disk
+        let imageFromDisk = CustomFileManager.getImage()
+        
+        if imageFromDisk != nil {
+            profileImgView.image = imageFromDisk
+            imageIsSet = true
+            return
+        }
+        
         user?.loadImageURL {
             if self.user!.imageURL != "" {
                 // only load the image if it has changed
                 if self.profileURL != self.user!.imageURL {
                     print("JACOB: Image url not equal to profile url")
-                    print(self.user!.imageURL)
-                    DataService.instance.setImage(forURL: self.user!.imageURL) { (error, image) in
+                    DataService.instance.getImage(fromURL: self.user!.imageURL) { (error, image) in
                         if error != nil {
                             print("JACOB: Error downloading image from firebase storage")
                         } else {
                             print("JACOB: Image download successful")
                             if let img = image {
+                                CustomFileManager.saveImageToDisk(image: img)
                                 self.profileImgView.image = img
                                 self.profileURL = self.user!.imageURL
                                 self.imageIsSet = true
@@ -157,7 +168,7 @@ class CommunityVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadUserImage()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -185,6 +196,14 @@ class CommunityVC: UIViewController {
             if let destination = segue.destination as? QuestionVC {
                 
                 destination.user = self.user
+            }
+        } else if segue.identifier == "QuestionDetailVC" {
+            if let destination = segue.destination as? QuestionDetailVC {
+                if let dict = sender as? Dictionary<String, Any> {
+                    if let question = dict["question"] as? Question {
+                        destination.question = question
+                    }
+                }
             }
         }
         
@@ -285,18 +304,12 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
         return 145
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        // only call this if the user is scrolling to the bottom
-        if tableView.tableFooterView != nil {
-            if indexPath.row == (questions.count - 1) {
-                //loadQuestions(startTimestamp: _startTimestamp)
-            }
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let question = questions[indexPath.row]
+        let dict = ["question": question]
+        performSegue(withIdentifier: "QuestionDetailVC", sender: dict)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

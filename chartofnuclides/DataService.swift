@@ -177,7 +177,7 @@ class DataService {
         }
     }
     
-    func setImage(forURL url: String, completed: @escaping imageDownloadCompletion) {
+    func getImage(fromURL url: String, completed: @escaping imageDownloadCompletion) {
         let ref = FIRStorage.storage().reference(forURL: url)
         // max size is 2 MB
         ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
