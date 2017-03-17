@@ -17,6 +17,7 @@ class QuestionDetailCell: UITableViewCell {
     @IBOutlet weak var votesLbl: UILabel!
     @IBOutlet weak var arrowUpImgView: UIImageView!
     @IBOutlet weak var arrowDownImgView: UIImageView!
+    @IBOutlet weak var flagImgView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

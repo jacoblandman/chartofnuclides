@@ -273,23 +273,4 @@ class DataService {
         })
         
     }
-    
-    
-    func checkIfLoadedAllData(index: Int, completed: @escaping boolCompletion) {
-    
-        applicationDetailsRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let detailDict = snapshot.value as? Dictionary<String, Any> {
-                if let num = detailDict["numQuestions"] as? Int {
-                    // index + 1 because indexing starts at 0, not 1
-                    if (index + 1) >= num {
-                        completed(true)
-                    } else {
-                        completed(false)
-                    }
-                }
-            }
-        })
-    }
-    
-    
 }

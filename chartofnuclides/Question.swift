@@ -71,7 +71,6 @@ class Question: NSObject {
         }
         
         if let timestamp = questionData["timestamp"] as? Int {
-            print("JACOB: Found Timestamp: ", timestamp)
             self._timestamp = timestamp
         }
         
