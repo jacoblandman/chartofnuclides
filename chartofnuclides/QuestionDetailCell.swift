@@ -14,6 +14,9 @@ class QuestionDetailCell: UITableViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var profileUsernameLbl: UILabel!
     @IBOutlet weak var profileImageView: CircleImageView!
+    @IBOutlet weak var votesLbl: UILabel!
+    @IBOutlet weak var arrowUpImgView: UIImageView!
+    @IBOutlet weak var arrowDownImgView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +26,7 @@ class QuestionDetailCell: UITableViewCell {
     func update(question: Question) {
         bodyLbl.text = question.body
         titleLbl.text = question.title
+        //votesLbl.text = "\(question.votes)"
     }
     
     func update(answer: Answer) {
