@@ -15,6 +15,10 @@ class UsernameVC: UIViewController {
     @IBOutlet weak var activityIndicatorView: InspectableBorderView!
     @IBOutlet weak var usernameMessageLbl: UILabel!
     
+    var user: FIRUser!
+    
+    var delegate: SendDataToPreviousControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +47,8 @@ class UsernameVC: UIViewController {
                 // if we are here then the user logged in through facebook, so there was one less view controller
                 self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             }
+            
+            self.delegate?.sendDataToA(data: self.user)
         }
     }
     

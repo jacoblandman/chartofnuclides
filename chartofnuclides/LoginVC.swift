@@ -11,12 +11,32 @@ import FirebaseAuth
 
 class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
 
+    var delegate: SendDataToPreviousControllerDelegate?
+    @IBOutlet weak var fbTxtLbl: UILabel!
+    @IBOutlet weak var EmailTxtLbl: UILabel!
     @IBOutlet weak var activityIndicatorView: InspectableBorderView!
     let fadeInTransitionAnimator = FadeInAnimator()
+    var loginType: LoginType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateBtnText()
 
+    }
+    
+    func updateBtnText() {
+        switch loginType! {
+        case .login:
+            fbTxtLbl.text = "LOGIN WITH FACEBOOK"
+            EmailTxtLbl.text = "LOGIN"
+            break
+        case .signUp:
+            fbTxtLbl.text = "SIGN UP WITH FACEBOOK"
+            EmailTxtLbl.text = "SIGN UP"
+            break
+            
+        }
     }
     
     @IBAction func emailLoginPressed(_ sender: Any) {
@@ -31,7 +51,6 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
             
             if let errMsg = errorMsg {
                 // if the user cancelled we don't need to do anything
-                
                 print("JACOB: An error occured while logging in with facebook")
                 print(errMsg)
             } else {
@@ -42,8 +61,9 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
                     _ = DataService.instance.checkIfPreviousUser(uid: currentUser.uid, completed: { (isPreviousUser) in
                         if (isPreviousUser) {
                             self.dismiss(animated: true, completion: nil)
+                            self.delegate?.sendDataToA(data: currentUser)
                         } else {
-                            self.performSegue(withIdentifier: "UsernameVC", sender: nil)
+                            self.performSegue(withIdentifier: "UsernameVC", sender: currentUser)
                         }
                         
                         self.activityIndicatorView.isHidden = true
@@ -58,10 +78,18 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
         if segue.identifier == "EmailLoginVC" {
             if let destination = segue.destination as? EmailLoginVC {
                 destination.transitioningDelegate = self
+                destination.loginType = self.loginType
+                destination.delegate = self.delegate
             }
         } else if segue.identifier == "UsernameVC" {
             if let destination = segue.destination as? UsernameVC {
                 destination.transitioningDelegate = self
+                destination.delegate = self.delegate
+                
+                if let user = sender as? FIRUser {
+                    destination.user = user
+                }
+                
             }
         }
     }

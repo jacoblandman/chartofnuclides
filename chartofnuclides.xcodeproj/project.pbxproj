@@ -45,6 +45,7 @@
 		AE8338DA1E7B1D5A00C8FBBA /* QuestionDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338D91E7B1D5A00C8FBBA /* QuestionDetailCell.swift */; };
 		AE8338DC1E7B1E4B00C8FBBA /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DB1E7B1E4B00C8FBBA /* Answer.swift */; };
 		AE8338DE1E7B348D00C8FBBA /* CustomFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DD1E7B348D00C8FBBA /* CustomFileManager.swift */; };
+		AE8338E01E7C50E700C8FBBA /* SignUpLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */; };
 		AE8367191E770BA0005137A3 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367181E770BA0005137A3 /* QuestionVC.swift */; };
 		AE83671D1E7724F2005137A3 /* NewQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83671C1E7724F2005137A3 /* NewQuestionView.swift */; };
 		AE83671F1E79B7A6005137A3 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */; };
@@ -124,6 +125,7 @@
 		AE8338D91E7B1D5A00C8FBBA /* QuestionDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDetailCell.swift; sourceTree = "<group>"; };
 		AE8338DB1E7B1E4B00C8FBBA /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		AE8338DD1E7B348D00C8FBBA /* CustomFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFileManager.swift; sourceTree = "<group>"; };
+		AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLoginVC.swift; sourceTree = "<group>"; };
 		AE8367181E770BA0005137A3 /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		AE83671C1E7724F2005137A3 /* NewQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewQuestionView.swift; sourceTree = "<group>"; };
 		AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */,
 				AE8367181E770BA0005137A3 /* QuestionVC.swift */,
 				AEDAB46A1E7B17AB005E3B0E /* QuestionDetailVC.swift */,
+				AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,
 				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
+				AE8338E01E7C50E700C8FBBA /* SignUpLoginVC.swift in Sources */,
 				AEBEFE431E64B129006331AB /* AuthService.swift in Sources */,
 				AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */,
 				AE8367191E770BA0005137A3 /* QuestionVC.swift in Sources */,

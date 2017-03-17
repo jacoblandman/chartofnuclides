@@ -81,6 +81,7 @@ class ProfileVC: UIViewController {
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         ac.addAction(UIAlertAction(title: "Yes, I'm sure", style: .default, handler: { (alert: UIAlertAction!) in
             AuthService.instance.signOutCurrentUser()
+            CustomFileManager.removeCurrentImage()
             self.dismiss(animated: true, completion: nil)
         }))
         present(ac, animated: true, completion: nil)
@@ -210,7 +211,7 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
                     DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
                         if error == nil && url != nil {
                             self.user?.imageURL = url!
-                            let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
+                            let dict = ["image": croppedImage] as [String : Any]
                             self.delegate?.sendDataToA(data: dict)
                             CustomFileManager.saveImageToDisk(image: croppedImage)
                         }

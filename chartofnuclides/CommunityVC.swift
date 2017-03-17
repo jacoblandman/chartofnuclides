@@ -33,7 +33,6 @@ class CommunityVC: UIViewController {
     let GRAY_COLOR = UIColor(hexString: "DCDCDC")
     
     var user: User?
-    var profileURL: String?
     var imageIsSet: Bool = false
     
     var questions = [Question]()
@@ -44,8 +43,6 @@ class CommunityVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadUserImage()
         
         questionFilterView.addLightShadow()
         
@@ -122,7 +119,6 @@ class CommunityVC: UIViewController {
         // make sure a user has been authorized by firebase
         // if not  then reset the profile image and return
         guard FIRAuth.auth()?.currentUser != nil else {
-            self.profileURL = nil
             profileImgView.image = UIImage(named: "profile_icon_big")
             return
         }
@@ -144,20 +140,15 @@ class CommunityVC: UIViewController {
         
         user?.loadImageURL {
             if self.user!.imageURL != "" {
-                // only load the image if it has changed
-                if self.profileURL != self.user!.imageURL {
-                    print("JACOB: Image url not equal to profile url")
-                    DataService.instance.getImage(fromURL: self.user!.imageURL) { (error, image) in
-                        if error != nil {
-                            print("JACOB: Error downloading image from firebase storage")
-                        } else {
-                            print("JACOB: Image download successful")
-                            if let img = image {
-                                CustomFileManager.saveImageToDisk(image: img)
-                                self.profileImgView.image = img
-                                self.profileURL = self.user!.imageURL
-                                self.imageIsSet = true
-                            }
+                DataService.instance.getImage(fromURL: self.user!.imageURL) { (error, image) in
+                    if error != nil {
+                        print("JACOB: Error downloading image from firebase storage")
+                    } else {
+                        print("JACOB: Image download successful")
+                        if let img = image {
+                            CustomFileManager.saveImageToDisk(image: img)
+                            self.profileImgView.image = img
+                            self.imageIsSet = true
                         }
                     }
                 }
@@ -168,6 +159,11 @@ class CommunityVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        loadUserImage()
+        
+        if FIRAuth.auth()?.currentUser == nil {
+            user = nil
+        }
         
     }
     
@@ -230,7 +226,7 @@ class CommunityVC: UIViewController {
             performSegue(withIdentifier: "ProfileVC", sender: dict)
         } else {
             // No user is signed in.
-            performSegue(withIdentifier: "LoginVC", sender: nil)
+            performSegue(withIdentifier: "SignUpLoginVC", sender: nil)
         }
     }
 
@@ -368,9 +364,6 @@ extension CommunityVC: SendDataToPreviousControllerDelegate {
     
     func sendDataToA(data: Any) {
         if let dict = data as? Dictionary<String, Any> {
-            if let imageURL = dict["imageURL"] as? String {
-                profileURL = imageURL
-            }
             if let image = dict["image"] as? UIImage {
                 profileImgView.image = image
             }

@@ -11,16 +11,34 @@ import FirebaseAuth
 
 class EmailLoginVC: UIViewController {
 
+    @IBOutlet weak var emailTxtLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var activityIndicatorView: InspectableBorderView!
     @IBOutlet weak var emailField: LoginField!
     @IBOutlet weak var passwordField: LoginField!
+    var loginType: LoginType!
+    var delegate: SendDataToPreviousControllerDelegate?
     
     let fadeInTransitionAnimator = FadeInAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateBtnText()
+    }
+    
+    func updateBtnText() {
+        switch loginType! {
+        case .login:
+            emailTxtLbl.text = "LOG IN"
+            titleLbl.text = "LOG IN"
+            break
+        case .signUp:
+            emailTxtLbl.text = "SIGN UP"
+            titleLbl.text = "SIGN UP"
+            break
+            
+        }
     }
     
     @IBAction func loginPressed(_ sender: Any) {
@@ -44,33 +62,61 @@ class EmailLoginVC: UIViewController {
         
         activityIndicatorView.isHidden = false
         
-        AuthService.instance.login(email: email, password: pwd) { (errMsg, user) in
+        switch loginType! {
+            
+        case .login:
+            loginUser()
+            break
+
+        case .signUp:
+            signUpUser()
+            break
+
+        }
+    }
+    
+    func presentAlertWith(_ error: NSError) {
+        let message = ErrorHandler.handleFirebaseError(error: error)
+        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(ac, animated: true)
+    }
+    
+    func loginUser() {
+        AuthService.instance.login(email: emailField.text!, password: passwordField.text!) { (error, user) in
             
             self.activityIndicatorView.isHidden = true
             
-            guard errMsg == nil else {
-                let ac = UIAlertController(title: "Error Authentication", message: errMsg, preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(ac, animated: true)
+            if error != nil {
+                self.presentAlertWith(error!)
                 return
-            }
-            
-            // we should have a user at this point. If not, then thats a problem, so alert the user
-            if let currentUser = user as? FIRUser {
-                let uid = currentUser.uid
-                _ = DataService.instance.checkIfPreviousUser(uid: uid, completed: { (isPreviousUser) in
-                    if (isPreviousUser) {
-                        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-                    } else {
-                        self.performSegue(withIdentifier: "UsernameVC", sender: nil)
-                    }
-                })
-                
             } else {
-                let ac = UIAlertController(title: "An error occurred", message: "Please try again", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                self.present(ac, animated: true, completion: nil)
+                
+                if let currentUser = user as? FIRUser {
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                    self.delegate?.sendDataToA(data: currentUser)
+                } else {
+                    self.presentAlertWith(NSError())
+                }
+                
+            }
+        }
+    }
+    
+    func signUpUser() {
+        AuthService.instance.attemptCreateUser(withEmail: emailField.text!, password: passwordField.text!) { (error, user) in
+            
+            self.activityIndicatorView.isHidden = true
+            
+            if error != nil {
+                self.presentAlertWith(error!)
                 return
+            } else {
+                if let currentUser = user as? FIRUser {
+                    self.performSegue(withIdentifier: "UsernameVC", sender: currentUser)
+                } else {
+                    self.presentAlertWith(NSError())
+                }
             }
         }
     }
@@ -100,6 +146,11 @@ extension EmailLoginVC: UIViewControllerTransitioningDelegate {
         if segue.identifier == "UsernameVC" {
             if let destination = segue.destination as? UsernameVC {
                 destination.transitioningDelegate = self
+                destination.delegate = self.delegate
+                
+                if let user = sender as? FIRUser {
+                    destination.user = user
+                }
             }
         }
     }

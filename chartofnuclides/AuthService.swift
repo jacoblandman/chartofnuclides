@@ -11,9 +11,9 @@ import FirebaseAuth
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-typealias Completion = (_ errMsg: String?, _ data: AnyObject?) -> Void
+typealias Completion = (_ error: NSError?, _ data: AnyObject?) -> Void
 typealias deleteUserCompletion = (_ errCode: FIRAuthErrorCode?) -> Void
-typealias reauthenticationCompletion = (_ errMsg: String?) -> Void
+typealias reauthenticationCompletion = (_ error: NSError?) -> Void
 
 class AuthService {
     private static let _instance = AuthService()
@@ -26,18 +26,9 @@ class AuthService {
         print("JACOB: About to attempt to log in with username and password")
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                if let errorCode = FIRAuthErrorCode(rawValue: error!._code) {
-                    if errorCode == .errorCodeUserNotFound {
-                        // if the user hasn't loged in before an account will be created for them
-                        self.attemptCreateUser(withEmail: email, password: password, onComplete: onComplete)
-                    } else {
-                        // Handle all other errors
-                        print("JACOB: Could not sign in user, error: \(error.debugDescription)")
-                        self.handleFirebaseError(error: error as! NSError, onComplete: onComplete)
-                    }
-                }
+                onComplete?(error! as NSError, nil)
             } else {
-                onComplete?(nil, user)
+                onComplete?(nil, user!)
                 print("JACOB: SUCCESSFULLY LOGGED IN PREVIOUS USER")
             }
         })
@@ -46,49 +37,20 @@ class AuthService {
     func attemptCreateUser(withEmail email: String, password: String, onComplete: Completion?) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                self.handleFirebaseError(error: error as! NSError, onComplete: onComplete)
-                print("JACOB: Could not create user, error: \(error.debugDescription)")
+                onComplete?(error! as NSError, nil)
             } else {
-                if user?.uid != nil {
-                    DataService.instance.saveUser(uid: user!.uid)
-                    // Sign in
-                    FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-                        if error != nil {
-                            self.handleFirebaseError(error: error as! NSError, onComplete: onComplete)
-                            print("JACOB: Could not sign in user, error: \(error.debugDescription)")
-                        } else {
-                            onComplete?(nil, user)
-                            print("JACOB: SUCCESSFULLY MADE NEW USER AND LOGGED IN")
-                        }
-                    })
-                } else {
-                    print("JACOB: The user uid is nil")
-                }
+                // Sign in
+                FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+                    if error != nil {
+                        onComplete?(error! as NSError, nil)
+                    } else {
+                        DataService.instance.saveUser(uid: user!.uid)
+                        onComplete?(nil, user!)
+                        print("JACOB: SUCCESSFULLY MADE NEW USER AND LOGGED IN")
+                    }
+                })
             }
         })
-    }
-    
-    func handleFirebaseError(error: NSError, onComplete: Completion?) {
-        print(error.debugDescription)
-        if let errorCode = FIRAuthErrorCode(rawValue: error._code) {
-            switch (errorCode) {
-            case .errorCodeInvalidEmail:
-                onComplete?("Invalid email address", nil)
-                break
-                
-            case .errorCodeWrongPassword:
-                onComplete?("Invalid password", nil)
-                break
-                
-            case .errorCodeEmailAlreadyInUse, .errorCodeAccountExistsWithDifferentCredential:
-                onComplete?("Could not create account. Email already in use", nil)
-                break
-                
-            default:
-                onComplete?("There was a problem authenticating. Try again", nil)
-                
-            }
-        }
     }
     
     func deleteCurrentUser(uid: String, username: String?, completed: deleteUserCompletion?) {
@@ -130,19 +92,16 @@ class AuthService {
         if let user = currentUser {
             user.reauthenticate(with: credential, completion: { (error) in
                 if error != nil {
-                    self.handleReauthenticationError(error: error as! NSError, completed: completed)
+                    completed?(error! as NSError)
                 } else {
                     completed?(nil)
                     print("JACOB: reauthentication successful")
                 }
             })
         } else {
-            completed?("Error: The current user doesn't exist.")
+            print("JACOB: Error: The current user doesn't exist")
+            completed?(NSError())
         }
-    }
-    
-    func handleReauthenticationError(error: NSError, completed: reauthenticationCompletion?) {
-        print("JACOB: Need to handle reauthentication error")
     }
     
     func authenticateWithFacebook(fromVC: UIViewController, completed: Completion?) {
@@ -151,10 +110,10 @@ class AuthService {
         facebookLogin.logIn(withReadPermissions: ["email"], from: fromVC) { (result, error) in
             if error != nil {
                 print("JACOB: Unable to authenticate with Facebook - \(error)")
-                completed?(error!.localizedDescription, nil)
+                completed?(error! as NSError, nil)
             } else if result?.isCancelled == true {
                 print("JACOB: User cancelled Facebook authentication")
-                completed?("User cancelled authentication", nil)
+                completed?(NSError(), nil)
             } else {
                 print("JACOB: Successfully authenticated with Facebook")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
@@ -167,13 +126,12 @@ class AuthService {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
                 print("JACOB: Unable to authenticate with Firebase - \(error)")
-                completed?(error!.localizedDescription, nil)
+                completed?(error! as NSError, nil)
             } else {
                 print("JACOB: Successfully authenticated with Firebase")
                 
                 // check if a previous user
                 if let currentUser = user {
-                    
                     _ = DataService.instance.checkIfPreviousUser(uid: currentUser.uid, completed: { (isPreviousUser) in
                         if (isPreviousUser) {
                             completed?(nil, user)
