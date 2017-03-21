@@ -76,10 +76,10 @@ class User {
         let profileSnap = snapshot.childSnapshot(forPath: "profile")
             print("JACOB: Found profile")
             if let profileDict = profileSnap.value as? Dictionary<String, AnyObject> {
-                if let questionsAsked = profileDict["questionsAsked"] as? Int {
+                if let questionsAsked = profileDict["questionsCount"] as? Int {
                     self._questions = questionsAsked
                 }
-                if let answers = profileDict["answers"] as? Int {
+                if let answers = profileDict["answersCount"] as? Int {
                     self._answers = answers
                 }
                 if let reputation = profileDict["reputation"] as? Int {

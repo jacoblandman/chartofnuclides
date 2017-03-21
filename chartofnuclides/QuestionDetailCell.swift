@@ -24,9 +24,13 @@ class QuestionDetailCell: UITableViewCell {
     
     var post: Post!
     var userPosted: User!
+    var currentUser: User?
     
     var upVoteTap: UITapGestureRecognizer? = nil
     var downVoteTap: UITapGestureRecognizer? = nil
+    var flagTap: UITapGestureRecognizer? = nil
+    
+    var cellIndexPath: IndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,14 +38,15 @@ class QuestionDetailCell: UITableViewCell {
     
     func addFlagTap() {
         // flag tap
-        let flagTap = UITapGestureRecognizer(target: self, action: #selector(flagTapped))
-        flagTap.numberOfTapsRequired = 1
-        flagImgView.addGestureRecognizer(flagTap)
+        flagTap = UITapGestureRecognizer(target: self, action: #selector(flagTapped))
+        flagTap!.numberOfTapsRequired = 1
+        flagImgView.addGestureRecognizer(flagTap!)
         flagImgView.isUserInteractionEnabled = true
     }
     
     func flagTapped() {
-        delegate.callSegueFromCell(sender: post)
+        let dict = ["post": post, "cellIndexPath": cellIndexPath] as [String : Any]
+        delegate.callSegueFromCell(sender: dict)
     }
     
     func addDownVoteTap() {
@@ -57,6 +62,11 @@ class QuestionDetailCell: UITableViewCell {
         
         downVoteTap?.isEnabled = false
         upVoteTap?.isEnabled = false
+        
+        guard let currentUser = currentUser else { return }
+        
+        DataService.instance.logDownVote(post: post, userPosted: userPosted, currentUser: currentUser)
+        adjustVotes(addVote: false)
         
         arrowDownImgView.image = UIImage(named: "arrow_down_color")
         
@@ -76,12 +86,18 @@ class QuestionDetailCell: UITableViewCell {
         downVoteTap?.isEnabled = false
         upVoteTap?.isEnabled = false
         
+        guard let currentUser = currentUser else { return }
+        
+        DataService.instance.logUpVote(post: post, userPosted: userPosted, currentUser: currentUser)
+        adjustVotes(addVote: true)
+        
         arrowUpImgView.image = UIImage(named: "arrow_up_color")
         
     }
     
-    func update(post: Post, user: User, img: UIImage?, flagged: Bool, vote: VoteType, currentUser: User?) {
-        
+    func update(post: Post, user: User, img: UIImage?, flagged: Bool, vote: VoteType, currentUser: User?, cellIndexPath: IndexPath) {
+        self.cellIndexPath = cellIndexPath
+        self.currentUser = currentUser
         self.post = post
         self.userPosted = user
         
@@ -130,5 +146,16 @@ class QuestionDetailCell: UITableViewCell {
             break
             
         }
+    }
+    
+    func adjustVotes(addVote: Bool) {
+        post.adjustVotes(addVote: addVote)
+        votesLbl.text = "\(post.votes)"
+    }
+    
+    func markAsFlagged() {
+        flagTap?.isEnabled = false
+        flagTap = nil
+        flagImgView.image = UIImage(named: "flag_color")
     }
 }

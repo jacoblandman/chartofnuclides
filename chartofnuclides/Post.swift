@@ -106,6 +106,5 @@ class Post: NSObject {
         } else {
             _votes = _votes - 1
         }
-        _postRef.child("votes").setValue(_votes)
     }
 }

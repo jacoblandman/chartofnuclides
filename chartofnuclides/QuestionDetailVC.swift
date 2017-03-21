@@ -76,9 +76,16 @@ class QuestionDetailVC: UIViewController {
             }
         } else if segue.identifier == "FlagPostVC" {
             if let destination = segue.destination as? FlagPostVC {
-                if let post = sender as? Post {
-                    destination.post = post
-                    destination.currentUser = currentUser!
+                if let dict = sender as? Dictionary<String, Any> {
+                    if let post = dict["post"] as? Post {
+                        destination.post = post
+                        destination.currentUser = currentUser!
+                        destination.delegate = self
+                    }
+                    
+                    if let cellIndexPath = dict["cellIndexPath"] as? IndexPath {
+                        destination.cellIndexPath = cellIndexPath
+                    }
                 }
             }
         }
@@ -258,14 +265,14 @@ extension QuestionDetailVC: UITableViewDelegate, UITableViewDataSource {
                 let user = usersDict[question.uid]!
                 let flagged = flagsDict[question.postKey]!
                 let vote = votesDict[question.postKey]!
-                cell.update(post: question, user: user, img: imgsDict[user.uid], flagged: flagged, vote: vote, currentUser: currentUser)
+                cell.update(post: question, user: user, img: imgsDict[user.uid], flagged: flagged, vote: vote, currentUser: currentUser, cellIndexPath: indexPath)
             } else {
                 // all other cells are answers
                 let answer = answers[indexPath.row - 1]
                 let user = usersDict[answer.uid]!
                 let flagged = flagsDict[answer.postKey]!
                 let vote = votesDict[answer.postKey]!
-                cell.update(post: answer, user: user, img: imgsDict[user.uid], flagged: flagged, vote: vote, currentUser: currentUser)
+                cell.update(post: answer, user: user, img: imgsDict[user.uid], flagged: flagged, vote: vote, currentUser: currentUser, cellIndexPath: indexPath)
             }
         }
         
@@ -295,5 +302,14 @@ extension QuestionDetailVC: PerformSegueFromCellDelegate {
             performSegue(withIdentifier: "FlagPostVC", sender: sender)
         }
     }
+}
+
+extension QuestionDetailVC: SendDataToPreviousControllerDelegate {
     
+    func sendDataToA(data: Any) {
+        if let cellIndexPath = data as? IndexPath {
+            let cell = tableView.cellForRow(at: cellIndexPath) as! QuestionDetailCell
+            cell.markAsFlagged()
+        }
+    }
 }

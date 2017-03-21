@@ -11,9 +11,11 @@ import UIKit
 class FlagPostVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var delegate: SendDataToPreviousControllerDelegate!
     
     var post: Post!
     var currentUser: User!
+    var cellIndexPath: IndexPath!
     
     let questionReasons = ["Inappropriate content",
                            "Inappropriate profile image",
@@ -83,6 +85,17 @@ extension FlagPostVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func report(reason: String) {
-        
+        DataService.instance.flagPost(post: post, reason: reason) { (error) in
+            if error != nil {
+                let message = ErrorHandler.handleFirebaseError(error: error!)
+                let ac = UIAlertController(title: "Error please try again!", message: message, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(ac, animated: true, completion: nil)
+            } else {
+                // the report was successfull
+                self.delegate.sendDataToA(data: self.cellIndexPath)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }

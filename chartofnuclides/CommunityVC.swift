@@ -310,7 +310,7 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let question = questions[indexPath.row]
-        let dict = ["question": question, "currentUser": user as User?] as [String : Any]
+        let dict = ["question": question, "currentUser": user as Any] as [String : Any]
         performSegue(withIdentifier: "QuestionDetailVC", sender: dict)
     }
     
