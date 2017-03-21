@@ -35,11 +35,13 @@ class CommunityVC: UIViewController {
     var user: User?
     var imageIsSet: Bool = false
     
-    var questions = [Question]()
+    var questions = [Post]()
     var _startTimestamp: Int? = nil
     var startKey: String? = nil
     let questionsPerPage = 10
     var reachedBottom = false
+    
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +85,7 @@ class CommunityVC: UIViewController {
                     self.questions = []
                 }
                 
-                if let newQuestions = questionArray as? [Question] {
+                if let newQuestions = questionArray as? [Post] {
                     if newQuestions.count < self.questionsPerPage { self.tableView.tableFooterView = nil }
                     for question in newQuestions.reversed() {
                         self.questions.append(question)
@@ -196,8 +198,12 @@ class CommunityVC: UIViewController {
         } else if segue.identifier == "QuestionDetailVC" {
             if let destination = segue.destination as? QuestionDetailVC {
                 if let dict = sender as? Dictionary<String, Any> {
-                    if let question = dict["question"] as? Question {
+                    if let question = dict["question"] as? Post {
                         destination.question = question
+                    }
+                    
+                    if let user = dict["currentUser"] as? User? {
+                        destination.currentUser = user
                     }
                 }
             }
@@ -210,7 +216,7 @@ class CommunityVC: UIViewController {
         if FIRAuth.auth()?.currentUser != nil {
             performSegue(withIdentifier: "QuestionVC", sender: nil)
         } else {
-            let ac = UIAlertController(title: "Hault!", message: "You must be a member of the community to login!", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Hault!", message: "You must be a member of the community to post questions!", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Gotcha", style: .cancel, handler: nil))
             present(ac, animated: true, completion: nil)
         }
@@ -304,7 +310,7 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let question = questions[indexPath.row]
-        let dict = ["question": question]
+        let dict = ["question": question, "currentUser": user as User?] as [String : Any]
         performSegue(withIdentifier: "QuestionDetailVC", sender: dict)
     }
     

@@ -29,14 +29,20 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
         switch loginType! {
         case .login:
             fbTxtLbl.text = "LOGIN WITH FACEBOOK"
-            EmailTxtLbl.text = "LOGIN"
+            EmailTxtLbl.text = "LOGIN WITH EMAIL"
             break
         case .signUp:
             fbTxtLbl.text = "SIGN UP WITH FACEBOOK"
-            EmailTxtLbl.text = "SIGN UP"
+            EmailTxtLbl.text = "SIGN UP WITH EMAIL"
             break
             
         }
+    }
+    
+    func presentAlertWith(_ message: String) {
+        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(ac, animated: true)
     }
     
     @IBAction func emailLoginPressed(_ sender: Any) {
@@ -51,8 +57,11 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
             
             if let errMsg = errorMsg {
                 // if the user cancelled we don't need to do anything
-                print("JACOB: An error occured while logging in with facebook")
-                print(errMsg)
+                self.activityIndicatorView.isHidden = true
+                if errMsg != "User cancelled Facebook authentication" {
+                    self.presentAlertWith("An error occurred while attempting to login with Facebook. Please try again.")
+                }
+                
             } else {
                 
                 // facebook login was a success
@@ -89,7 +98,6 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
                 if let user = sender as? FIRUser {
                     destination.user = user
                 }
-                
             }
         }
     }

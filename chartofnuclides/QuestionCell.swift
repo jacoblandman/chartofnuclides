@@ -14,7 +14,7 @@ class QuestionCell: UITableViewCell {
     @IBOutlet weak var questionDescription: UILabel!
     @IBOutlet weak var mainView: InspectableShadowView!
     
-    var question: Question!
+    var question: Post!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +37,7 @@ class QuestionCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.default
     }
     
-    func update(question: Question) {
+    func update(question: Post) {
         
         self.question = question
         questionTitle.text = question.title

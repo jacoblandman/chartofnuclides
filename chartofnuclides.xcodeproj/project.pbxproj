@@ -43,13 +43,16 @@
 		AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */; };
 		AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */; };
 		AE8338DA1E7B1D5A00C8FBBA /* QuestionDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338D91E7B1D5A00C8FBBA /* QuestionDetailCell.swift */; };
-		AE8338DC1E7B1E4B00C8FBBA /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DB1E7B1E4B00C8FBBA /* Answer.swift */; };
 		AE8338DE1E7B348D00C8FBBA /* CustomFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DD1E7B348D00C8FBBA /* CustomFileManager.swift */; };
 		AE8338E01E7C50E700C8FBBA /* SignUpLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */; };
+		AE8338E21E80480400C8FBBA /* AddAnswerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E11E80480400C8FBBA /* AddAnswerVC.swift */; };
+		AE8338E61E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E51E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift */; };
+		AE8338E81E80A01F00C8FBBA /* FlagPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E71E80A01F00C8FBBA /* FlagPostVC.swift */; };
+		AE8338EA1E80A16C00C8FBBA /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E91E80A16C00C8FBBA /* ReportCell.swift */; };
 		AE8367191E770BA0005137A3 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367181E770BA0005137A3 /* QuestionVC.swift */; };
 		AE83671D1E7724F2005137A3 /* NewQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83671C1E7724F2005137A3 /* NewQuestionView.swift */; };
 		AE83671F1E79B7A6005137A3 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */; };
-		AE8367211E79BBFB005137A3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367201E79BBFB005137A3 /* Question.swift */; };
+		AE8367211E79BBFB005137A3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367201E79BBFB005137A3 /* Post.swift */; };
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
 		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
 		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
@@ -123,13 +126,16 @@
 		AE7DF1BD1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLGeneralWaveAnimation.swift; sourceTree = "<group>"; };
 		AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLWaveNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		AE8338D91E7B1D5A00C8FBBA /* QuestionDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDetailCell.swift; sourceTree = "<group>"; };
-		AE8338DB1E7B1E4B00C8FBBA /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		AE8338DD1E7B348D00C8FBBA /* CustomFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFileManager.swift; sourceTree = "<group>"; };
 		AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLoginVC.swift; sourceTree = "<group>"; };
+		AE8338E11E80480400C8FBBA /* AddAnswerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAnswerVC.swift; sourceTree = "<group>"; };
+		AE8338E51E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformSegueFromCellDelegate.swift; sourceTree = "<group>"; };
+		AE8338E71E80A01F00C8FBBA /* FlagPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagPostVC.swift; sourceTree = "<group>"; };
+		AE8338E91E80A16C00C8FBBA /* ReportCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		AE8367181E770BA0005137A3 /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		AE83671C1E7724F2005137A3 /* NewQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewQuestionView.swift; sourceTree = "<group>"; };
 		AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
-		AE8367201E79BBFB005137A3 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		AE8367201E79BBFB005137A3 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */,
+				AE8338E51E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -258,21 +265,13 @@
 		AE5EE0011E43FF2100EEAD8C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AE8338E31E80878E00C8FBBA /* Community */,
 				AE5EDFF11E43FF1B00EEAD8C /* MainVC.swift */,
 				AE776E651E536B1B00D3ADB0 /* DetailNuclideVC.swift */,
 				AE776E6F1E5390D900D3ADB0 /* CalculatorVC.swift */,
 				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
 				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
 				AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */,
-				AE4B34A61E61F3BC0083BB8B /* CommunityVC.swift */,
-				AE4B34AA1E649B960083BB8B /* LoginVC.swift */,
-				AE4B34AC1E64A2D20083BB8B /* ProfileVC.swift */,
-				AE4B34AE1E64A6400083BB8B /* EmailLoginVC.swift */,
-				AEBEFE461E64D6B7006331AB /* UsernameVC.swift */,
-				AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */,
-				AE8367181E770BA0005137A3 /* QuestionVC.swift */,
-				AEDAB46A1E7B17AB005E3B0E /* QuestionDetailVC.swift */,
-				AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -307,8 +306,7 @@
 				AEDF0EC21E5E17A6006FA58F /* UnitConversionTypeManager.swift */,
 				AE7DF1B31E5F4D4A00B686B5 /* UnitConversionManager.swift */,
 				AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */,
-				AE8367201E79BBFB005137A3 /* Question.swift */,
-				AE8338DB1E7B1E4B00C8FBBA /* Answer.swift */,
+				AE8367201E79BBFB005137A3 /* Post.swift */,
 				AE8338DD1E7B348D00C8FBBA /* CustomFileManager.swift */,
 			);
 			name = Model;
@@ -341,6 +339,7 @@
 				AEDF0EC41E5E2814006FA58F /* UnitCell.swift */,
 				AE4B34A81E61F6CD0083BB8B /* QuestionCell.swift */,
 				AE8338D91E7B1D5A00C8FBBA /* QuestionDetailCell.swift */,
+				AE8338E91E80A16C00C8FBBA /* ReportCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -361,6 +360,32 @@
 				AE7DF1BF1E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift */,
 			);
 			name = JLWaveAnimation;
+			sourceTree = "<group>";
+		};
+		AE8338E31E80878E00C8FBBA /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				AE8338E41E80879E00C8FBBA /* SignUp */,
+				AE4B34A61E61F3BC0083BB8B /* CommunityVC.swift */,
+				AE4B34AC1E64A2D20083BB8B /* ProfileVC.swift */,
+				AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */,
+				AE8367181E770BA0005137A3 /* QuestionVC.swift */,
+				AEDAB46A1E7B17AB005E3B0E /* QuestionDetailVC.swift */,
+				AE8338E11E80480400C8FBBA /* AddAnswerVC.swift */,
+				AE8338E71E80A01F00C8FBBA /* FlagPostVC.swift */,
+			);
+			name = Community;
+			sourceTree = "<group>";
+		};
+		AE8338E41E80879E00C8FBBA /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				AE4B34AA1E649B960083BB8B /* LoginVC.swift */,
+				AE4B34AE1E64A6400083BB8B /* EmailLoginVC.swift */,
+				AEBEFE461E64D6B7006331AB /* UsernameVC.swift */,
+				AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */,
+			);
+			name = SignUp;
 			sourceTree = "<group>";
 		};
 		AEB5D4421E44FCAC00A6D8DD /* Services */ = {
@@ -562,19 +587,19 @@
 				AEDF0EC51E5E2814006FA58F /* UnitCell.swift in Sources */,
 				AE183F551E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift in Sources */,
 				AECF21711E563B9C00FA4D4C /* MZMaskZoomTransition.m in Sources */,
-				AE8338DC1E7B1E4B00C8FBBA /* Answer.swift in Sources */,
 				AE4B34B11E64AA6D0083BB8B /* LoginField.swift in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
 				AE7DF1BA1E5F64EE00B686B5 /* ConversionButton.swift in Sources */,
 				AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */,
 				AE7DF1B41E5F4D4A00B686B5 /* UnitConversionManager.swift in Sources */,
 				AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */,
-				AE8367211E79BBFB005137A3 /* Question.swift in Sources */,
+				AE8367211E79BBFB005137A3 /* Post.swift in Sources */,
 				AE776E6E1E538F5800D3ADB0 /* PopupIsotopeCell.swift in Sources */,
 				AE7DF1BC1E5F757700B686B5 /* NSNumberExtension.swift in Sources */,
 				AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */,
 				AE83671D1E7724F2005137A3 /* NewQuestionView.swift in Sources */,
 				AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */,
+				AE8338E81E80A01F00C8FBBA /* FlagPostVC.swift in Sources */,
 				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
 				AEC28FE41E67A4B2002A60BE /* UIImageExtension.swift in Sources */,
@@ -594,12 +619,14 @@
 				AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */,
 				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
 				AEBEFE4D1E676F04006331AB /* ReauthenticateVC.swift in Sources */,
+				AE8338EA1E80A16C00C8FBBA /* ReportCell.swift in Sources */,
 				AEDF0EC31E5E17A6006FA58F /* UnitConversionTypeManager.swift in Sources */,
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
 				AEBEFE4F1E676F42006331AB /* ReauthenticateField.swift in Sources */,
 				AEBEFE471E64D6B7006331AB /* UsernameVC.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
 				AEDAB46B1E7B17AB005E3B0E /* QuestionDetailVC.swift in Sources */,
+				AE8338E61E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift in Sources */,
 				AEBEFE4B1E661D20006331AB /* InspectableRoundButton.swift in Sources */,
 				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
 				AE183F531E5CC94500C72291 /* FadeInAnimator.swift in Sources */,
@@ -617,6 +644,7 @@
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,
 				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
+				AE8338E21E80480400C8FBBA /* AddAnswerVC.swift in Sources */,
 				AE8338E01E7C50E700C8FBBA /* SignUpLoginVC.swift in Sources */,
 				AEBEFE431E64B129006331AB /* AuthService.swift in Sources */,
 				AE7DF1BE1E5F88A100B686B5 /* JLGeneralWaveAnimation.swift in Sources */,

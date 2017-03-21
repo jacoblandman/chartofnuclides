@@ -81,6 +81,8 @@ extension SignUpLoginVC: SendDataToPreviousControllerDelegate {
             user.loadUserInfo {
                 self.loadUserImage(user: user)
             }
+        } else {
+            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -89,6 +91,7 @@ extension SignUpLoginVC: SendDataToPreviousControllerDelegate {
             DataService.instance.getImage(fromURL: user.imageURL) { (error, image) in
                 if error != nil {
                     print("JACOB: Error downloading image from firebase storage")
+                    ErrorHandler.handleImageDownloadError(error: error!)
                 } else {
                     print("JACOB: Image download successful")
                     if let img = image {

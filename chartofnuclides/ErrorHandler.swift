@@ -32,4 +32,12 @@ class ErrorHandler: NSObject {
             return "Unknown error occurred. Please try again"
         }
     }
+    
+    static func handleDeletionError(error: NSError) {
+        
+    }
+    
+    static func handleImageDownloadError(error: NSError) {
+        
+    }
 }

@@ -142,6 +142,7 @@ class DataService {
         usersRef.child(uid).child("username").removeValue()
         usersRef.updateChildValues(["\(uid)/username/username": "User Unknown"])
         usersRef.child(uid).child("profile").removeValue()
+        usersRef.child(uid).child("votes").removeValue()
         
     }
     
@@ -188,6 +189,8 @@ class DataService {
                 print("JACOB: Image downloaded from Firebase storage")
                 if let imgData = data {
                     if let img = UIImage(data: imgData) {
+                        // everytime we get an image from firebase we can store it in the image cache
+                        CommunityVC.imageCache.setObject(img, forKey: url as NSString)
                         completed(nil, img)
                     }
                 }
@@ -195,32 +198,32 @@ class DataService {
         })
     }
     
-    func deleteImage(forURL url: String, completed: @escaping errorCompletion) {
+    func deleteImage(forURL url: String, completed: errorCompletion?) {
         
         guard url != "" else {
-            completed(nil)
+            completed?(nil)
             return
         }
         let ref = FIRStorage.storage().reference(forURL: url)
         
         ref.delete { (error) in
             if error != nil {
-                print("JACOB: Error deleting image")
-                completed(error as NSError?)
+                print("JACOB: Error deleting image: ", error!.localizedDescription)
+                completed?(error as NSError?)
             } else {
                 print("JACOB: Successfully deleted image from storage")
-                completed(nil)
+                completed?(nil)
             }
         }
     }
     
-    func submitQuestion(question: Question, completed: @escaping errorCompletion) {
+    func submitQuestion(question: Post, completed: @escaping errorCompletion) {
         
         // create the dictionary that will be posted to the database
         let newQuestion: Dictionary<String, AnyObject> = [
             "title": question.title as AnyObject,
             "body": question.body as AnyObject,
-            "userid": question.uid as AnyObject,
+            "uid": question.uid as AnyObject,
             "votes": question.votes as AnyObject,
             "timestamp": FIRServerValue.timestamp() as AnyObject
         ]
@@ -228,6 +231,38 @@ class DataService {
         // automatically get an id for the post
         let firebasePost = DataService.instance.questionsRef.childByAutoId()
         firebasePost.setValue(newQuestion) { (error, ref) in
+            if error != nil {
+                // an error occurred
+                completed(error as NSError?)
+            } else {
+                // no error occurred
+                completed(nil)
+            }
+        }
+    }
+    
+    func submitAnswer(answer: Post, for question: Post, completed: @escaping errorCompletion) {
+        
+        // create the dictionary that will be posted to the database
+        let newAnswer: Dictionary<String, AnyObject> = [
+            "body": answer.body as AnyObject,
+            "uid": answer.uid as AnyObject,
+            "votes": answer.votes as AnyObject,
+            "timestamp": FIRServerValue.timestamp() as AnyObject
+        ]
+        
+        // automatically get an id for the post
+        let answerKey = answersRef.childByAutoId().key
+        
+        // we also need to adjust the users rep for submitting an answer
+        let newReputation = 10
+        
+        // we also need to add this posts id to the questions answers
+        let firebasePosts = ["questions/\(question.postKey)/answers/\(answerKey)": newAnswer,
+                             "users/\(answer.uid)/profile/reputation": newReputation] as [String : Any]
+        
+        // now update everything at once
+        mainRef.updateChildValues(firebasePosts) { (error, ref) in
             if error != nil {
                 // an error occurred
                 completed(error as NSError?)
@@ -262,15 +297,42 @@ class DataService {
             }
             
             // now do something with the children
-            var newQuestions = [Question]()
+            var newQuestions = [Post]()
             for child in children {
                 if let questionDict = child.value as? Dictionary<String, AnyObject> {
-                    newQuestions.append(Question(questionKey: child.key, questionData: questionDict))
+                    newQuestions.append(Post(postKey: child.key, postData: questionDict, postType: .question))
                 }
             }
             
             completed(nil, newQuestions)
         })
         
+    }
+    
+    func loadAnswers(for question: Post, completed: @escaping errorArrayCompletion) {
+        // first we need the answer keys associated with the questions
+        questionsRef.child(question.postKey).child("answers").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                guard let children = snapshot.children.allObjects as? [FIRDataSnapshot] else {
+                    // handle error here
+                    let error = NSError()
+                    completed(error, nil)
+                    return
+                }
+                
+                var answers = [Post]()
+                for child in children {
+                    if let answerDict = child.value as? Dictionary<String, AnyObject> {
+                        print("APPENDING ANSWER")
+                        answers.append(Post(postKey: child.key, postData: answerDict, postType: .answer))
+                    }
+                }
+                
+                completed(nil, answers)
+            } else {
+                // the snapshot didn't exist
+                completed(nil, [])
+            }
+        })
     }
 }

@@ -69,7 +69,7 @@ class QuestionVC: UIViewController {
             questionView.isHidden = true
             activityMonitorView.isHidden = false
             
-            let newQuestion = Question(title: titleTextView.text, body: bodyTextView.text, uid: user.uid, votes: 0)
+            let newQuestion = Post(title: titleTextView.text, body: bodyTextView.text, uid: user.uid, votes: 0, postType: .question)
             
             DataService.instance.submitQuestion(question: newQuestion, completed: { (error) in
                 

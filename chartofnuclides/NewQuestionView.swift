@@ -10,8 +10,6 @@ import UIKit
 
 class NewQuestionView: UIView {
     
-    @IBOutlet weak var maskContentView: UIView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         

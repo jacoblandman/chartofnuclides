@@ -91,13 +91,19 @@ class ProfileVC: UIViewController {
     @IBAction func deleteAccountPressed(_ sender: Any) {
         // present action controller to verify user wants to log out
 
-        guard let uid = user?.uid, let username = user?.username else { return }
+        guard let uid = user?.uid, let username = user?.username, let imageURL = user?.imageURL else { return }
         
         let ac = UIAlertController(title: "Deleting Account", message: "Are you sure about this? There is no going back...", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         ac.addAction(UIAlertAction(title: "Yes, I'm sure", style: .default, handler: { (alert: UIAlertAction!) in
-            AuthService.instance.deleteCurrentUser(uid: uid, username: username, completed: { (errorCode) in
-                self.handle(errorCode)
+            AuthService.instance.deleteCurrentUser(uid: uid, username: username, imageURL: imageURL, completed: { (error) in
+                
+                if error != nil {
+                    ErrorHandler.handleDeletionError(error: error!)
+                } else {
+                    CustomFileManager.removeCurrentImage()
+                    self.dismiss(animated: true, completion: nil)
+                }
             })
         }))
             
@@ -168,32 +174,6 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
     }
     
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
-        //self.profileImgView.image = croppedImage.resizeWith(width: 150)
-        self.profileImgView.image = croppedImage
-        if let user = user {
-            
-            let oldImageURL = user.imageURL
-            
-            DataService.instance.deleteImage(forURL: oldImageURL, completed: { (error) in
-                if error != nil {
-                    print("JACOB: Error deleting old image. Please try again.")
-                } else {
-                    // continue on and set the new image
-                    DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
-                        if error == nil && url != nil {
-                            self.user?.imageURL = url!
-                            let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
-                            self.delegate?.sendDataToA(data: dict)
-                        }
-                    })
-                }
-            })
-        }
-        
-        imagePicker.dismiss(animated: false, completion: nil)
-        self.presentedViewController?.dismiss(animated: true, completion: nil)
-        
-        
     }
     
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {

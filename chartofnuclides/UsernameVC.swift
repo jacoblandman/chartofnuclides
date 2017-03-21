@@ -24,6 +24,13 @@ class UsernameVC: UIViewController {
 
     }
     
+    func presentAlertWith(_ error: NSError) {
+        let message = ErrorHandler.handleFirebaseError(error: error)
+        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(ac, animated: true)
+    }
+    
     @IBAction func finishLoggingInPressed(_ sender: Any) {
         guard let username = usernameField.text, username.characters.count > 6 else {
             // present a message to the user
@@ -38,6 +45,8 @@ class UsernameVC: UIViewController {
                 self.usernameMessageLbl.text = "Username already taken..."
                 return
             }
+            
+            DataService.instance.saveUser(uid: self.user.uid)
             
             // now segue to the profile VC
             if let presentingVC = self.presentingViewController?.presentingViewController?.presentingViewController {
@@ -55,14 +64,21 @@ class UsernameVC: UIViewController {
     @IBAction func xPressed(_ sender: Any) {
         
         view.endEditing(true)
-        let ac = UIAlertController(title: "Cancel Sign Up", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Cancel sign up", message: nil, preferredStyle: .alert)
+        
         ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert: UIAlertAction!) in
-            AuthService.instance.deleteCurrentUser(uid: FIRAuth.auth()!.currentUser!.uid, username: nil, completed: nil)
-            self.dismissView()
+
+            AuthService.instance.deleteCurrentUser(uid: self.user.uid, username: nil, imageURL: "", completed: { (error) in
+                if error != nil {
+                    self.presentAlertWith(error!)
+                    return
+                } else {
+                    self.dismissView()
+                }
+            })
         }))
         
         ac.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        
         present(ac, animated: true, completion: nil)
         
     }
@@ -78,6 +94,8 @@ class UsernameVC: UIViewController {
         } else {
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }
+        // this is just going to make the view controller dismiss
+        delegate?.sendDataToA(data: "")
     }
     
 }
