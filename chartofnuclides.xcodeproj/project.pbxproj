@@ -70,6 +70,8 @@
 		AEBEFE4D1E676F04006331AB /* ReauthenticateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */; };
 		AEBEFE4F1E676F42006331AB /* ReauthenticateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */; };
 		AEC28FE41E67A4B2002A60BE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC28FE31E67A4B2002A60BE /* UIImageExtension.swift */; };
+		AEC2B8801E83229000A1D35D /* CustomAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B87F1E83229000A1D35D /* CustomAC.swift */; };
+		AEC2B8831E83253D00A1D35D /* ACAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B8821E83253D00A1D35D /* ACAnimator.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
 		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
@@ -153,6 +155,8 @@
 		AEBEFE4C1E676F04006331AB /* ReauthenticateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReauthenticateVC.swift; sourceTree = "<group>"; };
 		AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReauthenticateField.swift; sourceTree = "<group>"; };
 		AEC28FE31E67A4B2002A60BE /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		AEC2B87F1E83229000A1D35D /* CustomAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAC.swift; sourceTree = "<group>"; };
+		AEC2B8821E83253D00A1D35D /* ACAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAnimator.swift; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 		AE183F511E5CC93800C72291 /* Animators */ = {
 			isa = PBXGroup;
 			children = (
+				AEC2B8811E83251D00A1D35D /* CustomACAnimation */,
 				AE7DF1C21E5F8D7000B686B5 /* JLWaveAnimation */,
 				AE7DF1C11E5F8D6300B686B5 /* FadeIn */,
 			);
@@ -272,6 +277,7 @@
 				AE776E6B1E538CAE00D3ADB0 /* PopupSearchVC.swift */,
 				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
 				AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */,
+				AEC2B87F1E83229000A1D35D /* CustomAC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -395,6 +401,14 @@
 				AEBEFE421E64B129006331AB /* AuthService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		AEC2B8811E83251D00A1D35D /* CustomACAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				AEC2B8821E83253D00A1D35D /* ACAnimator.swift */,
+			);
+			name = CustomACAnimation;
 			sourceTree = "<group>";
 		};
 		AECD26521E551DAF00282462 /* Extensions */ = {
@@ -590,6 +604,7 @@
 				AE4B34B11E64AA6D0083BB8B /* LoginField.swift in Sources */,
 				AEB5D4501E45290600A6D8DD /* ShadowTabBar.swift in Sources */,
 				AE7DF1BA1E5F64EE00B686B5 /* ConversionButton.swift in Sources */,
+				AEC2B8831E83253D00A1D35D /* ACAnimator.swift in Sources */,
 				AE183F5C1E5CEBCA00C72291 /* DoubleRoundExtension.swift in Sources */,
 				AE7DF1B41E5F4D4A00B686B5 /* UnitConversionManager.swift in Sources */,
 				AED614E01E5BBE95008BA18C /* UIView+LeoMaskAnimation.m in Sources */,
@@ -600,6 +615,7 @@
 				AE83671D1E7724F2005137A3 /* NewQuestionView.swift in Sources */,
 				AEF0AA331E58F8380061F998 /* UIColor+Initializers.swift in Sources */,
 				AE8338E81E80A01F00C8FBBA /* FlagPostVC.swift in Sources */,
+				AEC2B8801E83229000A1D35D /* CustomAC.swift in Sources */,
 				AE776E621E5367C500D3ADB0 /* InspectableShadowView.swift in Sources */,
 				AEB5D44E1E451E3E00A6D8DD /* BorderlessSearchBar.swift in Sources */,
 				AEC28FE41E67A4B2002A60BE /* UIImageExtension.swift in Sources */,

@@ -87,6 +87,7 @@ class QuestionDetailVC: UIViewController {
                     if let question = dict["question"] as? Post {
                         destination.question = question
                     }
+                    destination.delegate = self
                 }
             }
         } else if segue.identifier == "FlagPostVC" {
@@ -349,5 +350,9 @@ extension QuestionDetailVC: SendDataToPreviousControllerDelegate {
             let cell = tableView.cellForRow(at: cellIndexPath) as! QuestionDetailCell
             cell.markAsFlagged()
         }
+    }
+    
+    func signalRefresh() {
+        self.refreshView()
     }
 }

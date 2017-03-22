@@ -8,4 +8,12 @@
 
 protocol SendDataToPreviousControllerDelegate {
     func sendDataToA(data: Any)
+    func signalRefresh()
+}
+
+// default implementation for optional functions
+extension SendDataToPreviousControllerDelegate {
+    func signalRefresh() {
+        
+    }
 }
