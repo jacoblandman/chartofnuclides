@@ -20,28 +20,51 @@ class QuestionDetailCell: UITableViewCell {
     @IBOutlet weak var flagImgView: UIImageView!
     @IBOutlet weak var reputationLbl: UILabel!
     
-    var delegate: PerformSegueFromCellDelegate!
+    var delegate: CellToVCCommunicationDelegate!
     
     var post: Post!
     var userPosted: User!
     var currentUser: User?
     
-    var upVoteTap: UITapGestureRecognizer? = nil
-    var downVoteTap: UITapGestureRecognizer? = nil
-    var flagTap: UITapGestureRecognizer? = nil
+    var downVoteTap: UITapGestureRecognizer!
+    var upVoteTap: UITapGestureRecognizer!
+    var flagTap: UITapGestureRecognizer!
     
     var cellIndexPath: IndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.isUserInteractionEnabled = true
+        
+        addFlagTapGesture()
+        addDownVoteTapGesture()
+        addUpVoteTapGesture()
+        
+        upVoteTap.isEnabled = false
+        downVoteTap.isEnabled = false
     }
     
-    func addFlagTap() {
+    func addFlagTapGesture() {
         // flag tap
         flagTap = UITapGestureRecognizer(target: self, action: #selector(flagTapped))
-        flagTap!.numberOfTapsRequired = 1
-        flagImgView.addGestureRecognizer(flagTap!)
+        flagTap.numberOfTapsRequired = 1
+        flagImgView.addGestureRecognizer(flagTap)
         flagImgView.isUserInteractionEnabled = true
+    }
+    
+    func addUpVoteTapGesture() {
+        upVoteTap = UITapGestureRecognizer(target: self, action: #selector(upVoteTapped))
+        upVoteTap.numberOfTapsRequired = 1
+        arrowUpImgView.addGestureRecognizer(upVoteTap)
+        arrowUpImgView.isUserInteractionEnabled = true
+    }
+    
+    func addDownVoteTapGesture() {
+        downVoteTap = UITapGestureRecognizer(target: self, action: #selector(downVoteTapped))
+        downVoteTap.numberOfTapsRequired = 1
+        arrowDownImgView.addGestureRecognizer(downVoteTap)
+        arrowDownImgView.isUserInteractionEnabled = true
     }
     
     func flagTapped() {
@@ -49,57 +72,73 @@ class QuestionDetailCell: UITableViewCell {
         delegate.callSegueFromCell(sender: dict)
     }
     
-    func addDownVoteTap() {
-        downVoteTap = UITapGestureRecognizer(target: self, action: #selector(downVoteTapped))
-        downVoteTap!.numberOfTapsRequired = 1
-        arrowDownImgView.addGestureRecognizer(downVoteTap!)
-        arrowDownImgView.isUserInteractionEnabled = true
-    }
-    
     func downVoteTapped(sender: UITapGestureRecognizer) {
+        
         // disenable both the down and upvote taps
         // the user can only vote once
-        
-        downVoteTap?.isEnabled = false
-        upVoteTap?.isEnabled = false
-        
-        guard let currentUser = currentUser else { return }
-        
-        DataService.instance.logDownVote(post: post, userPosted: userPosted, currentUser: currentUser)
-        adjustVotes(addVote: false)
+        downVoteTap.isEnabled = false
+        upVoteTap.isEnabled = false
         
         arrowDownImgView.image = UIImage(named: "arrow_down_color")
-        
-    }
-    
-    func addUpVoteTap() {
-        upVoteTap = UITapGestureRecognizer(target: self, action: #selector(upVoteTapped))
-        upVoteTap!.numberOfTapsRequired = 1
-        arrowUpImgView.addGestureRecognizer(upVoteTap!)
-        arrowUpImgView.isUserInteractionEnabled = true
-    }
-    
-    func upVoteTapped(sender: UITapGestureRecognizer) {
-        // disenable both the down and upvote taps
-        // the user can only vote once
-        
-        downVoteTap?.isEnabled = false
-        upVoteTap?.isEnabled = false
+        adjustVotes(addVote: false)
         
         guard let currentUser = currentUser else { return }
         
-        DataService.instance.logUpVote(post: post, userPosted: userPosted, currentUser: currentUser)
-        adjustVotes(addVote: true)
+        delegate.addDownvote(postKey: post.postKey)
+        
+        DataService.instance.logDownVote(post: post, userPosted: userPosted, currentUser: currentUser) { 
+            self.arrowDownImgView.image = UIImage(named: "arrow_down")
+            self.downVoteTap.isEnabled = true
+            self.upVoteTap.isEnabled = true
+            self.adjustVotes(addVote: true)
+            self.delegate.removeDownvote(postKey: self.post.postKey)
+            return
+        }
+    }
+
+    func upVoteTapped(sender: UITapGestureRecognizer) {
+        
+        // disenable both the down and upvote taps
+        // the user can only vote once
+        downVoteTap.isEnabled = false
+        upVoteTap.isEnabled = false
         
         arrowUpImgView.image = UIImage(named: "arrow_up_color")
+        adjustVotes(addVote: true)
         
+        guard let currentUser = currentUser else { return }
+        
+        delegate.addUpvote(postKey: post.postKey)
+        
+        DataService.instance.logUpVote(post: post, userPosted: userPosted, currentUser: currentUser) {
+            self.arrowUpImgView.image = UIImage(named: "arrow_up")
+            self.downVoteTap.isEnabled = true
+            self.upVoteTap.isEnabled = true
+            self.adjustVotes(addVote: false)
+            self.delegate.removeUpVote(postKey: self.post.postKey)
+            return
+        }
     }
     
-    func update(post: Post, user: User, img: UIImage?, flagged: Bool, vote: VoteType, currentUser: User?, cellIndexPath: IndexPath) {
+    func markAsFlagged() {
+        flagTap.isEnabled = false
+        flagImgView.image = UIImage(named: "flag_color")
+        delegate.addFlag(postKey: post.postKey)
+    }
+    
+    func adjustVotes(addVote: Bool) {
+        post.adjustVotes(addVote: addVote)
+        votesLbl.text = "\(post.votes)"
+    }
+    
+    func update(post: Post, userPosted: User, img: UIImage?,
+                currentUser: User?, cellIndexPath: IndexPath,
+                flagged: Bool, downvoted: Bool, upvoted: Bool) {
+        
         self.cellIndexPath = cellIndexPath
         self.currentUser = currentUser
         self.post = post
-        self.userPosted = user
+        self.userPosted = userPosted
         
         if let title = post.title {
             titleLbl.text = title
@@ -113,49 +152,41 @@ class QuestionDetailCell: UITableViewCell {
             profileImageView.image = UIImage(named: "profile_icon_big")
         }
                 
-        profileUsernameLbl.text = user.username
-        reputationLbl.text = "\(user.reputation)"
+        profileUsernameLbl.text = userPosted.username
+        reputationLbl.text = "\(userPosted.reputation)"
         votesLbl.text = "\(post.votes)"
         
+        // decide if to enable the flag
         if flagged {
             flagImgView.image = UIImage(named: "flag_color")
+            flagTap.isEnabled = false
         } else {
+            flagImgView.image = UIImage(named: "flag_white")
             if currentUser != nil {
-                addFlagTap()
+                flagTap.isEnabled = true
             }
         }
         
-        switch vote {
-        case .none:
+        // decide if to enable the upvote and downvote buttons
+        if upvoted {
+            arrowUpImgView.image = UIImage(named: "arrow_up_color")
+            arrowDownImgView.image = UIImage(named: "arrow_down")
+            
+            upVoteTap.isEnabled = false
+            downVoteTap.isEnabled = false
+        } else if downvoted {
+            arrowUpImgView.image = UIImage(named: "arrow_up")
+            arrowDownImgView.image = UIImage(named: "arrow_down_color")
+
+            upVoteTap.isEnabled = false
+            downVoteTap.isEnabled = false
+        } else {
             arrowUpImgView.image = UIImage(named: "arrow_up")
             arrowDownImgView.image = UIImage(named: "arrow_down")
             if currentUser != nil {
-                addUpVoteTap()
-                addDownVoteTap()
+                upVoteTap.isEnabled = true
+                downVoteTap.isEnabled = true
             }
-            break
-            
-        case .upVote:
-            arrowUpImgView.image = UIImage(named: "arrow_up_color")
-            arrowDownImgView.image = UIImage(named: "arrow_down")
-            break
-            
-        case .downVote:
-            arrowUpImgView.image = UIImage(named: "arrow_up")
-            arrowDownImgView.image = UIImage(named: "arrow_down_color")
-            break
-            
         }
-    }
-    
-    func adjustVotes(addVote: Bool) {
-        post.adjustVotes(addVote: addVote)
-        votesLbl.text = "\(post.votes)"
-    }
-    
-    func markAsFlagged() {
-        flagTap?.isEnabled = false
-        flagTap = nil
-        flagImgView.image = UIImage(named: "flag_color")
     }
 }

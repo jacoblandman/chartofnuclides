@@ -20,23 +20,38 @@ class QuestionDetailVC: UIViewController {
     @IBOutlet weak var loadingTableView: UITableView!
     @IBOutlet weak var activityMonitroView: InspectableBorderView!
     @IBOutlet weak var tableView: UITableView!
+    
+    var refreshControl: UIRefreshControl!
+    
     var question: Post!
     var answers = [Post]()
     
     var postKeyDict = [String: String]()
     var usersDict = [String: User]()
     var imgsDict = [String: UIImage]()
-    var flagsDict = [String: Bool]()
-    var votesDict = [String: VoteType]()
+    
+    var flags = [String]()
+    var upvotes = [String]()
+    var downvotes = [String]()
     
     var flagsLoaded = false
-    var votesLoaded = false
+    var upvotesLoaded = false
+    var downvotesLoaded = false
     var imagesLoaded = false
     
     var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // initialize the refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = GRAY_COLOR
+        refreshControl.addTarget(self, action: #selector(refreshView), for: UIControlEvents.valueChanged)
+        
+        tableView.refreshControl = refreshControl
+        tableView.delegate = self
+        tableView.dataSource = self
         
         // the loadingTableView is a fake one that will show while the data is loading
         // for now this will show 0 cells, but in the future it could show cells like facebook
@@ -96,6 +111,10 @@ class QuestionDetailVC: UIViewController {
             if error != nil {
                 self.presentAlertController(for: error!)
             } else {
+                
+                // empty the answers array
+                self.answers = []
+                
                 if let answers = answers as? [Post] {
                     for answer in answers {
                         self.answers.append(answer)
@@ -115,48 +134,34 @@ class QuestionDetailVC: UIViewController {
     }
     
     func loadFlagsAndVotes() {
-        if let auth = FIRAuth.auth() {
-            if let currentUser = auth.currentUser {
-                for key in Array(postKeyDict.keys) {
-                    let flagRef = DataService.instance.usersRef.child(currentUser.uid).child("flags").child(key)
-                    flagRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let _ = snapshot.value as? NSNull {
-                            // set flags dict value to false
-                            self.flagsDict[key] = false
-                            self.checkIfNeedsReload(count: nil)
-                        } else {
-                            self.flagsDict[key] = true
-                            self.checkIfNeedsReload(count: nil)
-                        }
-                    })
-                    
-                    let votesRef = DataService.instance.usersRef.child(currentUser.uid).child("votes").child(key)
-                    votesRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let _ = snapshot.value as? NSNull {
-                            // set flags dict value to false
-                            self.votesDict[key] = VoteType.none
-                            self.checkIfNeedsReload(count: nil)
-                        } else {
-                            if let voteType = snapshot.value as? String {
-                                if voteType == "upvote" {
-                                    self.votesDict[key] = VoteType.upVote
-                                } else {
-                                    self.votesDict[key] = VoteType.downVote
-                                }
-                            }
-                            self.checkIfNeedsReload(count: nil)
-                        }
-                    })
-                }
+        // we know current user is not nil at this point
+        DataService.instance.loadFlags(uid: currentUser!.uid) { (error, arr) in
+            if let flagsArray = arr as? [String] {
+                self.flags = flagsArray
+                print(self.flags)
+                self.flagsLoaded = true
+                self.checkIfNeedsReload(count: nil)
             }
         }
-    }
-    
-    func setVotesAndFlagsToNone() {
-        for key in Array(postKeyDict.keys) {
-            flagsDict[key] = false
-            votesDict[key] = VoteType.none
+        
+        DataService.instance.loadUpVotes(uid: currentUser!.uid) { (error, arr) in
+            if let upvotesArray = arr as? [String] {
+                self.upvotes = upvotesArray
+                print(self.upvotes)
+                self.upvotesLoaded = true
+                self.checkIfNeedsReload(count: nil)
+            }
         }
+        
+        DataService.instance.loadDownVotes(uid: currentUser!.uid) { (error, arr) in
+            if let downvotesArray = arr as? [String] {
+                self.downvotes = downvotesArray
+                print(self.downvotes)
+                self.downvotesLoaded = true
+                self.checkIfNeedsReload(count: nil)
+            }
+        }
+        
     }
     
     func loadUserData() {
@@ -181,8 +186,8 @@ class QuestionDetailVC: UIViewController {
             loadFlagsAndVotes()
         } else {
             flagsLoaded = true
-            votesLoaded = true
-            setVotesAndFlagsToNone()
+            upvotesLoaded = true
+            downvotesLoaded = true
         }
         
         // now we need to load each users info
@@ -215,13 +220,6 @@ class QuestionDetailVC: UIViewController {
     
     func checkIfNeedsReload(count: Int?) {
         
-        
-        if !flagsLoaded {
-            if flagsDict.count == answers.count + 1 {
-                flagsLoaded = true
-            }
-        }
-        
         if !imagesLoaded {
             if let count = count {
                 if count == usersDict.count {
@@ -230,19 +228,14 @@ class QuestionDetailVC: UIViewController {
             }
         }
         
-        if !votesLoaded {
-            if votesDict.count == answers.count + 1 {
-                votesLoaded = true
-            }
-        }
-        
-        if flagsLoaded && votesLoaded && imagesLoaded {
+        if flagsLoaded && upvotesLoaded && downvotesLoaded && imagesLoaded {
             tableView.reloadData()
             
             loadingTableView.isHidden = true
             activityMonitroView.isHidden = true
             tableView.isHidden = false
             
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -251,6 +244,14 @@ class QuestionDetailVC: UIViewController {
         let ac = UIAlertController(title: "Error please try loading again", message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         self.present(ac, animated: true, completion: nil)
+    }
+    
+    func refreshView() {
+        flagsLoaded = false
+        upvotesLoaded = false
+        downvotesLoaded = false
+        imagesLoaded = false
+        self.loadAnswers()
     }
     
 }
@@ -262,22 +263,33 @@ extension QuestionDetailVC: UITableViewDelegate, UITableViewDataSource {
         if !tableView.isHidden {
             if indexPath.row == 0 {
                 // first cell is the question
-                let user = usersDict[question.uid]!
-                let flagged = flagsDict[question.postKey]!
-                let vote = votesDict[question.postKey]!
-                cell.update(post: question, user: user, img: imgsDict[user.uid], flagged: flagged, vote: vote, currentUser: currentUser, cellIndexPath: indexPath)
+                if let user = usersDict[question.uid] {
+                    let flagged = flags.contains(question.postKey)
+                    let downvoted = downvotes.contains(question.postKey)
+                    let upvoted = upvotes.contains(question.postKey)
+                    cell.update(post: question, userPosted: user, img: imgsDict[user.uid],
+                                currentUser: currentUser, cellIndexPath: indexPath,
+                                flagged: flagged, downvoted: downvoted, upvoted: upvoted)
+                } else {
+                    return cell
+                }
             } else {
                 // all other cells are answers
                 let answer = answers[indexPath.row - 1]
-                let user = usersDict[answer.uid]!
-                let flagged = flagsDict[answer.postKey]!
-                let vote = votesDict[answer.postKey]!
-                cell.update(post: answer, user: user, img: imgsDict[user.uid], flagged: flagged, vote: vote, currentUser: currentUser, cellIndexPath: indexPath)
+                if let user = usersDict[answer.uid] {
+                    let flagged = flags.contains(answer.postKey)
+                    let downvoted = downvotes.contains(answer.postKey)
+                    let upvoted = upvotes.contains(answer.postKey)
+                    cell.update(post: answer, userPosted: user, img: imgsDict[user.uid],
+                                currentUser: currentUser, cellIndexPath: indexPath,
+                                flagged: flagged, downvoted: downvoted, upvoted: upvoted)
+                } else {
+                    return cell
+                }
             }
         }
         
         cell.delegate = self
-        
         return cell
     }
     
@@ -294,7 +306,7 @@ extension QuestionDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension QuestionDetailVC: PerformSegueFromCellDelegate {
+extension QuestionDetailVC: CellToVCCommunicationDelegate {
     
     func callSegueFromCell(sender: Any?) {
         // double check that the current user is not nil 
@@ -302,6 +314,32 @@ extension QuestionDetailVC: PerformSegueFromCellDelegate {
             performSegue(withIdentifier: "FlagPostVC", sender: sender)
         }
     }
+    
+    func addFlag(postKey: String) {
+        flags.append(postKey)
+    }
+    
+    func addDownvote(postKey: String) {
+        downvotes.append(postKey)
+    }
+    
+    func addUpvote(postKey: String) {
+        upvotes.append(postKey)
+    }
+    
+    func removeUpVote(postKey: String) {
+        if let index = upvotes.index(of: postKey) {
+            upvotes.remove(at: index)
+        }
+    }
+    
+    func removeDownvote(postKey: String) {
+        if let index = downvotes.index(of: postKey) {
+            downvotes.remove(at: index)
+        }
+    }
+    
+    
 }
 
 extension QuestionDetailVC: SendDataToPreviousControllerDelegate {

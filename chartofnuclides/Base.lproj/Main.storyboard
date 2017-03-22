@@ -1064,7 +1064,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="277" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVk-u2-3gQ" id="ba3-wY-GUm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="276.66666666666663" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="angle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlD-bx-eKd">
@@ -2386,7 +2386,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mOn-Sf-tYc" id="L8m-5a-ATa">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inappropriate Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26k-ha-dHC">
@@ -2483,14 +2483,14 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_up" translatesAutoresizingMaskIntoConstraints="NO" id="Oee-b4-aQd">
+                                                        <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_up" translatesAutoresizingMaskIntoConstraints="NO" id="Oee-b4-aQd">
                                                             <rect key="frame" x="361" y="8" width="25" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="cNp-2r-CJK"/>
                                                                 <constraint firstAttribute="width" constant="25" id="uvd-La-kdn"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="idd-JV-CJs">
+                                                        <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="idd-JV-CJs">
                                                             <rect key="frame" x="361" y="43" width="25" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="bGW-QH-9Np"/>
@@ -2507,7 +2507,7 @@
                                                             <color key="textColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_white" translatesAutoresizingMaskIntoConstraints="NO" id="IEH-Ck-3Ts">
+                                                        <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_white" translatesAutoresizingMaskIntoConstraints="NO" id="IEH-Ck-3Ts">
                                                             <rect key="frame" x="322" y="8" width="31" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="DjK-cV-SKw"/>

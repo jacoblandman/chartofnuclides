@@ -85,7 +85,7 @@ extension FlagPostVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func report(reason: String) {
-        DataService.instance.flagPost(post: post, reason: reason) { (error) in
+        DataService.instance.flagPost(post: post, reason: reason, uid: currentUser.uid) { (error) in
             if error != nil {
                 let message = ErrorHandler.handleFirebaseError(error: error!)
                 let ac = UIAlertController(title: "Error please try again!", message: message, preferredStyle: .alert)

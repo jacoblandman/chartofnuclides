@@ -13,8 +13,10 @@ let FIR_CHILD_USERS = "users"
 let FIR_CHILD_USERNAMES = "usernames"
 let FIR_CHILD_QUESTIONS = "questions"
 let FIR_CHILD_ANSWERS = "answers"
-let FIR_CHILD_DETAILS = "applicationDetails"
-let FIR_CHILD_FLAGS = "flags"
+let FIR_CHILD_FLAGREASONS = "flagDescriptions"
+let FIR_CHILD_FLAGTALLIES = "flagTallies"
+let FIR_CHILD_UPVOTES = "upvotes"
+let FIR_CHILD_DOWNVOTES = "downvotes"
 let FILENAME_NUCLIDES = "nuclides"
 let FILE_EXTENSION_NUCLIDES = "json"
 
@@ -52,20 +54,24 @@ class DataService {
         return mainRef.child(FIR_CHILD_QUESTIONS)
     }
     
-    var flagQuestionRef: FIRDatabaseReference {
-        return mainRef.child(FIR_CHILD_FLAGS).child(FIR_CHILD_QUESTIONS)
-    }
-    
-    var flagAnswerRef: FIRDatabaseReference {
-        return mainRef.child(FIR_CHILD_FLAGS).child(FIR_CHILD_ANSWERS)
-    }
-    
     var answersRef: FIRDatabaseReference {
         return mainRef.child(FIR_CHILD_ANSWERS)
     }
     
-    var applicationDetailsRef: FIRDatabaseReference {
-        return mainRef.child(FIR_CHILD_DETAILS)
+    var flagReasonsRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_FLAGREASONS)
+    }
+    
+    var flagTalliesRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_FLAGTALLIES)
+    }
+    
+    var upvotesRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_UPVOTES)
+    }
+    
+    var downvotesRef: FIRDatabaseReference {
+        return mainRef.child(FIR_CHILD_DOWNVOTES)
     }
     
     var mainStorageRef: FIRStorageReference {
@@ -245,12 +251,11 @@ class DataService {
                 completed(error as NSError?)
             } else {
                 // no error occurred
+                self.incrementRep(uid: question.uid, by: 5)
+                self.incrementQuestionsTally(uid: question.uid)
                 completed(nil)
             }
         }
-        
-        incrementRep(uid: question.uid, by: 5)
-        incrementQuestionsTally(uid: question.uid)
     }
     
     func submitAnswer(answer: Post, for question: Post, completed: @escaping errorCompletion) {
@@ -266,39 +271,42 @@ class DataService {
         
         // automatically get an id for the post
         let answerKey = answersRef.childByAutoId().key
-        
-        // we also need to adjust the users rep for submitting an answer
-//        let newReputation = 10
-        
-//        // we also need to add this posts id to the questions answers
-//        let firebasePosts = ["questions/\(question.postKey)/answers/\(answerKey)": true,
-//                             "answers/\(answerKey)": newAnswer,
-//                             "users/\(answer.uid)/profile/reputation": newReputation] as [String : Any]
 
         // we also need to add this posts id to the questions answers
-        let firebasePosts = ["questions/\(question.postKey)/answers/\(answerKey)": true,
-                             "answers/\(answerKey)": newAnswer] as [String : Any]
+        let childPosts = ["\(FIR_CHILD_ANSWERS)/\(answerKey)": newAnswer] as [String : Any]
         
         // now update everything at once
-        mainRef.updateChildValues(firebasePosts) { (error, ref) in
+        mainRef.updateChildValues(childPosts) { (error, ref) in
             if error != nil {
                 // an error occurred
                 completed(error as NSError?)
             } else {
                 // no error occurred
+                self.incrementRep(uid: answer.uid, by: 5)
+                self.incrementAnswersTally(uid: answer.uid)
                 completed(nil)
             }
         }
-        
-        incrementRep(uid: answer.uid, by: 5)
-        incrementAnswersTally(uid: answer.uid)
     }
     
-    func loadQuestions(startTimestamp: Int?, numberOfItemsPerPage: Int, completed: @escaping errorArrayCompletion) {
+    func loadQuestions(startTimestamp: Int?, numberOfItemsPerPage: Int,
+                       queryType: QueryType, completed: @escaping errorArrayCompletion) {
         
         var count = numberOfItemsPerPage
         
-        var query = questionsRef.queryOrdered(byChild: "timestamp")
+        var query: FIRDatabaseQuery
+        
+        switch queryType {
+        case .recent:
+            query = questionsRef.queryOrdered(byChild: "timestamp")
+            break
+        case .top:
+            query = questionsRef.queryOrdered(byChild: "votes")
+            break
+        case .contributing:
+            query = questionsRef.queryOrdered(byChild: "timestamp")
+            break
+        }
         
         if startTimestamp != nil {
             query = query.queryEnding(atValue: startTimestamp)
@@ -357,129 +365,267 @@ class DataService {
         })
     }
     
-    func logUpVote(post: Post, userPosted: User, currentUser: User) {
+    func loadFlags(uid: String, completed: @escaping errorArrayCompletion) {
         
-        // increment the votes for the post
-        incrementVote(post: post, by: 1)
-        
-        if currentUser.uid != userPosted.uid {
-            // add 1 rep to the user that posted
-            incrementRep(uid: currentUser.uid, by: 1)
-            
-            // add 1 rep to the user that voted
-            incrementRep(uid: userPosted.uid, by: 1)
-        }
-        
-        // set the votes for the currentUser
-        setUsersVoteType(type: "upvote", currentUser: currentUser, for: post)
+        flagTalliesRef.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let dict = snapshot.value as? Dictionary<String, AnyObject> {
+                    let keys = Array(dict.keys) 
+                    completed(nil, keys as [AnyObject]?)
+                }
+            } else {
+                // the snapshot didn't exist
+                // so return an empty array because there are no flags for this post
+                completed(nil, [])
+            }
+        })
     }
     
-    func logDownVote(post: Post, userPosted: User, currentUser: User) {
+    func loadUpVotes(uid: String, completed: @escaping errorArrayCompletion) {
         
-        // subtract 1 vote from the post
-        incrementVote(post: post, by: -1)
-        
-        if currentUser.uid != userPosted.uid {
-            // subtract 1 rep to the user that posted
-            incrementRep(uid: currentUser.uid, by: -1)
-            
-            // add 1 rep to the user that voted
-            incrementRep(uid: userPosted.uid, by: 1)
-        }
-        
-        // set the votes for the currentUser
-        setUsersVoteType(type: "downvote", currentUser: currentUser, for: post)
+        upvotesRef.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let dict = snapshot.value as? Dictionary<String, AnyObject> {
+                    let keys = Array(dict.keys)
+                    completed(nil, keys as [AnyObject]?)
+                }
+            } else {
+                // the snapshot didn't exist
+                // so return an empty array because there are no flags for this post
+                completed(nil, [])
+            }
+        })
     }
     
-    func incrementVote(post: Post, by value: Int) {
+    func loadDownVotes(uid: String, completed: @escaping errorArrayCompletion) {
         
-        var ref: FIRDatabaseReference
+        downvotesRef.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let dict = snapshot.value as? Dictionary<String, AnyObject> {
+                    let keys = Array(dict.keys)
+                    completed(nil, keys as [AnyObject]?)
+                }
+            } else {
+                // the snapshot didn't exist
+                // so return an empty array because there are no flags for this post
+                completed(nil, [])
+            }
+        })
+    }
+    
+    func logUpVote(post: Post, userPosted: User, currentUser: User, errorCompletion: @escaping ()->() ) {
+        
+        upvotesRef.child(currentUser.uid).child(post.postKey).setValue(true) { (error, ref) in
+            
+            if error != nil {
+                errorCompletion()
+            } else {
+                // increment the votes for the post
+                self.upvote(post: post)
+                
+                if currentUser.uid != userPosted.uid {
+                    // add 1 rep to the user that posted
+                    self.incrementRep(uid: currentUser.uid, by: 1)
+                    
+                    // add 1 rep to the user that voted
+                    self.incrementRep(uid: userPosted.uid, by: 1)
+                }
+            }
+        }
+    }
+    
+    func logDownVote(post: Post, userPosted: User, currentUser: User, errorCompletion: @escaping ()->() ) {
+        
+        downvotesRef.child(currentUser.uid).child(post.postKey).setValue(true) { (error, ref) in
+            
+            if error != nil {
+                errorCompletion()
+            } else {
+                // increment the votes for the post
+                self.downvote(post: post)
+                
+                if currentUser.uid != userPosted.uid {
+                    // subtract 1 rep to the user that posted
+                    self.incrementRep(uid: currentUser.uid, by: -1)
+                    
+                    // add 1 rep to the user that voted
+                    self.incrementRep(uid: userPosted.uid, by: 1)
+                }
+            }
+        }
+    }
+    
+    func upvote(post: Post) {
+        
+        let ref: FIRDatabaseReference
+        
         if post.postType == .question {
             ref = questionsRef.child(post.postKey).child("votes")
         } else {
             ref = answersRef.child(post.postKey).child("votes")
         }
         
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            if var votes = snapshot.value as? Int {
-                votes = votes + value
-                print("JACOB: New vote value is: \(votes)")
-                ref.setValue(votes)
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            
+            //value of the counter before an update
+            var value = currentData.value as? Int
+            
+            //checking for nil data is very important when using
+            //transactional writes
+            if value == nil {
+                value = 0
             }
-        })
-        
+            
+            //actual update
+            currentData.value = value! + 1
+            return FIRTransactionResult.success(withValue: currentData)
+            
+        }) { (error, commited, snapshot) in
+            
+            if error != nil {
+                //call error callback function if you want
+                print("JACOB: An error occurred when upvoting")
+            }
+        }
     }
     
-    func incrementRep(uid: String, by value: Int) {
+    func downvote(post: Post) {
+        
+        let ref: FIRDatabaseReference
+        
+        if post.postType == .question {
+            ref = questionsRef.child(post.postKey).child("votes")
+        } else {
+            ref = answersRef.child(post.postKey).child("votes")
+        }
+        
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            
+            //value of the counter before an update
+            var value = currentData.value as? Int
+            
+            //checking for nil data is very important when using
+            //transactional writes
+            if value == nil {
+                value = 0
+            }
+            
+            //actual update
+            currentData.value = value! - 1
+            return FIRTransactionResult.success(withValue: currentData)
+            
+        }) { (error, commited, snapshot) in
+            
+            if error != nil {
+                //call error callback function if you want
+                print("JACOB: An error occurred when downvoting")
+            }
+        }
+    }
+    
+    func incrementRep(uid: String, by newValue: Int) {
         
         let ref = usersRef.child(uid).child("profile").child("reputation")
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            if var reputation = snapshot.value as? Int {
-                reputation = reputation + value
-                ref.setValue(reputation)
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            
+            //value of the counter before an update
+            var value = currentData.value as? Int
+            
+            //checking for nil data is very important when using
+            //transactional writes
+            if value == nil {
+                value = 0
             }
-        })
-    }
-    
-    func setUsersVoteType(type: String, currentUser: User, for post: Post) {
-        let ref = usersRef.child(currentUser.uid).child("votes").child(post.postKey)
-        ref.setValue(type)
+            
+            //actual update
+            currentData.value = value! + newValue
+            return FIRTransactionResult.success(withValue: currentData)
+            
+        }) { (error, commited, snapshot) in
+            
+            if error != nil {
+                //call error callback function if you want
+                print("JACOB: An error occurred incrementing the rep")
+            }
+        }
     }
     
     func incrementAnswersTally(uid: String) {
+        
         let ref = usersRef.child(uid).child("profile").child("answersCount")
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            if var reputation = snapshot.value as? Int {
-                reputation = reputation + 1
-                ref.setValue(reputation)
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            
+            //value of the counter before an update
+            var value = currentData.value as? Int
+            
+            //checking for nil data is very important when using
+            //transactional writes
+            if value == nil {
+                value = 0
             }
-        })
+            
+            //actual update
+            currentData.value = value! + 1
+            return FIRTransactionResult.success(withValue: currentData)
+            
+        }) { (error, commited, snapshot) in
+            
+            if error != nil {
+                //call error callback function if you want
+                print("JACOB: An error occurred incrementing the answers tally")
+            }
+        }
         
     }
     
     func incrementQuestionsTally(uid: String) {
+        
         let ref = usersRef.child(uid).child("profile").child("questionsCount")
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            if var reputation = snapshot.value as? Int {
-                reputation = reputation + 1
-                ref.setValue(reputation)
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            
+            //value of the counter before an update
+            var value = currentData.value as? Int
+            
+            //checking for nil data is very important when using
+            //transactional writes
+            if value == nil {
+                value = 0
             }
-        })
-        
-    }
-    
-    func markPostAsFlagged(postKey: String, uid: String) {
-        
-        let ref = usersRef.child(uid).child("flags").child(postKey)
-        ref.setValue(true)
-    }
-    
-    func flagPost(post: Post, reason: String, completed: @escaping errorCompletion) {
-        
-        var ref: FIRDatabaseReference
-        if post.postType == .question {
-            ref = flagQuestionRef
-        } else {
-            ref = flagAnswerRef
+            
+            //actual update
+            currentData.value = value! + 1
+            return FIRTransactionResult.success(withValue: currentData)
+            
+        }) { (error, commited, snapshot) in
+            
+            if error != nil {
+                //call error callback function if you want
+                print("JACOB: An error occurred incrementing the questions tally")
+            }
         }
+    }
+    
+    func flagPost(post: Post, reason: String, uid: String, completed: @escaping errorCompletion) {
         
-        let dict: Dictionary<String, AnyObject> = [
+        let key = flagReasonsRef.child(post.postKey).childByAutoId().key
+        
+        let flagReasonDict: Dictionary<String, AnyObject> = [
             "reason": reason as AnyObject,
-            "uid": post.uid as AnyObject,
-            "postKey": post.postKey as AnyObject,
+            "uid": uid as AnyObject,
             "timestamp": FIRServerValue.timestamp() as AnyObject
         ]
         
-        ref.childByAutoId().setValue(dict) { (error, ref) in
+        let childPosts = ["\(FIR_CHILD_FLAGREASONS)/\(post.postKey)/\(key)": flagReasonDict,
+                          "\(FIR_CHILD_FLAGTALLIES)/\(uid)/\(post.postKey)": true] as [String : Any]
+        
+        mainRef.updateChildValues(childPosts) { (error, ref) in
             if error != nil {
                 // an error occurred
                 completed(error as NSError?)
             } else {
                 // no error occurred
-                self.markPostAsFlagged(postKey: post.postKey, uid: post.uid)
                 completed(nil)
             }
         }
-        
     }
 }

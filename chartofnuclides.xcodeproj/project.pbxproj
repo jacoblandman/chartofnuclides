@@ -46,7 +46,7 @@
 		AE8338DE1E7B348D00C8FBBA /* CustomFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DD1E7B348D00C8FBBA /* CustomFileManager.swift */; };
 		AE8338E01E7C50E700C8FBBA /* SignUpLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */; };
 		AE8338E21E80480400C8FBBA /* AddAnswerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E11E80480400C8FBBA /* AddAnswerVC.swift */; };
-		AE8338E61E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E51E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift */; };
+		AE8338E61E809E8700C8FBBA /* CellToVCCommunitcationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E51E809E8700C8FBBA /* CellToVCCommunitcationDelegate.swift */; };
 		AE8338E81E80A01F00C8FBBA /* FlagPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E71E80A01F00C8FBBA /* FlagPostVC.swift */; };
 		AE8338EA1E80A16C00C8FBBA /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8338E91E80A16C00C8FBBA /* ReportCell.swift */; };
 		AE8367191E770BA0005137A3 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367181E770BA0005137A3 /* QuestionVC.swift */; };
@@ -129,7 +129,7 @@
 		AE8338DD1E7B348D00C8FBBA /* CustomFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFileManager.swift; sourceTree = "<group>"; };
 		AE8338DF1E7C50E700C8FBBA /* SignUpLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLoginVC.swift; sourceTree = "<group>"; };
 		AE8338E11E80480400C8FBBA /* AddAnswerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAnswerVC.swift; sourceTree = "<group>"; };
-		AE8338E51E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformSegueFromCellDelegate.swift; sourceTree = "<group>"; };
+		AE8338E51E809E8700C8FBBA /* CellToVCCommunitcationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellToVCCommunitcationDelegate.swift; sourceTree = "<group>"; };
 		AE8338E71E80A01F00C8FBBA /* FlagPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagPostVC.swift; sourceTree = "<group>"; };
 		AE8338E91E80A16C00C8FBBA /* ReportCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		AE8367181E770BA0005137A3 /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */,
-				AE8338E51E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift */,
+				AE8338E51E809E8700C8FBBA /* CellToVCCommunitcationDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -626,7 +626,7 @@
 				AEBEFE471E64D6B7006331AB /* UsernameVC.swift in Sources */,
 				AE5EDFF01E43FF1B00EEAD8C /* AppDelegate.swift in Sources */,
 				AEDAB46B1E7B17AB005E3B0E /* QuestionDetailVC.swift in Sources */,
-				AE8338E61E809E8700C8FBBA /* PerformSegueFromCellDelegate.swift in Sources */,
+				AE8338E61E809E8700C8FBBA /* CellToVCCommunitcationDelegate.swift in Sources */,
 				AEBEFE4B1E661D20006331AB /* InspectableRoundButton.swift in Sources */,
 				AEB5D4481E450A6100A6D8DD /* Constants.swift in Sources */,
 				AE183F531E5CC94500C72291 /* FadeInAnimator.swift in Sources */,

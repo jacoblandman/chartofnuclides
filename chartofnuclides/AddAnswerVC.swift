@@ -80,6 +80,9 @@ class AddAnswerVC: UIViewController {
                 ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
                 self.present(ac, animated: true, completion: nil)
             } else {
+                if let parent = self.parent as? QuestionDetailVC {
+                    parent.refreshView()
+                }
                 self.dismiss(animated: true, completion: nil)
             }
         }

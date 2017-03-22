@@ -9,13 +9,13 @@
 import UIKit
 import FirebaseAuth
 
-class CommunityVC: UIViewController {
+enum QueryType {
+    case recent
+    case top
+    case contributing
+}
 
-    enum FilterType {
-        case recent
-        case top
-        case contributing
-    }
+class CommunityVC: UIViewController {
     
     @IBOutlet weak var searchBar: BorderlessSearchBar!
     @IBOutlet weak var profileImgView: UIImageView!
@@ -29,9 +29,7 @@ class CommunityVC: UIViewController {
     
     var refreshControl: UIRefreshControl!
     var indicatorFooter: UIActivityIndicatorView!
-    
-    let GRAY_COLOR = UIColor(hexString: "DCDCDC")
-    
+
     var user: User?
     var imageIsSet: Bool = false
     
@@ -40,6 +38,8 @@ class CommunityVC: UIViewController {
     var startKey: String? = nil
     let questionsPerPage = 10
     var reachedBottom = false
+    
+    var queryType = QueryType.recent
     
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
@@ -71,7 +71,9 @@ class CommunityVC: UIViewController {
     
     func loadQuestions(startTimestamp: Int?) {
         
-        DataService.instance.loadQuestions(startTimestamp: startTimestamp, numberOfItemsPerPage: questionsPerPage) { (error, questionArray) in
+        DataService.instance.loadQuestions(startTimestamp: startTimestamp,
+                                           numberOfItemsPerPage: questionsPerPage,
+                                           queryType: queryType) { (error, questionArray) in
             
             if error != nil {
                 let message = ErrorHandler.handleFirebaseError(error: error!)
