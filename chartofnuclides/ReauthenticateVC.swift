@@ -12,25 +12,15 @@ import FBSDKLoginKit
 
 class ReauthenticateVC: UIViewController {
 
-    @IBOutlet weak var emailField: ReauthenticateField!
-    @IBOutlet weak var passwordField: ReauthenticateField!
-    @IBOutlet weak var emailAuthView: InspectableBorderView!
-    @IBOutlet weak var chooseAuthView: InspectableBorderView!
+    @IBOutlet weak var emailField: LoginField!
+    @IBOutlet weak var passwordField: LoginField!
+    @IBOutlet weak var activityIndicatorView: InspectableBorderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func facebookAuthenticationPressed(_ sender: Any) {
-        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        reauthenticateWith(credential)
-    }
-    
-    @IBAction func emailAuthenticationPressed(_ sender: Any) {
-        animateViewChange(chooseAuthAlpha: 0.0)
-    }
-    
-    @IBAction func authenticatePressed(_ sender: Any) {
+    @IBAction func reauthenticatePressed(_ sender: Any) {
         guard let email = emailField.text, !email.isEmpty else {
             print("The email field needs to be populated")
             let ac = UIAlertController(title: "Email invalid", message: "You must enter a valid email", preferredStyle: .alert)
@@ -50,14 +40,6 @@ class ReauthenticateVC: UIViewController {
         // now reauthenticate the current user
         let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: pwd)
         reauthenticateWith(credential)
-        
-    }
-    
-    func animateViewChange(chooseAuthAlpha: CGFloat) {
-        UIView.animate(withDuration: 0.4) { 
-            self.chooseAuthView.alpha = chooseAuthAlpha
-            self.emailAuthView.alpha = 1.0 - chooseAuthAlpha
-        }
     }
     
     @IBAction func emailReturned(_ sender: Any) {
@@ -70,20 +52,21 @@ class ReauthenticateVC: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func backOut(_ sender: Any) {
+    @IBAction func xPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func backToAuthenticationChoice(_ sender: Any) {
-        animateViewChange(chooseAuthAlpha: 1.0)
-    }
-    
     func reauthenticateWith(_ credential: FIRAuthCredential) {
-        AuthService.instance.reauthenticateUser(withCredential: credential) { (errMsg) in
-            
-            if let errorMsg = errMsg {
+        activityIndicatorView.isHidden = false
+        AuthService.instance.reauthenticateUser(withCredential: credential) { (error) in
+            self.activityIndicatorView.isHidden = true
+            if error != nil {
                 // an error occurred
-                print("JACOB: An error occured trying to reauthenticate the user: ", errorMsg)
+                print("JACOB: An error occured trying to reauthenticate the user: ", error!.debugDescription)
+                let message = ErrorHandler.handleFirebaseError(error: error!)
+                let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(ac, animated: true, completion: nil)
             } else {
                 // the reauthentication was a success
                 print("JACOB: about to dismiss")
@@ -91,5 +74,4 @@ class ReauthenticateVC: UIViewController {
             }
         }
     }
-    
 }

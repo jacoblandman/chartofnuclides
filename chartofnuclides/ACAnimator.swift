@@ -15,12 +15,12 @@ enum TransitionType {
 class ACAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var duration: TimeInterval
     var isPresenting: Bool
-    var originFrame: CGRect
+    var respondingTextView: UITextView?
     
-    init(withDuration duration: TimeInterval, forTransitionType type: TransitionType, originFrame: CGRect) {
+    init(withDuration duration: TimeInterval, forTransitionType type: TransitionType, respondingTextView: UITextView?) {
         self.duration = duration
         self.isPresenting = type == .presenting
-        self.originFrame = originFrame
+        self.respondingTextView = respondingTextView
         
         super.init()
     }
@@ -48,6 +48,10 @@ class ACAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 transitionContext.completeTransition(!cancelled)
             })
         } else {
+            
+            if respondingTextView != nil {
+                respondingTextView!.becomeFirstResponder()
+            }
             
             let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! CustomAC
             UIView.animate(withDuration: duration, animations: { 

@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import FirebaseAuth
 import RSKImageCropper
 import Firebase
+import FBSDKLoginKit
 
 class ProfileVC: UIViewController {
 
@@ -131,7 +131,43 @@ class ProfileVC: UIViewController {
     }
     
     func reauthenticateUser() {
-        performSegue(withIdentifier: "ReauthenticateVC", sender: nil)
+        let ac = UIAlertController(title: "Reauthentication Needed", message: "In order to delete this account we need you to re-enter your credentials. Then try again.", preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Email Authentication", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            self.performSegue(withIdentifier: "ReauthenticateVC", sender: nil)
+        }))
+        ac.addAction(UIAlertAction(title: "Facebook Authentication", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            self.reauthenticateWithFacebook()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(ac, animated: true, completion: nil)
+    }
+    
+    func reauthenticateWithFacebook() {
+        
+        if FBSDKAccessToken.current() != nil {
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            AuthService.instance.reauthenticateUser(withCredential: credential) { (error) in
+                if error != nil {
+                    // an error occurred
+                    print("JACOB: An error occured trying to reauthenticate the user: ", error!.debugDescription)
+                    let message = ErrorHandler.handleFirebaseError(error: error!)
+                    let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                    self.present(ac, animated: true, completion: nil)
+                    
+                } else {
+                    // the reauthentication was a success
+                    let ac = UIAlertController(title: "Reauthentication Successful", message: nil, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                    self.present(ac, animated: true, completion: nil)
+                }
+            }
+        } else {
+            
+            let ac = UIAlertController(title: "Error", message: "The facebook access token has expired. Please log out and log back in to delete account", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+            present(ac, animated: true, completion: nil)
+        }
     }
 
     @IBAction func exitPressed(_ sender: Any) {

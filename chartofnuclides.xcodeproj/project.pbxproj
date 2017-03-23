@@ -73,6 +73,7 @@
 		AEC2B8801E83229000A1D35D /* CustomAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B87F1E83229000A1D35D /* CustomAC.swift */; };
 		AEC2B8831E83253D00A1D35D /* ACAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B8821E83253D00A1D35D /* ACAnimator.swift */; };
 		AEC2B8851E834AF400A1D35D /* CustomACBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B8841E834AF400A1D35D /* CustomACBackgroundView.swift */; };
+		AEC2B8891E84505400A1D35D /* CustomACCommunicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B8881E84505400A1D35D /* CustomACCommunicationDelegate.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
 		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
@@ -159,6 +160,8 @@
 		AEC2B87F1E83229000A1D35D /* CustomAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAC.swift; sourceTree = "<group>"; };
 		AEC2B8821E83253D00A1D35D /* ACAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAnimator.swift; sourceTree = "<group>"; };
 		AEC2B8841E834AF400A1D35D /* CustomACBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomACBackgroundView.swift; sourceTree = "<group>"; };
+		AEC2B8881E84505400A1D35D /* CustomACCommunicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomACCommunicationDelegate.swift; sourceTree = "<group>"; };
+		AEC2B88A1E84649100A1D35D /* chartofnuclides.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = chartofnuclides.entitlements; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
@@ -215,6 +218,7 @@
 			children = (
 				AE183F571E5CDDFA00C72291 /* sendDataToPreviousViewController.swift */,
 				AE8338E51E809E8700C8FBBA /* CellToVCCommunitcationDelegate.swift */,
+				AEC2B8881E84505400A1D35D /* CustomACCommunicationDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -249,6 +253,7 @@
 		AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */ = {
 			isa = PBXGroup;
 			children = (
+				AEC2B88A1E84649100A1D35D /* chartofnuclides.entitlements */,
 				AE183F561E5CDDE400C72291 /* Protocols */,
 				AE183F511E5CC93800C72291 /* Animators */,
 				AE478B191E58D54D002F8E5F /* Pods-Manual */,
@@ -508,6 +513,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = E294R2UKFW;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -635,6 +645,7 @@
 				AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */,
 				AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */,
 				AE4B34A51E60E18E0083BB8B /* UIViewExtension.swift in Sources */,
+				AEC2B8891E84505400A1D35D /* CustomACCommunicationDelegate.swift in Sources */,
 				AE83671F1E79B7A6005137A3 /* ErrorHandler.swift in Sources */,
 				AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */,
 				AECF21721E563B9C00FA4D4C /* MZMaskZoomTransitioningDelegate.m in Sources */,
@@ -798,6 +809,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = chartofnuclides/chartofnuclides.entitlements;
 				DEVELOPMENT_TEAM = E294R2UKFW;
 				INFOPLIST_FILE = chartofnuclides/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -814,6 +826,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = chartofnuclides/chartofnuclides.entitlements;
 				DEVELOPMENT_TEAM = E294R2UKFW;
 				INFOPLIST_FILE = chartofnuclides/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

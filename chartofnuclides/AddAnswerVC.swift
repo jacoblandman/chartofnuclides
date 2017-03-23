@@ -18,7 +18,7 @@ class AddAnswerVC: UIViewController {
     var question: Post!
     var delegate: SendDataToPreviousControllerDelegate!
     var transitioningDelegateForAC: UIViewControllerTransitioningDelegate!
-    var viewWillDismiss = false
+    var needsDismiss = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,51 +35,34 @@ class AddAnswerVC: UIViewController {
             return
         }
         
-//        bodyTextView.resignFirstResponder()
-//        let ac = UIAlertController(title: "Are you sure you want to cancel?", message: nil, preferredStyle: .alert)
-//        ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in
-//            self.viewWillDismiss = true
-//            self.dismiss(animated: true, completion: nil)
-//        }))
-//        ac.addAction(UIAlertAction(title: "No", style: .default, handler: { (alert: UIAlertAction) in
-//            self.bodyTextView.becomeFirstResponder()
-//        }))
-//        transitioningDelegateForAC = ac.transitioningDelegate
-//        ac.transitioningDelegate = self
-//        print(ac.modalTransitionStyle)
-//        present(ac, animated: true, completion: nil)
-        
-        performSegue(withIdentifier: "CustomAC", sender: nil)
+        bodyTextView.resignFirstResponder()
+        performSegue(withIdentifier: "CustomAC", sender: PostActionType.cancel)
     }
     
     @IBAction func postPressed(_ sender: Any) {
+        
         // make sure the user has entered text into the title and body before submitting question
+        bodyTextView.text = bodyTextView.text.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        
         if bodyTextView.text == bodyPlaceholder || bodyTextView.text.isEmpty {
             let ac = UIAlertController(title: "Error", message: "You must input an answer to submit", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Gotcha", style: .default, handler: nil))
             present(ac, animated: true, completion: nil)
         } else {
-            let ac = UIAlertController(title: "Are you sure you are ready to post?", message: nil, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in
-                self.postAnswer()
-            }))
-            ac.addAction(UIAlertAction(title: "No", style: .default, handler: { (UIAlertAction) in
-                ac.dismiss(animated: true, completion: nil)
-            }))
-            present(ac, animated: true, completion: nil)
+           
+            bodyTextView.resignFirstResponder()
+            performSegue(withIdentifier: "CustomAC", sender: PostActionType.post)
         }
     }
     
     func postAnswer() {
         
-        newAnswerView.isHidden = true
         activityMonitorView.isHidden = false
         
         let newAnswer = Post(title: nil, body: bodyTextView.text, uid: user.uid, votes: 0, postType: .answer)
         
         DataService.instance.submitAnswer(answer: newAnswer, for: self.question) { (error) in
-            // now unhide the answer view and hide the activity monitro
-            self.newAnswerView.isHidden = false
+            // now hide the activity monitro
             self.activityMonitorView.isHidden = true
             
             if error != nil {
@@ -94,6 +77,20 @@ class AddAnswerVC: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+    }
+}
+
+extension AddAnswerVC: CustomACCommunicationDelegate {
+    func post() {
+        postAnswer()
+    }
+    
+    func set(needsDismiss: Bool) {
+        self.needsDismiss = true
+    }
+    
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -143,17 +140,27 @@ extension AddAnswerVC: UIViewControllerTransitioningDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CustomAC" {
             if let destination = segue.destination as? CustomAC {
-                destination.transitioningDelegate = self
+                if let postActionType = sender as? PostActionType {
+                    destination.postActionType = postActionType
+                    destination.delegate = self
+                    destination.transitioningDelegate = self
+                }
             }
         }
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ACAnimator(withDuration: 0.25, forTransitionType: .presenting, originFrame: self.view.frame)
+        
+        return ACAnimator(withDuration: 0.25, forTransitionType: .presenting, respondingTextView: nil)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ACAnimator(withDuration: 0.25, forTransitionType: .dismissing, originFrame: self.view.frame)
+        
+        var respondingTextView: UITextView? = bodyTextView
+        if needsDismiss {
+            respondingTextView = nil
+        }
+        return ACAnimator(withDuration: 0.25, forTransitionType: .dismissing, respondingTextView: respondingTextView)
     }
 }
 

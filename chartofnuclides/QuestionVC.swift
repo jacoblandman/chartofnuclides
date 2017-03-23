@@ -22,6 +22,8 @@ class QuestionVC: UIViewController {
     let titlePlaceholder = "Type your question here. Try to be specific."
     let bodyPlaceholder = "Type a more detailed description of your question here."
     
+    var needsDismiss: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,17 +48,15 @@ class QuestionVC: UIViewController {
             return
         }
 
-        let ac = UIAlertController(title: "Are you sure you want to cancel?", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in
-            self.view.endEditing(true)
-            self.dismiss(animated: true, completion: nil)
-        }))
-        ac.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        present(ac, animated: true, completion: nil)
+        bodyTextView.resignFirstResponder()
+        performSegue(withIdentifier: "CustomAC", sender: PostActionType.cancel)
         
     }
     
     @IBAction func postPressed(_ sender: Any) {
+        
+        titleTextView.text = titleTextView.text.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        bodyTextView.text = bodyTextView.text.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         
         // make sure the user has entered text into the title and body before submitting question
         if titleTextView.text == titlePlaceholder || bodyTextView.text == bodyPlaceholder ||
@@ -66,30 +66,34 @@ class QuestionVC: UIViewController {
             present(ac, animated: true, completion: nil)
         } else {
             
-            // will attempt to post the question to the database
-            // while attempting hide the question view and show an activity monitor
-            questionView.isHidden = true
-            activityMonitorView.isHidden = false
-            
-            let newQuestion = Post(title: titleTextView.text, body: bodyTextView.text, uid: user.uid, votes: 0, postType: .question)
-            
-            DataService.instance.submitQuestion(question: newQuestion, completed: { (error) in
-                
-                // now unhide the question view and hide the activity monitor
-                self.questionView.isHidden = false
-                self.activityMonitorView.isHidden = true
-                
-                if error != nil {
-                    let message = ErrorHandler.handleFirebaseError(error: error!)
-                    let ac = UIAlertController(title: "Error please try again", message: message, preferredStyle: .alert)
-                    ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-                    self.present(ac, animated: true, completion: nil)
-                } else {
-                    self.delegate?.signalRefresh()
-                    self.dismiss(animated: true, completion: nil)
-                }
-            })
+            bodyTextView.resignFirstResponder()
+            performSegue(withIdentifier: "CustomAC", sender: PostActionType.post)
         }
+    }
+    
+    func postQuestion() {
+        
+        // will attempt to post the question to the database
+        // while attempting, show an activity monitor
+        activityMonitorView.isHidden = false
+        
+        let newQuestion = Post(title: titleTextView.text, body: bodyTextView.text, uid: user.uid, votes: 0, postType: .question)
+        
+        DataService.instance.submitQuestion(question: newQuestion, completed: { (error) in
+            
+            // now hide the activity monitor
+            self.activityMonitorView.isHidden = true
+            
+            if error != nil {
+                let message = ErrorHandler.handleFirebaseError(error: error!)
+                let ac = UIAlertController(title: "Error please try again", message: message, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(ac, animated: true, completion: nil)
+            } else {
+                self.delegate?.signalRefresh()
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
 }
 
@@ -152,5 +156,48 @@ extension QuestionVC: UITextViewDelegate {
             setCursorToBeginning(textView)
         }
     }
-    
 }
+
+extension QuestionVC: UIViewControllerTransitioningDelegate {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CustomAC" {
+            if let destination = segue.destination as? CustomAC {
+                if let postActionType = sender as? PostActionType {
+                    destination.postActionType = postActionType
+                    destination.delegate = self
+                    destination.transitioningDelegate = self
+                }
+            }
+        }
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return ACAnimator(withDuration: 0.25, forTransitionType: .presenting, respondingTextView: nil)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        var respondingTextView: UITextView? = bodyTextView
+        if needsDismiss {
+            respondingTextView = nil
+        }
+        return ACAnimator(withDuration: 0.25, forTransitionType: .dismissing, respondingTextView: respondingTextView)
+    }
+}
+
+extension QuestionVC: CustomACCommunicationDelegate {
+    func post() {
+        postQuestion()
+    }
+    
+    func set(needsDismiss: Bool) {
+        self.needsDismiss = true
+    }
+    
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
