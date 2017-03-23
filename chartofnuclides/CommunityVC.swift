@@ -26,6 +26,7 @@ class CommunityVC: UIViewController {
     @IBOutlet weak var questionFilterView: UIView!
     @IBOutlet weak var questionFilterTopConstraint: NSLayoutConstraint!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet weak var activityMonitorView: InspectableBorderView!
     
     var refreshControl: UIRefreshControl!
     var indicatorFooter: UIActivityIndicatorView!
@@ -34,10 +35,15 @@ class CommunityVC: UIViewController {
     var imageIsSet: Bool = false
     
     var questions = [Post]()
-    var _startTimestamp: Int? = nil
-    var startKey: String? = nil
+    var questions_copy = [Post]()
+    var searchQuestions = [Post]()
+    var loadedSearchQuestions = false
+    var loadedAllQuestions = false
+    var _searchText = ""
+    
+    var _startKey: String? = nil
+    var _startValue: Int? = nil
     let questionsPerPage = 10
-    var reachedBottom = false
     
     var queryType = QueryType.recent
     
@@ -57,7 +63,6 @@ class CommunityVC: UIViewController {
         indicatorFooter = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 44))
         indicatorFooter.color = GRAY_COLOR
         indicatorFooter.startAnimating()
-        tableView.tableFooterView = indicatorFooter
         
         tableView.refreshControl = refreshControl
         tableView.delegate = self
@@ -66,12 +71,12 @@ class CommunityVC: UIViewController {
         searchBar.delegate = self
         tapGesture.isEnabled = false
         
-        loadQuestions(startTimestamp: nil)
+        loadQuestions(startValue: nil, startKey: nil)
     }
     
-    func loadQuestions(startTimestamp: Int?) {
+    func loadQuestions(startValue: Int?, startKey: String?) {
         
-        DataService.instance.loadQuestions(startTimestamp: startTimestamp,
+        DataService.instance.loadQuestions(startValue: startValue, startKey: startKey,
                                            numberOfItemsPerPage: questionsPerPage,
                                            queryType: queryType) { (error, questionArray) in
             
@@ -83,12 +88,18 @@ class CommunityVC: UIViewController {
             } else {
                 
                 // if starting fresh then empty the questions array
-                if startTimestamp == nil {
+                if startValue == nil {
                     self.questions = []
                 }
                 
                 if let newQuestions = questionArray as? [Post] {
-                    if newQuestions.count < self.questionsPerPage { self.tableView.tableFooterView = nil }
+                    if newQuestions.count < self.questionsPerPage {
+                        self.tableView.tableFooterView = nil
+                        self.loadedAllQuestions = true
+                    } else {
+                        self.tableView.tableFooterView = self.indicatorFooter
+                        self.loadedAllQuestions = false
+                    }
                     for question in newQuestions.reversed() {
                         self.questions.append(question)
                     }
@@ -96,14 +107,26 @@ class CommunityVC: UIViewController {
                     // if array is empty the first/last property is nil, so unwrap it
                     // use the first item because we aren't reversing the array this time
                     if let lastQuestion = newQuestions.first {
-                        self._startTimestamp = lastQuestion.timestamp
+                        
+                        switch self.queryType {
+                        case .recent:
+                            self._startValue = lastQuestion.timestamp
+                            break
+                        case .top:
+                            self._startValue = lastQuestion.votes
+                            break
+                        default:
+                            break
+                        }
+                        
+                        self._startKey = lastQuestion.postKey
                     }
                 }
             }
             
             
             // set the content off set if loading data from scrolling to the bototm of tableview
-            if startTimestamp != nil {
+            if startValue != nil {
                 var contentOffset = self.tableView.contentOffset
                 if self.tableView.tableFooterView == nil { contentOffset.y = contentOffset.y + 44 }
                 self.tableView.reloadData()
@@ -111,9 +134,42 @@ class CommunityVC: UIViewController {
                 self.tableView.setContentOffset(contentOffset, animated: false)
             } else {
                 self.tableView.reloadData()
+                self.tableView.isHidden = false
+                self.activityMonitorView.isHidden = true
             }
-        
+                                           
+            // questions copy is for reseting after searching with the search bar
+            self.questions_copy = self.questions
+                                 
+            // always end refreshing even if the questions weren't loaded using the refresh control
             self.refreshControl.endRefreshing()
+        }
+    }
+    
+    func loadAllQuestions() {
+        activityMonitorView.isHidden = false
+        DataService.instance.loadQuestions(startValue: nil, startKey: nil,
+                                           numberOfItemsPerPage: 1000,
+                                           queryType: queryType) { (error, questionArray) in
+                                            
+            if error != nil {
+                let message = ErrorHandler.handleFirebaseError(error: error!)
+                let ac = UIAlertController(title: "Error please try again", message: message, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(ac, animated: true, completion: nil)
+            } else {
+            
+                if let newQuestions = questionArray as? [Post] {
+    
+                    for question in newQuestions.reversed() {
+                        self.searchQuestions.append(question)
+                    }
+                }
+            }
+            
+            // we've now loaded all the questions (really the 1000 most recent questions)
+            self.loadedSearchQuestions = true
+            self.activityMonitorView.isHidden = true
         }
     }
     
@@ -194,7 +250,7 @@ class CommunityVC: UIViewController {
             }
         } else if segue.identifier == "QuestionVC" {
             if let destination = segue.destination as? QuestionVC {
-                
+                destination.delegate = self
                 destination.user = self.user
             }
         } else if segue.identifier == "QuestionDetailVC" {
@@ -239,27 +295,112 @@ class CommunityVC: UIViewController {
     }
 
     @IBAction func mostRecentPressed(_ sender: Any) {
+        
+        if queryType == .recent {
+            return
+        }
+        
+        // change query type
+        queryType = .recent
+        
+        // change button colors to show which one is highlighted
         topBtn.setTitleColor(GRAY_COLOR, for: .normal)
         contributingBtn.setTitleColor(GRAY_COLOR, for: .normal)
         mostRecentBtn.setTitleColor(GREEN_COLOR, for: .normal)
+        
+        if _searchText != "" {
+            // if currently searching then just resort
+            questions = filterQuestions(text: _searchText)
+            questions = sort(by: queryType)
+            tableView.reloadData()
+        } else {
+            // load the new questions based off the new query
+            activityMonitorView.isHidden = false
+            loadQuestions(startValue: nil, startKey: nil)
+        }
     }
 
     @IBAction func topPressed(_ sender: Any) {
+        
+        if queryType == .top {
+            return
+        }
+        
+        // change query type
+        queryType = .top
+        
+        // change button colors to show which one is highlighted
         topBtn.setTitleColor(GREEN_COLOR, for: .normal)
         contributingBtn.setTitleColor(GRAY_COLOR, for: .normal)
         mostRecentBtn.setTitleColor(GRAY_COLOR, for: .normal)
+        
+        if _searchText != "" {
+            // if currently searching then just resort
+            questions = filterQuestions(text: _searchText)
+            questions = sort(by: queryType)
+            tableView.reloadData()
+        } else {
+            // load the new questions based off the new query
+            activityMonitorView.isHidden = false
+            loadQuestions(startValue: nil, startKey: nil)
+        }
     }
     
     @IBAction func unansweredPressed(_ sender: Any) {
+        
+        if queryType == .contributing {
+            return
+        }
+        
+        // change query type
+        queryType = .contributing
+        
+        // change button colors to show which one is highlighted
         topBtn.setTitleColor(GRAY_COLOR, for: .normal)
         contributingBtn.setTitleColor(GREEN_COLOR, for: .normal)
         mostRecentBtn.setTitleColor(GRAY_COLOR, for: .normal)
+        
+        if _searchText != "" {
+            // if currently searching then just resort
+            questions = sort(by: queryType)
+            tableView.reloadData()
+        } else {
+            // load the new questions based off the new query
+            activityMonitorView.isHidden = false
+            loadQuestions(startValue: nil, startKey: nil)
+        }
+    }
+    
+    func sort(by queryType: QueryType) -> [Post] {
+        switch queryType {
+        case .recent:
+            return questions.sorted(by: {
+                if $0.timestamp != $1.timestamp {
+                    return $0.timestamp > $1.timestamp
+                } else {
+                    return $0.timestamp > $1.timestamp
+                }
+            })
+        case .top:
+            return questions.sorted(by: {
+                if $0.votes != $1.votes {
+                    return $0.votes > $1.votes
+                } else {
+                    return $0.timestamp > $1.timestamp
+                }
+            })
+            
+        case .contributing:
+            return questions.filter({
+                $0.uid == FIRAuth.auth()?.currentUser?.uid
+            })
+        }
     }
     
     func getLatestQuestions() {
         
         tableView.tableFooterView = indicatorFooter
-        loadQuestions(startTimestamp: nil)
+        loadQuestions(startValue: nil, startKey: nil)
         
     }
     
@@ -335,13 +476,11 @@ extension CommunityVC: UITableViewDelegate, UITableViewDataSource {
         
         // check if scrolled to bottom to load more data
         if tableView.contentOffset.y >= tableView.contentSize.height - tableView.frame.size.height {
-            print("JACOB: Loading more data")
             if tableView.tableFooterView != nil {
-                loadQuestions(startTimestamp: _startTimestamp)
+                loadQuestions(startValue: _startValue, startKey: _startKey)
             }
         }
     }
-    
 }
 
 extension CommunityVC: UISearchBarDelegate {
@@ -355,6 +494,10 @@ extension CommunityVC: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         tapGesture.isEnabled = true
         searchBar.showsCancelButton = true
+        
+        if !loadedSearchQuestions {
+            loadAllQuestions()
+        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -366,6 +509,40 @@ extension CommunityVC: UISearchBarDelegate {
         tapGesture.isEnabled = false
         view.endEditing(true)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            tableView.refreshControl = refreshControl
+            if !loadedAllQuestions {
+                tableView.tableFooterView = indicatorFooter
+            }
+            
+            questions = questions_copy
+            tableView.reloadData()
+            _searchText = ""
+            view.endEditing(true)
+            
+        } else {
+            
+            _searchText = searchBar.text!
+            self.tableView.tableFooterView = nil
+            tableView.refreshControl = nil
+            
+            questions = filterQuestions(text: searchBar.text!)
+            
+            tableView.reloadData()
+        }
+    }
+    
+    func filterQuestions(text: String) -> [Post] {
+        let lower = text.lowercased()
+        return searchQuestions.filter({
+                $0.title?.lowercased().range(of: lower) != nil ||
+                $0.body.lowercased().range(of: lower) != nil
+        })
+    }
 }
 
 extension CommunityVC: SendDataToPreviousControllerDelegate {
@@ -376,6 +553,10 @@ extension CommunityVC: SendDataToPreviousControllerDelegate {
                 profileImgView.image = image
             }
         }
+    }
+    
+    func signalRefresh() {
+        loadQuestions(startValue: nil, startKey: nil)
     }
     
     

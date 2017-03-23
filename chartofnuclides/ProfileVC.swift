@@ -82,6 +82,7 @@ class ProfileVC: UIViewController {
         ac.addAction(UIAlertAction(title: "Yes, I'm sure", style: .default, handler: { (alert: UIAlertAction!) in
             AuthService.instance.signOutCurrentUser()
             CustomFileManager.removeCurrentImage()
+            self.delegate?.signalRefresh()
             self.dismiss(animated: true, completion: nil)
         }))
         present(ac, animated: true, completion: nil)
@@ -102,6 +103,7 @@ class ProfileVC: UIViewController {
                     ErrorHandler.handleDeletionError(error: error!)
                 } else {
                     CustomFileManager.removeCurrentImage()
+                    self.delegate?.signalRefresh()
                     self.dismiss(animated: true, completion: nil)
                 }
             })

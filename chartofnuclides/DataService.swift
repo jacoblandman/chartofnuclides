@@ -201,7 +201,6 @@ class DataService {
                 print("JACOB: Unable to download image from Firebase storage")
                 completed(error as NSError?, nil)
             } else {
-                print("JACOB: Image downloaded from Firebase storage")
                 if let imgData = data {
                     if let img = UIImage(data: imgData) {
                         // everytime we get an image from firebase we can store it in the image cache
@@ -223,10 +222,9 @@ class DataService {
         
         ref.delete { (error) in
             if error != nil {
-                print("JACOB: Error deleting image: ", error!.localizedDescription)
+                print("JACOB: Error deleting image from storage: ", error!.localizedDescription)
                 completed?(error as NSError?)
             } else {
-                print("JACOB: Successfully deleted image from storage")
                 completed?(nil)
             }
         }
@@ -289,7 +287,7 @@ class DataService {
         }
     }
     
-    func loadQuestions(startTimestamp: Int?, numberOfItemsPerPage: Int,
+    func loadQuestions(startValue: Int?, startKey: String?, numberOfItemsPerPage: Int,
                        queryType: QueryType, completed: @escaping errorArrayCompletion) {
         
         var count = numberOfItemsPerPage
@@ -304,36 +302,44 @@ class DataService {
             query = questionsRef.queryOrdered(byChild: "votes")
             break
         case .contributing:
-            query = questionsRef.queryOrdered(byChild: "timestamp")
+            query = questionsRef.queryOrdered(byChild: "uid").queryEqual(toValue: FIRAuth.auth()?.currentUser?.uid)
             break
         }
         
-        if startTimestamp != nil {
-            query = query.queryEnding(atValue: startTimestamp)
-            count += 1
+        if queryType != .contributing {
+            if startKey != nil {
+                count += 1
+                query = query.queryEnding(atValue: startValue, childKey: startKey).queryLimited(toLast: UInt(count))
+            } else {
+                query = query.queryLimited(toLast: UInt(count))
+            }
         }
         
-        query.queryLimited(toLast: UInt(count)).observeSingleEvent(of: .value, with: { (snapshot) in
-            guard var children = snapshot.children.allObjects as? [FIRDataSnapshot] else {
-                // handle error here
-                let error = NSError()
-                completed(error, nil)
-                return
-            }
-            
-            if startTimestamp != nil && !children.isEmpty {
-                children.removeLast()
-            }
-            
-            // now do something with the children
-            var newQuestions = [Post]()
-            for child in children {
-                if let questionDict = child.value as? Dictionary<String, AnyObject> {
-                    newQuestions.append(Post(postKey: child.key, postData: questionDict, postType: .question))
+        query.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                guard var children = snapshot.children.allObjects as? [FIRDataSnapshot] else {
+                    // handle error here
+                    let error = NSError()
+                    completed(error, nil)
+                    return
                 }
+                
+                if startValue != nil && !children.isEmpty {
+                    children.removeLast()
+                }
+                
+                // now do something with the children
+                var newQuestions = [Post]()
+                for child in children {
+                    if let questionDict = child.value as? Dictionary<String, AnyObject> {
+                        newQuestions.append(Post(postKey: child.key, postData: questionDict, postType: .question))
+                    }
+                }
+                
+                completed(nil, newQuestions)
+            } else {
+                completed(nil, [])
             }
-            
-            completed(nil, newQuestions)
         })
         
     }

@@ -139,7 +139,6 @@ class QuestionDetailVC: UIViewController {
         DataService.instance.loadFlags(uid: currentUser!.uid) { (error, arr) in
             if let flagsArray = arr as? [String] {
                 self.flags = flagsArray
-                print(self.flags)
                 self.flagsLoaded = true
                 self.checkIfNeedsReload(count: nil)
             }
@@ -148,7 +147,6 @@ class QuestionDetailVC: UIViewController {
         DataService.instance.loadUpVotes(uid: currentUser!.uid) { (error, arr) in
             if let upvotesArray = arr as? [String] {
                 self.upvotes = upvotesArray
-                print(self.upvotes)
                 self.upvotesLoaded = true
                 self.checkIfNeedsReload(count: nil)
             }
@@ -157,7 +155,6 @@ class QuestionDetailVC: UIViewController {
         DataService.instance.loadDownVotes(uid: currentUser!.uid) { (error, arr) in
             if let downvotesArray = arr as? [String] {
                 self.downvotes = downvotesArray
-                print(self.downvotes)
                 self.downvotesLoaded = true
                 self.checkIfNeedsReload(count: nil)
             }

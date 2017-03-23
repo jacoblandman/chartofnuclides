@@ -72,6 +72,7 @@
 		AEC28FE41E67A4B2002A60BE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC28FE31E67A4B2002A60BE /* UIImageExtension.swift */; };
 		AEC2B8801E83229000A1D35D /* CustomAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B87F1E83229000A1D35D /* CustomAC.swift */; };
 		AEC2B8831E83253D00A1D35D /* ACAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B8821E83253D00A1D35D /* ACAnimator.swift */; };
+		AEC2B8851E834AF400A1D35D /* CustomACBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2B8841E834AF400A1D35D /* CustomACBackgroundView.swift */; };
 		AECD26541E551DCD00282462 /* UIViewHexColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */; };
 		AECD26561E5520CD00282462 /* StringSubStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD26551E5520CD00282462 /* StringSubStringExtension.swift */; };
 		AECF21701E563B9C00FA4D4C /* MZGradientCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECF21691E563B9C00FA4D4C /* MZGradientCircleLayer.m */; };
@@ -157,6 +158,7 @@
 		AEC28FE31E67A4B2002A60BE /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		AEC2B87F1E83229000A1D35D /* CustomAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAC.swift; sourceTree = "<group>"; };
 		AEC2B8821E83253D00A1D35D /* ACAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAnimator.swift; sourceTree = "<group>"; };
+		AEC2B8841E834AF400A1D35D /* CustomACBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomACBackgroundView.swift; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				AEBEFE4A1E661D20006331AB /* InspectableRoundButton.swift */,
 				AEBEFE4E1E676F42006331AB /* ReauthenticateField.swift */,
 				AE83671C1E7724F2005137A3 /* NewQuestionView.swift */,
+				AEC2B8841E834AF400A1D35D /* CustomACBackgroundView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				AEBEFE451E64B22A006331AB /* User.swift in Sources */,
 				AE776E701E5390D900D3ADB0 /* CalculatorVC.swift in Sources */,
 				AE7DF1B81E5F621700B686B5 /* NSObjectExtension.swift in Sources */,
+				AEC2B8851E834AF400A1D35D /* CustomACBackgroundView.swift in Sources */,
 				AE5EDFF21E43FF1B00EEAD8C /* MainVC.swift in Sources */,
 				AEDF0EC51E5E2814006FA58F /* UnitCell.swift in Sources */,
 				AE183F551E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift in Sources */,

@@ -19,8 +19,6 @@ class CustomFileManager: NSObject {
         let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appending("/profile.jpg")
         let imgData = UIImageJPEGRepresentation(image, 0.5)
         fileManager.createFile(atPath: paths as String, contents: imgData, attributes: nil)
-        print(paths)
-        print("JACOB: Saved image to disk")
     }
     
     static func getDirectoryPath() -> String {
@@ -35,7 +33,6 @@ class CustomFileManager: NSObject {
         var image: UIImage
         if fileManager.fileExists(atPath: imagePath) {
             image = UIImage(contentsOfFile: imagePath)!
-            print("JACOB: Got image from disk")
             return image
         } else {
             return nil

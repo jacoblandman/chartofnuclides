@@ -15,6 +15,8 @@ class QuestionVC: UIViewController {
     @IBOutlet weak var questionView: NewQuestionView!
     @IBOutlet weak var activityMonitorView: InspectableBorderView!
     
+    var delegate: SendDataToPreviousControllerDelegate?
+    
     var user: User!
 
     let titlePlaceholder = "Type your question here. Try to be specific."
@@ -83,6 +85,7 @@ class QuestionVC: UIViewController {
                     ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
                     self.present(ac, animated: true, completion: nil)
                 } else {
+                    self.delegate?.signalRefresh()
                     self.dismiss(animated: true, completion: nil)
                 }
             })

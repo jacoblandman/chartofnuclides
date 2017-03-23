@@ -74,7 +74,6 @@ class User {
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
         let profileSnap = snapshot.childSnapshot(forPath: "profile")
-            print("JACOB: Found profile")
             if let profileDict = profileSnap.value as? Dictionary<String, AnyObject> {
                 if let questionsAsked = profileDict["questionsCount"] as? Int {
                     self._questions = questionsAsked
@@ -87,12 +86,10 @@ class User {
                 }
                 if let imageURL = profileDict["imageURL"] as? String {
                     self._imageURL = imageURL
-                    print("ImageURL: ", imageURL)
                 }
             }
             
         let usernameSnap = snapshot.childSnapshot(forPath: "username")
-            print("JACOB: Found username")
             if let usernameDict = usernameSnap.value as? Dictionary<String, AnyObject> {
                 if let username = usernameDict["username"] as? String {
                     self._username = username
@@ -111,12 +108,10 @@ class User {
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
             let profileSnap = snapshot.childSnapshot(forPath: "profile")
-            print("JACOB: Found profile")
             if let profileDict = profileSnap.value as? Dictionary<String, AnyObject> {
 
                 if let imageURL = profileDict["imageURL"] as? String {
                     self._imageURL = imageURL
-                    print("ImageURL: ", imageURL)
                 }
             }
             
