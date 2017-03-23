@@ -285,7 +285,6 @@ class CommunityVC: UIViewController {
         if FIRAuth.auth()?.currentUser != nil {
             // User is signed in.
             // segue to the profile view controller
-            print("Current User Found")
             let dict = ["user": user!, "profileImage": profileImgView.image!, "imageIsSet": imageIsSet] as [String : Any]
             performSegue(withIdentifier: "ProfileVC", sender: dict)
         } else {
@@ -551,6 +550,10 @@ extension CommunityVC: SendDataToPreviousControllerDelegate {
         if let dict = data as? Dictionary<String, Any> {
             if let image = dict["image"] as? UIImage {
                 profileImgView.image = image
+            }
+            
+            if let url = dict["imageURL"] as? String {
+                user?.imageURL = url
             }
         }
     }

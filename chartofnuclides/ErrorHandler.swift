@@ -33,11 +33,28 @@ class ErrorHandler: NSObject {
         }
     }
     
-    static func handleDeletionError(error: NSError) {
+    static func handleDeletionError(error: NSError) -> Bool {
+        if let errorCode = FIRAuthErrorCode(rawValue: error._code) {
+            switch(errorCode) {
+            case .errorCodeInvalidUserToken:
+                return true
+                
+            case .errorCodeRequiresRecentLogin:
+                return true
+                
+            default:
+                // alert user to log out and log back in
+                return false
+            }
+        }
         
+        // some sort of error occurred.
+        // alert the user that they should log out and log back in
+        return false
     }
     
     static func handleImageDownloadError(error: NSError) {
         
     }
+    
 }

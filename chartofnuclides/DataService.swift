@@ -212,7 +212,7 @@ class DataService {
         })
     }
     
-    func deleteImage(forURL url: String, completed: errorCompletion?) {
+    func deleteImage(forURL url: String, uid: String, completed: errorCompletion?) {
         
         guard url != "" else {
             completed?(nil)
@@ -226,6 +226,14 @@ class DataService {
                 completed?(error as NSError?)
             } else {
                 completed?(nil)
+                self.usersRef.child(uid).child("profile").child("imageURL").setValue("", withCompletionBlock: { (error, ref) in
+                    if error != nil {
+                        completed?(error! as NSError?)
+                    } else {
+                        completed?(nil)
+                    }
+                })
+
             }
         }
     }

@@ -149,7 +149,7 @@ class QuestionDetailCell: UITableViewCell {
         if let image = img {
             profileImageView.image = image
         } else {
-            profileImageView.image = UIImage(named: "profile_icon_big")
+            profileImageView.image = UIImage(named: "profile_icon_grey")
         }
                 
         profileUsernameLbl.text = userPosted.username

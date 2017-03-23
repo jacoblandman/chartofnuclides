@@ -56,7 +56,7 @@ class AuthService {
         if let user = FIRAuth.auth()?.currentUser {
             
             if imageURL != "" {
-                DataService.instance.deleteImage(forURL: imageURL, completed: nil)
+                DataService.instance.deleteImage(forURL: imageURL, uid: user.uid, completed: nil)
             }
             
             user.delete(completion: { (error) in

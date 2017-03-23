@@ -19,7 +19,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var questionsLbl: UILabel!
     @IBOutlet weak var repuationLbl: UILabel!
     @IBOutlet weak var activityIndicatorView: InspectableBorderView!
-    var user: User?
+    var user: User!
     var profileImage: UIImage!
     var imageIsSet = false
     
@@ -31,7 +31,6 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         
         imagePicker = UIImagePickerController()
-        //imagePicker.allowsEditing = true
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
@@ -73,7 +72,19 @@ class ProfileVC: UIViewController {
     }
 
     @IBAction func changeProfileImgPressed(_ sender: Any) {
-        present(imagePicker, animated: true, completion: nil)
+        
+        let ac = UIAlertController(title: "Change Profile Photo", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Remove Current Photo", style: UIAlertActionStyle.destructive, handler: { (UIAlertAction) in
+            self.deleteImage(URL: self.user.imageURL)
+        }))
+        ac.addAction(UIAlertAction(title: "Choose from Library", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(ac, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func logOutPressed(_ sender: Any) {
@@ -100,7 +111,14 @@ class ProfileVC: UIViewController {
             AuthService.instance.deleteCurrentUser(uid: uid, username: username, imageURL: imageURL, completed: { (error) in
                 
                 if error != nil {
-                    ErrorHandler.handleDeletionError(error: error!)
+                    let needsReauthentication = ErrorHandler.handleDeletionError(error: error!)
+                    if needsReauthentication {
+                        self.reauthenticateUser()
+                    } else {
+                        let ac = UIAlertController(title: "Error", message: "An error occurred. Please log out and log back in.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                        self.present(ac, animated: true, completion: nil)
+                    }
                 } else {
                     CustomFileManager.removeCurrentImage()
                     self.delegate?.signalRefresh()
@@ -112,42 +130,29 @@ class ProfileVC: UIViewController {
         present(ac, animated: true, completion: nil)
     }
     
-    func handle(_ errCode: FIRAuthErrorCode?) {
-        
-        if let errorCode = errCode {
-            print("JACOB Error code: ", errorCode.rawValue)
-            switch(errorCode) {
-            case .errorCodeUserMismatch:
-                let ac = UIAlertController(title: "Incorrect user", message: "Please log out of the current account and sign back in before attempting to delete.", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-                present(ac, animated: true, completion: nil)
-                break
-            
-            case .errorCodeInvalidUserToken:
-                reauthenticateUser()
-                break
-                
-            case .errorCodeRequiresRecentLogin:
-                print("JACOB: Need to reauthenticte")
-                reauthenticateUser()
-                break
-                
-            default:
-                break
-            }
-        } else {
-            // the user deletion was a success
-            print("JACOB: Deletion success. About to dismiss the view")
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     func reauthenticateUser() {
         performSegue(withIdentifier: "ReauthenticateVC", sender: nil)
     }
 
     @IBAction func exitPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func deleteImage(URL: String) {
+        guard !URL.isEmpty else { return }
+        activityIndicatorView.isHidden = false
+        CustomFileManager.removeCurrentImage()
+        DataService.instance.deleteImage(forURL: URL, uid: user.uid, completed: { (error) in
+            if error != nil {
+                print("JACOB: Error deleting old image. Please try again.")
+            } else {
+                self.profileImgView.image = UIImage(named: "profile_icon_big")
+                self.activityIndicatorView.isHidden = true
+                self.user.imageURL = ""
+                let dict = ["image": self.profileImgView.image!, "imageURL": ""] as [String : Any]
+                self.delegate?.sendDataToA(data: dict)
+            }
+        })
     }
 }
 
@@ -156,9 +161,9 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-            print("JACOB: Made it within the imagePickerController")
             var imageCropVC : RSKImageCropViewController!
             imageCropVC = RSKImageCropViewController(image: image, cropMode: RSKImageCropMode.circle)
+            imageCropVC.avoidEmptySpaceAroundImage = true
             imageCropVC.delegate = self
             
             self.presentedViewController?.present(imageCropVC, animated: true, completion: nil)
@@ -180,27 +185,25 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
     
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
 
-        if let user = user {
-            let oldImageURL = user.imageURL
-            
-            DataService.instance.deleteImage(forURL: oldImageURL, completed: { (error) in
-                if error != nil {
-                    print("JACOB: Error deleting old image. Please try again.")
-                } else {
-                    
-                    // continue on and set the new image
-                    self.profileImgView.image = croppedImage
-                    DataService.instance.saveProfileImage(image: croppedImage, uid: user.uid, completed: { (error, url) in
-                        if error == nil && url != nil {
-                            self.user?.imageURL = url!
-                            let dict = ["image": croppedImage] as [String : Any]
-                            self.delegate?.sendDataToA(data: dict)
-                            CustomFileManager.saveImageToDisk(image: croppedImage)
-                        }
-                    })
-                }
-            })
-        }
+        let oldImageURL = user.imageURL
+        
+        DataService.instance.deleteImage(forURL: oldImageURL, uid: user.uid, completed: { (error) in
+            if error != nil {
+                print("JACOB: Error deleting old image. Please try again.")
+            } else {
+                self.user.imageURL = ""
+                // continue on and set the new image
+                self.profileImgView.image = croppedImage
+                DataService.instance.saveProfileImage(image: croppedImage, uid: self.user.uid, completed: { (error, url) in
+                    if error == nil && url != nil {
+                        self.user.imageURL = url!
+                        let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
+                        self.delegate?.sendDataToA(data: dict)
+                        CustomFileManager.saveImageToDisk(image: croppedImage)
+                    }
+                })
+            }
+        })
     
         imagePicker.dismiss(animated: false, completion: nil)
         self.presentedViewController?.dismiss(animated: true, completion: nil)

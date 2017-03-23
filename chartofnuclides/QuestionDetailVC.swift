@@ -211,6 +211,10 @@ class QuestionDetailVC: UIViewController {
                             self.checkIfNeedsReload(count: count)
                         })
                     }
+                } else {
+                    self.imgsDict[uid] = nil
+                    count += 1
+                    self.checkIfNeedsReload(count: count)
                 }
             }
         }
