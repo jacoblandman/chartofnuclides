@@ -69,7 +69,7 @@ class InputTextField: UITextField {
     func setPlaceholder(with text: String) {
         let attributes = [
             NSForegroundColorAttributeName: colorWithHexString(hex: "FDBE4D"),
-            NSFontAttributeName : UIFont(name: "Avenir-Medium", size: 26)! // Note the !
+            NSFontAttributeName : UIFont(name: "Avenir-Medium", size: 23)! // Note the !
         ]
         
         self.attributedPlaceholder = NSAttributedString(string: text, attributes:attributes)
@@ -78,7 +78,7 @@ class InputTextField: UITextField {
     func setPlaceholder(with text: String, color: UIColor) {
         let attributes = [
             NSForegroundColorAttributeName: color,
-            NSFontAttributeName : UIFont(name: "Avenir-Medium", size: 26)! // Note the !
+            NSFontAttributeName : UIFont(name: "Avenir-Medium", size: 23)! // Note the !
         ]
         
         self.attributedPlaceholder = NSAttributedString(string: text, attributes:attributes)

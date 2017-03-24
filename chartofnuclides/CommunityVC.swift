@@ -80,13 +80,15 @@ class CommunityVC: UIViewController {
         DataService.instance.loadQuestions(startValue: startValue, startKey: startKey,
                                            numberOfItemsPerPage: questionsPerPage,
                                            queryType: queryType) { (error, questionArray) in
-            
+        
             if error != nil {
                 let message = ErrorHandler.handleFirebaseError(error: error!)
                 let ac = UIAlertController(title: "Error please try again", message: message, preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
                 self.present(ac, animated: true, completion: nil)
             } else {
+                
+                
                 
                 // if starting fresh then empty the questions array
                 if startValue == nil {
@@ -125,14 +127,17 @@ class CommunityVC: UIViewController {
                 }
             }
             
-            
             // set the content off set if loading data from scrolling to the bototm of tableview
             if startValue != nil {
                 var contentOffset = self.tableView.contentOffset
-                if self.tableView.tableFooterView == nil { contentOffset.y = contentOffset.y + 44 }
+                if self.tableView.tableFooterView == nil {
+                    contentOffset.y = contentOffset.y + 18
+                }
+    
                 self.tableView.reloadData()
                 self.tableView.layoutIfNeeded()
                 self.tableView.setContentOffset(contentOffset, animated: false)
+                
             } else {
                 self.tableView.reloadData()
                 self.tableView.isHidden = false

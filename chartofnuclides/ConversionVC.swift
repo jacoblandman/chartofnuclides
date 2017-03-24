@@ -49,7 +49,6 @@ class ConversionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setGradients()
         inputUnitLbl.text = unitTypes[0]
         outputUnitLbl.text = unitTypes[1]
         setSymbols()
@@ -57,6 +56,8 @@ class ConversionVC: UIViewController {
         outputTextField.setPlaceholder(with: "0.0", color: colorWithHexString(hex: "98D8F7"))
         setTextFieldKeyboards()
         setAnimationViews()
+        
+        setGradients()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -229,11 +230,11 @@ class ConversionVC: UIViewController {
     }
     
     func setGradients() {
-        inputUnitBg.setValuesForRadialGradient(color1: colorWithHexString(hex: "FFD276"), color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: inputUnitBg.frame.width / 6, outerRadius: inputUnitBg.frame.width * 1.5)
+        inputUnitBg.setValuesForRadialGradient(color1: colorWithHexString(hex: "FFD276"), color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: inputUnitBg.frame.width / 6, outerRadius: inputUnitBg.frame.width * 1.3)
         inputValueBg.setValuesForLinearGradient(color1: UIColor.white, color2: colorWithHexString(hex: "FFEFCD"), relativeStartPoint: CGPoint(x: 0.5, y: 0), relativeEndPoint: CGPoint(x: 0.5, y: 0.5))
-        outputUnitBg.setValuesForRadialGradient(color1: colorWithHexString(hex: "98D8F7"), color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: outputUnitBg.frame.width / 6, outerRadius: outputUnitBg.frame.width * 1.5)
+        outputUnitBg.setValuesForRadialGradient(color1: colorWithHexString(hex: "98D8F7"), color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: outputUnitBg.frame.width / 6, outerRadius: outputUnitBg.frame.width * 1.3)
         outputValueBg.setValuesForLinearGradient(color1: UIColor.white, color2: colorWithHexString(hex: "CAECFD"), relativeStartPoint: CGPoint(x: 0.5, y: 0), relativeEndPoint: CGPoint(x: 0.5, y: 0.5))
-        XView.setValuesForLinearGradient(color1: UIColor.white, color2: GREEN_COLOR, startPoint: CGPoint(x: XView.frame.width / 2, y: 0.0), endPoint: CGPoint(x: XView.frame.width / 2, y: XView.frame.height / 2))
+        XView.setValuesForLinearGradient(color1: UIColor.white, color2: GREEN_COLOR, relativeStartPoint: CGPoint(x: 0.5, y: 0.0), relativeEndPoint: CGPoint(x: 0.5, y: 0.5))
     }
     
     func setTextFieldKeyboards() {

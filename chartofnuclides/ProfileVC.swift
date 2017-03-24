@@ -187,9 +187,9 @@ class ProfileVC: UIViewController {
     }
     
     func deleteImage(URL: String) {
-        guard !URL.isEmpty else { return }
-        activityIndicatorView.isHidden = false
+        
         CustomFileManager.removeCurrentImage()
+        activityIndicatorView.isHidden = false
         DataService.instance.deleteImage(forURL: URL, uid: user.uid, completed: { (error) in
             if error != nil {
                 print("JACOB: Error deleting old image. Please try again.")
@@ -234,15 +234,18 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
 
         let oldImageURL = user.imageURL
-        
+        activityIndicatorView.isHidden = false
         DataService.instance.deleteImage(forURL: oldImageURL, uid: user.uid, completed: { (error) in
             if error != nil {
+                self.activityIndicatorView.isHidden = true
                 print("JACOB: Error deleting old image. Please try again.")
             } else {
                 self.user.imageURL = ""
+                CustomFileManager.removeCurrentImage()
                 // continue on and set the new image
                 self.profileImgView.image = croppedImage
                 DataService.instance.saveProfileImage(image: croppedImage, uid: self.user.uid, completed: { (error, url) in
+                    self.activityIndicatorView.isHidden = true
                     if error == nil && url != nil {
                         self.user.imageURL = url!
                         let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]

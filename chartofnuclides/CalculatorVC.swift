@@ -29,11 +29,11 @@ class CalculatorVC: UIViewController, UIPopoverPresentationControllerDelegate {
             radiationSymbolImg.isHidden = true
         }
         
-        calculateBtn.setValuesForRadialGradient(color1: GREEN_COLOR, color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: 5 , outerRadius: calculateBtn.frame.width * 0.75)
+        calculateBtn.setValuesForRadialGradient(color1: GREEN_COLOR, color2: UIColor.white, relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: 5 , outerRadius: calculateBtn.frame.width * 0.85)
         calculateBtn.setNeedsDisplay()
         calculateBtn.addDarkShadow()
     }
-    
+        
     @IBAction func selectIsotopePressed(_ sender: Any) {
         
         performSegue(withIdentifier: "PopupSearchVC", sender: nil)
