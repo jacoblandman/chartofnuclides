@@ -16,6 +16,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var massLbl: UILabel!
     @IBOutlet weak var halfLifeLbl: UILabel!
+    @IBOutlet weak var spinLbl: UILabel!
     
     var isotope: Isotope!
     
@@ -40,6 +41,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         
     func updateUI() {
         nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
+        spinLbl.text = isotope.spin
         
         if let mass = isotope.mass.doubleValue {
             massLbl.text = "\(mass.roundedTo(places: 4))"

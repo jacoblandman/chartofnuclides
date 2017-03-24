@@ -19,6 +19,7 @@ class Isotope {
     private var _abundance: String!
     private var _hasIsomer: String!
     private var _isStable: String!
+    private var _spin: String!
     private var _index: Int!
     
     var atomicNumber: String {
@@ -47,6 +48,10 @@ class Isotope {
     
     var isStable: String {
         return _isStable
+    }
+    
+    var spin: String {
+        return _spin
     }
     
     var index: Int {
@@ -82,6 +87,10 @@ class Isotope {
         
         if let hasIsomer = isotope["has_isomer"] as? String {
             self._hasIsomer = hasIsomer
+        }
+        
+        if let spin = isotope["spin"] as? String {
+            self._spin = spin
         }
         
         self._index = index
@@ -120,8 +129,8 @@ class Isotope {
     }
     
     func calculateBindingEnergy() -> String {
-        let BE = (C_2 * (Double(element.protons)! * MASS_HYDROGEN + Double(neutrons)! * MASS_NEUTRON - Double(mass)!))
-        assert(BE > 0.0)
+        let BE = (C_2 * (Double(element.protons)! * (MASS_HYDROGEN) + Double(neutrons)! * MASS_NEUTRON - Double(mass)!))
+        assert(BE >= 0.0)
         return "\(BE)"
     }
     

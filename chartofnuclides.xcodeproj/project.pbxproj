@@ -161,7 +161,6 @@
 		AEC2B8821E83253D00A1D35D /* ACAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACAnimator.swift; sourceTree = "<group>"; };
 		AEC2B8841E834AF400A1D35D /* CustomACBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomACBackgroundView.swift; sourceTree = "<group>"; };
 		AEC2B8881E84505400A1D35D /* CustomACCommunicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomACCommunicationDelegate.swift; sourceTree = "<group>"; };
-		AEC2B88A1E84649100A1D35D /* chartofnuclides.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = chartofnuclides.entitlements; sourceTree = "<group>"; };
 		AECD26531E551DCD00282462 /* UIViewHexColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHexColorExtension.swift; sourceTree = "<group>"; };
 		AECD26551E5520CD00282462 /* StringSubStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringSubStringExtension.swift; sourceTree = "<group>"; };
 		AECF21681E563B9C00FA4D4C /* MZGradientCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGradientCircleLayer.h; sourceTree = "<group>"; };
@@ -253,7 +252,6 @@
 		AE5EDFEE1E43FF1B00EEAD8C /* chartofnuclides */ = {
 			isa = PBXGroup;
 			children = (
-				AEC2B88A1E84649100A1D35D /* chartofnuclides.entitlements */,
 				AE183F561E5CDDE400C72291 /* Protocols */,
 				AE183F511E5CC93800C72291 /* Animators */,
 				AE478B191E58D54D002F8E5F /* Pods-Manual */,
@@ -515,7 +513,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -809,7 +807,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = chartofnuclides/chartofnuclides.entitlements;
 				DEVELOPMENT_TEAM = E294R2UKFW;
 				INFOPLIST_FILE = chartofnuclides/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -826,7 +823,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = chartofnuclides/chartofnuclides.entitlements;
 				DEVELOPMENT_TEAM = E294R2UKFW;
 				INFOPLIST_FILE = chartofnuclides/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

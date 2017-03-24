@@ -208,7 +208,8 @@ class UnitConversionManager: HHUnitConverter {
         self.letUnit("minutes", convertToUnit: "seconds", byMultiplyingBy: 6E1)
         self.letUnit("hours", convertToUnit: "seconds", byMultiplyingBy: 3.6E3)
         self.letUnit("days", convertToUnit: "seconds", byMultiplyingBy: 8.64E4)
-        self.letUnit("years", convertToUnit: "seconds", byMultiplyingBy: 3.1536E7)
+        self.letUnit("years", convertToUnit: "seconds", byMultiplyingBy: 31557600)
+//        self.letUnit("years", convertToUnit: "seconds", byMultiplyingBy: 3.1536E7)
         self.letUnit("shakes", convertToUnit: "seconds", byMultiplyingBy: 1E-8)
     }
     

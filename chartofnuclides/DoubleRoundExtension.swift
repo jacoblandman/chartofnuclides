@@ -19,7 +19,7 @@ extension Double {
     
     var scientificStyle: String {
         Formatter.instance.numberStyle = .scientific
-        Formatter.instance.positiveFormat = "0.####E+0"
+        Formatter.instance.positiveFormat = "0.#####E+0"
         Formatter.instance.exponentSymbol = "E"
         let number = NSNumber(value: self)
         return Formatter.instance.string(from: number) ?? description

@@ -25,7 +25,7 @@ extension NSNumber {
     
     var scientificStyle: String {
         Formatter.instance.numberStyle = .scientific
-        Formatter.instance.positiveFormat = "0.#######E+0"
+        Formatter.instance.positiveFormat = "0.#####E+0"
         Formatter.instance.exponentSymbol = "E"
         return Formatter.instance.string(from: self) ?? description
     }

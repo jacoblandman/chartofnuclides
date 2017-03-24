@@ -10,6 +10,7 @@ import UIKit
 
 class IsotopeCell: UICollectionViewCell {
     
+    @IBOutlet weak var spinLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var massLbl: UILabel!
     @IBOutlet weak var shadowView: UIView!
@@ -30,6 +31,7 @@ class IsotopeCell: UICollectionViewCell {
         
         self.isotope = isotope
         self.nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
+        self.spinLbl.text = isotope.spin
         
         if isotope.isStable.toBool() {
             if let abundance = isotope.abundance.doubleValue {
