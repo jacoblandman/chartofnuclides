@@ -48,6 +48,7 @@ class QuestionVC: UIViewController {
             return
         }
 
+        titleTextView.resignFirstResponder()
         bodyTextView.resignFirstResponder()
         performSegue(withIdentifier: "CustomAC", sender: PostActionType.cancel)
         
@@ -66,6 +67,7 @@ class QuestionVC: UIViewController {
             present(ac, animated: true, completion: nil)
         } else {
             
+            titleTextView.resignFirstResponder()
             bodyTextView.resignFirstResponder()
             performSegue(withIdentifier: "CustomAC", sender: PostActionType.post)
         }
@@ -130,9 +132,9 @@ extension QuestionVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        if textView == titleTextView && textView.text == titlePlaceholder && text != "" {
+        if textView == titleTextView && textView.text == titlePlaceholder {
             textView.text = ""
-        } else if textView == bodyTextView && textView.text == bodyPlaceholder && text != "" {
+        } else if textView == bodyTextView && textView.text == bodyPlaceholder {
             textView.text = ""
         }
         

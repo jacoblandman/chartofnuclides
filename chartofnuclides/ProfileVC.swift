@@ -146,7 +146,7 @@ class ProfileVC: UIViewController {
         
         if FBSDKAccessToken.current() != nil {
             let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-            AuthService.instance.reauthenticateUser(withCredential: credential) { (error) in
+            AuthService.instance.reauthenticateUser(withCredential: credential) { (error, user) in
                 if error != nil {
                     // an error occurred
                     print("JACOB: An error occured trying to reauthenticate the user: ", error!.debugDescription)
@@ -164,10 +164,22 @@ class ProfileVC: UIViewController {
             }
         } else {
             
-            let ac = UIAlertController(title: "Error", message: "The facebook access token has expired. Please log out and log back in to delete account", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-            present(ac, animated: true, completion: nil)
+            // if the access token is nil then log back into facebook
+            AuthService.instance.authenticateWithFacebook(fromVC: self, reauthenticating: true, completed: { (error, user) in
+                if error != nil {
+                    let message = ErrorHandler.handleFirebaseError(error: error!)
+                    self.presentAlert(with: message)
+                }
+            }, cancelCompletion: { 
+                // do nothing if the user cancelled
+            })
         }
+    }
+    
+    func presentAlert(with message: String) {
+        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        present(ac, animated: true, completion: nil)
     }
 
     @IBAction func exitPressed(_ sender: Any) {

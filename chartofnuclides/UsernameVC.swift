@@ -38,6 +38,11 @@ class UsernameVC: UIViewController {
             return
         }
         
+        guard username.characters.count < 19 else {
+            usernameMessageLbl.text = "Username must be less than 19 characters..."
+            return
+        }
+        
         DataService.instance.verifyIsUnique(username) { (isUnique) in
             
             guard isUnique else {

@@ -53,19 +53,13 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
         
         // authenticate with facebook
         activityIndicatorView.isHidden = false
-        AuthService.instance.authenticateWithFacebook(fromVC: self) { (errorMsg, user) in
+        
+        AuthService.instance.authenticateWithFacebook(fromVC: self, reauthenticating: false, completed: { (error, user) in
             
-            if let errMsg = errorMsg {
-                // if the user cancelled we don't need to do anything
-                self.activityIndicatorView.isHidden = true
-                if errMsg != "User cancelled Facebook authentication" {
-                    self.presentAlertWith("An error occurred while attempting to login with Facebook. Please try again.")
-                }
-                
+            if error != nil {
+                self.presentAlertWith("An error occurred while attempting to login with Facebook. Please try again.")
             } else {
-                
                 // facebook login was a success
-                print("JACOB: Facebook login successful")
                 if let currentUser = user as? FIRUser {
                     _ = DataService.instance.checkIfPreviousUser(uid: currentUser.uid, completed: { (isPreviousUser) in
                         if (isPreviousUser) {
@@ -79,6 +73,8 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
                     })
                 }
             }
+        }) { 
+            self.activityIndicatorView.isHidden = true
         }
     }
     

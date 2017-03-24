@@ -120,7 +120,7 @@ extension AddAnswerVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        if textView.text == bodyPlaceholder && text != "" {
+        if textView.text == bodyPlaceholder {
             textView.text = ""
         }
         

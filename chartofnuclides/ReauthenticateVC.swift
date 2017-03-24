@@ -58,7 +58,7 @@ class ReauthenticateVC: UIViewController {
     
     func reauthenticateWith(_ credential: FIRAuthCredential) {
         activityIndicatorView.isHidden = false
-        AuthService.instance.reauthenticateUser(withCredential: credential) { (error) in
+        AuthService.instance.reauthenticateUser(withCredential: credential) { (error, user) in
             self.activityIndicatorView.isHidden = true
             if error != nil {
                 // an error occurred
@@ -69,7 +69,6 @@ class ReauthenticateVC: UIViewController {
                 self.present(ac, animated: true, completion: nil)
             } else {
                 // the reauthentication was a success
-                print("JACOB: about to dismiss")
                 self.dismiss(animated: true, completion: nil)
             }
         }

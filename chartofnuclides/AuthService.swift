@@ -13,7 +13,7 @@ import FBSDKLoginKit
 
 typealias Completion = (_ error: NSError?, _ data: AnyObject?) -> Void
 typealias facebookCompletion = (_ errMsg: String?,_ data: AnyObject?) -> Void
-typealias reauthenticationCompletion = (_ error: NSError?) -> Void
+typealias errorDataCompletion = (_ error: NSError?, _ datat: AnyObject?) -> Void
 
 class AuthService {
     private static let _instance = AuthService()
@@ -87,49 +87,47 @@ class AuthService {
         }
     }
     
-    func reauthenticateUser(withCredential credential: FIRAuthCredential, completed: reauthenticationCompletion?) {
+    func reauthenticateUser(withCredential credential: FIRAuthCredential, completed: errorDataCompletion?) {
         
-        let currentUser = FIRAuth.auth()?.currentUser
-        
-        if let user = currentUser {
+        if let user = FIRAuth.auth()?.currentUser {
             user.reauthenticate(with: credential, completion: { (error) in
                 if error != nil {
-                    completed?(error! as NSError)
+                    completed?(error! as NSError, nil)
                 } else {
-                    completed?(nil)
+                    completed?(nil, nil)
                     print("JACOB: reauthentication successful")
                 }
             })
         } else {
             print("JACOB: Error: The current user doesn't exist")
-            completed?(NSError())
+            completed?(NSError(), nil)
         }
     }
     
-    func authenticateWithFacebook(fromVC: UIViewController, completed: facebookCompletion?) {
+    func authenticateWithFacebook(fromVC: UIViewController, reauthenticating: Bool, completed: errorDataCompletion?, cancelCompletion: @escaping ()->() ) {
         let facebookLogin = FBSDKLoginManager()
         
         facebookLogin.logIn(withReadPermissions: ["email"], from: fromVC) { (result, error) in
             if error != nil {
-                let message = "Error: Unable to authenticate with Facebook - \(error!.localizedDescription)"
-                completed?(message, nil)
+                completed?(error! as NSError?, nil)
             } else if result?.isCancelled == true {
-                let message = "User cancelled Facebook authentication"
-                completed?(message, nil)
+                cancelCompletion()
             } else {
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                self.loginWithFacebook(credential, completed: completed)
+                if reauthenticating {
+                    self.reauthenticateUser(withCredential: credential, completed: completed)
+                } else {
+                    self.loginWithFacebook(credential, completed: completed)
+                }
             }
         }
     }
     
-    func loginWithFacebook(_ credential: FIRAuthCredential, completed: facebookCompletion?) {
+    func loginWithFacebook(_ credential: FIRAuthCredential, completed: errorDataCompletion?) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
-                let message = "JACOB: Unable to authenticate with Firebase - \(error!.localizedDescription)"
-                completed?(message, nil)
+                completed?(error! as NSError?, nil)
             } else {
-                print("JACOB: Successfully authenticated with Firebase")
                 // check if a previous user
                 if let currentUser = user {
                     _ = DataService.instance.checkIfPreviousUser(uid: currentUser.uid, completed: { (isPreviousUser) in
