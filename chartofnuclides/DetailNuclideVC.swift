@@ -18,6 +18,8 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var halfLifeLbl: UILabel!
     @IBOutlet weak var spinLbl: UILabel!
     
+    var triangleLayer: CAShapeLayer?
+    
     var isotope: Isotope!
     
     var viewsToFadeIn: Array<UIView> {
@@ -59,6 +61,11 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
             }
         }
         
+        if let fissionYield = isotope.indFissionYield.doubleValue {
+            let triangleColor = self.determineFissionYieldColor(yield: fissionYield)
+            drawTriangle(with: triangleColor)
+        }
+        
         setBackgroundColor()
     }
     
@@ -76,6 +83,41 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         }
     }
     
+    func determineFissionYieldColor(yield: Double) -> UIColor {
+        
+        let percentYield = yield * 100
+        if percentYield > 3 {
+            return COLOR_FISSIONYIELD_ORANGE
+        } else if percentYield > 1 {
+            return COLOR_FISSIONYIELD_YELLOW
+        } else if percentYield > 0.1 {
+            return COLOR_FISSIONYIELD_GREEN
+        } else if percentYield > 0.01 {
+            return COLOR_FISSIONYIELD_BLUE
+        } else if percentYield > 2.5E-6 {
+            return UIColor.darkGray
+        } else {
+            return UIColor.white
+        }
+    }
+    
+    func drawTriangle(with color: UIColor) {
+        
+        triangleLayer = CAShapeLayer()
+        let trianglePath = UIBezierPath()
+        trianglePath.move(to: .zero)
+        trianglePath.addLine(to: CGPoint(x: 0, y: -IsotopeView.frame.height / 8))
+        trianglePath.addLine(to: CGPoint(x: -IsotopeView.frame.width / 8, y: 0))
+        trianglePath.close()
+        
+        triangleLayer!.path = trianglePath.cgPath
+        triangleLayer!.fillColor = color.cgColor
+        triangleLayer!.anchorPoint = .zero
+        triangleLayer!.position = CGPoint(x: IsotopeView.frame.width, y: IsotopeView.frame.height)
+        triangleLayer!.name = "triangle"
+        IsotopeView.layer.addSublayer(triangleLayer!)
+        
+    }
     
 }
 

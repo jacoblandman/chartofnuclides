@@ -20,7 +20,10 @@ class Isotope {
     private var _hasIsomer: String!
     private var _isStable: String!
     private var _spin: String!
+    private var _fissionYield: String!
+    private var _indFissionYield: String!
     private var _index: Int!
+    
     
     var atomicNumber: String {
         return _atomicNumber
@@ -52,6 +55,14 @@ class Isotope {
     
     var spin: String {
         return _spin
+    }
+    
+    var fissionyield: String {
+        return _fissionYield
+    }
+    
+    var indFissionYield: String {
+        return _indFissionYield
     }
     
     var index: Int {
@@ -93,6 +104,14 @@ class Isotope {
             self._spin = spin
         }
         
+        if let fissionYield = isotope["cumulative fission yield"] as? String {
+            self._fissionYield = fissionYield
+        }
+        
+        if let indFissionYield = isotope["independent fission yield"] as? String {
+            self._indFissionYield = indFissionYield
+        }
+        
         self._index = index
         
         self.element = element
@@ -119,9 +138,10 @@ class Isotope {
         
         if let secondIsotope = secondaryIsotope {
             let secondMass = Double(secondIsotope.mass)!
+            print(secondMass)
             let energy = C_2 * (secondMass + MASS_NEUTRON - Double(mass)!)
             if energy > 0 { return "\(energy)" }
-            else { return "Cannot calculate separation energy" }
+            else { print("Energy not greateer than 0"); return "Cannot calculate separation energy" }
         } else {
             return "Cannot calculate separation energy"
         }

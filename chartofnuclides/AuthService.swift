@@ -107,12 +107,19 @@ class AuthService {
     func authenticateWithFacebook(fromVC: UIViewController, reauthenticating: Bool, completed: errorDataCompletion?, cancelCompletion: @escaping ()->() ) {
         let facebookLogin = FBSDKLoginManager()
         
-        facebookLogin.logIn(withReadPermissions: ["email"], from: fromVC) { (result, error) in
+        // need access to both the email and public_profile to determine if the email access was declined
+        // if only email is requested and the access is declined, then the result is considered cancelled
+        facebookLogin.logIn(withReadPermissions: ["email", "public_profile"], from: fromVC) { (result, error) in
             if error != nil {
                 completed?(error! as NSError?, nil)
             } else if result?.isCancelled == true {
                 cancelCompletion()
+            } else if FBSDKAccessToken.current().declinedPermissions.contains("email") {
+                // make sure the user hasn't denied access to their email
+                print("JACOB: Declined email")
             } else {
+                // double check that email permissions were granted
+                guard FBSDKAccessToken.current().permissions.contains("email") else { return }
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 if reauthenticating {
                     self.reauthenticateUser(withCredential: credential, completed: completed)
