@@ -22,6 +22,7 @@ class Isotope {
     private var _spin: String!
     private var _fissionYield: String!
     private var _indFissionYield: String!
+    private var _crossSection: String!
     private var _index: Int!
     
     
@@ -63,6 +64,10 @@ class Isotope {
     
     var indFissionYield: String {
         return _indFissionYield
+    }
+    
+    var crossSection: String {
+        return _crossSection
     }
     
     var index: Int {
@@ -110,6 +115,10 @@ class Isotope {
         
         if let indFissionYield = isotope["independent fission yield"] as? String {
             self._indFissionYield = indFissionYield
+        }
+        
+        if let crossSection = isotope["crossSection"] as? String {
+            self._crossSection = crossSection
         }
         
         self._index = index

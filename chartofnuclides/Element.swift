@@ -14,6 +14,7 @@ class Element: NSCopying {
     private var _protons: String!
     private var _symbol: String!
     private var _mass: String!
+    private var _crossSection: String!
     private var _isotopes = [Isotope]()
     private var _index: Int!
     var filteredIsotopes = [Isotope]()
@@ -32,6 +33,10 @@ class Element: NSCopying {
     
     var mass: String {
         return _mass
+    }
+    
+    var crossSection: String {
+        return _crossSection
     }
     
     var isotopes: [Isotope] {
@@ -65,6 +70,10 @@ class Element: NSCopying {
         }
         if let mass = element["mass"] as? String {
             self._mass = mass
+        }
+        
+        if let crossSection = element["crossSection"] as? String {
+            self._crossSection = crossSection
         }
         
         // this should work because by this point, all of Elements values have been instantiated

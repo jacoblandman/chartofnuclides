@@ -17,6 +17,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var massLbl: UILabel!
     @IBOutlet weak var halfLifeLbl: UILabel!
     @IBOutlet weak var spinLbl: UILabel!
+    @IBOutlet weak var crossSectionLbl: UILabel!
     
     var triangleLayer: CAShapeLayer?
     
@@ -66,6 +67,15 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
             drawTriangle(with: triangleColor)
         }
         
+        if !isotope.crossSection.isEmpty {
+            let crossSection = NSMutableAttributedString(string: "    \(isotope.crossSection) b")
+            let sigma = "σ".subscriptString(with: "a", regularSize: 17.5)
+            sigma.append(crossSection)
+            crossSectionLbl.attributedText = sigma
+        } else {
+            crossSectionLbl.text = ""
+        }
+        
         setBackgroundColor()
     }
     
@@ -87,13 +97,13 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         
         let percentYield = yield * 100
         if percentYield > 3 {
-            return COLOR_FISSIONYIELD_ORANGE
+            return COLOR_ISOTOPE_ORANGE
         } else if percentYield > 1 {
-            return COLOR_FISSIONYIELD_YELLOW
+            return COLOR_ISOTOPE_YELLOW
         } else if percentYield > 0.1 {
-            return COLOR_FISSIONYIELD_GREEN
+            return COLOR_ISOTOPE_GREEN
         } else if percentYield > 0.01 {
-            return COLOR_FISSIONYIELD_BLUE
+            return COLOR_ISOTOPE_BLUE
         } else if percentYield > 2.5E-6 {
             return UIColor.darkGray
         } else {
@@ -113,6 +123,8 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         triangleLayer!.path = trianglePath.cgPath
         triangleLayer!.fillColor = color.cgColor
         triangleLayer!.anchorPoint = .zero
+        triangleLayer!.strokeColor = UIColor.darkGray.cgColor
+        triangleLayer!.lineWidth = 0.5
         triangleLayer!.position = CGPoint(x: IsotopeView.frame.width, y: IsotopeView.frame.height)
         triangleLayer!.name = "triangle"
         IsotopeView.layer.addSublayer(triangleLayer!)

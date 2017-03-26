@@ -88,6 +88,10 @@ extension String {
         if let uncertainty = self.range(of: "+/-") {
             self.removeSubrange(uncertainty.lowerBound..<self.endIndex)
         }
+        
+        if let uncertainty = self.range(of: " (") {
+            self.removeSubrange(uncertainty.lowerBound..<self.endIndex)
+        }
     }
     
     func firstCharacter() -> Character {
@@ -165,5 +169,16 @@ extension String {
         let attStr = NSMutableAttributedString(string: self.appending("3"), attributes: [NSFontAttributeName:font!])
         attStr.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName: 10], range: NSRange(location: self.characters.count, length: 1))
         return attStr
+    }
+    
+    func subscriptString(with substring: String, regularSize: CGFloat) -> NSMutableAttributedString {
+        
+        let font = UIFont(name: "Avenir-light", size: regularSize)
+        let fontSub = UIFont(name: "Avenir-light", size: (regularSize - 2))
+        let attStr = NSMutableAttributedString(string: self.appending(substring), attributes: [NSFontAttributeName:font!])
+        attStr.setAttributes([NSFontAttributeName:fontSub!, NSBaselineOffsetAttributeName: -2], range: NSRange(location: self.characters.count, length: substring.characters.count))
+        return attStr
+        
+        
     }
 }
