@@ -103,14 +103,18 @@ class IsotopeCell: UICollectionViewCell {
     
     func setTopColor(halfLife: String) {
         if let halfLife = halfLife.doubleValue {
-            if halfLife > 3.154e+8 {
-                topBgView.backgroundColor = COLOR_ISOTOPE_BLUE
-            } else if halfLife > 8.64e+6 {
-                topBgView.backgroundColor = COLOR_ISOTOPE_GREEN
-            } else if halfLife > 864000 {
-                topBgView.backgroundColor = COLOR_ISOTOPE_YELLOW
-            } else if halfLife > 86400 {
-                topBgView.backgroundColor = COLOR_ISOTOPE_ORANGE
+            if halfLife < 1.57788e16 {
+                if halfLife > 3.154e+8 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_BLUE
+                } else if halfLife > 8.64e+6 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_GREEN
+                } else if halfLife > 864000 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_YELLOW
+                } else if halfLife > 86400 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_ORANGE
+                } else {
+                    topBgView.backgroundColor = UIColor.clear
+                }
             } else {
                 topBgView.backgroundColor = UIColor.clear
             }

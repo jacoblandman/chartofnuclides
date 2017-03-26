@@ -18,6 +18,9 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var halfLifeLbl: UILabel!
     @IBOutlet weak var spinLbl: UILabel!
     @IBOutlet weak var crossSectionLbl: UILabel!
+    @IBOutlet weak var bottomBgView: UIView!
+    @IBOutlet weak var topBgView: UIView!
+    @IBOutlet weak var containerView: UIView!
     
     var triangleLayer: CAShapeLayer?
     
@@ -38,7 +41,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         gradientViewBg.setValuesForRadialGradient(color1: GREEN_COLOR, color2: UIColor.white,
                                                   relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: 10, outerRadius: gradientViewBg.frame.width)
         gradientViewBg.setNeedsDisplay()
-        
+        containerView.layer.cornerRadius = 4
         updateUI()
     }
         
@@ -76,8 +79,56 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
             crossSectionLbl.text = ""
         }
         
-        setBackgroundColor()
+        setBackgroundColors(halfLife: isotope.halfLife, crossSection: isotope.crossSection)
     }
+    
+    func setTopColor(halfLife: String) {
+        if let halfLife = halfLife.doubleValue {
+            if halfLife < 1.57788e16 {
+                if halfLife > 3.154e+8 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_BLUE
+                } else if halfLife > 8.64e+6 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_GREEN
+                } else if halfLife > 864000 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_YELLOW
+                } else if halfLife > 86400 {
+                    topBgView.backgroundColor = COLOR_ISOTOPE_ORANGE
+                } else {
+                    topBgView.backgroundColor = UIColor.clear
+                }
+            } else {
+                topBgView.backgroundColor = UIColor.clear
+            }
+        } else {
+            topBgView.backgroundColor = UIColor.clear
+        }
+    }
+    
+    func setBottomColor(crossSection: String) {
+        
+        if !crossSection.isEmpty {
+            var strippedCrossSection = crossSection
+            strippedCrossSection.stripUncertainty()
+            if let crossSection = strippedCrossSection.doubleValue {
+                if crossSection > 1000 {
+                    bottomBgView.backgroundColor = COLOR_ISOTOPE_ORANGE
+                } else if crossSection > 500 {
+                    bottomBgView.backgroundColor = COLOR_ISOTOPE_YELLOW
+                } else if crossSection > 100 {
+                    bottomBgView.backgroundColor = COLOR_ISOTOPE_GREEN
+                } else if crossSection > 10 {
+                    bottomBgView.backgroundColor = COLOR_ISOTOPE_BLUE
+                } else {
+                    bottomBgView.backgroundColor = UIColor.clear
+                }
+            } else {
+                bottomBgView.backgroundColor = UIColor.clear
+            }
+        } else {
+            bottomBgView.backgroundColor = UIColor.clear
+        }
+    }
+
     
     
     @IBAction func donePressed(_ sender: Any) {
@@ -85,12 +136,15 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         dismiss(animated: true, completion: nil)
     }
     
-    func setBackgroundColor() {
+    func setBackgroundColors(halfLife: String, crossSection: String) {
         if isotope!.isStable.toBool() {
             IsotopeView.backgroundColor = colorWithHexString(hex: "DCDCDC")
         } else {
             IsotopeView.backgroundColor = UIColor.white
         }
+        
+        setTopColor(halfLife: halfLife)
+        setBottomColor(crossSection: crossSection)
     }
     
     func determineFissionYieldColor(yield: Double) -> UIColor {
@@ -127,7 +181,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         triangleLayer!.lineWidth = 0.5
         triangleLayer!.position = CGPoint(x: IsotopeView.frame.width, y: IsotopeView.frame.height)
         triangleLayer!.name = "triangle"
-        IsotopeView.layer.addSublayer(triangleLayer!)
+        containerView.layer.addSublayer(triangleLayer!)
         
     }
     
