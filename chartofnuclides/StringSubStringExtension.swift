@@ -178,7 +178,27 @@ extension String {
         let attStr = NSMutableAttributedString(string: self.appending(substring), attributes: [NSFontAttributeName:font!])
         attStr.setAttributes([NSFontAttributeName:fontSub!, NSBaselineOffsetAttributeName: -2], range: NSRange(location: self.characters.count, length: substring.characters.count))
         return attStr
+    }
+    
+    func textInParentheses() -> [String] {
         
+        let text = self
+        let regex = "\\((.*?)\\)"
         
+        do {
+            
+            let regex = try NSRegularExpression(pattern: regex, options: [])
+            let nsString = text as NSString
+            
+            let results = regex.matches(in: text,
+                                        options: [], range: NSMakeRange(0, nsString.length))
+            return results.map { nsString.substring(with: $0.range)}
+            
+        } catch let error as NSError {
+            
+            print("invalid regex: \(error.localizedDescription)")
+            
+            return []
+        }
     }
 }

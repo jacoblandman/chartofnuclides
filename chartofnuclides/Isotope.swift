@@ -97,8 +97,16 @@ class Isotope {
         }
         
         if var abundance = isotope["abundance"] as? String {
-            abundance.stripUncertainty()
-            self._abundance = abundance
+            let valueInParenthesis = abundance.textInParentheses()
+            if valueInParenthesis.count > 0 {
+                let ending = abundance.components(separatedBy: ")").last
+                var value = valueInParenthesis[0].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
+                value.stripUncertainty()
+                self._abundance = value.appending(ending!)
+            } else {
+                abundance.stripUncertainty()
+                self._abundance = abundance
+            }
         }
         
         if let hasIsomer = isotope["has_isomer"] as? String {

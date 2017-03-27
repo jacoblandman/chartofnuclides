@@ -65,7 +65,7 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
             }
         }
         
-        if let fissionYield = isotope.indFissionYield.doubleValue {
+        if let fissionYield = isotope.indFissionYield.doubleValue, fissionYield != 0.0 {
             let triangleColor = self.determineFissionYieldColor(yield: fissionYield)
             drawTriangle(with: triangleColor)
         }
