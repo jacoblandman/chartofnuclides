@@ -72,15 +72,7 @@ class UsernameVC: UIViewController {
         let ac = UIAlertController(title: "Cancel sign up", message: nil, preferredStyle: .alert)
         
         ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert: UIAlertAction!) in
-
-            AuthService.instance.deleteCurrentUser(uid: self.user.uid, username: nil, imageURL: "", completed: { (error) in
-                if error != nil {
-                    self.presentAlertWith(error!)
-                    return
-                } else {
-                    self.dismissView()
-                }
-            })
+            self.dismissView()
         }))
         
         ac.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))

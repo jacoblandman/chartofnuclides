@@ -1165,10 +1165,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UnitCell" id="AVk-u2-3gQ" customClass="UnitCell" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="251" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="250" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVk-u2-3gQ" id="ba3-wY-GUm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="251" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="250.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="angle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlD-bx-eKd">
@@ -1602,7 +1602,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="The Community" id="Oxc-le-kfq">
                         <barButtonItem key="backBarButtonItem" title="Back" id="iBC-oB-wFo"/>
-                        <barButtonItem key="leftBarButtonItem" image="profile_icon copy" id="1K9-9J-3SZ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="1K9-9J-3SZ">
                             <view key="customView" clipsSubviews="YES" contentMode="scaleToFill" id="hxf-bl-uXy" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
                                 <rect key="frame" x="16" y="9" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3877,7 +3877,6 @@
         <image name="loginBG" width="414" height="736"/>
         <image name="loginLogo" width="99" height="90"/>
         <image name="nuclideIcon" width="27" height="25"/>
-        <image name="profile_icon copy" width="20" height="20"/>
         <image name="profile_icon_big" width="150" height="150"/>
         <image name="profile_icon_grey" width="60" height="60"/>
         <image name="velocity" width="61" height="40"/>

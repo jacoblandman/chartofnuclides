@@ -169,6 +169,10 @@ class ProfileVC: UIViewController {
                 if error != nil {
                     let message = ErrorHandler.handleFirebaseError(error: error!)
                     self.presentAlert(with: message)
+                } else {
+                    let ac = UIAlertController(title: "Reauthentication Successful", message: nil, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                    self.present(ac, animated: true, completion: nil)
                 }
             }, cancelCompletion: { 
                 // do nothing if the user cancelled
@@ -241,6 +245,7 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
             if error != nil {
                 self.activityIndicatorView.isHidden = true
                 print("JACOB: Error deleting old image. Please try again.")
+                self.presentAlert(with: "There was a problem deleting your current image. Please try again.")
             } else {
                 self.user.imageURL = ""
                 CustomFileManager.removeCurrentImage()
@@ -253,6 +258,9 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
                         let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]
                         self.delegate?.sendDataToA(data: dict)
                         CustomFileManager.saveImageToDisk(image: croppedImage)
+                    } else {
+                        self.presentAlert(with: "There was an error saving your image. Please try again.")
+                        self.profileImgView.image = UIImage(named: "profile_icon_big")
                     }
                 })
             }

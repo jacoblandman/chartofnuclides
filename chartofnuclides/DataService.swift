@@ -149,20 +149,26 @@ class DataService {
         return returnElements
     }
     
-    func deleteUserDataWith(_ uid: String) {
+    func deleteUserDataWith(_ uid: String, username: String) {
         // here we actually want to delete the username, then modify it to say "Unknown User"
         // then we can delete the profile
         // this is because a user may wish to delete their account, but may have questions or answers
         // we don't want to delete those questions and answers, instead just specify that its from an unknown user
-        usersRef.child(uid).child("username").removeValue()
-        usersRef.updateChildValues(["\(uid)/username/username": "User Unknown"])
-        usersRef.child(uid).child("profile").removeValue()
-        usersRef.child(uid).child("votes").removeValue()
         
-    }
-    
-    func delete(_ username: String) {
         usernamesRef.child(username).removeValue()
+        usersRef.child(uid).child("username").removeValue()
+        usersRef.updateChildValues(["\(uid)/username/username": "User unknown"])
+        usersRef.child(uid).child("profile").removeValue()
+        
+        // delete downvotes
+        downvotesRef.child(uid).removeValue()
+        
+        // delete upvotes
+        upvotesRef.child(uid).removeValue()
+        
+        // delete flag tallies
+        flagTalliesRef.child(uid).removeValue()
+        
     }
     
     func saveProfileImage(image: UIImage, uid: String, completed: @escaping imageUploadCompletion ) {

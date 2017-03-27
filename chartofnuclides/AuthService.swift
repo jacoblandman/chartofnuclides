@@ -52,28 +52,41 @@ class AuthService {
         })
     }
     
-    func deleteCurrentUser(uid: String, username: String?, imageURL: String, completed: errorCompletion?) {
+    func deleteCurrentUser(uid: String, username: String, imageURL: String, completed: errorCompletion?) {
         if let user = FIRAuth.auth()?.currentUser {
             
             if imageURL != "" {
-                DataService.instance.deleteImage(forURL: imageURL, uid: user.uid, completed: nil)
-            }
-            
-            user.delete(completion: { (error) in
-                if error != nil {
-                    completed?(error! as NSError?)
-                    print("JACOB: An error occured trying to delete the user: \(error!.localizedDescription)")
-                } else {
-                    // the username is optional because the user may cancel the sign up process before choosing a username
-                    if let username = username {
-                        DataService.instance.delete(username)
-                        DataService.instance.deleteUserDataWith(uid)
-                        print("JACOB: Succesfully deleted user")
+                DataService.instance.deleteImage(forURL: imageURL, uid: user.uid, completed: { (error) in
+                    // if there was a problem deleting their image from storage present an error
+                    if error != nil {
+                        completed?(error! as NSError)
+                    } else {
+                        user.delete(completion: { (error) in
+                            if error != nil {
+                                completed?(error! as NSError?)
+                                print("JACOB: An error occured trying to delete the user: \(error!.localizedDescription)")
+                            } else {
+                                
+                                DataService.instance.deleteUserDataWith(uid, username: username)
+                                print("JACOB: Succesfully deleted user")
+                                completed?(nil)
+                            }
+                        })
                     }
-                    
-                    completed?(nil)
-                }
-            })
+                })
+            } else {
+                user.delete(completion: { (error) in
+                    if error != nil {
+                        completed?(error! as NSError?)
+                        print("JACOB: An error occured trying to delete the user: \(error!.localizedDescription)")
+                    } else {
+                        
+                        DataService.instance.deleteUserDataWith(uid, username: username)
+                        print("JACOB: Succesfully deleted user")
+                        completed?(nil)
+                    }
+                })
+            }
         }
     }
     
