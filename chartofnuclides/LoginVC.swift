@@ -55,7 +55,6 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
         activityIndicatorView.isHidden = false
         
         AuthService.instance.authenticateWithFacebook(fromVC: self, reauthenticating: false, completed: { (error, user) in
-            
             if error != nil {
                 self.presentAlertWith("An error occurred while attempting to login with Facebook. Please try again.")
             } else {
@@ -73,8 +72,13 @@ class LoginVC: UIViewController, UIViewControllerTransitioningDelegate {
                     })
                 }
             }
-        }) { 
+        }, cancelCompletion: { 
             self.activityIndicatorView.isHidden = true
+        }) { 
+            // the user declined email permisions.
+            // alert them and tell them why we need that info
+            self.activityIndicatorView.isHidden = true
+            self.presentAlertWith("We noticed you didn't give us access to your email. This information is necessary for account authentication.")
         }
     }
     

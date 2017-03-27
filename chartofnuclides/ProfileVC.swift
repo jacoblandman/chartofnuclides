@@ -172,6 +172,8 @@ class ProfileVC: UIViewController {
                 }
             }, cancelCompletion: { 
                 // do nothing if the user cancelled
+            }, declinedPermissions: { 
+                self.presentAlert(with: "We noticed you didn't give us access to your email. This information is necessary for account authentication.")
             })
         }
     }
