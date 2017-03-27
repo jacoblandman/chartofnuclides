@@ -21,6 +21,8 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var bottomBgView: UIView!
     @IBOutlet weak var topBgView: UIView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var gammaEnergieLbl: UILabel!
+    @IBOutlet weak var decayModesLbl: UILabel!
     
     var triangleLayer: CAShapeLayer?
     
@@ -72,12 +74,50 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
         
         if !isotope.crossSection.isEmpty {
             let crossSection = NSMutableAttributedString(string: "    \(isotope.crossSection) b")
-            let sigma = "σ".subscriptString(with: "a", regularSize: 17.5)
+            let sigma = "σ".subscriptString(with: "a", regularSize: 14)
             sigma.append(crossSection)
             crossSectionLbl.attributedText = sigma
         } else {
             crossSectionLbl.text = ""
         }
+        
+        // display the gamma energies
+        if isotope.gammaEnergies.count > 0 {
+            var gammaText = "γ    "
+            for energy in isotope.gammaEnergies {
+                gammaText = gammaText.appending(energy)
+                if energy == isotope.gammaEnergies.last! {
+                    // do nothing
+                } else {
+                    gammaText = gammaText.appending(", ")
+                }
+            }
+            gammaEnergieLbl.text = gammaText
+        } else {
+            gammaEnergieLbl.text = ""
+        }
+        
+        // display the decay modes
+        if isotope.decayModes.count > 0 {
+            var decayText: String = ""
+            var noQDecays: String = ""
+            for (type, value) in isotope.decayModes {
+                if value.doubleValue! == 0.0 {
+                    if noQDecays.isEmpty {
+                        noQDecays = noQDecays.appending("\(type)")
+                    } else {
+                        noQDecays = noQDecays.appending(", \(type)")
+                    }
+                } else {
+                    decayText = decayText.appending("\(type)    \(value)\n")
+                }
+            }
+            decayText = decayText.appending(noQDecays)
+            decayModesLbl.text = decayText
+        } else {
+            decayModesLbl.text = ""
+        }
+
         
         setBackgroundColors(halfLife: isotope.halfLife, crossSection: isotope.crossSection)
     }

@@ -35,6 +35,9 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         filteredElements = elements
     }
     
+    @IBAction func infoPressed(_ sender: Any) {
+    }
+    
     @IBAction func endEditing(_ sender: Any) {
         view.endEditing(true)
         tapGesture.isEnabled = false

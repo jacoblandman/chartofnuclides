@@ -23,6 +23,8 @@ class Isotope {
     private var _fissionYield: String!
     private var _indFissionYield: String!
     private var _crossSection: String!
+    private var _gammaEnergies = [String]()
+    private var _decayModes = Dictionary<String, String>()
     private var _index: Int!
     
     
@@ -68,6 +70,14 @@ class Isotope {
     
     var crossSection: String {
         return _crossSection
+    }
+    
+    var gammaEnergies: [String] {
+        return _gammaEnergies
+    }
+    
+    var decayModes: Dictionary<String, String> {
+        return _decayModes
     }
     
     var index: Int {
@@ -127,6 +137,24 @@ class Isotope {
         
         if let crossSection = isotope["crossSection"] as? String {
             self._crossSection = crossSection
+        }
+        
+        if let gammaEnergies = isotope["gammaEnergies"] as? [Dictionary<String, AnyObject>] {
+            for energy in gammaEnergies {
+                if let energyValue = energy["energy"] as? String {
+                    self._gammaEnergies.append(energyValue)
+                }
+            }
+        }
+        
+        if let decayModes = isotope["decayModes"] as? [Dictionary<String, AnyObject>] {
+            for modeDict in decayModes {
+                if let type = modeDict["type"] as? String {
+                    if let qValue = modeDict["Q-value"] as? String {
+                        self._decayModes[type] = qValue
+                    }
+                }
+            }
         }
         
         self._index = index

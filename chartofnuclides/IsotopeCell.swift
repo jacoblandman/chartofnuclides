@@ -19,6 +19,8 @@ class IsotopeCell: UICollectionViewCell {
     @IBOutlet weak var topBgView: UIView!
     @IBOutlet weak var bottomBgView: UIView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var gammaEnergyLbl: UILabel!
+    @IBOutlet weak var decayModesLbl: UILabel!
     
     var isotope: Isotope?
     var originalBGColor = UIColor.white
@@ -40,6 +42,7 @@ class IsotopeCell: UICollectionViewCell {
         self.nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
         self.spinLbl.text = isotope.spin
         
+        // display the half life or the abundance
         if isotope.isStable.toBool() {
             if let abundance = isotope.abundance.doubleValue {
                 self.halfLifeLbl.text = "\(abundance.roundedTo(places: 6))"
@@ -52,6 +55,7 @@ class IsotopeCell: UICollectionViewCell {
             }
         }
         
+        // display the mass
         if let mass = isotope.mass.doubleValue {
             self.massLbl.text = "\(mass.roundedTo(places: 4))"
         }
@@ -62,18 +66,57 @@ class IsotopeCell: UICollectionViewCell {
             triangleLayer = nil
         }
         
+        // set the bottom right triangle if isotope is a fission product
         if let fissionYield = isotope.indFissionYield.doubleValue, fissionYield != 0.0 {
             let triangleColor = self.determineFissionYieldColor(yield: fissionYield)
             drawTriangle(with: triangleColor)
         }
         
+        // display the cross section
         if !isotope.crossSection.isEmpty {
             let crossSection = NSMutableAttributedString(string: "    \(isotope.crossSection) b")
-            let sigma = "σ".subscriptString(with: "a", regularSize: 10)
+            let sigma = "σ".subscriptString(with: "a", regularSize: 8)
             sigma.append(crossSection)
             crossSectionLbl.attributedText = sigma
         } else {
             crossSectionLbl.text = ""
+        }
+        
+        // display the gamma energies
+        if isotope.gammaEnergies.count > 0 {
+            var gammaText = "γ    "
+            for energy in isotope.gammaEnergies {
+                gammaText = gammaText.appending(energy)
+                if energy == isotope.gammaEnergies.last! {
+                    // do nothing
+                } else {
+                    gammaText = gammaText.appending(", ")
+                }
+            }
+            gammaEnergyLbl.text = gammaText
+        } else {
+            gammaEnergyLbl.text = ""
+        }
+        
+        // display the decay modes
+        if isotope.decayModes.count > 0 {
+            var decayText: String = ""
+            var noQDecays: String = ""
+            for (type, value) in isotope.decayModes {
+                if value.doubleValue! == 0.0 {
+                    if noQDecays.isEmpty {
+                        noQDecays = noQDecays.appending("\(type)")
+                    } else {
+                        noQDecays = noQDecays.appending(", \(type)")
+                    }
+                } else {
+                    decayText = decayText.appending("\(type)    \(value)\n")
+                }
+            }
+            decayText = decayText.appending(noQDecays)
+            decayModesLbl.text = decayText
+        } else {
+            decayModesLbl.text = ""
         }
         
         setBackgroundColors(halfLife: isotope.halfLife, crossSection: isotope.crossSection)
