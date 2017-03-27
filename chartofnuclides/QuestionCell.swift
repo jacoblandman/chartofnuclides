@@ -42,6 +42,5 @@ class QuestionCell: UITableViewCell {
         self.question = question
         questionTitle.text = question.title
         questionDescription.text = question.body
-        
     }
 }

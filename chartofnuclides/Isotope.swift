@@ -142,8 +142,7 @@ class Isotope {
         if let secondIsotope = secondaryIsotope {
             let massY = Double(secondIsotope.mass)!
             let energy = C_2 * (massY + MASS_HYDROGEN - Double(mass)!)
-            if energy > 0 { return "\(energy)" }
-            else { return "Cannot calculate separation energy" }
+            return "\(energy)"
         } else {
             return "Cannot calculate separation energy"
         }
@@ -157,8 +156,7 @@ class Isotope {
             let secondMass = Double(secondIsotope.mass)!
             print(secondMass)
             let energy = C_2 * (secondMass + MASS_NEUTRON - Double(mass)!)
-            if energy > 0 { return "\(energy)" }
-            else { print("Energy not greateer than 0"); return "Cannot calculate separation energy" }
+            return "\(energy)"
         } else {
             return "Cannot calculate separation energy"
         }
@@ -170,5 +168,4 @@ class Isotope {
         assert(BE >= 0.0)
         return "\(BE)"
     }
-    
 }
