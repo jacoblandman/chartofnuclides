@@ -13,6 +13,10 @@ import FBSDKLoginKit
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var exitBtn: UIButton!
+    @IBOutlet weak var deleteAccountBtn: InspectableRoundButton!
+    @IBOutlet weak var logOutBtn: InspectableRoundButton!
+    @IBOutlet weak var changeImageBtn: InspectableRoundButton!
     @IBOutlet weak var profileImgView: CircleImageView!
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var answersLbl: UILabel!
@@ -37,11 +41,38 @@ class ProfileVC: UIViewController {
         profileImgView.image = profileImage
         
         activityIndicatorView.isHidden = false
+        disableUI()
+        
         user?.loadUserInfo(completed: { 
             self.updateUI()
+            self.enableUI()
             if self.imageIsSet { self.activityIndicatorView.isHidden = true }
-           
+            // check if the account was deleted from another device
+            if self.user.username == "User unknown" {
+                let ac = UIAlertController(title: "Account Deleted", message: "This account has been deleted from another device.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Gotcha", style: .cancel, handler: { (alert: UIAlertAction) in
+                    AuthService.instance.signOutCurrentUser()
+                    CustomFileManager.removeCurrentImage()
+                    self.delegate?.signalRefresh()
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(ac, animated: true, completion: nil)
+            }
         })
+    }
+    
+    func disableUI() {
+        deleteAccountBtn.isEnabled = false
+        logOutBtn.isEnabled = false
+        exitBtn.isEnabled = false
+        changeImageBtn.isEnabled = false
+    }
+    
+    func enableUI() {
+        deleteAccountBtn.isEnabled = true
+        logOutBtn.isEnabled = true
+        exitBtn.isEnabled = true
+        changeImageBtn.isEnabled = true
     }
     
     func updateUI() {
@@ -196,7 +227,9 @@ class ProfileVC: UIViewController {
         
         CustomFileManager.removeCurrentImage()
         activityIndicatorView.isHidden = false
+        self.disableUI()
         DataService.instance.deleteImage(forURL: URL, uid: user.uid, completed: { (error) in
+            self.enableUI()
             if error != nil {
                 print("JACOB: Error deleting old image. Please try again.")
             } else {
@@ -241,8 +274,10 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
 
         let oldImageURL = user.imageURL
         activityIndicatorView.isHidden = false
+        self.disableUI()
         DataService.instance.deleteImage(forURL: oldImageURL, uid: user.uid, completed: { (error) in
             if error != nil {
+                self.enableUI()
                 self.activityIndicatorView.isHidden = true
                 print("JACOB: Error deleting old image. Please try again.")
                 self.presentAlert(with: "There was a problem deleting your current image. Please try again.")
@@ -253,6 +288,7 @@ extension ProfileVC: RSKImageCropViewControllerDelegate {
                 self.profileImgView.image = croppedImage
                 DataService.instance.saveProfileImage(image: croppedImage, uid: self.user.uid, completed: { (error, url) in
                     self.activityIndicatorView.isHidden = true
+                    self.enableUI()
                     if error == nil && url != nil {
                         self.user.imageURL = url!
                         let dict = ["image": croppedImage, "imageURL": url!] as [String : Any]

@@ -188,6 +188,11 @@ class CommunityVC: UIViewController {
             profileImgView.image = UIImage(named: "profile_icon_big")
             return
         }
+    
+        if FIRAuth.auth()?.currentUser?.uid == nil {
+            user = nil
+            return
+        }
         
         // make the user if we havnt yet
         if user == nil {
