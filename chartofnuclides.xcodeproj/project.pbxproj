@@ -56,6 +56,7 @@
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
 		AEAFA36D1E89E130006CAE34 /* infoPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAFA36C1E89E130006CAE34 /* infoPVC.swift */; };
 		AEAFA3911E89F306006CAE34 /* FadeInTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAFA3901E89F306006CAE34 /* FadeInTransitionDelegate.swift */; };
+		AEAFA3931E8AE2A1006CAE34 /* IsotopeGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAFA3921E8AE2A1006CAE34 /* IsotopeGuideVC.swift */; };
 		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
 		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
 		AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4431E44FCC300A6D8DD /* DataService.swift */; };
@@ -145,6 +146,7 @@
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AEAFA36C1E89E130006CAE34 /* infoPVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoPVC.swift; sourceTree = "<group>"; };
 		AEAFA3901E89F306006CAE34 /* FadeInTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInTransitionDelegate.swift; sourceTree = "<group>"; };
+		AEAFA3921E8AE2A1006CAE34 /* IsotopeGuideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsotopeGuideVC.swift; sourceTree = "<group>"; };
 		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
 		AEB5D4431E44FCC300A6D8DD /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */,
 				AEC2B87F1E83229000A1D35D /* CustomAC.swift */,
 				AEAFA36C1E89E130006CAE34 /* infoPVC.swift */,
+				AEAFA3921E8AE2A1006CAE34 /* IsotopeGuideVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				AEBEFE4D1E676F04006331AB /* ReauthenticateVC.swift in Sources */,
 				AE8338EA1E80A16C00C8FBBA /* ReportCell.swift in Sources */,
 				AEDF0EC31E5E17A6006FA58F /* UnitConversionTypeManager.swift in Sources */,
+				AEAFA3931E8AE2A1006CAE34 /* IsotopeGuideVC.swift in Sources */,
 				AE776E761E53CB0500D3ADB0 /* ConversionUnitCell.swift in Sources */,
 				AEBEFE4F1E676F42006331AB /* ReauthenticateField.swift in Sources */,
 				AEBEFE471E64D6B7006331AB /* UsernameVC.swift in Sources */,
