@@ -54,6 +54,8 @@
 		AE83671F1E79B7A6005137A3 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */; };
 		AE8367211E79BBFB005137A3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8367201E79BBFB005137A3 /* Post.swift */; };
 		AE87BE2E1E5B599C003576E9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87BE2D1E5B599C003576E9 /* GradientView.swift */; };
+		AEAFA36D1E89E130006CAE34 /* infoPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAFA36C1E89E130006CAE34 /* infoPVC.swift */; };
+		AEAFA3911E89F306006CAE34 /* FadeInTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAFA3901E89F306006CAE34 /* FadeInTransitionDelegate.swift */; };
 		AEB5D43D1E44F85C00A6D8DD /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D43C1E44F85C00A6D8DD /* Element.swift */; };
 		AEB5D4411E44FA4E00A6D8DD /* Isotope.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */; };
 		AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5D4431E44FCC300A6D8DD /* DataService.swift */; };
@@ -141,6 +143,8 @@
 		AE83671E1E79B7A6005137A3 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		AE8367201E79BBFB005137A3 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		AE87BE2D1E5B599C003576E9 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		AEAFA36C1E89E130006CAE34 /* infoPVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoPVC.swift; sourceTree = "<group>"; };
+		AEAFA3901E89F306006CAE34 /* FadeInTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInTransitionDelegate.swift; sourceTree = "<group>"; };
 		AEB5D43C1E44F85C00A6D8DD /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		AEB5D4401E44FA4E00A6D8DD /* Isotope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Isotope.swift; sourceTree = "<group>"; };
 		AEB5D4431E44FCC300A6D8DD /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 				AE776E711E53C6E800D3ADB0 /* ConverterVC.swift */,
 				AE7DF1B51E5F5F6E00B686B5 /* ConversionVC.swift */,
 				AEC2B87F1E83229000A1D35D /* CustomAC.swift */,
+				AEAFA36C1E89E130006CAE34 /* infoPVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 			children = (
 				AE183F521E5CC94500C72291 /* FadeInAnimator.swift */,
 				AE183F541E5CC97300C72291 /* CalculatorNavigationControllerDelegate.swift */,
+				AEAFA3901E89F306006CAE34 /* FadeInTransitionDelegate.swift */,
 			);
 			name = FadeIn;
 			sourceTree = "<group>";
@@ -635,6 +641,7 @@
 				AE4B34A71E61F3BC0083BB8B /* CommunityVC.swift in Sources */,
 				AE7DF1B61E5F5F6E00B686B5 /* ConversionVC.swift in Sources */,
 				AE776E611E5367C500D3ADB0 /* InspectableBorderView.swift in Sources */,
+				AEAFA3911E89F306006CAE34 /* FadeInTransitionDelegate.swift in Sources */,
 				AE4B34A91E61F6CD0083BB8B /* QuestionCell.swift in Sources */,
 				AECF21761E56445700FA4D4C /* MZMaskZoomTransitionPresentedViewControllerProtocol.swift in Sources */,
 				AE776E721E53C6E800D3ADB0 /* ConverterVC.swift in Sources */,
@@ -670,6 +677,7 @@
 				AE7DF1C01E5F893100B686B5 /* JLWaveNavigationControllerDelegate.swift in Sources */,
 				AEBEFE491E6616C8006331AB /* CircleImageView.swift in Sources */,
 				AE4B34AF1E64A6400083BB8B /* EmailLoginVC.swift in Sources */,
+				AEAFA36D1E89E130006CAE34 /* infoPVC.swift in Sources */,
 				AE183F2B1E5CBEAD00C72291 /* ElementManager.swift in Sources */,
 				AE183F581E5CDDFA00C72291 /* sendDataToPreviousViewController.swift in Sources */,
 				AEB5D4441E44FCC300A6D8DD /* DataService.swift in Sources */,
@@ -814,6 +822,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "chartofnuclides/chartofnuclides-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -830,6 +839,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "chartofnuclides/chartofnuclides-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

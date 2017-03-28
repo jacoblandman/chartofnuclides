@@ -36,6 +36,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @IBAction func infoPressed(_ sender: Any) {
+        performSegue(withIdentifier: "infoPVC", sender: nil)
     }
     
     @IBAction func endEditing(_ sender: Any) {
@@ -138,13 +139,17 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DetailNuclideVC {
-            if let transitioningDelegate = navigationController?.transitioningDelegate as? MZMaskZoomTransitioningDelegate {
-                if let isotopeCell = sender as? IsotopeCell {
-                    transitioningDelegate.smallView = isotopeCell
-                    destination.transitioningDelegate = maskZoomTransition
-                    destination.modalPresentationStyle = UIModalPresentationStyle.custom
-                    destination.isotope = isotopeCell.isotope
+        if segue.identifier == "DetailNuclideVC" {
+            self.navigationController?.transitioningDelegate = maskZoomTransition
+            self.transitioningDelegate = maskZoomTransition
+            if let destination = segue.destination as? DetailNuclideVC {
+                if let transitioningDelegate = navigationController?.transitioningDelegate as? MZMaskZoomTransitioningDelegate {
+                    if let isotopeCell = sender as? IsotopeCell {
+                        transitioningDelegate.smallView = isotopeCell
+                        destination.transitioningDelegate = maskZoomTransition
+                        destination.modalPresentationStyle = UIModalPresentationStyle.custom
+                        destination.isotope = isotopeCell.isotope
+                    }
                 }
             }
         }

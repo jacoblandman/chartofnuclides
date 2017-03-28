@@ -22,9 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        // change the tab controller icon color
         if let tabController = window?.rootViewController as? RAMAnimatedTabBarController {
             tabController.changeSelectedColor(UIColor.white, iconSelectedColor: UIColor.white)
         }
+        
+        // set the page control colors
+        let pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.darkGray
         
         FIRApp.configure()
         
