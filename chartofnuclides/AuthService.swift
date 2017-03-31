@@ -52,7 +52,7 @@ class AuthService {
         })
     }
     
-    func deleteCurrentUser(uid: String, username: String, imageURL: String, completed: errorCompletion?) {
+    func deleteCurrentUser(uid: String, username: String?, imageURL: String, completed: errorCompletion?) {
         if let user = FIRAuth.auth()?.currentUser {
             
             if imageURL != "" {

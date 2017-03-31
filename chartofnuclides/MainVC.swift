@@ -188,7 +188,11 @@ extension MainVC: UISearchBarDelegate {
             
             filteredElements = filteredElements.filter({ $0.filteredIsotopes.count != 0})
             
+            
             tableView.reloadData()
+            tableView.layoutIfNeeded()
+            tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            
         }
     }
 

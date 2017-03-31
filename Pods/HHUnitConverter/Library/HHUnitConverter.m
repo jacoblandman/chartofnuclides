@@ -162,7 +162,7 @@ NSValue *HHConversionRuleToNSValue(HHConversionRule rule)
 //    printf("x");
 //    printf("%f", value);
 
-    for (int i = rules.count - 1; i >= 0; i--) {
+    for (int i = (int)rules.count - 1; i >= 0; i--) {
 
 //        printf(" + ");
         double iMultiplier = 1;

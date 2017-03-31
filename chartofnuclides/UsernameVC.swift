@@ -32,7 +32,7 @@ class UsernameVC: UIViewController {
     }
     
     @IBAction func finishLoggingInPressed(_ sender: Any) {
-        guard let username = usernameField.text, username.characters.count > 6 else {
+        guard let username = usernameField.text, username.characters.count > 4 else {
             // present a message to the user
             usernameMessageLbl.text = "Username must be greater than 6 characters..."
             return
@@ -72,6 +72,7 @@ class UsernameVC: UIViewController {
         let ac = UIAlertController(title: "Cancel sign up", message: nil, preferredStyle: .alert)
         
         ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert: UIAlertAction!) in
+            AuthService.instance.deleteCurrentUser(uid: self.user.uid, username: nil, imageURL: "", completed: nil)
             self.dismissView()
         }))
         

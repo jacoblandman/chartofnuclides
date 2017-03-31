@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5RI-8z-ov3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5RI-8z-ov3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -413,7 +413,7 @@
                                         <rect key="frame" x="0.0" y="121.66666666666664" width="334" height="101.33333333333336"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSf-qa-cqi" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666666" height="101.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="102.33333333333334" height="101.33333333333334"/>
                                                 <color key="backgroundColor" red="0.1888290644" green="0.87615889309999995" blue="0.58808380370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bSf-qa-cqi" secondAttribute="height" multiplier="1:1" id="8ae-Kn-uFI"/>
@@ -428,7 +428,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 barns to 500 barns" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8z-8e-POI">
-                                                <rect key="frame" x="121.66666666666664" y="0.0" width="212.33333333333337" height="101.33333333333334"/>
+                                                <rect key="frame" x="122.33333333333336" y="0.0" width="211.66666666666663" height="101.33333333333334"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -465,7 +465,7 @@
                                         <rect key="frame" x="0.0" y="364.66666666666674" width="334" height="101.33333333333331"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vca-b9-UGE" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666666" height="101.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="102.33333333333334" height="101.33333333333331"/>
                                                 <color key="backgroundColor" red="1" green="0.73333333333333328" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="vca-b9-UGE" secondAttribute="height" multiplier="1:1" id="wDJ-gH-8eR"/>
@@ -480,7 +480,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt; 1000 barns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tz-jS-iLG">
-                                                <rect key="frame" x="121.66666666666664" y="0.0" width="212.33333333333337" height="101.33333333333331"/>
+                                                <rect key="frame" x="122.33333333333336" y="0.0" width="211.66666666666663" height="101.33333333333331"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -574,10 +574,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fIh-tL-P12">
-                                        <rect key="frame" x="0.0" y="97.333333333333329" width="250.66666666666669" height="76.999999999999986"/>
+                                        <rect key="frame" x="0.0" y="97.333333333333329" width="251.33333333333331" height="76.999999999999986"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urp-m9-7NU" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="77.333333333333329" height="76.999999999999972"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="76.999999999999972"/>
                                                 <color key="backgroundColor" red="0.48627450979999998" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="urp-m9-7NU" secondAttribute="height" multiplier="1:1" id="U08-pH-00E"/>
@@ -592,7 +592,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 days to 100 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVy-Qc-OzF">
-                                                <rect key="frame" x="97.333333333333329" y="0.0" width="153.33333333333337" height="76.999999999999972"/>
+                                                <rect key="frame" x="98" y="0.0" width="153.33333333333331" height="76.999999999999972"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -626,10 +626,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fzh-xo-DCK">
-                                        <rect key="frame" x="0.0" y="291.66666666666669" width="262.33333333333331" height="77"/>
+                                        <rect key="frame" x="0.0" y="291.66666666666669" width="263" height="77"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYx-6X-UZM" customClass="InspectableBorderView" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="77.333333333333329" height="77"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="77"/>
                                                 <color key="backgroundColor" red="1" green="0.96862745100000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jYx-6X-UZM" secondAttribute="height" multiplier="1:1" id="hco-38-HEx"/>
@@ -644,7 +644,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 years to 5E8 years" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDb-dH-v4j">
-                                                <rect key="frame" x="97.333333333333329" y="0.0" width="165" height="77"/>
+                                                <rect key="frame" x="98" y="0.0" width="165" height="77"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1240,11 +1240,11 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(1/+,3/+)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-JV-qp7">
-                                                                                <rect key="frame" x="82" y="5" width="32" height="10"/>
+                                                                                <rect key="frame" x="94.333333333333314" y="5" width="23.666666666666671" height="10"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="10" id="Lih-Ns-lSw"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="8"/>
+                                                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="6"/>
                                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -1286,7 +1286,7 @@
                                                                             <constraint firstItem="4yz-g4-SB1" firstAttribute="leading" secondItem="MEX-y6-LDM" secondAttribute="leading" id="UVf-jJ-gcV"/>
                                                                             <constraint firstItem="1Q9-Yh-AdF" firstAttribute="leading" secondItem="MEX-y6-LDM" secondAttribute="leading" constant="19" id="eF2-kB-yau"/>
                                                                             <constraint firstItem="fkZ-tC-nAb" firstAttribute="centerX" secondItem="MEX-y6-LDM" secondAttribute="centerX" id="faB-LV-o9Q"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="bsf-JV-qp7" secondAttribute="trailing" constant="6" id="gFr-sO-XXE"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="bsf-JV-qp7" secondAttribute="trailing" constant="2" id="gFr-sO-XXE"/>
                                                                             <constraint firstAttribute="trailing" secondItem="gXe-ee-CAQ" secondAttribute="trailing" constant="8" id="jo9-m7-tRl"/>
                                                                             <constraint firstAttribute="bottom" secondItem="4yz-g4-SB1" secondAttribute="bottom" id="lCM-D8-LaP"/>
                                                                             <constraint firstItem="8tq-qm-jN1" firstAttribute="top" secondItem="MEX-y6-LDM" secondAttribute="top" constant="2" id="n2m-sg-cAk"/>
@@ -2105,7 +2105,7 @@
                                         <rect key="frame" x="0.0" y="172" width="414" height="84.666666666666686"/>
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbh-E1-ubz" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="84.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="0.33333333333331439" width="137.33333333333334" height="84.666666666666686"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="7">
@@ -2116,7 +2116,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPm-sJ-6bz" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="84.666666666666686"/>
+                                                <rect key="frame" x="138.33333333333331" y="0.33333333333331439" width="137.33333333333331" height="84.666666666666686"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="8">
@@ -2127,7 +2127,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a75-yN-2YW" customClass="ConversionButton" customModule="chartofnuclides" customModuleProvider="target">
-                                                <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="84.666666666666686"/>
+                                                <rect key="frame" x="276.66666666666674" y="0.33333333333331439" width="137.33333333333331" height="84.666666666666686"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="9">
