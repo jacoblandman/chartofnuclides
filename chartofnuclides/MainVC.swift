@@ -15,9 +15,11 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     var elements = ElementManager.instance.elements
     var filteredElements = [Element]()
-    var storedOffsets = [Int: CGFloat]()
+    var storedOffsets = [String: CGFloat]()
     var inSearchMode = false
     let maskZoomTransition = MZMaskZoomTransitioningDelegate()
+    var isSearching = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +82,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         // set the view offset
         // if it hasn't been stored yet then set it to 0
-        tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+        tableViewCell.collectionViewOffset = storedOffsets[filteredElements[indexPath.row].symbol] ?? 0
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -88,7 +90,9 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         guard let tableViewCell = cell as? ElementCell else { return }
         
         // set the content offset for each collectionView
-        storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+        if !isSearching {
+          storedOffsets[filteredElements[indexPath.row].symbol] = tableViewCell.collectionViewOffset
+        }
     }
 
     @IBAction func tappedScreen(_ sender: UITapGestureRecognizer) {
@@ -166,14 +170,20 @@ extension MainVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
+        isSearching = true
         if searchBar.text == nil || searchBar.text == "" {
             
+            storeOffsets()
             resetElements()
+            tableView.reloadData()
+            tableView.layoutIfNeeded()
+            setOffsets()
             view.endEditing(true)
             
         } else {
-            
+        
             // reset everything
+            // set content offsets
             resetElements()
             
             // we already know there is text
@@ -194,6 +204,13 @@ extension MainVC: UISearchBarDelegate {
             tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
             
         }
+        
+        isSearching = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        storeOffsets()
+        return true
     }
 
     func resetElements() {
@@ -202,6 +219,26 @@ extension MainVC: UISearchBarDelegate {
             element.filteredIsotopes = element.isotopes
         }
         tableView.reloadData()
+    }
+    
+    func setOffsets() {
+        if let visibleCells = tableView.visibleCells as? [ElementCell] {
+            let visibleCellCount = visibleCells.count
+            for i in 0..<visibleCellCount {
+                visibleCells[i].collectionViewOffset = storedOffsets[filteredElements[i].symbol] ?? 0
+            }
+        }
+    }
+    
+    func storeOffsets() {
+        if let visibleCells = tableView.visibleCells as? [ElementCell] {
+            let visibleCellCount = visibleCells.count
+            for i in 0..<visibleCellCount {
+                print(filteredElements[i].symbol)
+                print(visibleCells[i].collectionViewOffset)
+                storedOffsets[filteredElements[i].symbol] = visibleCells[i].collectionViewOffset
+            }
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -217,5 +254,6 @@ extension MainVC: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
+    
 }
 
