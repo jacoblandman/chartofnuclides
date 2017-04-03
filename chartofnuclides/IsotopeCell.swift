@@ -59,6 +59,7 @@ class IsotopeCell: UICollectionViewCell {
         
         self.bottomBgView.backgroundColor = UIColor.clear
         self.topBgView.backgroundColor = UIColor.clear
+        shadowView.backgroundColor = UIColor.white
         self.spinLbl.text = ""
         
         // remove previous triangle layer if it exists
