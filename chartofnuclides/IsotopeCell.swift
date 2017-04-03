@@ -21,8 +21,10 @@ class IsotopeCell: UICollectionViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var gammaEnergyLbl: UILabel!
     @IBOutlet weak var decayModesLbl: UILabel!
+    @IBOutlet weak var elementNameLbl: UILabel!
     
     var isotope: Isotope?
+    var element: Element?
     var originalBGColor = UIColor.white
     var triangleLayer: CAShapeLayer?
     
@@ -36,9 +38,45 @@ class IsotopeCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 2
     }
     
-    func updateCell(isotope: Isotope) {
+    func updateCell(element: Element) {
+        self.element = element
+        self.isotope = nil
         
+        self.nameLbl.text = element.symbol
+        self.halfLifeLbl.text = element.mass
+        
+        if element.crossSection != "" {
+            let sigma = "σ".subscriptString(with: "a", regularSize: 8)
+            let crossSection = NSMutableAttributedString(string: "    \(element.crossSection) b")
+            sigma.append(crossSection)
+            self.massLbl.attributedText = sigma
+        } else {
+            self.massLbl.text = ""
+        }
+        
+        
+        self.elementNameLbl.text = element.name.capitalized
+        
+        self.bottomBgView.backgroundColor = UIColor.clear
+        self.topBgView.backgroundColor = UIColor.clear
+        self.spinLbl.text = ""
+        
+        // remove previous triangle layer if it exists
+        if triangleLayer != nil {
+            removeTriangleLayer()
+            triangleLayer = nil
+        }
+        
+        self.crossSectionLbl.text = ""
+        self.decayModesLbl.text = ""
+        self.gammaEnergyLbl.text = ""
+    }
+    
+    func updateCell(isotope: Isotope) {
+        self.element = nil
         self.isotope = isotope
+        
+        self.elementNameLbl.text = ""
         self.nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
         self.spinLbl.text = isotope.spin
         

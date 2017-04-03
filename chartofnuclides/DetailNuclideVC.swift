@@ -23,10 +23,12 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var gammaEnergieLbl: UILabel!
     @IBOutlet weak var decayModesLbl: UILabel!
+    @IBOutlet weak var elementNameLbl: UILabel!
     
     var triangleLayer: CAShapeLayer?
     
-    var isotope: Isotope!
+    var element: Element?
+    var isotope: Isotope?
     
     var viewsToFadeIn: Array<UIView> {
         return []
@@ -44,13 +46,45 @@ class DetailNuclideVC: UIViewController, MZMaskZoomTransitionPresentedViewContro
                                                   relativeCenterPoint: CGPoint(x: 0.5, y: 0.5), innerRadius: 10, outerRadius: gradientViewBg.frame.width)
         gradientViewBg.setNeedsDisplay()
         containerView.layer.cornerRadius = 4
-        updateUI()
-    }
         
-    func updateUI() {
+        if let element = self.element {
+            updateUI(element: element)
+        }
+        
+        if let isotope = self.isotope {
+            updateUI(isotope: isotope)
+        }
+    }
+    
+    func updateUI(element: Element) {
+        self.nameLbl.text = element.symbol
+        self.halfLifeLbl.text = element.mass
+        
+        if element.crossSection != "" {
+            let sigma = "σ".subscriptString(with: "a", regularSize: 14)
+            let crossSection = NSMutableAttributedString(string: "    \(element.crossSection) b")
+            sigma.append(crossSection)
+            self.massLbl.attributedText = sigma
+        } else {
+            self.massLbl.text = ""
+        }
+        
+        
+        self.elementNameLbl.text = element.name.capitalized
+        
+        self.bottomBgView.backgroundColor = UIColor.clear
+        self.topBgView.backgroundColor = UIColor.clear
+        self.spinLbl.text = ""
+                
+        self.crossSectionLbl.text = ""
+        self.decayModesLbl.text = ""
+        self.gammaEnergieLbl.text = ""
+    }
+    
+    func updateUI(isotope: Isotope) {
         nameLbl.text = "\(isotope.element.symbol)\(isotope.atomicNumber)"
         spinLbl.text = isotope.spin
-        
+        self.elementNameLbl.text = ""
         if let mass = isotope.mass.doubleValue {
             massLbl.text = "\(mass.roundedTo(places: 4))"
         }

@@ -164,4 +164,16 @@ class AuthService {
             }
         })
     }
+    
+    func checkUserExists(uid: String, existsCompleted: @escaping ()->(), notExistsCompleted: @escaping ()->()) {
+        DataService.instance.usersRef.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                existsCompleted()
+            } else {
+                notExistsCompleted()
+            }
+        }) { (error) in
+            notExistsCompleted()
+        }
+    }
 }

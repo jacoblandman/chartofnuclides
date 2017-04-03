@@ -103,15 +103,21 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return filteredElements[collectionView.tag].filteredIsotopes.count
+        return filteredElements[collectionView.tag].filteredIsotopes.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IsotopeCell", for: indexPath) as? IsotopeCell {
             
-            let isotope = filteredElements[collectionView.tag].filteredIsotopes[indexPath.row]
-            cell.updateCell(isotope: isotope)
+            if indexPath.row == 0 {
+                let element = filteredElements[collectionView.tag]
+                cell.updateCell(element: element)
+            } else {
+                let isotope = filteredElements[collectionView.tag].filteredIsotopes[indexPath.row - 1]
+                cell.updateCell(isotope: isotope)
+            }
+            
             return cell
         } else {
             print("JACOB: Returning a regular collection view cell")
@@ -153,6 +159,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
                         destination.transitioningDelegate = maskZoomTransition
                         destination.modalPresentationStyle = UIModalPresentationStyle.custom
                         destination.isotope = isotopeCell.isotope
+                        destination.element = isotopeCell.element
                     }
                 }
             }
@@ -234,8 +241,6 @@ extension MainVC: UISearchBarDelegate {
         if let visibleCells = tableView.visibleCells as? [ElementCell] {
             let visibleCellCount = visibleCells.count
             for i in 0..<visibleCellCount {
-                print(filteredElements[i].symbol)
-                print(visibleCells[i].collectionViewOffset)
                 storedOffsets[filteredElements[i].symbol] = visibleCells[i].collectionViewOffset
             }
         }

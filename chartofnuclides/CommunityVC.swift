@@ -189,42 +189,56 @@ class CommunityVC: UIViewController {
             return
         }
     
-        if FIRAuth.auth()?.currentUser?.uid == nil {
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
             user = nil
+            AuthService.instance.signOutCurrentUser()
+            profileImgView.image = UIImage(named: "profile_icon_big")
             return
         }
         
-        // make the user if we havnt yet
-        if user == nil {
-            user = User(uid: FIRAuth.auth()!.currentUser!.uid)
-        }
-        
-        // load the user data and load the image if it changed
-        // first check to see if it is saved to disk
-        let imageFromDisk = CustomFileManager.getImage()
-        
-        if imageFromDisk != nil {
-            profileImgView.image = imageFromDisk
-            imageIsSet = true
-            return
-        }
-        
-        user?.loadImageURL {
-            if self.user!.imageURL != "" {
-                DataService.instance.getImage(fromURL: self.user!.imageURL) { (error, image) in
-                    if error != nil {
-                        print("JACOB: Error downloading image from firebase storage")
-                    } else {
-                        print("JACOB: Image download successful")
-                        if let img = image {
-                            CustomFileManager.saveImageToDisk(image: img)
-                            self.profileImgView.image = img
-                            self.imageIsSet = true
+        AuthService.instance.checkUserExists(uid: uid, existsCompleted: {
+            // the user data does exists in the database
+            // make the user if we havnt yet
+            if self.user == nil {
+                self.user = User(uid: FIRAuth.auth()!.currentUser!.uid)
+            }
+            
+            // load the user data and load the image if it changed
+            // first check to see if it is saved to disk
+            let imageFromDisk = CustomFileManager.getImage()
+            
+            if imageFromDisk != nil {
+                self.profileImgView.image = imageFromDisk
+                self.imageIsSet = true
+                return
+            }
+            
+            self.user?.loadImageURL {
+                if self.user!.imageURL != "" {
+                    DataService.instance.getImage(fromURL: self.user!.imageURL) { (error, image) in
+                        if error != nil {
+                            print("JACOB: Error downloading image from firebase storage")
+                        } else {
+                            print("JACOB: Image download successful")
+                            if let img = image {
+                                CustomFileManager.saveImageToDisk(image: img)
+                                self.profileImgView.image = img
+                                self.imageIsSet = true
+                            }
                         }
                     }
                 }
             }
+
+        }) {
+            
+            // user does not exists
+            self.user = nil
+            AuthService.instance.signOutCurrentUser()
+            self.profileImgView.image = UIImage(named: "profile_icon_big")
+            return
         }
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {

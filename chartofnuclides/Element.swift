@@ -68,7 +68,8 @@ class Element: NSCopying {
         if let symbol = element["symbol"] as? String {
             self._symbol = symbol
         }
-        if let mass = element["mass"] as? String {
+        if var mass = element["mass"] as? String {
+            mass.stripUncertainty()
             self._mass = mass
         }
         

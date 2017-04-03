@@ -43,7 +43,7 @@ class ProfileVC: UIViewController {
         activityIndicatorView.isHidden = false
         disableUI()
         
-        user?.loadUserInfo(completed: { 
+        user.loadUserInfo(completed: { 
             self.updateUI()
             self.enableUI()
             if self.imageIsSet { self.activityIndicatorView.isHidden = true }

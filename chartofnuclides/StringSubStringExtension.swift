@@ -85,11 +85,18 @@ extension String {
     }
 
     mutating func stripUncertainty() {
+        // this is how the isotope uncertainty is
         if let uncertainty = self.range(of: "+/-") {
             self.removeSubrange(uncertainty.lowerBound..<self.endIndex)
         }
         
+        // this is the way the cross section uncertainty is
         if let uncertainty = self.range(of: " (") {
+            self.removeSubrange(uncertainty.lowerBound..<self.endIndex)
+        }
+        
+        // this is the way the element uncertainty is
+        if let uncertainty = self.range(of: "(") {
             self.removeSubrange(uncertainty.lowerBound..<self.endIndex)
         }
     }

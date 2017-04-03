@@ -36,6 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: "hasRunBefore") == false {
+            // Remove Keychain items here
+            if FIRAuth.auth()?.currentUser != nil {
+               AuthService.instance.signOutCurrentUser()
+            }
+            
+            // Update the flag indicator
+            userDefaults.set(true, forKey: "hasRunBefore")
+            userDefaults.synchronize() // Forces the app to update UserDefaults
+        }
         
         return true
     }

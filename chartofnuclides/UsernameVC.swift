@@ -32,9 +32,9 @@ class UsernameVC: UIViewController {
     }
     
     @IBAction func finishLoggingInPressed(_ sender: Any) {
-        guard let username = usernameField.text, username.characters.count > 4 else {
+        guard let username = usernameField.text, username.characters.count > 3 else {
             // present a message to the user
-            usernameMessageLbl.text = "Username must be greater than 6 characters..."
+            usernameMessageLbl.text = "Username must be greater than 3 characters..."
             return
         }
         
