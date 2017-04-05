@@ -310,6 +310,11 @@ extension ConversionVC: UITableViewDelegate, UITableViewDataSource {
             break
         }
         
+        // when the unit is changed, update the output value
+        if let inputText = inputTextField.text, inputText != "" {
+            setOutputValue()
+        }
+        
         removeTableView()
     }
 }
