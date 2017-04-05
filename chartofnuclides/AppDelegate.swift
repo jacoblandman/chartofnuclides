@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // set the status bar color
         UIApplication.shared.statusBarStyle = .lightContent
         
         // change the tab controller icon color
@@ -36,8 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        let userDefaults = UserDefaults.standard
         
+        let userDefaults = UserDefaults.standard
+        // if this is the first time running the app, make sure there is no user with Firebase
         if userDefaults.bool(forKey: "hasRunBefore") == false {
             // Remove Keychain items here
             if FIRAuth.auth()?.currentUser != nil {

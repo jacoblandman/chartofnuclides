@@ -12,8 +12,8 @@ class ElementManager: NSObject {
     
     static let instance = ElementManager()
     
-    private var _elements: [Element]
-    
+    private var _elements = [Element]()
+
     var elements: [Element] {
         return _elements
     }
@@ -38,5 +38,4 @@ class ElementManager: NSObject {
         
         return nil
     }
-    
 }

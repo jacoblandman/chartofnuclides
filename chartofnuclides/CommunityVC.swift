@@ -179,13 +179,22 @@ class CommunityVC: UIViewController {
         }
     }
     
+    func enableUI(enable: Bool) {
+        self.navigationItem.leftBarButtonItem?.isEnabled = enable
+        self.navigationItem.rightBarButtonItem?.isEnabled = enable
+    }
+    
     func loadUserImage() {
         // this function is mainly to get the image and the image url
+        
+        // disenable the nav bar buttons while loading
+        enableUI(enable: false)
         
         // make sure a user has been authorized by firebase
         // if not  then reset the profile image and return
         guard FIRAuth.auth()?.currentUser != nil else {
             profileImgView.image = UIImage(named: "profile_icon_big")
+            enableUI(enable: true)
             return
         }
     
@@ -193,29 +202,32 @@ class CommunityVC: UIViewController {
             user = nil
             AuthService.instance.signOutCurrentUser()
             profileImgView.image = UIImage(named: "profile_icon_big")
+            enableUI(enable: true)
+            return
+        }
+        
+        // the user data does exists in the database
+        // make the user if we havnt yet
+        if self.user == nil {
+            self.user = User(uid: FIRAuth.auth()!.currentUser!.uid)
+        }
+        
+        // load the user data and load the image if it changed
+        // first check to see if it is saved to disk
+        let imageFromDisk = CustomFileManager.getImage()
+        
+        if imageFromDisk != nil {
+            self.profileImgView.image = imageFromDisk
+            self.imageIsSet = true
+            self.enableUI(enable: true)
             return
         }
         
         AuthService.instance.checkUserExists(uid: uid, existsCompleted: {
-            // the user data does exists in the database
-            // make the user if we havnt yet
-            if self.user == nil {
-                self.user = User(uid: FIRAuth.auth()!.currentUser!.uid)
-            }
-            
-            // load the user data and load the image if it changed
-            // first check to see if it is saved to disk
-            let imageFromDisk = CustomFileManager.getImage()
-            
-            if imageFromDisk != nil {
-                self.profileImgView.image = imageFromDisk
-                self.imageIsSet = true
-                return
-            }
-            
             self.user?.loadImageURL {
                 if self.user!.imageURL != "" {
                     DataService.instance.getImage(fromURL: self.user!.imageURL) { (error, image) in
+                        self.enableUI(enable: true)
                         if error != nil {
                             print("JACOB: Error downloading image from firebase storage")
                         } else {
@@ -227,6 +239,8 @@ class CommunityVC: UIViewController {
                             }
                         }
                     }
+                } else {
+                    self.enableUI(enable: true)
                 }
             }
 
@@ -236,6 +250,7 @@ class CommunityVC: UIViewController {
             self.user = nil
             AuthService.instance.signOutCurrentUser()
             self.profileImgView.image = UIImage(named: "profile_icon_big")
+            self.enableUI(enable: true)
             return
         }
       
